@@ -1,0 +1,33 @@
+raster-vfx.webp
+size: 2048, 512
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+bubble
+  rotate: false
+  xy: 856, 4
+  size: 64, 60
+  orig: 64, 60
+  offset: 0, 0
+  index: -1
+mist
+  rotate: false
+  xy: 217, 4
+  size: 635, 292
+  orig: 635, 292
+  offset: 0, 0
+  index: -1
+wood
+  rotate: false
+  xy: 924, 4
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+door
+  rotate: false
+  xy: 4, 4
+  size: 209, 443
+  orig: 209, 443
+  offset: 0, 0
+  index: -1

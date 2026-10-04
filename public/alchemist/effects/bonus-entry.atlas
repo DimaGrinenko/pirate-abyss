@@ -1,0 +1,95 @@
+bonus-entry.webp
+size: 2048, 2688
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+ribbon
+ rotate: false
+ xy: 6, 1762
+ size: 1500, 369
+ orig: 1500, 369
+ offset: 0, 0
+ index: -1
+veil
+ rotate: false
+ xy: 6, 6
+ size: 1254, 1254
+ orig: 1254, 1254
+ offset: 0, 0
+ index: -1
+coin
+ rotate: false
+ xy: 652, 2137
+ size: 256, 262
+ orig: 256, 262
+ offset: 0, 0
+ index: -1
+sparkle
+ rotate: false
+ xy: 6, 2454
+ size: 160, 172
+ orig: 160, 172
+ offset: 0, 0
+ index: -1
+treasure-light
+ rotate: false
+ xy: 1266, 6
+ size: 700, 700
+ orig: 700, 700
+ offset: 0, 0
+ index: -1
+treasure-lid
+ rotate: false
+ xy: 914, 2137
+ size: 640, 259
+ orig: 640, 259
+ offset: 0, 0
+ index: -1
+treasure-body
+ rotate: false
+ xy: 6, 2137
+ size: 640, 311
+ orig: 640, 311
+ offset: 0, 0
+ index: -1
+compass
+ rotate: false
+ xy: 492, 1266
+ size: 411, 483
+ orig: 411, 483
+ offset: 0, 0
+ index: -1
+needle
+ rotate: false
+ xy: 909, 1266
+ size: 96, 418
+ orig: 96, 418
+ offset: 0, 0
+ index: -1
+key
+ rotate: false
+ xy: 1560, 2137
+ size: 480, 251
+ orig: 480, 251
+ offset: 0, 0
+ index: -1
+seal
+ rotate: false
+ xy: 6, 1266
+ size: 480, 490
+ orig: 480, 490
+ offset: 0, 0
+ index: -1
+
+chest-outer-v11.webp
+size: 1024, 355
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+chest-outer-v11
+  rotate: false
+  xy: 0, 0
+  size: 1024, 355
+  orig: 1024, 355
+  offset: 0, 0
+  index: -1

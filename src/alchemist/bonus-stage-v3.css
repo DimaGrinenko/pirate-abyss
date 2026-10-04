@@ -1,0 +1,69 @@
+/* The artwork and live text occupy separate grid cells at every aspect ratio. */
+.celebration.ceremony-screen.bonus-stage-v3{padding:0;background-color:#05233d;overflow:hidden}
+.celebration.bonus-stage-v3::before{background:linear-gradient(90deg,#073d5770,#061e38dd 65%,#061e38ed)}
+.bonus-stage-v3__layout{width:min(1180px,96vw);height:min(760px,96svh);display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:2%;align-items:center;isolation:isolate}
+.bonus-stage-v3__art{width:100%;height:100%;min-width:0;min-height:0;align-self:stretch;filter:drop-shadow(0 15px 22px #01132380)}
+.bonus-stage-v3__copy{min-width:0;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(12px,2svh,22px);padding:clamp(12px,2vw,30px) 5%;text-align:center;container-type:inline-size}
+.bonus-stage-v3__heading{width:100%}
+.bonus-stage-v3__heading>span{display:block;color:#70fff0;font:800 clamp(10px,2.8cqw,15px)/1.3 Rubik,Arial,sans-serif;letter-spacing:.16em;text-wrap:balance}
+.celebration.bonus-stage-v3 .bonus-stage-v3__heading h2{margin:12px 0 0;color:#fff3bb;font:800 clamp(24px,9cqw,50px)/1.08 Rubik,Arial,sans-serif;letter-spacing:-.03em;text-shadow:0 4px 0 #09334d,0 7px 16px #001220;text-wrap:balance}
+.bonus-stage-v3__result{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;font-variant-numeric:tabular-nums;color:#fff5b3}
+.bonus-stage-v3__result>strong{display:block;font:900 clamp(60px,25cqw,140px)/.96 Rubik,Arial,sans-serif;letter-spacing:-.035em;text-shadow:0 5px 0 #067685,0 9px 0 #06354b,0 12px 20px #00162780}
+.bonus-stage-v3__result>span{color:#94fff2;font:800 clamp(10px,3.3cqw,17px)/1.35 Rubik,Arial,sans-serif;letter-spacing:.12em}
+.bonus-stage-v3__payout>strong{max-width:100%;white-space:nowrap;font-size:min(16cqw,calc(160cqw / var(--payout-length)),84px);line-height:1.1}
+.bonus-stage-v3__caption{margin:0;color:#c8eeff;font:600 clamp(12px,3.3cqw,17px)/1.6 Rubik,Arial,sans-serif;letter-spacing:0;text-wrap:balance}
+.bonus-stage-v3__caption b{font-size:1.65em;color:#fff5b3;font-weight:800}
+.bonus-stage-v3 .bonus-stage-v3__action.alchemy-button{position:relative;inset:auto;width:min(345px,92%);max-width:none;min-width:0;min-height:44px;margin:0;flex:none}
+.bonus-stage-v3 .bonus-stage-v3__action .alchemy-button__label{font-size:clamp(11px,4.4cqw,17px)}
+.bonus-stage-v3--gold .bonus-stage-v3__heading>span,.bonus-stage-v3--gold .bonus-stage-v3__result>span{color:#ffdf88}
+.bonus-stage-v3__sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.bonus-stage-v3[data-reduced-motion="false"] .bonus-stage-v3__copy{animation:bonus-v3-copy-in .55s cubic-bezier(.2,.8,.3,1) both}
+.bonus-stage-v3[data-animation-held="true"] .bonus-stage-v3__copy{animation-play-state:paused}
+/* The emphasis follows native Spine events from the actual visible chest,
+   rather than a second unsynchronised timeout. Text never moves its layout. */
+.bonus-stage-v3[data-reduced-motion="false"] .bonus-stage-v3__result{transition:opacity .32s ease,filter .45s ease}
+.bonus-intro-scene[data-reduced-motion="false"][data-stage-cue="arrival"] .bonus-stage-v3__result{opacity:.72}
+.bonus-intro-scene[data-reduced-motion="false"][data-stage-cue="opening"] .bonus-stage-v3__spins>strong{animation:bonus-v5-spins-reveal .65s cubic-bezier(.18,.75,.28,1) both}
+.bonus-end-scene[data-bonus-reward="true"][data-reduced-motion="false"][data-stage-cue="settled"] .bonus-stage-v3__payout{animation:bonus-v5-total-settle .62s ease-out both}
+.bonus-stage-v3[data-animation-held="true"] .bonus-stage-v3__result,.bonus-stage-v3[data-animation-held="true"] .bonus-stage-v3__result>strong{animation-play-state:paused}
+@keyframes bonus-v5-spins-reveal{0%{transform:translateY(7px) scale(.9);filter:brightness(.9)}58%{transform:translateY(-2px) scale(1.045);filter:brightness(1.2)}100%{transform:translateY(0) scale(1);filter:brightness(1)}}
+@keyframes bonus-v5-total-settle{0%{filter:drop-shadow(0 0 13px #ffd66a80)}100%{filter:drop-shadow(0 0 0 #ffd66a00)}}
+@keyframes bonus-v3-copy-in{from{opacity:1;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(orientation:portrait){
+ .celebration.bonus-stage-v3::before{background:linear-gradient(#062d4480,#061e38d9 45%,#061e38ef)}
+ .bonus-stage-v3__layout{width:min(600px,100vw);height:100svh;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,.92fr) minmax(0,1.08fr);gap:0;padding:max(12px,env(safe-area-inset-top)) 12px max(16px,env(safe-area-inset-bottom))}
+ .bonus-stage-v3__art{max-width:490px;justify-self:center}
+ .bonus-stage-v3__copy{align-self:center;gap:clamp(9px,1.6svh,16px);padding:0 5%}
+ .celebration.bonus-stage-v3 .bonus-stage-v3__heading h2{font-size:clamp(23px,7.6cqw,39px);margin-top:7px}
+ .bonus-stage-v3__heading>span{font-size:clamp(9px,2.7cqw,13px)}
+ .bonus-stage-v3__spins{flex-direction:row;gap:15px}
+ .bonus-stage-v3__spins>strong{font-size:clamp(58px,20cqw,92px)}
+ .bonus-stage-v3__spins>span{text-align:left;font-size:clamp(10px,3.2cqw,16px)}
+ .bonus-stage-v3__payout>strong{font-size:min(15.5cqw,calc(160cqw / var(--payout-length)),76px)}
+ .bonus-stage-v3__caption{font-size:clamp(11px,3.1cqw,16px);line-height:1.4}
+ .bonus-stage-v3 .bonus-stage-v3__action.alchemy-button{width:min(310px,86%)}
+}
+@media(orientation:landscape) and (max-height:450px){
+ .bonus-stage-v3__layout{width:98vw;height:98svh;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:0}
+ .bonus-stage-v3__copy{padding:5px 7%;gap:clamp(5px,2svh,9px)}
+ .bonus-stage-v3__heading>span{font-size:clamp(8px,2.7cqw,11px);letter-spacing:.1em}
+ .celebration.bonus-stage-v3 .bonus-stage-v3__heading h2{font-size:clamp(18px,8.5cqw,31px);margin-top:5px;line-height:1.03}
+ .bonus-stage-v3__spins{flex-direction:row;gap:10px}
+ .bonus-stage-v3__spins>strong{font-size:clamp(35px,22cqw,80px)}
+ .bonus-stage-v3__result>span{font-size:clamp(9px,3cqw,12px);line-height:1.25}
+ .bonus-stage-v3__spins>span{text-align:left}
+ .bonus-stage-v3__payout>strong{font-size:min(15cqw,calc(155cqw / var(--payout-length)),58px)}
+ .bonus-stage-v3__payout{gap:3px}
+ .bonus-stage-v3__caption{font-size:clamp(9px,3.1cqw,12px);line-height:1.3}
+ .bonus-stage-v3__caption b{font-size:1.4em}
+ .bonus-stage-v3 .bonus-stage-v3__action.alchemy-button{width:min(280px,92%)}
+ .bonus-stage-v3 .bonus-stage-v3__action .alchemy-button__label{font-size:clamp(9px,4.3cqw,13px)}
+}
+.bonus-stage-v3[data-reduced-motion=true] .bonus-stage-v3__copy,.bonus-stage-v3[data-reduced-motion=true] .bonus-stage-v3__result,.bonus-stage-v3[data-reduced-motion=true] .bonus-stage-v3__result>strong{animation:none!important;transition:none!important}
+.bonus-intro-scene[data-reduced-motion=false] .bonus-stage-v3__art{animation:guardian-through-mist .5s cubic-bezier(.22,.64,.27,1) both}
+.bonus-intro-scene[data-reduced-motion=false] .bonus-stage-v3__copy{animation-duration:.5s;animation-delay:0s}
+.bonus-intro-scene[data-animation-held=true] .bonus-stage-v3__art{animation-play-state:paused}
+html[data-scenery-hidden=true] .bonus-stage-v3__art,html[data-scenery-hidden=true] .bonus-stage-v3__copy{animation-play-state:paused!important}
+/* The guardian/poster is already visible while its first GPU paint is prepared.
+   The native reveal and text start together once data-animation-held releases. */
+@keyframes guardian-through-mist{0%{opacity:1;translate:0 6px}100%{opacity:1;translate:0 0}}

@@ -1,0 +1,66 @@
+/* A portrait cabin has its own composition: identity, acting captain and
+   feature entry each own a slot. Do not hide the captain on small phones or
+   let his animation gutter cover a money/control hit target. */
+@media (orientation:portrait) {
+  .game-shell {
+    --mobile-captain-height:clamp(82px,14svh,116px);
+    --board-width:min(700px,calc(100vw - 28px),calc((100svh - 260px - var(--mobile-captain-height) - var(--session-meta-height,0px))*1.2));
+  }
+  .game-shell > .lab-main > .alchemist-sidebar {
+    width:min(700px,100%);
+    height:var(--mobile-captain-height);
+    min-height:var(--mobile-captain-height);
+    grid-template-columns:minmax(0,1fr) clamp(82px,23vw,118px) 106px;
+    column-gap:6px;
+    align-items:center;
+  }
+  .game-shell .alchemist-sidebar .game-brand {
+    grid-column:1;
+    grid-row:1;
+    width:100%;
+    max-width:100%;
+    height:min(80px,var(--mobile-captain-height));
+    justify-self:start;
+  }
+  .game-shell .alchemist-sidebar .character-scene {
+    display:block;
+    position:relative;
+    inset:auto;
+    grid-column:2;
+    grid-row:1;
+    justify-self:end;
+    width:calc(100% - 17px);
+    height:100%;
+    min-height:0;
+    opacity:1;
+    overflow:visible;
+  }
+  .game-shell .alchemist-sidebar .cabin-feature-button {
+    grid-column:3;
+    grid-row:1;
+    width:106px;
+    justify-self:end;
+  }
+}
+
+@media (orientation:portrait) and (max-height:600px) {
+  .game-shell { --mobile-captain-height:82px; }
+  .game-shell .alchemist-sidebar .game-brand { height:70px; }
+}
+
+@media (orientation:portrait) and (max-width:350px) {
+  .game-shell > .lab-main > .alchemist-sidebar { grid-template-columns:minmax(0,1fr) 82px 94px; column-gap:4px; }
+  .game-shell .alchemist-sidebar .cabin-feature-button { width:94px; font-size:9px; }
+  .game-shell .alchemist-sidebar .cabin-feature-button img { width:18px; height:18px; }
+}
+
+@media (orientation:portrait) and (min-width:701px) {
+  .game-shell {
+    --mobile-captain-height:164px;
+    --board-width:min(700px,calc(100vw - 70px),calc((100svh - 246px - var(--mobile-captain-height) - var(--session-meta-height,0px))*1.2));
+  }
+  .game-shell > .lab-main > .alchemist-sidebar { grid-template-columns:minmax(0,1fr) 148px 142px; column-gap:18px; }
+  .game-shell .alchemist-sidebar .game-brand { width:270px; height:120px; }
+  .game-shell .alchemist-sidebar .character-scene { width:125px; }
+  .game-shell .alchemist-sidebar .cabin-feature-button { width:142px; }
+}

@@ -1,0 +1,308 @@
+{
+  "version": "pirate-cartoon-2.0.0",
+  "generator": "Built-in ImageGen",
+  "spine": "4.2.43",
+  "atlas": "symbols.atlas",
+  "texture": "symbols-modular.webp",
+  "dimensions": [
+    2048,
+    2944
+  ],
+  "symbolCount": 15,
+  "symbols": [
+    "elixir",
+    "retort",
+    "crystal",
+    "flask",
+    "atom",
+    "mercury",
+    "sulfur",
+    "copper",
+    "iron",
+    "lead",
+    "scatter",
+    "wild-blue",
+    "wild-red",
+    "wild-gold",
+    "wild-green"
+  ],
+  "attachmentCount": 109,
+  "rigs": [
+    {
+      "id": "elixir",
+      "name": "Проклятый сундук",
+      "tier": "high",
+      "bones": 16,
+      "attachments": 3,
+      "sourceComponents": 11,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "registration": "Source proportions; mounted hierarchy; fixed hinge; textured front occlusion",
+      "normalization": "painted-alpha-v4",
+      "constructionRevision": "coherent-mounted-v5",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "retort",
+      "name": "Компас капитана",
+      "tier": "high",
+      "bones": 9,
+      "attachments": 6,
+      "sourceComponents": 6,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "crystal",
+      "name": "Корона морского короля",
+      "tier": "high",
+      "bones": 15,
+      "attachments": 3,
+      "sourceComponents": 10,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "registration": "Source proportions; mounted hierarchy; fixed hinge; textured front occlusion",
+      "normalization": "painted-alpha-v4",
+      "constructionRevision": "coherent-mounted-v5",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "flask",
+      "name": "Призрачный фонарь",
+      "tier": "high",
+      "bones": 9,
+      "attachments": 6,
+      "sourceComponents": 6,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "atom",
+      "name": "Жемчужина бездны",
+      "tier": "high",
+      "bones": 10,
+      "attachments": 7,
+      "sourceComponents": 6,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "registration": "Source proportions; mounted hierarchy; fixed hinge; textured front occlusion",
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "mercury",
+      "name": "Ракушка",
+      "tier": "low",
+      "bones": 9,
+      "attachments": 6,
+      "sourceComponents": 6,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "sulfur",
+      "name": "Морской узел",
+      "tier": "low",
+      "bones": 9,
+      "attachments": 6,
+      "sourceComponents": 6,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "copper",
+      "name": "Медная монета",
+      "tier": "low",
+      "bones": 9,
+      "attachments": 6,
+      "sourceComponents": 6,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "iron",
+      "name": "Ржавый якорь",
+      "tier": "low",
+      "bones": 9,
+      "attachments": 6,
+      "sourceComponents": 6,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "lead",
+      "name": "Деревянная кружка",
+      "tier": "low",
+      "bones": 10,
+      "attachments": 7,
+      "sourceComponents": 7,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "scatter",
+      "name": "Чёрная метка",
+      "tier": "special",
+      "bones": 13,
+      "attachments": 10,
+      "sourceComponents": 11,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "wild-blue",
+      "name": "Дух шторма",
+      "tier": "special",
+      "bones": 12,
+      "attachments": 9,
+      "sourceComponents": 9,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "wild-red",
+      "name": "Огненный корсар",
+      "tier": "special",
+      "bones": 12,
+      "attachments": 9,
+      "sourceComponents": 9,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "wild-gold",
+      "name": "Золотой капитан",
+      "tier": "special",
+      "bones": 12,
+      "attachments": 9,
+      "sourceComponents": 9,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    },
+    {
+      "id": "wild-green",
+      "name": "Ядовитый кракен",
+      "tier": "special",
+      "bones": 12,
+      "attachments": 9,
+      "sourceComponents": 9,
+      "animations": {
+        "idle": 4,
+        "land": 0.3,
+        "drop": 0.3,
+        "win": 1.2
+      },
+      "normalization": "painted-alpha-v4",
+      "motionRevision": "material-specific-v15"
+    }
+  ],
+  "registrationRevision": "crown-shell-chest-v3",
+  "normalization": {
+    "revision": "painted-alpha-v4",
+    "camera": {
+      "left": -144,
+      "right": 144,
+      "bottom": -144,
+      "top": 144
+    },
+    "paintedAlphaThreshold": 16,
+    "commonPaintedMaxEdge": 213.029,
+    "targetCenter": [
+      0,
+      0
+    ],
+    "minimumMotionGeometryMargin": 8,
+    "scale": "uniform; native shape ratios unchanged",
+    "fallback": "native setup pose at identical camera",
+    "atlasSha256": "a195e8829082ec9f819470728b92819d244327b5e11efa5569644ca1fb9e8fda",
+    "textureSha256": "1ff2b2036b5fcdfa1a7060038e9ab235bc1269859ecee7deb7c5c2d1b058dcd5"
+  },
+  "constructionRevision": "coherent-mounted-v5",
+  "additionalTextures": [
+    {
+      "file": "symbols-construction-v5.webp",
+      "width": 2048,
+      "height": 2524,
+      "sha256": "2c8b7a9dbb1693b3733d8075271f746f9a52f80f180e36a1ed5493d352d96df6"
+    }
+  ],
+  "motionRevision": "material-specific-v15"
+}

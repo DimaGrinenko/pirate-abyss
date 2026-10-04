@@ -1,0 +1,75 @@
+medallion.webp
+size: 2048, 320
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+scatter-swords
+  rotate: false
+  xy: 4, 4
+  size: 279, 253
+  orig: 279, 253
+  offset: 0, 0
+  index: -1
+scatter-wingL
+  rotate: false
+  xy: 884, 4
+  size: 111, 127
+  orig: 111, 127
+  offset: 0, 0
+  index: -1
+scatter-wingR
+  rotate: false
+  xy: 999, 4
+  size: 111, 127
+  orig: 111, 127
+  offset: 0, 0
+  index: -1
+scatter-medallion
+  rotate: false
+  xy: 287, 4
+  size: 213, 212
+  orig: 213, 212
+  offset: 0, 0
+  index: -1
+scatter-eyeL
+  rotate: false
+  xy: 1388, 4
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+scatter-eyeR
+  rotate: false
+  xy: 1320, 4
+  size: 64, 65
+  orig: 64, 65
+  offset: 0, 0
+  index: -1
+scatter-face
+  rotate: false
+  xy: 504, 4
+  size: 163, 136
+  orig: 163, 136
+  offset: 0, 0
+  index: -1
+scatter-jaw
+  rotate: false
+  xy: 1114, 4
+  size: 134, 81
+  orig: 134, 81
+  offset: 0, 0
+  index: -1
+scatter-hat
+  rotate: false
+  xy: 671, 4
+  size: 209, 129
+  orig: 209, 129
+  offset: 0, 0
+  index: -1
+scatter-glint
+  rotate: false
+  xy: 1252, 4
+  size: 64, 66
+  orig: 64, 66
+  offset: 0, 0
+  index: -1

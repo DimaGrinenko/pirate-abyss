@@ -1,0 +1,15 @@
+{
+  "atlas": "raster-vfx.atlas",
+  "texture": "raster-vfx.webp",
+  "size": [
+    2048,
+    512
+  ],
+  "regions": 4,
+  "durationSeconds": 2.6,
+  "fullyCoveredSeconds": [
+    0.74,
+    1.1
+  ],
+  "doorsClosedAt": 0.72
+}

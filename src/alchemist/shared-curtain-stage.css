@@ -1,0 +1,4 @@
+/* Below the existing expanded-reel award hosts (3) and paylines (6), above
+   ordinary symbols. Only the four technical column masks occupy this layer. */
+.reel-curtain-stage__surface { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+.reel-curtain-stage__surface > canvas { display: block; width: 100% !important; height: 100% !important; }

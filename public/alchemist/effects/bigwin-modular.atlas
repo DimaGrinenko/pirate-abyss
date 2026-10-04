@@ -1,0 +1,124 @@
+bigwin-modular.webp
+size: 2048, 512
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+tentacle
+  rotate: false
+  xy: 4, 4
+  size: 307, 417
+  orig: 307, 417
+  offset: 0, 0
+  index: -1
+elixir-lid
+  rotate: false
+  xy: 590, 4
+  size: 262, 163
+  orig: 262, 163
+  offset: 0, 0
+  index: -1
+elixir-hingeL
+  rotate: false
+  xy: 856, 4
+  size: 64, 132
+  orig: 64, 132
+  offset: 0, 0
+  index: -1
+elixir-hingeR
+  rotate: false
+  xy: 924, 4
+  size: 64, 132
+  orig: 64, 132
+  offset: 0, 0
+  index: -1
+elixir-chest
+  rotate: false
+  xy: 315, 4
+  size: 271, 178
+  orig: 271, 178
+  offset: 0, 0
+  index: -1
+elixir-coins
+  rotate: false
+  xy: 1195, 4
+  size: 207, 127
+  orig: 207, 127
+  offset: 0, 0
+  index: -1
+elixir-lock
+  rotate: false
+  xy: 1916, 4
+  size: 64, 89
+  orig: 64, 89
+  offset: 0, 0
+  index: -1
+wild-gold-collar
+  rotate: false
+  xy: 992, 4
+  size: 199, 131
+  orig: 199, 131
+  offset: 0, 0
+  index: -1
+wild-gold-eyeL
+  rotate: false
+  xy: 208, 425
+  size: 64, 63
+  orig: 64, 63
+  offset: 0, 0
+  index: -1
+wild-gold-eyeR
+  rotate: false
+  xy: 140, 425
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+wild-gold-face
+  rotate: false
+  xy: 1406, 4
+  size: 151, 126
+  orig: 151, 126
+  offset: 0, 0
+  index: -1
+wild-gold-jaw
+  rotate: false
+  xy: 1759, 4
+  size: 153, 124
+  orig: 153, 124
+  offset: 0, 0
+  index: -1
+wild-gold-leftDevice
+  rotate: false
+  xy: 374, 425
+  size: 94, 51
+  orig: 94, 51
+  offset: 0, 0
+  index: -1
+wild-gold-rightDevice
+  rotate: false
+  xy: 276, 425
+  size: 94, 52
+  orig: 94, 52
+  offset: 0, 0
+  index: -1
+wild-gold-hat
+  rotate: false
+  xy: 1561, 4
+  size: 194, 126
+  orig: 194, 126
+  offset: 0, 0
+  index: -1
+wild-gold-spark
+  rotate: false
+  xy: 72, 425
+  size: 64, 74
+  orig: 64, 74
+  offset: 0, 0
+  index: -1
+coin
+  rotate: false
+  xy: 4, 425
+  size: 64, 79
+  orig: 64, 79
+  offset: 0, 0
+  index: -1

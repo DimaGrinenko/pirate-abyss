@@ -1,0 +1,59 @@
+.cabin-wall-relic { position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;visibility:hidden; }
+.cabin-wall-relic[data-fits=true] { visibility:visible; }
+.cabin-wall-relic__registration { position:absolute;left:50%;top:50%;width:max(100%,177.6833cqh);height:max(100%,56.2799cqw);transform:translate(-50%,-50%); }
+/* v34 native pixels left1392.5,top390,width105 in1672x941. Centred at
+   x1445 on the foreground upright, between both shelf fronts. */
+.cabin-wall-relic__piece { position:absolute;left:83.283493%;top:41.445271%;width:6.279904%;aspect-ratio:3 / 4; }
+.cabin-wall-relic img { position:absolute;display:block;pointer-events:none; }
+.cabin-wall-relic__cast { object-fit:fill;mix-blend-mode:screen;pointer-events:none; }
+/* These two diffuse painted lights enrich the exposed planks. Only the light
+   moves: the mounted chart, its frame, and the cabin geometry remain rigid. */
+.cabin-wall-relic__cast--warm { left:76%;top:23%;width:21%;height:39%;opacity:calc(.13 * (1 + var(--cabin-night,0) * .65));filter:sepia(1) saturate(1.8);animation:wall-lantern-cast 15.4s -5.2s ease-in-out infinite; }
+.cabin-wall-relic__cast--sea { left:70%;top:24%;width:20%;height:37%;opacity:.08;animation:wall-sea-cast 21.8s -12.8s ease-in-out infinite; }
+/* Shadow the static frame alone. Filtering the animated parent rerasterized
+   the entire chart whenever its tiny needle or route lights moved. */
+.cabin-wall-relic__plaque { inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(2px 4px 3px #00151b88); }
+.cabin-wall-relic__paper-light { position:absolute;left:18%;top:25%;width:65%;height:51%;overflow:hidden; }
+.cabin-wall-relic__paper-light img { width:155%;height:175%;object-fit:contain;left:-52%;top:-48%;mix-blend-mode:screen;opacity:.12;filter:sepia(.7) saturate(1.2);animation:wall-chart-lantern 12.8s -4.9s ease-in-out infinite; }
+.cabin-wall-relic__route { position:absolute;inset:0;pointer-events:none;animation:wall-chart-route 22s -5s linear infinite; }
+.cabin-wall-relic__route img { left:0;top:0;width:4.5%;height:auto;transform:translate(-50%,-50%);mix-blend-mode:screen;filter:sepia(1) saturate(2.1); }
+.cabin-wall-relic__route--wake { animation-delay:-4.25s; }
+.cabin-wall-relic__route--wake img { width:2.6%;opacity:.35; }
+.cabin-wall-relic__destination { left:67.6%;top:45.7%;width:10%;height:auto;transform:translate(-50%,-50%);mix-blend-mode:screen;filter:sepia(1) saturate(2);opacity:0;animation:wall-chart-destination 22s -5s ease-in-out infinite; }
+.cabin-wall-relic__needle-axle { position:absolute;left:50.3%;top:83.5%;width:3.7%;aspect-ratio:82 / 316;transform:translate(-50%,-50%); }
+.cabin-wall-relic__needle-axle img { inset:0;width:100%;height:100%;object-fit:contain;transform-origin:50% 50%;animation:wall-chart-bearing 8.4s -2.1s ease-in-out infinite; }
+.cabin-wall-relic__pivot { left:50.3%;top:83.5%;width:3.4%;height:auto;transform:translate(-50%,-50%); }
+.cabin-wall-relic__glint { width:7%;height:auto;mix-blend-mode:screen;opacity:0;animation:wall-chart-brass 11.3s -3.7s ease-in-out infinite; }
+.cabin-wall-relic__glint--crest { left:46%;top:5.4%; }
+.cabin-wall-relic__glint--dial { left:57%;top:75.8%;width:5%;animation-duration:15.7s;animation-delay:-9.6s; }
+@keyframes wall-chart-bearing { 0%,100%{transform:rotate(-13deg)}28%{transform:rotate(-5deg)}54%{transform:rotate(11deg)}78%{transform:rotate(3deg)} }
+@keyframes wall-chart-lantern { 0%,100%{opacity:.07;transform:translate3d(-5%,3%,0) rotate(-8deg)}49%{opacity:.19;transform:translate3d(18%,-2%,0) rotate(9deg)} }
+@keyframes wall-chart-brass { 0%,56%,100%{opacity:0;transform:scale(.4) rotate(-15deg)}68%{opacity:.48;transform:scale(1) rotate(18deg)}79%{opacity:0;transform:scale(.66) rotate(33deg)} }
+/* Coordinates follow the route already painted on the raster map. This is a
+   pair of tiny light sprites, not a new line or a moving copy of the chart. */
+@keyframes wall-chart-route {
+ 0%,5%{transform:translate3d(36.7%,68.4%,0);opacity:0;}
+ 9%{transform:translate3d(39.6%,66.5%,0);opacity:.75;}
+ 16%{transform:translate3d(37.5%,63%,0);opacity:.75;}
+ 23%{transform:translate3d(39.9%,60.2%,0);opacity:.75;}
+ 31%{transform:translate3d(47.1%,57.1%,0);opacity:.75;}
+ 39%{transform:translate3d(50.1%,54%,0);opacity:.75;}
+ 47%{transform:translate3d(48.6%,49.8%,0);opacity:.75;}
+ 55%{transform:translate3d(44.5%,46%,0);opacity:.75;}
+ 62%{transform:translate3d(44.8%,43%,0);opacity:.75;}
+ 69%{transform:translate3d(48.6%,41.2%,0);opacity:.75;}
+ 75%{transform:translate3d(53.1%,41.3%,0);opacity:.75;}
+ 81%{transform:translate3d(58.3%,42.4%,0);opacity:.75;}
+ 88%{transform:translate3d(63.7%,44.4%,0);opacity:.65;}
+ 93%,100%{transform:translate3d(67.6%,45.7%,0);opacity:0;}
+}
+@keyframes wall-chart-destination { 0%,78%,100%{opacity:0;}89%{opacity:.44;}95%{opacity:.08;} }
+@keyframes wall-lantern-cast { 0%,100%{transform:translate3d(1%,-2%,0) scale(.98);opacity:calc(.10 * (1 + var(--cabin-night,0) * .65));}47%{transform:translate3d(-2%,1%,0) scale(1.03);opacity:calc(.17 * (1 + var(--cabin-night,0) * .65));} }
+@keyframes wall-sea-cast { 0%,100%{transform:translate3d(-2%,1%,0) scale(.98);opacity:.055;}53%{transform:translate3d(2%,-2%,0) scale(1.04);opacity:.105;} }
+.cabin-wall-relic[data-paused=true] *, .cabin-wall-relic[data-fits=false] *, html[data-scenery-hidden=true] .cabin-wall-relic * { animation-play-state:paused!important; }
+.cabin-wall-relic[data-reduced=true] :is(.cabin-wall-relic__glint,.cabin-wall-relic__paper-light,.cabin-wall-relic__route,.cabin-wall-relic__destination) { display:none; }
+.cabin-wall-relic[data-reduced=true] .cabin-wall-relic__cast { animation:none;opacity:.08; }
+.cabin-wall-relic[data-reduced=true] .cabin-wall-relic__cast--warm { opacity:calc(.08 * (1 + var(--cabin-night,0) * .65)); }
+.cabin-wall-relic[data-reduced=true] .cabin-wall-relic__needle-axle img { animation:none;transform:rotate(-8deg); }
+@media(orientation:portrait) { .cabin-wall-relic{display:none;} }
+@media(prefers-reduced-motion:reduce) { .cabin-wall-relic *{animation:none!important;}.cabin-wall-relic__glint,.cabin-wall-relic__paper-light,.cabin-wall-relic__route,.cabin-wall-relic__destination{display:none;}.cabin-wall-relic__cast{opacity:.08;}.cabin-wall-relic__cast--warm{opacity:calc(.08 * (1 + var(--cabin-night,0) * .65));} }

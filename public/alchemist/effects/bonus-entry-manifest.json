@@ -1,0 +1,40 @@
+{
+  "version": 11,
+  "browser": false,
+  "method": "Native Spine 4.2 CPU rasterization with bilinear atlas filtering, not browser screenshots or frame-rate measurements.",
+  "concept": "The same lantern ritual and timed opaque hand-off; the apparition chest has solid exterior/interior faces and a rigid front wall.",
+  "durationMs": 3100,
+  "coveredAtMs": 1550,
+  "fullyOpaqueSeconds": [
+    1.55,
+    1.85
+  ],
+  "phases": {
+    "anticipation": 0.08,
+    "conjure": 0.5,
+    "reveal": 1.85
+  },
+  "originOffset": "Apply normalized lantern origin to impact-root with offset factor 1-smoothstep((time-.35)/.9). Do not scale impact-root. The veil stays on root.",
+  "world": [
+    1600,
+    1000
+  ],
+  "bones": 97,
+  "slots": 68,
+  "meshes": 6,
+  "atlas": [
+    2048,
+    2688
+  ],
+  "sources": {
+    "ribbon-original.png": "2f9ca6472e2aaf56b6c09fc0757823682c4415de5d85a0e695e6dadb078f368b",
+    "veil-original.png": "c5f01421ee380acb35d1e29593d1b2cc8a328d5130179dcd518ab2bf0391d9bf"
+  },
+  "revision": "solid-two-face-hinge",
+  "hash": "pirate-lantern-hinged-ritual-v11",
+  "generator": "scripts/generate-pirate-bonus-entry-v11.mjs",
+  "textures": [
+    "bonus-entry.webp",
+    "chest-outer-v11.webp"
+  ]
+}

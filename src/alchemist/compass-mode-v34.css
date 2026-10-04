@@ -1,0 +1,11 @@
+.compass-rail-track{position:absolute;inset:0 var(--reel-inset,10px);z-index:12;pointer-events:none}
+.compass-rail-marker{position:absolute;top:0;left:0;width:16.666667%;height:100%;transform:translateX(calc(var(--course-target)*100%));transition:transform 520ms cubic-bezier(.22,.7,.2,1)}
+.compass-rail-marker img{position:absolute;right:-7%;bottom:5%;width:37%;height:auto;object-fit:contain;filter:drop-shadow(0 1px 2px #102c38)}
+.compass-rail-track[data-reduced-motion] .compass-rail-marker{transition:none}
+/* The moving painted compass carries the route. A small existing raster glint
+   catches its destination's crown without drawing a selection box or covering text. */
+.game-shell .machine--connected .wild-type[data-compass-marked] .rail-jewel-light--crown{opacity:.68;transform:scale(.86);animation:none!important}
+.expedition-choices--raids:has(> :nth-child(3)){grid-template-columns:repeat(3,minmax(0,1fr))}
+.expedition-choices--raids:has(> :nth-child(3)) .expedition-choice{min-width:0}
+@media(max-width:700px){.expedition-choices--raids:has(> :nth-child(3)){grid-template-columns:1fr}.compass-rail-marker img{width:42%;right:-5%}}
+@media(prefers-reduced-motion:reduce){.compass-rail-marker{transition:none}}

@@ -1,0 +1,26 @@
+curtain-v2.webp
+size: 2048, 576
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+wood-occlusion
+ rotate: false
+ xy: 615, 4
+ size: 1, 1
+ orig: 1, 1
+ offset: 0, 0
+ index: -1
+door-left
+ rotate: false
+ xy: 4, 4
+ size: 300, 510
+ orig: 300, 510
+ offset: 0, 0
+ index: -1
+door-right
+ rotate: false
+ xy: 308, 4
+ size: 303, 508
+ orig: 303, 508
+ offset: 0, 0
+ index: -1

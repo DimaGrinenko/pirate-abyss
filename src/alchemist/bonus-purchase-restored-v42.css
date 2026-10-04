@@ -1,0 +1,209 @@
+/* Restore the approved cabin shop: two navy raster cards and painted capsule
+   actions. Only the presentation changes; all quotes use expeditionOffer. */
+.ceremony-screen.expedition-restored-v42 {
+  padding:max(12px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  --exp-ivory:#fff0bc; --exp-muted:#c2eaf5; --exp-sea:#a2f7e7;
+  text-align:center;
+}
+.ceremony-screen.expedition-restored-v42::before { background:#042936bc; }
+.expedition-restored-v42.expedition-planner .expedition-planner__panel {
+  position:relative; width:min(1000px,100%); height:min(724px,100%); max-height:100%;
+  min-height:0; display:grid; grid-template-columns:minmax(0,1fr);
+  grid-template-rows:auto auto minmax(0,1fr) auto; gap:10px;
+  border:0; border-radius:0; background:none; box-shadow:none; overflow:visible; padding:0;
+}
+.expedition-restored-v42 .expedition-planner__panel::before { content:none; }
+.expedition-restored-v42 .expedition-heading { grid-area:1/1; justify-content:center; padding:4px 48px 0; background:none; }
+.expedition-restored-v42 .expedition-heading > div { position:static; width:auto; height:auto; overflow:visible; clip-path:none; }
+.expedition-restored-v42 .expedition-heading > div > span { font-size:10px; line-height:13px; letter-spacing:.14em; color:#a2fff2; }
+.expedition-restored-v42 .expedition-heading h2 { margin:5px 0 0; font:850 clamp(24px,3.2vw,36px)/1.15 var(--body-font),Georgia,serif; color:#fff0bc; text-shadow:0 2px 2px #001721; text-transform:none; }
+.expedition-restored-v42 .expedition-close { position:absolute; right:0; top:0; z-index:4; width:44px; height:44px; min-width:44px; min-height:44px; background:none; border:0; padding:8px; }
+.expedition-restored-v42 .expedition-close > img { width:28px; height:28px; }
+.expedition-restored-v42 .expedition-restored-tabs { grid-area:2/1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:min(420px,100%); gap:16px; margin:auto; }
+.expedition-restored-v42 .alchemy-button { min-height:44px; }
+.expedition-restored-v42 .expedition-restored-tabs .alchemy-button { width:100%; }
+.expedition-restored-v42 .expedition-restored-tabs .alchemy-button__label { font:800 clamp(10px,5.2cqw,13px)/1.1 var(--body-font),Arial,sans-serif; letter-spacing:0; }
+.expedition-restored-v42 .expedition-content { grid-area:3/1; min-height:0; padding:5px 6px; border:0; scrollbar-gutter:stable both-edges; background:none; }
+.expedition-restored-v42 .expedition-restored-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; width:min(860px,100%); min-height:0; height:100%; margin:0 auto; }
+.expedition-restored-v42 .expedition-restored-cards[data-offers="3"],
+.expedition-restored-v42 .expedition-restored-cards--modes { grid-template-columns:repeat(3,minmax(0,1fr)); width:100%; }
+.expedition-restored-v42 .expedition-restored-card {
+  position:relative; isolation:isolate; container-type:inline-size; min-width:0; min-height:340px;
+  display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(64px,1fr) auto auto auto auto;
+  gap:6px; justify-items:center; align-items:center; padding:18px 26px 20px; text-align:center;
+}
+.expedition-restored-v42 .expedition-restored-card::before,
+.expedition-restored-v42 .expedition-confirmation::before {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  border:18px solid transparent; border-image:var(--exp-panel-art) 165 fill / 18px / 0 stretch;
+  filter:drop-shadow(0 5px 6px #00142166);
+}
+.expedition-restored-v42 .expedition-restored-card[data-raid=reckoning]::before { filter:brightness(1.04) drop-shadow(0 5px 6px #00142166); }
+.expedition-restored-v42 .expedition-restored-icon { position:relative; min-height:0; width:min(145px,66%); height:100%; max-height:150px; align-self:center; }
+.expedition-restored-v42 .expedition-restored-icon > .expedition-art { width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 3px 2px #021427); }
+.expedition-restored-v42 .expedition-art--animated .chemical-symbol__multiplier { display:none; }
+.expedition-restored-v42 .expedition-restored-icon > b { position:absolute; bottom:0; left:0; width:100%; color:#c2ff80; font:850 clamp(21px,10cqw,39px)/1 var(--body-font),Georgia,serif; letter-spacing:-.06em; text-shadow:0 2px 0 #082627,1px 0 #082627,-1px 0 #082627; }
+.expedition-restored-v42 [data-raid=reckoning] .expedition-restored-icon > b { color:#ffe3a0; }
+.expedition-restored-v42 .expedition-restored-card h3 { width:100%; margin:0; color:#a4ffeb; font:850 clamp(18px,7.1cqw,28px)/1.15 var(--body-font),Georgia,serif; letter-spacing:-.025em; text-wrap:balance; }
+.expedition-restored-v42 .expedition-restored-card[data-raid=reckoning] h3 { color:#ffe59a; }
+.expedition-restored-v42 .expedition-restored-description { width:100%; color:#c2eaf5; font:600 12px/1.4 var(--body-font),Arial,sans-serif; }
+.expedition-restored-v42 .expedition-restored-description p { margin:4px 0; text-wrap:balance; }
+.expedition-restored-v42 .expedition-restored-spins { font-size:11px; color:#d1fff1; }
+.expedition-restored-v42 .expedition-restored-spins b { font-size:17px; color:#fff2ac; }
+.expedition-restored-v42 .expedition-restored-price { display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline; gap:2px 4px; width:100%; color:#fff2ac; }
+.expedition-restored-v42 .expedition-restored-price > .expedition-money { display:contents; }
+.expedition-restored-v42 .expedition-restored-price .expedition-money > strong { flex:0 0 100%; max-width:100%; font:850 clamp(16px,calc(150cqw / var(--price-chars)),35px)/1.1 var(--body-font),Georgia,serif; color:#fff2ac; }
+.expedition-restored-v42 .expedition-restored-price .expedition-money > small,
+.expedition-restored-v42 .expedition-restored-price > small { font:800 11px/1.3 var(--body-font),Arial,sans-serif; color:#a2f7e7; }
+.expedition-restored-v42 .expedition-restored-price > small::before { content:'·'; margin-right:5px; }
+.expedition-restored-v42 .expedition-restored-buy.alchemy-button { width:min(256px,100%); max-width:100%; margin:0; justify-self:center; align-self:end; min-height:44px; }
+.expedition-restored-v42 .expedition-restored-buy .alchemy-button__label { font:850 clamp(10px,4.9cqw,15px)/1.1 var(--body-font),Georgia,serif; }
+.expedition-restored-v42 .expedition-restored-card > .expedition-warning { grid-column:1/-1; margin:0; font-size:10px; }
+.expedition-restored-v42 .expedition-restored-mode-note { margin:0 0 9px; font-size:11px; color:#c2eaf5; }
+.expedition-restored-v42 .expedition-restored-cards--modes { height:auto; min-height:calc(100% - 28px); }
+.expedition-restored-v42 .expedition-restored-cards--modes .expedition-restored-card { padding-inline:20px; }
+.expedition-restored-v42 .expedition-restored-cards--modes .expedition-restored-icon { height:100px; }
+.expedition-restored-v42 .expedition-summary { grid-area:4/1; display:grid; grid-template-columns:minmax(0,1fr) minmax(180px,1fr); gap:3px 20px; width:min(590px,100%); padding:0; margin:auto; border:0; background:none; }
+.expedition-restored-v42 .expedition-summary__mode { grid-column:1/-1; grid-row:1; display:flex; flex-wrap:wrap; align-items:baseline; justify-content:center; gap:3px 7px; text-align:center; }
+.expedition-restored-v42 .expedition-summary__mode > strong { display:inline; font-size:12px; }
+.expedition-restored-v42 .expedition-summary__mode > small { display:inline; margin:0; font-size:11px; color:#fff0bc; }
+.expedition-restored-v42 .expedition-summary__mode > span:first-child { display:inline; margin:0; font-size:11px; }
+.expedition-restored-v42 .expedition-summary:not(.expedition-summary--confirmation) > div:first-child { grid-column:1; grid-row:2; display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:baseline; gap:4px; }
+.expedition-restored-v42 .expedition-summary:not(.expedition-summary--confirmation) > div:first-child > span:first-child { margin:0; font-size:11px; }
+.expedition-restored-v42 .expedition-summary .expedition-money > strong { font-size:15px; }
+.expedition-restored-v42 .expedition-shop-bet { grid-column:2; grid-row:2; display:flex; align-items:center; justify-self:start; gap:5px; width:100%; }
+.expedition-restored-v42 .expedition-shop-bet > span:first-child { flex:0 1 58px; margin:0; font-size:10px; }
+.expedition-restored-v42 .expedition-shop-bet > div { min-width:0; grid-template-columns:44px minmax(0,1fr) 44px; gap:2px; }
+.expedition-restored-v42 .expedition-shop-bet button { width:44px; height:44px; border:0; background:transparent url('/alchemist/ui/cabin-control-v42.webp') center/contain no-repeat; color:#fff1c4; font-size:23px; }
+.expedition-restored-v42 .expedition-shop-bet .expedition-money { min-width:44px; justify-content:center; }
+.expedition-restored-v42 .expedition-summary--confirmation { width:min(860px,100%); grid-template-columns:minmax(0,1fr) minmax(260px,1.2fr); padding:0 8px; gap:16px; }
+.expedition-restored-v42 .expedition-actions { margin:0; align-items:center; gap:12px; }
+.expedition-restored-v42 .expedition-actions > .alchemy-button { width:100%; min-height:44px; }
+.expedition-restored-v42 .expedition-actions .alchemy-button__label { font-size:clamp(10px,5cqw,14px); }
+.expedition-restored-v42 .expedition-confirmation { position:relative; isolation:isolate; max-width:740px; padding:22px 28px; text-align:left; }
+.expedition-restored-v42 .expedition-confirmation > h3 { text-align:center; }
+.expedition-restored-v42 .expedition-confirmation > .expedition-eyebrow { display:block; text-align:center; }
+.expedition-restored-v42 .expedition-confirmation-cost { text-align:left; }
+.expedition-restored-v42 .expedition-confirmation-cost > span:first-child { margin:0 0 3px; }
+.expedition-restored-v42 .expedition-confirmation-cost > .expedition-money > strong { font-size:22px; }
+
+@media (max-width:700px) and (orientation:portrait) {
+  .ceremony-screen.expedition-restored-v42 { padding:max(8px,env(safe-area-inset-top)) 8px max(8px,env(safe-area-inset-bottom)); }
+  .expedition-restored-v42.expedition-planner .expedition-planner__panel { height:100%; gap:6px; }
+  .expedition-restored-v42 .expedition-heading { padding:4px 37px 0; }
+  .expedition-restored-v42 .expedition-heading > div > span { font-size:7px; letter-spacing:.04em; }
+  .expedition-restored-v42 .expedition-heading h2 { font-size:23px; margin-top:2px; }
+  .expedition-restored-v42 .expedition-restored-tabs { width:min(340px,100%); gap:8px; }
+  .expedition-restored-v42 .expedition-content { padding:3px 0; scrollbar-gutter:auto; }
+  .expedition-restored-v42 .expedition-restored-cards { gap:8px; }
+  .expedition-restored-v42 .expedition-restored-card { padding:13px 10px 12px; gap:7px; min-height:290px; grid-template-rows:minmax(60px,1fr) auto auto auto auto; }
+  .expedition-restored-v42 .expedition-restored-card::before { border-image-width:12px; }
+  .expedition-restored-v42 .expedition-restored-icon { width:min(100px,88%); max-height:125px; }
+  .expedition-restored-v42 .expedition-restored-icon > b { font-size:clamp(22px,21cqw,30px); }
+  .expedition-restored-v42 .expedition-restored-card h3 { font-size:clamp(15px,11cqw,20px); line-height:1.2; }
+  .expedition-restored-v42 .expedition-restored-description { font-size:10px; line-height:1.35; }
+  .expedition-restored-v42 .expedition-restored-spins { font-size:9px; }
+  .expedition-restored-v42 .expedition-restored-spins b { font-size:14px; }
+  .expedition-restored-v42 .expedition-restored-price .expedition-money > strong { font-size:clamp(13px,calc(160cqw / var(--price-chars)),25px); }
+  .expedition-restored-v42 .expedition-restored-price .expedition-money > small,
+  .expedition-restored-v42 .expedition-restored-price > small { font-size:9px; }
+  .expedition-restored-v42 .expedition-restored-cards--modes,
+  .expedition-restored-v42 .expedition-restored-cards[data-offers="3"] { grid-template-columns:minmax(0,1fr); height:auto; }
+  .expedition-restored-v42 .expedition-restored-cards--modes .expedition-restored-card,
+  .expedition-restored-v42 .expedition-restored-cards[data-offers="3"] .expedition-restored-card { min-height:250px; }
+  .expedition-restored-v42 .expedition-summary { grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); gap:4px; }
+  .expedition-restored-v42 .expedition-summary:not(.expedition-summary--confirmation) > div:first-child { justify-content:center; display:block; }
+  .expedition-restored-v42 .expedition-summary:not(.expedition-summary--confirmation) > div:first-child > span:first-child { display:block; font-size:9px; margin-bottom:3px; }
+  .expedition-restored-v42 .expedition-summary__mode { gap:2px 5px; }
+  .expedition-restored-v42 .expedition-summary__mode > span:first-child,
+  .expedition-restored-v42 .expedition-summary__mode > strong,
+  .expedition-restored-v42 .expedition-summary__mode > small { font-size:9px; }
+  .expedition-restored-v42 .expedition-shop-bet { display:block; }
+  .expedition-restored-v42 .expedition-shop-bet > span:first-child { display:block; margin:0; font-size:9px; }
+  .expedition-restored-v42 .expedition-shop-bet > div { width:100%; }
+  .expedition-restored-v42 .expedition-summary--confirmation { grid-template-columns:minmax(0,1fr); padding:0 4px; gap:4px; }
+  .expedition-restored-v42 .expedition-confirmation-cost { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; align-items:center; }
+  .expedition-restored-v42 .expedition-confirmation-cost > .expedition-money { justify-content:flex-end; }
+  .expedition-restored-v42 .expedition-confirmation { padding:16px; }
+  .expedition-restored-v42 .expedition-confirmation__visual { grid-template-columns:minmax(0,1fr); gap:0; }
+  .expedition-restored-v42 .expedition-confirmation__visual > .expedition-art { display:none; }
+  .expedition-restored-v42 .expedition-confirmation h3 { font-size:21px; margin-bottom:10px; }
+}
+@media (orientation:landscape) and (max-height:620px) {
+  .ceremony-screen.expedition-restored-v42 { padding:8px 12px; }
+  .expedition-restored-v42.expedition-planner .expedition-planner__panel { gap:5px; }
+  .expedition-restored-v42 .expedition-heading { padding-top:0; }
+  .expedition-restored-v42 .expedition-heading > div > span { font-size:8px; line-height:10px; }
+  .expedition-restored-v42 .expedition-heading h2 { margin-top:2px; font-size:26px; }
+  .expedition-restored-v42 .expedition-restored-tabs { width:340px; gap:12px; }
+  .expedition-restored-v42 .expedition-content { padding:2px 6px; }
+  .expedition-restored-v42 .expedition-restored-cards { width:min(780px,100%); gap:14px; }
+  .expedition-restored-v42 .expedition-restored-card { min-height:235px; padding:12px 20px; gap:4px; grid-template-rows:minmax(48px,1fr) auto auto auto auto; }
+  .expedition-restored-v42 .expedition-restored-icon { width:85px; max-height:100px; }
+  .expedition-restored-v42 .expedition-restored-icon > b { font-size:25px; }
+  .expedition-restored-v42 .expedition-restored-card h3 { font-size:20px; }
+  .expedition-restored-v42 .expedition-restored-description { font-size:10px; line-height:1.25; }
+  .expedition-restored-v42 .expedition-restored-description p { margin:2px 0; }
+  .expedition-restored-v42 .expedition-restored-spins { font-size:9px; }
+  .expedition-restored-v42 .expedition-restored-spins b { font-size:14px; }
+  .expedition-restored-v42 .expedition-restored-price .expedition-money > strong { font-size:clamp(13px,calc(150cqw / var(--price-chars)),25px); }
+  .expedition-restored-v42 .expedition-restored-price > small,
+  .expedition-restored-v42 .expedition-restored-price .expedition-money > small { font-size:9px; }
+  .expedition-restored-v42 .expedition-restored-buy.alchemy-button { width:min(186px,100%); }
+  .expedition-restored-v42 .expedition-restored-cards--modes .expedition-restored-icon { height:64px; }
+}
+@media (orientation:landscape) and (max-height:300px) {
+  .ceremony-screen.expedition-restored-v42 { padding:4px 6px; }
+  .expedition-restored-v42.expedition-planner .expedition-planner__panel { height:100%; grid-template-rows:44px minmax(0,1fr) 44px; gap:2px; }
+  .expedition-restored-v42 .expedition-heading { grid-area:1/1; padding:0; justify-content:flex-end; pointer-events:none; }
+  .expedition-restored-v42 .expedition-heading > div { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+  .expedition-restored-v42 .expedition-close { pointer-events:auto; }
+  .expedition-restored-v42 .expedition-restored-tabs { grid-area:1/1; width:min(270px,calc(100% - 50px)); margin:0 48px 0 0; justify-self:center; gap:8px; }
+  .expedition-restored-v42 .expedition-content { grid-area:2/1; padding:0 1px; scrollbar-gutter:auto; }
+  .expedition-restored-v42 .expedition-restored-cards { gap:8px; height:100%; }
+  .expedition-restored-v42 .expedition-restored-card { min-height:121px; padding:6px 8px; grid-template-rows:25px 14px 22px 44px; gap:1px; }
+  .expedition-restored-v42 .expedition-restored-card::before { border-image-width:9px; }
+  .expedition-restored-v42 .expedition-restored-icon { display:none; }
+  .expedition-restored-v42 .expedition-restored-card h3 { font-size:12px; line-height:1.12; }
+  .expedition-restored-v42 .expedition-restored-description p { margin:0; }
+  .expedition-restored-v42 .expedition-restored-description p:not(.expedition-restored-spins) { display:none; }
+  .expedition-restored-v42 .expedition-restored-spins { font-size:8px; white-space:nowrap; }
+  .expedition-restored-v42 .expedition-restored-spins b { font-size:11px; }
+  .expedition-restored-v42 .expedition-restored-price { flex-wrap:nowrap; gap:3px; }
+  .expedition-restored-v42 .expedition-restored-price .expedition-money > strong { flex:0 1 auto; font-size:clamp(11px,calc(120cqw / var(--price-chars)),18px); }
+  .expedition-restored-v42 .expedition-restored-price .expedition-money > small,
+  .expedition-restored-v42 .expedition-restored-price > small { font-size:8px; }
+  .expedition-restored-v42 .expedition-restored-buy.alchemy-button { width:min(155px,100%); }
+  .expedition-restored-v42 .expedition-restored-buy .alchemy-button__label { font-size:10px; }
+  .expedition-restored-v42 .expedition-summary { grid-area:3/1; width:100%; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:4px; }
+  .expedition-restored-v42 .expedition-summary__mode { display:none; }
+  .expedition-restored-v42 .expedition-summary:not(.expedition-summary--confirmation) > div:first-child { grid-row:1; display:block; text-align:center; }
+  .expedition-restored-v42 .expedition-summary:not(.expedition-summary--confirmation) > div:first-child > span:first-child { font-size:8px; margin:0; }
+  .expedition-restored-v42 .expedition-summary .expedition-money > strong { font-size:13px; }
+  .expedition-restored-v42 .expedition-shop-bet { grid-row:1; width:100%; gap:3px; }
+  .expedition-restored-v42 .expedition-shop-bet > span:first-child { display:none; }
+  .expedition-restored-v42 .expedition-shop-bet > div { width:100%; }
+  .expedition-restored-v42 .expedition-restored-cards--modes { grid-template-columns:minmax(0,1fr); height:auto; }
+  .expedition-restored-v42 .expedition-restored-mode-note { font-size:9px; margin-bottom:4px; }
+  .expedition-restored-v42 .expedition-restored-cards--modes .expedition-restored-card { grid-template-rows:24px 24px 44px; min-height:110px; }
+  .expedition-restored-v42 .expedition-restored-cards--modes .expedition-restored-description { display:none; }
+  .expedition-restored-v42 .expedition-summary--confirmation { grid-template-columns:minmax(0,1fr) minmax(0,1.7fr); padding:0; gap:6px; }
+  .expedition-restored-v42 .expedition-confirmation-cost > span:first-child { font-size:8px; line-height:1.1; margin:0; }
+  .expedition-restored-v42 .expedition-confirmation-cost > span:first-child > small { font-size:7px; line-height:1.1; }
+  .expedition-restored-v42 .expedition-confirmation-cost > .expedition-money > strong { font-size:15px; }
+  .expedition-restored-v42 .expedition-actions { gap:5px; }
+  .expedition-restored-v42 .expedition-actions .alchemy-button__label { inset-inline:12%; font-size:9px; }
+  .expedition-restored-v42 .expedition-confirmation { padding:9px 12px; }
+  .expedition-restored-v42 .expedition-confirmation::before { border-image-width:9px; }
+  .expedition-restored-v42 .expedition-confirmation > .expedition-eyebrow { display:none; }
+  .expedition-restored-v42 .expedition-confirmation > h3 { font-size:16px; margin:0 0 6px; }
+  .expedition-restored-v42 .expedition-confirmation__visual { grid-template-columns:minmax(0,1fr); gap:0; }
+  .expedition-restored-v42 .expedition-confirmation__visual > .expedition-art { display:none; }
+  .expedition-restored-v42 .expedition-quote > div { padding:4px 0; gap:8px; }
+  .expedition-restored-v42 .expedition-quote dt { font-size:9px; }
+  .expedition-restored-v42 .expedition-quote dt small { font-size:8px; }
+  .expedition-restored-v42 .expedition-quote dd .expedition-money > strong { font-size:15px; }
+  .expedition-restored-v42 .expedition-confirmation > p { margin:6px 0; font-size:10px; line-height:1.35; }
+}
+.expedition-restored-v42[data-reduced-motion] .alchemy-button__visual,
+.expedition-restored-v42[data-reduced-motion] .alchemy-button__art > img { transition:none; }

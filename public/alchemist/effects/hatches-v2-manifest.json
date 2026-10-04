@@ -1,0 +1,724 @@
+{
+  "version": 13,
+  "revision": "living-background-worlds-v13",
+  "source": "art-source/pirate/curtains-v13",
+  "art": "Accepted v12 rasters preserved; generated transparent current/fire/gold/emerald streams and independent particles on a new atlas page.",
+  "geometryLod": {
+    "reference": "art-source/pirate/curtains-v12/reference-high",
+    "grids": {
+      "spirit-face": [
+        12,
+        14
+      ],
+      "spirit-eyeL": [
+        6,
+        6
+      ],
+      "spirit-eyeR": [
+        6,
+        6
+      ],
+      "spirit-jaw": [
+        8,
+        6
+      ],
+      "spirit-leftDevice": [
+        3,
+        5
+      ],
+      "spirit-rightDevice": [
+        3,
+        5
+      ],
+      "companion": [
+        8,
+        8
+      ],
+      "wave-left": [
+        5,
+        6
+      ],
+      "wave-right": [
+        5,
+        6
+      ],
+      "cannon": [
+        1,
+        10
+      ],
+      "treasure": [
+        1,
+        10
+      ],
+      "jellyfish": [
+        10,
+        12
+      ],
+      "tentacle-left": [
+        4,
+        6
+      ],
+      "tentacle-right": [
+        4,
+        6
+      ]
+    },
+    "screenCriterion": "At most 1 CSS px sampled UV displacement for a 120 CSS px-wide reel; world scale is reel width / 320. Cloth, bones, slots and animation channels remain identical."
+  },
+  "revealSeconds": 3.3,
+  "events": {
+    "release": 0.4,
+    "open": 1.05,
+    "award": 2.65
+  },
+  "portraitScale": 1.85,
+  "handoff": {
+    "start": 2.85,
+    "end": 3.3,
+    "method": "Quintic blend to reflected incoming idle motion"
+  },
+  "atlas": {
+    "width": 2048,
+    "height": 3840,
+    "regions": 85,
+    "pages": [
+      {
+        "name": "hatches-v2.webp",
+        "width": 2048,
+        "height": 3840,
+        "preserved": true
+      },
+      {
+        "name": "hatches-acting-v12.webp",
+        "width": 1280,
+        "height": 320
+      },
+      {
+        "name": "hatches-flow-v13.webp",
+        "width": 1280,
+        "height": 896
+      }
+    ]
+  },
+  "controls": [
+    {
+      "slot": "spirit-face",
+      "controls": [
+        "spirit-face-socket-0",
+        "spirit-face-socket-1",
+        "spirit-face-cheek-left",
+        "spirit-face-cheek-right"
+      ],
+      "grid": [
+        12,
+        14
+      ],
+      "referenceGrid": [
+        16,
+        18
+      ],
+      "vertices": 195,
+      "triangles": 336
+    },
+    {
+      "slot": "spirit-eyeL",
+      "controls": [
+        "spirit-eyeL-pupil"
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        8
+      ],
+      "vertices": 49,
+      "triangles": 72
+    },
+    {
+      "slot": "spirit-eyeR",
+      "controls": [
+        "spirit-eyeR-pupil"
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        8
+      ],
+      "vertices": 49,
+      "triangles": 72
+    },
+    {
+      "slot": "spirit-jaw",
+      "controls": [
+        "spirit-jaw-smile-left",
+        "spirit-jaw-smile-right",
+        "spirit-jaw-chin"
+      ],
+      "grid": [
+        8,
+        6
+      ],
+      "referenceGrid": [
+        12,
+        10
+      ],
+      "vertices": 63,
+      "triangles": 96
+    },
+    {
+      "slot": "spirit-leftDevice",
+      "controls": [
+        "spirit-leftDevice-tip"
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "referenceGrid": [
+        6,
+        10
+      ],
+      "vertices": 24,
+      "triangles": 30
+    },
+    {
+      "slot": "spirit-rightDevice",
+      "controls": [
+        "spirit-rightDevice-tip"
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "referenceGrid": [
+        6,
+        10
+      ],
+      "vertices": 24,
+      "triangles": 30
+    },
+    {
+      "slot": "companion",
+      "controls": [
+        "companion-wing-left",
+        "companion-wing-right"
+      ],
+      "grid": [
+        8,
+        8
+      ],
+      "referenceGrid": [
+        12,
+        10
+      ],
+      "vertices": 81,
+      "triangles": 128
+    },
+    {
+      "slot": "wave-left",
+      "controls": [
+        "wave-left-crest",
+        "wave-left-foam"
+      ],
+      "grid": [
+        5,
+        6
+      ],
+      "referenceGrid": [
+        10,
+        12
+      ],
+      "vertices": 42,
+      "triangles": 60
+    },
+    {
+      "slot": "wave-right",
+      "controls": [
+        "wave-right-crest",
+        "wave-right-foam"
+      ],
+      "grid": [
+        5,
+        6
+      ],
+      "referenceGrid": [
+        10,
+        12
+      ],
+      "vertices": 42,
+      "triangles": 60
+    },
+    {
+      "slot": "spirit-face",
+      "controls": [
+        "spirit-face-socket-0",
+        "spirit-face-socket-1",
+        "spirit-face-cheek-left",
+        "spirit-face-cheek-right"
+      ],
+      "grid": [
+        12,
+        14
+      ],
+      "referenceGrid": [
+        16,
+        18
+      ],
+      "vertices": 195,
+      "triangles": 336
+    },
+    {
+      "slot": "spirit-eyeL",
+      "controls": [
+        "spirit-eyeL-pupil"
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        8
+      ],
+      "vertices": 49,
+      "triangles": 72
+    },
+    {
+      "slot": "spirit-eyeR",
+      "controls": [
+        "spirit-eyeR-pupil"
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        8
+      ],
+      "vertices": 49,
+      "triangles": 72
+    },
+    {
+      "slot": "spirit-jaw",
+      "controls": [
+        "spirit-jaw-smile-left",
+        "spirit-jaw-smile-right",
+        "spirit-jaw-chin"
+      ],
+      "grid": [
+        8,
+        6
+      ],
+      "referenceGrid": [
+        12,
+        10
+      ],
+      "vertices": 63,
+      "triangles": 96
+    },
+    {
+      "slot": "spirit-leftDevice",
+      "controls": [
+        "spirit-leftDevice-tip"
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "referenceGrid": [
+        6,
+        10
+      ],
+      "vertices": 24,
+      "triangles": 30
+    },
+    {
+      "slot": "spirit-rightDevice",
+      "controls": [
+        "spirit-rightDevice-tip"
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "referenceGrid": [
+        6,
+        10
+      ],
+      "vertices": 24,
+      "triangles": 30
+    },
+    {
+      "slot": "cannon",
+      "controls": [
+        "cannon-barrel"
+      ],
+      "grid": [
+        1,
+        10
+      ],
+      "referenceGrid": [
+        12,
+        10
+      ],
+      "vertices": 22,
+      "triangles": 20
+    },
+    {
+      "slot": "spirit-face",
+      "controls": [
+        "spirit-face-socket-0",
+        "spirit-face-socket-1",
+        "spirit-face-cheek-left",
+        "spirit-face-cheek-right"
+      ],
+      "grid": [
+        12,
+        14
+      ],
+      "referenceGrid": [
+        16,
+        18
+      ],
+      "vertices": 195,
+      "triangles": 336
+    },
+    {
+      "slot": "spirit-eyeL",
+      "controls": [
+        "spirit-eyeL-pupil"
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        8
+      ],
+      "vertices": 49,
+      "triangles": 72
+    },
+    {
+      "slot": "spirit-eyeR",
+      "controls": [
+        "spirit-eyeR-pupil"
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        8
+      ],
+      "vertices": 49,
+      "triangles": 72
+    },
+    {
+      "slot": "spirit-jaw",
+      "controls": [
+        "spirit-jaw-smile-left",
+        "spirit-jaw-smile-right",
+        "spirit-jaw-chin"
+      ],
+      "grid": [
+        8,
+        6
+      ],
+      "referenceGrid": [
+        12,
+        10
+      ],
+      "vertices": 63,
+      "triangles": 96
+    },
+    {
+      "slot": "spirit-leftDevice",
+      "controls": [
+        "spirit-leftDevice-tip"
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "referenceGrid": [
+        6,
+        10
+      ],
+      "vertices": 24,
+      "triangles": 30
+    },
+    {
+      "slot": "spirit-rightDevice",
+      "controls": [
+        "spirit-rightDevice-tip"
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "referenceGrid": [
+        6,
+        10
+      ],
+      "vertices": 24,
+      "triangles": 30
+    },
+    {
+      "slot": "treasure",
+      "controls": [
+        "treasure-pile"
+      ],
+      "grid": [
+        1,
+        10
+      ],
+      "referenceGrid": [
+        10,
+        10
+      ],
+      "vertices": 22,
+      "triangles": 20
+    },
+    {
+      "slot": "spirit-face",
+      "controls": [
+        "spirit-face-socket-0",
+        "spirit-face-socket-1",
+        "spirit-face-cheek-left",
+        "spirit-face-cheek-right"
+      ],
+      "grid": [
+        12,
+        14
+      ],
+      "referenceGrid": [
+        16,
+        18
+      ],
+      "vertices": 195,
+      "triangles": 336
+    },
+    {
+      "slot": "spirit-eyeL",
+      "controls": [
+        "spirit-eyeL-pupil"
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        8
+      ],
+      "vertices": 49,
+      "triangles": 72
+    },
+    {
+      "slot": "spirit-eyeR",
+      "controls": [
+        "spirit-eyeR-pupil"
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        8
+      ],
+      "vertices": 49,
+      "triangles": 72
+    },
+    {
+      "slot": "spirit-jaw",
+      "controls": [
+        "spirit-jaw-smile-left",
+        "spirit-jaw-smile-right",
+        "spirit-jaw-chin"
+      ],
+      "grid": [
+        8,
+        6
+      ],
+      "referenceGrid": [
+        12,
+        10
+      ],
+      "vertices": 63,
+      "triangles": 96
+    },
+    {
+      "slot": "spirit-leftDevice",
+      "controls": [
+        "spirit-leftDevice-tip"
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "referenceGrid": [
+        6,
+        10
+      ],
+      "vertices": 24,
+      "triangles": 30
+    },
+    {
+      "slot": "spirit-rightDevice",
+      "controls": [
+        "spirit-rightDevice-tip"
+      ],
+      "grid": [
+        3,
+        5
+      ],
+      "referenceGrid": [
+        6,
+        10
+      ],
+      "vertices": 24,
+      "triangles": 30
+    },
+    {
+      "slot": "jellyfish",
+      "controls": [
+        "jellyfish-bell",
+        "jellyfish-tentacle-0",
+        "jellyfish-tentacle-1",
+        "jellyfish-tentacle-2",
+        "jellyfish-tentacle-3"
+      ],
+      "grid": [
+        10,
+        12
+      ],
+      "referenceGrid": [
+        14,
+        16
+      ],
+      "vertices": 143,
+      "triangles": 240
+    },
+    {
+      "slot": "tentacle-left",
+      "controls": [
+        "tentacle-left-curl"
+      ],
+      "grid": [
+        4,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        12
+      ],
+      "vertices": 35,
+      "triangles": 48
+    },
+    {
+      "slot": "tentacle-right",
+      "controls": [
+        "tentacle-right-curl"
+      ],
+      "grid": [
+        4,
+        6
+      ],
+      "referenceGrid": [
+        8,
+        12
+      ],
+      "vertices": 35,
+      "triangles": 48
+    }
+  ],
+  "animations": [
+    "drop",
+    "reveal",
+    "idle",
+    "win"
+  ],
+  "backgrounds": [
+    {
+      "type": "blue",
+      "newBones": 140,
+      "newSlots": 30,
+      "streamCopies": 10,
+      "motes": 20,
+      "tileGrid": [
+        4,
+        4
+      ],
+      "streamGrid": [
+        2,
+        8
+      ],
+      "backgroundTriangles": 680,
+      "previousBackgroundTriangles": 80,
+      "preservedPortraitClothAward": true
+    },
+    {
+      "type": "red",
+      "newBones": 140,
+      "newSlots": 30,
+      "streamCopies": 10,
+      "motes": 20,
+      "tileGrid": [
+        4,
+        4
+      ],
+      "streamGrid": [
+        2,
+        8
+      ],
+      "backgroundTriangles": 680,
+      "previousBackgroundTriangles": 80,
+      "preservedPortraitClothAward": true
+    },
+    {
+      "type": "gold",
+      "newBones": 140,
+      "newSlots": 30,
+      "streamCopies": 10,
+      "motes": 20,
+      "tileGrid": [
+        4,
+        4
+      ],
+      "streamGrid": [
+        2,
+        8
+      ],
+      "backgroundTriangles": 680,
+      "previousBackgroundTriangles": 80,
+      "preservedPortraitClothAward": true
+    },
+    {
+      "type": "green",
+      "newBones": 140,
+      "newSlots": 30,
+      "streamCopies": 10,
+      "motes": 20,
+      "tileGrid": [
+        4,
+        4
+      ],
+      "streamGrid": [
+        2,
+        8
+      ],
+      "backgroundTriangles": 680,
+      "previousBackgroundTriangles": 80,
+      "preservedPortraitClothAward": true
+    }
+  ]
+}

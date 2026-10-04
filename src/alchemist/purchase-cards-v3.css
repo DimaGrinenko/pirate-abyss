@@ -1,0 +1,191 @@
+/* Normal flow keeps the complete price above its action. The existing raster
+   panel uses nine slices, so its rounded corners never stretch with the card. */
+.purchase-screen .purchase-panel.purchase-cards-v3 {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  padding: 4px 6px 8px;
+}
+.purchase-screen .purchase-cards-v3 .experiment-options {
+  position: relative;
+  inset: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 22px;
+  width: min(760px, 100%);
+  height: auto;
+  min-height: 365px;
+  flex: 1 0 auto;
+}
+.purchase-screen .purchase-cards-v3 .experiment-card.bonus-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(80px, 1fr) auto auto auto;
+  gap: 10px;
+  justify-items: center;
+  align-content: stretch;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-width: 0;
+  min-height: 365px;
+  padding: 22px 25px 20px;
+}
+.purchase-screen .purchase-cards-v3 .experiment-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-image: url('/alchemist/ui/interface-panel.webp') 165 fill / 18px / 0 stretch;
+  filter: drop-shadow(0 6px 9px #00152190);
+}
+.purchase-screen .purchase-cards-v3 .experiment-card.gold::before {
+  filter: brightness(1.08) drop-shadow(0 6px 9px #00152190);
+}
+.purchase-screen .purchase-cards-v3 .experiment-mask {
+  position: relative;
+  inset: auto;
+  width: min(150px, 60%);
+  height: 100%;
+  min-height: 80px;
+  max-height: 156px;
+  align-self: center;
+}
+.purchase-screen .purchase-cards-v3 .experiment-copy {
+  position: static;
+  inset: auto;
+  width: 100%;
+  min-width: 0;
+}
+.purchase-screen .purchase-cards-v3 .experiment-card h3 {
+  display: block;
+  height: auto;
+  min-height: 2.2em;
+  align-content: center;
+  margin: 0 0 7px;
+  font: 800 clamp(20px, 7.2cqw, 28px)/1.1 Rubik, Arial, sans-serif;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+  color: #a4ffeb;
+  text-shadow: 0 3px 0 #073a52;
+}
+.purchase-screen .purchase-cards-v3 .experiment-card.gold h3 { color: #ffe59a; }
+.purchase-screen .purchase-cards-v3 .experiment-spins {
+  display: block;
+  font: 700 clamp(9px, 3.1cqw, 12px)/1.4 Rubik, Arial, sans-serif;
+  letter-spacing: .015em;
+  white-space: normal;
+  color: #d1fff1;
+}
+.purchase-screen .purchase-cards-v3 .experiment-spins b {
+  font-size: 1.4em;
+  color: #fff4b1;
+  margin-right: .15em;
+}
+.purchase-screen .purchase-cards-v3 .experiment-card p {
+  min-height: 2.7em;
+  margin: 7px 0 0;
+  font: 500 clamp(10px, 3.25cqw, 12px)/1.35 Rubik, Arial, sans-serif;
+  text-wrap: balance;
+  color: #c2eaf5;
+}
+.purchase-screen .purchase-cards-v3 .experiment-price {
+  width: 100%;
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+.purchase-screen .purchase-cards-v3 .experiment-price strong {
+  font: 800 clamp(23px, 9cqw, 35px)/1.1 Rubik, Arial, sans-serif;
+  color: #fff2ac;
+  overflow-wrap: anywhere;
+}
+.purchase-screen .purchase-cards-v3 .experiment-price span {
+  margin-top: 4px;
+  font: 700 clamp(10px, 3.2cqw, 12px)/1.3 Rubik, Arial, sans-serif;
+  letter-spacing: .06em;
+  color: #a2f7e7;
+}
+.purchase-screen .purchase-cards-v3 .experiment-buy.alchemy-button {
+  position: relative;
+  inset: auto;
+  width: min(256px, 100%);
+  min-height: 44px;
+  max-width: 100%;
+  margin: 0;
+  align-self: end;
+}
+.purchase-screen .purchase-cards-v3 .experiment-buy .alchemy-button__label {
+  font: 800 clamp(10px, 4.9cqw, 15px)/1.1 Rubik, Arial, sans-serif !important;
+}
+@media (orientation: portrait) and (max-width: 700px) {
+  .purchase-screen .purchase-cards-v3 .experiment-options {
+    width: min(350px, 100%);
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 365px;
+    gap: 0;
+  }
+  .purchase-screen .purchase-cards-v3 .experiment-card:not(.is-selected) { display: none; }
+  .purchase-screen .purchase-cards-v3 .experiment-tabs {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .purchase-screen .purchase-cards-v3 .experiment-tabs .alchemy-button { min-height: 44px; }
+  .purchase-screen .purchase-cards-v3 .experiment-tabs .alchemy-button__label {
+    font-size: clamp(9px, 5cqw, 12px);
+  }
+  .purchase-screen .purchase-cards-v3 .experiment-card.bonus-card { padding: 20px 23px 18px; }
+}
+@media (orientation: landscape) and (max-height: 620px) {
+  .purchase-screen .purchase-cards-v3 .experiment-options {
+    width: min(840px, 100%);
+    gap: 14px;
+    min-height: 244px;
+  }
+  .purchase-screen .purchase-cards-v3 .experiment-card.bonus-card {
+    grid-template-columns: minmax(55px, .38fr) minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 'art copy' 'art price' 'art action';
+    gap: 6px 10px;
+    min-height: 244px;
+    padding: 18px;
+  }
+  .purchase-screen .purchase-cards-v3 .experiment-mask {
+    grid-area: art;
+    width: 100%;
+    height: 120px;
+    min-height: 0;
+  }
+  .purchase-screen .purchase-cards-v3 .experiment-copy { grid-area: copy; }
+  .purchase-screen .purchase-cards-v3 .experiment-card h3 {
+    min-height: 2.2em;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .purchase-screen .purchase-cards-v3 .experiment-spins { font-size: 8px; }
+  .purchase-screen .purchase-cards-v3 .experiment-card p { font-size: 9px; margin-top: 5px; }
+  .purchase-screen .purchase-cards-v3 .experiment-price { grid-area: price; }
+  .purchase-screen .purchase-cards-v3 .experiment-price strong { font-size: 24px; }
+  .purchase-screen .purchase-cards-v3 .experiment-price span { font-size: 9px; margin-top: 3px; }
+  .purchase-screen .purchase-cards-v3 .experiment-buy.alchemy-button { grid-area: action; }
+}
+@media (orientation: landscape) and (max-width: 550px) {
+  .purchase-screen .purchase-cards-v3 .experiment-options { gap: 8px; min-height: 265px; }
+  .purchase-screen .purchase-cards-v3 .experiment-card.bonus-card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 50px auto auto auto;
+    grid-template-areas: 'art' 'copy' 'price' 'action';
+    min-height: 265px;
+    gap: 6px;
+    padding: 13px 12px;
+  }
+  .purchase-screen .purchase-cards-v3 .experiment-card::before { border-image-width: 12px; }
+  .purchase-screen .purchase-cards-v3 .experiment-mask { width: 64px; height: 50px; }
+  .purchase-screen .purchase-cards-v3 .experiment-card h3 { font-size: 14px; margin-bottom: 4px; }
+  .purchase-screen .purchase-cards-v3 .experiment-spins { font-size: 7px; }
+  .purchase-screen .purchase-cards-v3 .experiment-card p { font-size: 8px; line-height: 1.3; }
+  .purchase-screen .purchase-cards-v3 .experiment-price strong { font-size: 21px; }
+  .purchase-screen .purchase-cards-v3 .experiment-price span { font-size: 8px; }
+}

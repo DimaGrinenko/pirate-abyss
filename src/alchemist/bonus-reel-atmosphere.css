@@ -1,0 +1,105 @@
+/* Painted reflections, not a second sea inside the cabin. The continuous
+   background stays mounted; individual beats follow the real presentation. */
+.bonus-atmosphere { pointer-events: none; position: absolute; }
+.bonus-atmosphere img { display: block; position: absolute; object-fit: contain; pointer-events: none; }
+.bonus-atmosphere--world { inset: 0; z-index: -2; overflow: hidden; }
+.bonus-atmosphere--reels { inset: var(--reel-inset); z-index: 13; overflow: visible; }
+.bonus-depth-light,.bonus-undertow,.bonus-treasure-response { position: absolute; inset: 0; }
+.bonus-sea-mist { position:absolute; inset:0; overflow:visible; opacity:.52; transition:opacity .85s ease; }
+.bonus-sea-mist img { max-width:none; width:83%; height:64%; bottom:-28%; left:-25%; opacity:.38; mix-blend-mode:screen; animation:bonus-mist-drift 18s -7s ease-in-out infinite; }
+.bonus-sea-mist img:nth-child(2) { left:auto; right:-25%; bottom:-22%; opacity:.3; animation-duration:23s; animation-delay:-13s; animation-direction:reverse; }
+.bonus-sea-mist img:nth-child(3) { width:130%; height:51%; left:-15%; bottom:-35%; opacity:.18; animation-duration:27s; animation-delay:-17s; }
+.bonus-atmosphere[data-phase=spinning] .bonus-sea-mist { opacity:.82; }
+@keyframes bonus-mist-drift { 0%,100% { transform:translate3d(-4%,2%,0) scale(1) rotate(-3deg); } 50% { transform:translate3d(6%,-3%,0) scale(1.08) rotate(3deg); } }
+.bonus-depth-light { opacity: .74; transition: opacity .55s ease; }
+.bonus-atmosphere--world[data-phase=spinning] .bonus-depth-light { opacity: 1; }
+.bonus-atmosphere--world[data-rewarded=true] .bonus-depth-light { opacity: .62; }
+.bonus-depth-light__side { position: absolute; top: 6%; bottom: 4%; width: 28%; overflow: visible; mix-blend-mode: screen; }
+.bonus-depth-light__side--0 { left: -3%; }
+.bonus-depth-light__side--1 { right: -3%; }
+.bonus-depth-light__current { left: -50%; bottom: -15%; width: 190%; height: 63%; opacity: .26; transform-origin: 50% 100%; animation: bonus-floor-current 14.7s -5.4s ease-in-out infinite; }
+.bonus-depth-light__side--1 .bonus-depth-light__current { animation-duration: 17.3s; animation-delay: -10.1s; }
+.bonus-depth-light__lantern { left: -18%; top: -26%; width: 138%; height: 102%; opacity: .12; transform-origin: 50% 16%; animation: bonus-lantern-refract 12.4s -3.8s ease-in-out infinite; }
+.bonus-depth-light__side--1 .bonus-depth-light__lantern { animation-duration: 15.6s; animation-delay: -9.1s; }
+.bonus-atmosphere[data-mode=devastation] .bonus-depth-light__lantern { filter: hue-rotate(125deg); }
+.bonus-atmosphere[data-mode=reckoning] .bonus-depth-light__current { filter: hue-rotate(208deg) saturate(.74); }
+.bonus-depth-light__mote { position: absolute; top: 0; left: var(--mote-x); width: clamp(4px,.55vw,9px); height: clamp(4px,.55vw,9px); opacity: 0; animation: bonus-depth-mote var(--mote-cycle) var(--mote-phase) linear infinite; }
+.bonus-depth-light__mote img { width: 100%; height: 100%; animation: bonus-mote-tumble 5.4s var(--mote-phase) ease-in-out infinite; }
+.bonus-undertow__wake { bottom: -6%; width: 45%; height: 76%; opacity: 0; mix-blend-mode: screen; animation: bonus-spin-wake 1.15s cubic-bezier(.16,.62,.22,1) both; }
+.bonus-undertow__wake--0 { left: -19%; transform-origin: 20% 90%; }
+.bonus-undertow__wake--1 { right: -19%; transform-origin: 80% 90%; animation-delay: .065s; }
+.bonus-treasure-response__side { position: absolute; bottom: 6%; width: 24%; height: 76%; }
+.bonus-treasure-response__side--0 { left: 0; }
+.bonus-treasure-response__side--1 { right: 0; }
+.bonus-treasure-response__light { inset: 15% -15% auto; width: 130%; height: 75%; opacity: 0; mix-blend-mode: screen; animation: bonus-prize-light 1.4s ease-out both; }
+.bonus-treasure-response__coin { position: absolute; left: var(--coin-x); top: 72%; width: clamp(11px,1.45vw,24px); aspect-ratio: 1; opacity: 0; animation: bonus-prize-treasure 1.55s calc(var(--coin-order) * .09s) cubic-bezier(.22,.6,.34,1) both; }
+.bonus-treasure-response__coin img { width: 100%; height: 100%; animation: bonus-prize-turn 1.55s calc(var(--coin-order) * .09s) linear both; }
+.bonus-atmosphere__lanes { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); }
+.bonus-atmosphere__lane { position: relative; min-width: 0; }
+.bonus-stop-light,.bonus-reveal-current { position: absolute; inset: 0; }
+.bonus-stop-light img { width: 44%; height: auto; left: 28%; opacity: 0; mix-blend-mode: screen; animation: bonus-reel-contact .62s ease-out both; }
+.bonus-stop-light__top { top: -4%; }
+.bonus-stop-light__bottom { bottom: -4%; animation-delay: .055s !important; }
+/* ReelColumn's moving state, not a timeout or the requested stop count, owns
+   the contact instant. These selectors never modify the physical reel. */
+.reel-frame:has(> .reels > .reel-column[data-reel="0"].rolling) .bonus-atmosphere__lane[data-column="0"] .bonus-stop-light img,
+.reel-frame:has(> .reels > .reel-column[data-reel="1"].rolling) .bonus-atmosphere__lane[data-column="1"] .bonus-stop-light img,
+.reel-frame:has(> .reels > .reel-column[data-reel="2"].rolling) .bonus-atmosphere__lane[data-column="2"] .bonus-stop-light img,
+.reel-frame:has(> .reels > .reel-column[data-reel="3"].rolling) .bonus-atmosphere__lane[data-column="3"] .bonus-stop-light img,
+.reel-frame:has(> .reels > .reel-column[data-reel="4"].rolling) .bonus-atmosphere__lane[data-column="4"] .bonus-stop-light img,
+.reel-frame:has(> .reels > .reel-column[data-reel="5"].rolling) .bonus-atmosphere__lane[data-column="5"] .bonus-stop-light img { animation: none; opacity: 0; }
+.bonus-reveal-current__edge { position: absolute; width: 20%; height: 100%; top: 0; overflow: hidden; filter: hue-rotate(var(--reveal-hue)); mix-blend-mode: screen; }
+.bonus-reveal-current__edge--0 { left: -8%; }
+.bonus-reveal-current__edge--1 { right: -8%; }
+.bonus-reveal-current__edge img { width: 230%; height: 34%; left: -65%; top: 34%; opacity: 0; animation: bonus-curtain-current 1.45s cubic-bezier(.2,.6,.22,1) both; }
+.bonus-reveal-current__edge--1 img { animation-delay: .13s; }
+.bonus-reward-rim { position: absolute; left: 0; right: 0; bottom: -2%; height: 5%; }
+.bonus-reward-rim img { left: calc(8% + var(--rim-order) * 20%); width: 6%; height: auto; top: -30%; opacity: 0; mix-blend-mode: screen; animation: bonus-reward-polish .8s calc(var(--rim-order) * .055s) ease-out both; }
+
+/* Reuse existing under-symbol caustics; don't stack another opaque field wash
+   over symbols. The old repeating bubble border is replaced by contact beats. */
+.game-shell[data-bonus-mode] .reel-frame::before,
+.game-shell[data-bonus-mode] .reel-frame::after { display: none; }
+.game-shell[data-bonus-mode] .reel-waterlight__current { opacity: .23; animation-duration: 10.8s; }
+.game-shell[data-bonus-mode] .reel-waterlight__glow { opacity: .13; }
+.game-shell[data-bonus-mode] .reel-column.rolling .reel-waterlight { opacity: .75; }
+
+@keyframes bonus-floor-current { 0%,100% { transform: translate3d(-3%,3%,0) rotate(-6deg) scale(1); } 50% { transform: translate3d(4%,-4%,0) rotate(5deg) scale(1.12); } }
+@keyframes bonus-lantern-refract { 0%,100% { transform: rotate(-8deg) scaleX(.85); opacity: .09; } 52% { transform: rotate(9deg) scaleX(1.06); opacity: .19; } }
+@keyframes bonus-depth-mote { 0% { opacity: 0; transform: translate3d(0,85vh,0); } 14%,68% { opacity: .42; } 100% { opacity: 0; transform: translate3d(var(--mote-drift),-5vh,0); } }
+@keyframes bonus-mote-tumble { 0%,100% { transform: rotate(-20deg) scale(.72); } 50% { transform: rotate(110deg) scale(1); } }
+@keyframes bonus-spin-wake { 0% { opacity: 0; transform: translate3d(0,12%,0) rotate(-11deg) scale(.88); } 28% { opacity: .38; } 100% { opacity: 0; transform: translate3d(0,-18%,0) rotate(13deg) scale(1.08); } }
+@keyframes bonus-prize-light { 0% { opacity: 0; transform: scale(.7) rotate(-12deg); } 24% { opacity: .38; } 100% { opacity: 0; transform: scale(1.2) rotate(20deg); } }
+@keyframes bonus-prize-treasure { 0% { opacity: 0; transform: translate3d(0,15px,0) scale(.55); } 16% { opacity: .85; } 62% { opacity: .72; } 100% { opacity: 0; transform: translate3d(var(--coin-drift),-28vh,0) scale(.9); } }
+@keyframes bonus-prize-turn { 0% { transform: rotateY(-45deg) rotateZ(-22deg); } 100% { transform: rotateY(330deg) rotateZ(100deg); } }
+@keyframes bonus-reel-contact { 0% { opacity: 0; transform: scale(.3) rotate(-18deg); } 22% { opacity: .74; transform: scale(1) rotate(0); } 100% { opacity: 0; transform: scale(.65) rotate(35deg); } }
+@keyframes bonus-curtain-current { 0% { opacity: 0; transform: translate3d(0,110%,0) scaleX(.7); } 23% { opacity: .65; } 100% { opacity: 0; transform: translate3d(0,-190%,0) scaleX(1.05); } }
+@keyframes bonus-reward-polish { 0% { opacity: 0; transform: scale(.4) rotate(-10deg); } 24% { opacity: .8; transform: scale(1) rotate(15deg); } 100% { opacity: 0; transform: scale(.5) rotate(60deg); } }
+
+.bonus-atmosphere[data-paused=true] *,
+.bonus-atmosphere[data-offscreen=true] *,
+html[data-scenery-hidden=true] .bonus-atmosphere *,
+.game-shell[data-document-hidden=true] .bonus-atmosphere * { animation-play-state: paused !important; }
+.bonus-atmosphere[data-reduced=true] .bonus-depth-light__mote,
+.bonus-atmosphere[data-reduced=true] :is(.bonus-undertow,.bonus-treasure-response,.bonus-stop-light,.bonus-reveal-current,.bonus-reward-rim) { display: none; }
+.bonus-atmosphere[data-reduced=true] .bonus-depth-light img { animation: none; opacity: .09; }
+@media (prefers-reduced-motion: reduce) {
+  .bonus-atmosphere * { animation: none !important; transition: none !important; }
+  .bonus-atmosphere :is(.bonus-depth-light__mote,.bonus-undertow,.bonus-treasure-response,.bonus-stop-light,.bonus-reveal-current,.bonus-reward-rim) { display: none; }
+}
+@media (orientation: portrait) {
+  .bonus-depth-light__side { width: 42%; opacity: .75; }
+  .bonus-depth-light__side--0 { left: -17%; }
+  .bonus-depth-light__side--1 { right: -17%; }
+  .bonus-depth-light__current { height: 50%; }
+  .bonus-treasure-response__side { width: 13%; bottom: 20%; height: 55%; }
+  .bonus-treasure-response__coin { width: 12px; }
+  .bonus-undertow__wake { width: 70%; height: 60%; bottom: 12%; }
+  .bonus-undertow__wake--0 { left: -38%; }
+  .bonus-undertow__wake--1 { right: -38%; }
+}
+@media (orientation: landscape) and (max-height: 550px) {
+  .bonus-depth-light__mote:nth-child(even) { display: none; }
+  .bonus-treasure-response__coin { width: 11px; }
+  .bonus-stop-light img { width: 38%; left: 31%; }
+}

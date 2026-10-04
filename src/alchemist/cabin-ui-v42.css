@@ -1,0 +1,14 @@
+/* Clean cartoon gold and petrol teal repeat the actual reel frame. */
+.game-shell .captain-deck { --deck-glass-art:url('/alchemist/ui/cabin-frame-v42.webp'); --utility-art:url('/alchemist/ui/cabin-control-v42.webp'); }
+.game-shell .captain-deck::before { border-image:var(--deck-glass-art) 64 fill / 12px / 0 stretch; background:rgba(5,52,66,.67); border-radius:12px; }
+.game-shell .captain-deck .captain-deck__spin::before,
+.game-shell .captain-deck .captain-deck__step::before,
+.game-shell .captain-deck .captain-deck__tool::before { background-image:url('/alchemist/ui/cabin-control-v42.webp'); }
+.game-shell .captain-deck .captain-deck__feature::before { background-image:url('/alchemist/ui/cabin-buy-v42.webp'); }
+.game-shell .captain-deck .captain-deck__feature::after { content:none; }
+.game-shell .captain-deck .captain-deck__feature > span,
+.game-shell .captain-deck .captain-deck__feature:disabled > span { top:70%; color:#fff4d6; text-shadow:0 1px 2px #07142c; }
+.game-shell .captain-deck .captain-deck__spin > img,
+.game-shell .captain-deck .captain-deck__step > img,
+.game-shell .captain-deck .captain-deck__tool > img { filter:brightness(0) invert(1) drop-shadow(0 1px 1px #102448); }
+.game-shell .captain-deck .captain-deck__tool[aria-pressed=true]::before { filter:brightness(1.17); }

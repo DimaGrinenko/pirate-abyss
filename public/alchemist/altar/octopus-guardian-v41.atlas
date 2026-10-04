@@ -1,0 +1,18 @@
+octopus-guardian-v41.webp
+size: 1262, 1580
+filter: Linear, Linear
+repeat: none
+octopus-body-v41
+ rotate: false
+ xy: 4, 4
+ size: 1254, 1254
+ orig: 1254, 1254
+ offset: 0, 0
+ index: -1
+octopus-eyelids-v41
+ rotate: false
+ xy: 4, 1262
+ size: 419, 314
+ orig: 419, 314
+ offset: 0, 0
+ index: -1

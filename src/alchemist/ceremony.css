@@ -1,0 +1,173 @@
+/* Screen composition follows the 1200 × 900 raster altar's physical coordinates. */
+.ceremony-screen,.ceremony-screen.celebration{position:fixed;inset:0;z-index:70;display:grid;place-items:center;justify-content:normal;align-content:normal;padding:0;overflow:hidden;background:#030909 url('/alchemist/environment/laboratory-walls-v43.webp') center/cover;backdrop-filter:none;isolation:isolate;text-align:center}
+.ceremony-screen:before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 44%,#07151270,#030808ec 80%)}
+.laboratory-welcome,.laboratory-loading{z-index:100}
+.ceremony-stage{position:relative;width:min(100vw,133.333svh);aspect-ratio:4/3;container-type:inline-size;isolation:isolate}
+.ceremony-stage>.altar-scene{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.ceremony-logo{position:absolute;left:32%;top:1.5%;width:36%;height:18%;object-fit:contain;filter:drop-shadow(0 5px 10px #000)}
+.ceremony-action.alchemy-button{position:absolute;left:35%;top:78%;width:30%;max-width:none;margin:0;min-width:0}
+.ceremony-footnote{position:absolute;left:0;right:0;bottom:7%;font-size:.8cqw;letter-spacing:.08em;color:#84928a}
+.welcome-prize{position:absolute;top:33%;left:33%;width:34%;color:#e9e5d4;text-shadow:0 3px 6px #000,0 0 25px #000}
+.welcome-prize>span{font-size:.72cqw;letter-spacing:.22em;color:#a0b8a6}
+.welcome-prize>strong{display:block;white-space:nowrap;font:600 6.4cqw/.98 Cormorant,Georgia,serif;letter-spacing:-.055em;margin:1.2cqw 0}
+.welcome-prize strong span{font-size:.6em;margin-left:.12em;color:#acd5ba}
+.welcome-prize>small{font-size:.7cqw;letter-spacing:.16em;color:#a5beb0}
+.welcome-specimen{position:absolute;top:37%;width:24%;color:#ebe4ce}
+.specimen-wild{left:10%}.specimen-scatter{right:10%}
+.specimen-art{width:74%;height:16cqw;margin:auto;filter:drop-shadow(0 4px 7px #000)}
+.specimen-art>.chemical-symbol{width:100%;height:100%}
+.specimen-pair{display:flex;width:100%;align-items:center}.specimen-pair>.chemical-symbol{flex:0 0 60%;margin:0 -5%;height:100%}
+.welcome-specimen h2{font:600 2.4cqw/1 Cormorant,Georgia,serif;margin:8.4cqw 0 .6cqw;text-shadow:0 2px 6px #000}
+.welcome-specimen p{font-size:.92cqw;line-height:1.6;color:#b5c5b7;margin:0;text-shadow:0 2px 5px #000}
+.reactor-loading{position:absolute;top:25%;left:36%;width:28%;display:flex;align-items:center;flex-direction:column;gap:1.5cqw;font-size:1.1cqw;color:#aec4b5}
+.reactor-loading>img{width:80%;height:25cqw;object-fit:contain;filter:drop-shadow(0 0 45px #47784466)}
+.reactor-loading .loading-track{width:100%;height:3px;margin:0;background:#adc7ab22}.reactor-loading .loading-track i{display:block;height:100%;background:#a9d9b9;box-shadow:0 0 14px #9bdaa8}
+.reward-heading{position:absolute;top:25%;left:23%;width:54%;text-shadow:0 2px 6px #000,0 0 18px #000}
+.reward-heading>span,.purchase-heading>span{font-size:.82cqw;letter-spacing:.28em;color:#a8c3ad}
+.ceremony-screen .reward-heading h2{font:600 4.5cqw/1.08 Cormorant,Georgia,serif;color:#ede6ce;margin:1cqw 0 0}
+.reactor-result{position:absolute;top:36%;left:30%;width:40%;text-shadow:0 3px 6px #000,0 0 25px #000}
+.reactor-result>strong{display:block;font:600 11cqw/1 Cormorant,Georgia,serif;color:#f0ebd7;font-variant-numeric:tabular-nums;letter-spacing:-.055em}
+.reactor-result>span{display:block;margin-top:1cqw;font-size:.85cqw;letter-spacing:.2em;line-height:1.7;color:#a9cdb8}
+.reactor-payout{top:40%;left:26%;width:48%}.reactor-payout>strong{font-size:5.5cqw;white-space:nowrap}.reactor-payout>span{margin-top:1.9cqw}
+.reward-caption{position:absolute;top:67%;left:25%;width:50%;font-size:1.05cqw;line-height:1.8;letter-spacing:.02em;color:#b9ccbf;text-shadow:0 2px 5px #000;margin:0}.reward-caption b{font:600 2.7cqw Cormorant,Georgia,serif;color:#e7dcb5;margin-right:.3em}
+.reward-gold .reactor-result>strong{color:#f3dfb6}
+.ceremony-close{position:absolute;right:7%;top:5%;z-index:5;width:44px;height:44px}
+.purchase-stage>.altar-scene{opacity:.3}
+.purchase-heading{position:absolute;top:4%;left:10%;width:80%;text-shadow:0 3px 8px #000}
+.purchase-heading h2{font:600 4cqw/1.2 Cormorant,Georgia,serif;margin:.6cqw 0 0;color:#eae2c9}
+.experiment-options{position:absolute;top:17%;left:16%;width:68%;height:74%;display:flex;justify-content:space-between;gap:3%}
+.experiment-tabs{display:none}
+.experiment-card.bonus-card{position:relative;width:48.5%;height:100%;padding:0;border:0;border-radius:0;background:none;box-shadow:none;isolation:isolate;container-type:inline-size}
+.experiment-plaque{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:-1;pointer-events:none;filter:drop-shadow(0 9px 10px #0009)}
+.experiment-mask{position:absolute;top:21%;left:26%;width:48%;height:24%}.experiment-mask>.chemical-symbol{width:100%;height:100%}
+.experiment-copy{position:absolute;top:45%;left:14%;width:72%}
+.experiment-card h3{height:14cqw;display:grid;align-content:center;font:600 8.5cqw/.92 Cormorant,Georgia,serif;color:#e4e5cc;letter-spacing:-.02em;margin:0 0 3cqw}
+.experiment-card.gold h3{color:#f0dab0}
+.experiment-spins{font-size:2.8cqw;color:#c0d4c4;white-space:nowrap;text-transform:uppercase;letter-spacing:.045em}.experiment-spins b{font-size:4cqw;color:#efedcd;margin-right:.3em}
+.experiment-card p{font-size:2.75cqw;line-height:1.65;min-height:0;margin:3cqw -4cqw;color:#9db4a4}
+.experiment-price strong{display:block;font:600 8.3cqw/1 Cormorant,Georgia,serif;color:#efead0}.experiment-price span{display:block;font-size:2.6cqw;color:#b4c6b5;letter-spacing:.1em;margin-top:2cqw}
+.experiment-buy.alchemy-button{position:absolute;left:14%;top:81%;width:72%;max-width:none}
+.purchase-balance{position:absolute;top:93%;left:0;width:100%;margin:0;font-size:.9cqw;color:#8da895}.purchase-balance b{color:#c2cbbb;font-weight:400;margin-left:.3em}.purchase-balance>span{padding:0 1.3em}
+.bonus-button.alchemy-button{width:250px;flex-shrink:0}
+.bonus-button.alchemy-button .alchemy-button__label{font-size:4.8cqw}
+@media(max-width:700px) and (orientation:portrait){
+ .ceremony-stage{width:100vw;height:min(100svh,140vw);aspect-ratio:auto}
+ .ceremony-logo{left:15%;top:0;width:70%;height:21%}
+ .welcome-stage{height:min(100svh,200vw)}
+ .welcome-stage>.altar-scene{bottom:auto;height:70%}
+ .welcome-prize{top:28%;left:17%;width:66%}.welcome-prize>span{font-size:1.7cqw}.welcome-prize>strong{font-size:13cqw;margin:3cqw 0}.welcome-prize>small{font-size:1.6cqw}
+ .welcome-specimen{top:49%;width:45%}.specimen-wild{left:4%}.specimen-scatter{right:4%}
+ .specimen-art{height:31cqw}.welcome-specimen h2{font-size:5cqw;margin:1cqw 0 2cqw}.welcome-specimen p{font-size:2.2cqw;line-height:1.7}
+ .ceremony-action.alchemy-button{left:17%;top:83%;width:66%}.welcome-start.alchemy-button{top:83%}
+ .ceremony-footnote{font-size:1.8cqw;bottom:3.5%}
+ .reactor-loading{top:25%;left:22%;width:56%;font-size:2.7cqw;gap:4cqw}.reactor-loading>img{height:55cqw}
+ .reward-heading{top:22%;left:3%;width:94%}.reward-heading>span{font-size:1.8cqw}.ceremony-screen .reward-heading h2{font-size:8.7cqw;margin:2cqw 0 0}
+ .reactor-result{left:8%;width:84%;top:36%}.reactor-result>strong{font-size:23cqw}.reactor-result>span{font-size:2cqw;margin-top:3cqw}
+ .reactor-payout{top:41%}.reactor-payout>strong{font-size:12cqw}.reactor-payout>span{margin-top:4cqw}
+ .reward-caption{left:5%;width:90%;top:69%;font-size:2.5cqw}.reward-caption b{font-size:5.5cqw}
+ .purchase-stage{height:min(100svh,200vw)}.purchase-stage>.altar-scene{opacity:.25}
+ .purchase-heading{top:4%;left:3%;width:94%}.purchase-heading>span{font-size:2cqw}.purchase-heading h2{font-size:7cqw;margin-top:3cqw}
+ .ceremony-close{top:0;right:3%;width:40px;height:40px}
+ .experiment-tabs{position:absolute;top:15%;left:3%;width:94%;display:flex;align-items:center;gap:2%}.experiment-tabs .alchemy-button{width:49%;opacity:.6}.experiment-tabs .alchemy-button[aria-pressed="true"]{opacity:1}.experiment-tabs .alchemy-button__label{font-size:5cqw;letter-spacing:.01em}
+ .experiment-options{top:25%;left:13%;width:74%;height:63%;gap:0}
+ .experiment-card.bonus-card{width:100%}.experiment-card:not(.is-selected){display:none}.experiment-card h3{font-size:9.6cqw}
+ .experiment-card p{font-size:3.2cqw;margin:3cqw -6cqw}.experiment-spins{font-size:3cqw;letter-spacing:0}.experiment-spins b{font-size:4.6cqw}
+ .experiment-price strong{font-size:10cqw}.experiment-price span{font-size:3.7cqw}
+ .experiment-buy.alchemy-button{left:10%;width:80%;top:81%}.experiment-buy .alchemy-button__label{font-size:5.8cqw}
+ .purchase-balance{top:92%;font-size:2.2cqw}
+ .bonus-button.alchemy-button{width:170px;left:6px;top:105px}
+}
+@media(max-height:740px) and (max-width:700px) and (orientation:portrait){.bonus-button.alchemy-button{top:78px;width:150px}}
+@media(max-height:550px) and (orientation:landscape){.bonus-button.alchemy-button{width:160px;max-width:160px}.ceremony-close{top:1%;right:2%;width:33px;height:33px}.purchase-heading{top:2%}.purchase-heading>span{font-size:1cqw}.purchase-balance{font-size:1.2cqw}.ceremony-footnote{font-size:1cqw}}
+
+/* Unified laboratory menu: modes never charge until the next paid spin. */
+.purchase-screen .purchase-stage{width:min(1120px,96vw);height:min(850px,96svh);aspect-ratio:auto;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;justify-items:center;gap:12px;padding:22px 28px 18px}
+.purchase-screen .purchase-heading{position:static;inset:auto;width:90%;margin:0}
+.purchase-screen .purchase-heading>span{font-size:10px;letter-spacing:.14em}
+.purchase-screen .purchase-heading h2{font-family:var(--display-font),sans-serif;font-size:clamp(23px,3cqw,34px);line-height:1.12;margin:7px 0 0}
+.purchase-screen .ceremony-close{top:14px;right:15px}
+.purchase-tabs{display:flex;gap:12px;width:min(380px,75%);justify-content:center}
+.purchase-tabs .alchemy-button{width:50%}
+.purchase-tabs [aria-selected="false"]{opacity:.75}
+.purchase-panel{width:100%;min-height:0;display:flex;flex-direction:column;align-items:center;scrollbar-width:thin;scrollbar-color:#a67bcd #231438}
+.purchase-screen .experiment-options{position:relative;inset:auto;width:min(730px,100%);height:auto;min-height:0;flex:1;gap:22px;justify-content:center}
+.purchase-screen .experiment-card.bonus-card{width:calc((100% - 22px)/2);max-width:354px;height:100%}
+.purchase-summary{width:100%;text-align:center;align-self:end}
+.purchase-screen .purchase-balance{position:static;inset:auto;margin:7px 0 0;font-size:11px}
+.purchase-active{margin:0;font-size:11px;line-height:1.45;color:#d9c5e8}
+.purchase-active b{color:#ecffbf;font-weight:700;margin-left:.35em}
+.purchase-active>span{display:inline-block;color:#fff0c4;margin-left:14px;white-space:nowrap}
+.mode-explanation{font-size:12px;color:#c7b4d7;line-height:1.4;margin:5px 12px 18px;text-align:center;max-width:600px}
+.mode-options{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:auto 0}
+.mode-card{position:relative;isolation:isolate;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:26px 16px 22px;container-type:inline-size}
+.mode-card:before{content:'';position:absolute;inset:0;z-index:-1;border-image:url('/alchemist/ui/interface-panel.webp') 165 fill / 18px / 0 stretch;filter:brightness(.92);transition:filter .18s}
+.mode-card.is-active:before{filter:brightness(1.14) drop-shadow(0 0 7px #b079e877)}
+.mode-art{height:116px;width:145px;max-width:90%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center}
+.mode-art>.chemical-symbol{width:100%;height:100%}
+.mode-art--catalysts{width:100%;max-width:none;gap:3px}
+.mode-art--catalysts>.chemical-symbol{flex:1 1 0;width:33.333%;margin:0}
+.mode-art--catalysts>.chemical-symbol:nth-child(2){transform:translateY(-6px)}
+.mode-copy{min-height:98px}
+.mode-copy h3{margin:0 0 10px;font-family:var(--display-font),sans-serif;font-size:clamp(17px,7.8cqw,23px);font-weight:800;color:#fff0c4;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+.mode-copy p{margin:0 auto;font-size:12px;line-height:1.5;color:#cfbddd;max-width:250px;text-wrap:balance}
+.mode-price{margin:12px 0 16px;font-variant-numeric:tabular-nums}
+.mode-price strong{display:block;font-size:22px;line-height:1.2;color:#fff1bf;font-weight:800;white-space:nowrap}
+.mode-price strong small{font-size:11px;font-weight:500;color:#cbbbda}
+.mode-price>span{display:block;color:#c6ee96;font-size:11px;margin-top:6px}
+.mode-card .mode-activate{width:min(230px,100%);margin-top:auto}
+.mode-insufficient{font-size:10px;color:#edc396;margin-top:8px}
+@media(max-width:700px) and (orientation:portrait){
+ .purchase-screen .purchase-stage{width:100vw;height:100svh;padding:42px 12px max(17px,env(safe-area-inset-bottom));gap:10px}
+ .purchase-screen .ceremony-close{top:5px;right:9px}
+ .purchase-screen .purchase-heading>span{font-size:8px}.purchase-screen .purchase-heading h2{font-size:25px;margin-top:6px}
+ .purchase-tabs{width:min(340px,96%);gap:10px}
+ .purchase-screen .experiment-tabs{position:static;inset:auto;width:94%;display:flex;margin:0 auto 7px;gap:8px;flex:none}
+ .purchase-screen .experiment-tabs .alchemy-button{width:calc((100% - 8px)/2)}
+ .purchase-screen .experiment-options{width:min(310px,86vw);gap:0;min-height:395px}
+ .purchase-screen .experiment-card.bonus-card{width:100%;max-width:none}
+ .purchase-panel{overflow-y:auto;overscroll-behavior:contain}
+ .purchase-screen .purchase-balance{font-size:10px;margin-top:4px}
+ .purchase-active{font-size:10px}.purchase-active>span{display:block;margin:2px 0 0}
+ .mode-explanation{font-size:11px;margin:0 8px 12px}
+ .mode-options{display:flex;flex-direction:column;gap:12px;margin:0;padding:0 4px 4px}
+ .mode-card{display:grid;grid-template-columns:72px minmax(0,1fr);grid-template-areas:'art copy' 'art price' 'art action';gap:4px 8px;padding:15px 18px;min-height:161px;flex:none}
+ .mode-card:before{border-image-width:14px}
+ .mode-art{grid-area:art;width:72px;height:91px;max-width:none;margin:0;align-self:center}
+ .mode-art--catalysts{width:90px;height:100px;position:relative;left:-9px;gap:0}
+ .mode-art--catalysts>.chemical-symbol{flex-basis:0;width:33.333%;margin:0}
+ .mode-copy{grid-area:copy;min-height:0}.mode-copy h3{font-size:17px;margin:0 0 5px}.mode-copy p{font-size:10px;line-height:1.4}
+ .mode-price{grid-area:price;margin:2px 0}.mode-price strong{font-size:17px}.mode-price strong small{font-size:10px}.mode-price>span{font-size:9px;margin-top:2px}
+ .mode-card .mode-activate{grid-area:action;justify-self:center;width:176px;max-width:100%;margin:0}
+ .mode-insufficient{grid-column:1/-1;font-size:9px;margin:2px 0 0}
+}
+@media(max-height:550px) and (orientation:landscape){
+ .purchase-screen .purchase-stage{width:min(1000px,97vw);height:98svh;padding:8px 20px;gap:5px}
+ .purchase-screen .purchase-heading h2{font-size:21px;margin:3px 0 0}.purchase-screen .purchase-heading>span{font-size:7px}
+ .purchase-screen .ceremony-close{top:6px;right:4px}
+ .purchase-tabs{width:280px;gap:10px}.purchase-panel{overflow-y:auto;overscroll-behavior:contain;padding:0 10px 4px}
+ .purchase-screen .experiment-options{width:min(650px,100%);height:510px;min-height:510px;flex:none}
+ .purchase-screen .experiment-card.bonus-card{max-width:305px}
+ .purchase-active{font-size:10px}.purchase-screen .purchase-balance{font-size:9px;margin-top:2px}
+ .mode-explanation{font-size:10px;margin:0 0 9px}.mode-options{gap:12px;margin:0}
+ .mode-card{padding:16px 10px}.mode-art{height:75px;width:100px;margin-bottom:7px}
+ .mode-art--catalysts{width:100%}.mode-copy{min-height:82px}.mode-copy h3{font-size:17px}.mode-copy p{font-size:10px}
+ .mode-price{margin:5px 0 10px}.mode-price strong{font-size:18px}.mode-price strong small{font-size:9px}
+ .mode-card .mode-activate{width:190px}
+}
+.mode-art--catalysts .chemical-symbol__multiplier{display:none}
+@media(max-height:550px) and (orientation:landscape){
+ .purchase-screen .experiment-options{height:100%;min-height:0;flex:1;width:min(840px,100%);gap:15px}
+ .purchase-screen .experiment-card.bonus-card{width:calc((100% - 15px)/2);max-width:none;min-height:0}
+ .purchase-screen .experiment-card:before{content:'';position:absolute;inset:0;z-index:-2;border-image:url('/alchemist/ui/interface-panel.webp') 165 fill / 15px / 0 stretch}
+ .purchase-screen .experiment-plaque{inset:0 auto 0 0;width:33%;height:100%;object-fit:contain}
+ .purchase-screen .experiment-mask{top:34%;left:7%;width:19%;height:28%}
+ .purchase-screen .experiment-copy{left:34%;top:7%;width:61%}
+ .purchase-screen .experiment-card h3{font-size:18px;height:37px;line-height:1;margin:0 0 5px}
+ .purchase-screen .experiment-spins{font-size:8px;letter-spacing:0}.purchase-screen .experiment-spins b{font-size:12px}
+ .purchase-screen .experiment-card p{font-size:9px;line-height:1.3;margin:7px 0}
+ .purchase-screen .experiment-price strong{font-size:20px}.purchase-screen .experiment-price span{font-size:8px;margin-top:3px}
+ .purchase-screen .experiment-buy{left:37%;top:auto;bottom:6%;width:55%}
+ .mode-card{padding:12px 10px}.mode-art{height:48px;margin-bottom:5px}.mode-copy{min-height:56px}.mode-copy h3{font-size:16px;margin-bottom:5px}.mode-copy p{font-size:10px;line-height:1.25}
+ .mode-price{margin:5px 0 8px}.mode-price strong{font-size:17px}.mode-price>span{font-size:9px;margin-top:2px}.mode-card .mode-activate{width:160px}
+}
+.purchase-screen.ceremony-screen:before{background:linear-gradient(#140c27bd,#10091fdf)}

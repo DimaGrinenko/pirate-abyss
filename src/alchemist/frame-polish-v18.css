@@ -1,0 +1,30 @@
+/* The transparent host is the exact reel aperture. Only the painted hardware
+   extends outwards; no change to the grid, cell sizes or centred machine. */
+.machine--connected .reel-frame > .alchemist-reel-frame--fitted {
+  --frame-overscan: clamp(12px, 5.2cqw, 44px);
+  position: absolute;
+  inset: var(--reel-inset);
+  overflow: visible;
+  z-index: 12;
+  pointer-events: none;
+}
+.machine--connected .alchemist-reel-frame--fitted > canvas {
+  position: absolute;
+  left: calc(-1 * var(--frame-overscan));
+  top: calc(-1 * var(--frame-overscan));
+  width: calc(100% + 2 * var(--frame-overscan));
+  height: calc(100% + 2 * var(--frame-overscan));
+  /* A shallow edge shadow gives the existing painted brass its physical depth. */
+  filter: drop-shadow(0 1px 1px #00172288);
+}
+.machine--connected .alchemist-reel-frame--fitted > .reel-frame-glint {
+  width: 5%;
+}
+.machine--connected .alchemist-reel-frame--fitted > .reel-frame-glint--0,
+.machine--connected .alchemist-reel-frame--fitted > .reel-frame-glint--2 { left: -1.4%; }
+.machine--connected .alchemist-reel-frame--fitted > .reel-frame-glint--1,
+.machine--connected .alchemist-reel-frame--fitted > .reel-frame-glint--3 { right: -1.4%; }
+.machine--connected .alchemist-reel-frame--fitted > .reel-frame-glint--0,
+.machine--connected .alchemist-reel-frame--fitted > .reel-frame-glint--1 { top: -1.4%; }
+.machine--connected .alchemist-reel-frame--fitted > .reel-frame-glint--2,
+.machine--connected .alchemist-reel-frame--fitted > .reel-frame-glint--3 { bottom: -1.4%; }

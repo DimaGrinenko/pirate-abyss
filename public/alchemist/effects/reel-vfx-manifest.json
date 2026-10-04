@@ -1,0 +1,12 @@
+{
+  "atlas": "reel-vfx-v36.atlas",
+  "texture": "reel-vfx-v36-ac6eba222b.webp",
+  "size": [
+    1536,
+    528
+  ],
+  "regions": 3,
+  "revision": "frame36-cartoon",
+  "geometry": "v18 exact aperture preserved",
+  "source": "art-source/pirate/frame-cartoon-v36"
+}

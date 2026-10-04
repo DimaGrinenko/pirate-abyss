@@ -1,0 +1,96 @@
+/* Each heading is one original painted atlas region. Its reserved aspect ratio
+   prevents loading or counting from moving the prize, captions or button. */
+.celebration.win-celebration h2.win-celebration__title.win-title--painted {
+  --title-art-height: clamp(82px, 18svh, 155px);
+  width: min(100%, calc(var(--title-art-height) * var(--title-art-ratio)));
+  max-width: 100%;
+  flex: none;
+  margin: 0 auto 11px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #fff0b7;
+  text-shadow: none;
+  -webkit-text-stroke: 0;
+  letter-spacing: 0;
+  font-size: inherit;
+  line-height: 1;
+  perspective: none;
+  transform: none;
+  filter: none;
+  animation: none;
+  container-type: inline-size;
+}
+.celebration.win-celebration .win-title--painted > .win-title__crop {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--title-art-ratio);
+  overflow: hidden;
+  isolation: isolate;
+  transform-origin: 50% 64%;
+  animation: painted-win-title-arrive 520ms cubic-bezier(.2, .76, .24, 1) both;
+}
+.celebration.win-celebration .win-title--painted .win-title__art {
+  position: absolute;
+  display: block;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+  transform: none;
+  animation: none;
+}
+.celebration.win-celebration .win-title--painted .win-title__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  padding: 3%;
+  color: #fff0b7;
+  background: none;
+  font: 400 clamp(17px, 8cqw, 46px)/1.08 var(--display-font), Georgia, serif;
+  text-wrap: balance;
+  text-shadow: 0 2px 2px #06242d;
+  -webkit-text-stroke: 0;
+  -webkit-text-fill-color: currentColor;
+  animation: none;
+}
+.celebration.win-celebration .win-title--painted[data-lettering-ready=true] .win-title__art { opacity: 1; }
+.celebration.win-celebration .win-title--painted[data-lettering-ready=true] .win-title__fallback { visibility: hidden; }
+
+@keyframes painted-win-title-arrive {
+  0% { opacity: .7; transform: translateY(7px) scale(.96); }
+  68% { opacity: 1; transform: translateY(-1px) scale(1.008); }
+  100% { opacity: 1; transform: none; }
+}
+@media (orientation: portrait) {
+  .celebration.win-celebration h2.win-celebration__title.win-title--painted {
+    --title-art-height: clamp(82px, 15svh, 122px);
+    margin-bottom: 10px;
+  }
+}
+@media (max-height: 450px) and (orientation: landscape) {
+  .celebration.win-celebration h2.win-celebration__title.win-title--painted {
+    --title-art-height: clamp(46px, 17svh, 76px);
+    margin-bottom: 5px;
+  }
+}
+@media (max-height: 270px) and (orientation: landscape) {
+  .celebration.win-celebration h2.win-celebration__title.win-title--painted {
+    --title-art-height: clamp(34px, 16svh, 43px);
+    margin-bottom: 3px;
+  }
+}
+.celebration.win-celebration[data-reduced-motion=true] .win-title--painted > .win-title__crop,
+.no-motion .celebration.win-celebration .win-title--painted > .win-title__crop {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .celebration.win-celebration .win-title--painted > .win-title__crop { animation: none; }
+}

@@ -1,0 +1,59 @@
+/* A single open composition: the professor and a clear reading column. */
+.laboratory-entry{position:fixed;inset:0;z-index:100;isolation:isolate;display:grid;place-items:center;overflow:hidden;background:#120c23;text-align:center;padding:24px}
+.entry-backdrop{position:absolute;inset:0;z-index:-2;background:url('/alchemist/environment/laboratory-walls-v43.webp') center/cover;opacity:.54}
+.laboratory-entry:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#10092512 5%,#130a2378 45%,#130a23d1 79%),linear-gradient(0deg,#0a071ec9,transparent 45%,#11092145)}
+.entry-layout{width:min(1200px,100%);height:min(810px,calc(100svh - 48px));display:grid;grid-template-columns:38% 62%;align-items:center;position:relative}
+.entry-professor{height:92%;max-height:770px;min-height:0;align-self:end;padding-bottom:10px;filter:drop-shadow(0 14px 19px #09031266)}
+.entry-content{height:100%;max-height:760px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-width:0}
+.entry-logo{width:min(90%,570px);height:auto;max-height:25%;object-fit:contain;filter:drop-shadow(0 5px 7px #0c031e88);margin:0 0 22px}
+.entry-prize{display:flex;flex-direction:column;gap:9px;margin:0 0 22px}
+.entry-prize strong{font-family:var(--display-font),sans-serif;font-size:clamp(48px,6.8vw,84px);font-weight:900;letter-spacing:-.055em;line-height:1;color:#fff0b6;text-shadow:0 4px 0 #422048}
+.entry-prize strong span{font-size:.58em;letter-spacing:0;color:#b5ed95;margin-left:.09em}
+.entry-prize>span{font-size:10px;letter-spacing:.17em;font-weight:600;color:#d5c3dc}
+.entry-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;max-width:750px;gap:14px;margin:14px 0 32px}
+.entry-feature{position:relative;isolation:isolate;min-width:0;display:flex;flex-direction:column;align-items:center;padding:20px 8px 26px}
+.entry-feature:before{content:'';position:absolute;inset:0;z-index:-1;border-image:url('/alchemist/ui/interface-panel.webp') 165 fill / 12px / 0 stretch;opacity:.76}
+.entry-symbols{height:clamp(90px,12vw,145px);width:100%;display:flex;align-items:center;justify-content:center}
+.entry-symbols>.chemical-symbol{height:100%;width:130px;max-width:100%;flex:0 1 130px}
+.entry-wilds>.chemical-symbol{width:50%;flex:0 1 50%;margin:0}
+.entry-feature h2{font:800 clamp(15px,1.65vw,21px)/1.15 var(--display-font),sans-serif;letter-spacing:-.025em;color:#fff0c4;margin:15px 0 10px;white-space:nowrap}
+.entry-feature p{font-size:clamp(10px,.9vw,12px);line-height:1.65;font-weight:400;color:#d3c4df;margin:0}
+.entry-feature--prize h2{color:#e5f6ad}.entry-feature--prize h2 span{color:#b5ed95;margin-left:.12em}
+.entry-start.alchemy-button{width:360px;max-width:88%;flex-shrink:0;margin:0}
+.entry-footnote{font-size:9px;letter-spacing:.045em;color:#9c88af;margin-top:14px}
+.entry-loader{display:flex;flex-direction:column;align-items:center;gap:16px;width:min(330px,80%);font-size:12px;color:#cab8d8}
+.entry-loader>img{width:185px;height:230px;object-fit:contain}
+.entry-progress{width:100%;height:5px;background:#7350883b;border-radius:6px;overflow:hidden}
+.entry-progress>i{display:block;height:100%;background:#c3f589;border-radius:6px;box-shadow:0 0 12px #9bf164;transition:width .2s}
+.entry-loading .entry-layout{grid-template-columns:1fr;width:min(620px,100%)}
+.entry-ready .entry-professor{animation:entry-arrive .95s cubic-bezier(.16,1,.3,1) both}
+.entry-ready .entry-content{animation:entry-arrive .75s .12s cubic-bezier(.16,1,.3,1) both}
+@keyframes entry-arrive{from{opacity:0;transform:translateY(17px)}to{opacity:1;transform:translateY(0)}}
+.entry-static .entry-professor,.entry-static .entry-content{animation:none}
+@media(max-width:700px) and (orientation:portrait){
+ .laboratory-entry{padding:14px 16px 18px;overflow:auto;place-items:start center}
+ .laboratory-entry:after{background:linear-gradient(0deg,#110a23ee 3%,#130a239d 55%,#10092138)}
+ .entry-layout{width:100%;height:min(850px,calc(100svh - 32px));min-height:625px;grid-template-columns:1fr;display:block}
+ .entry-professor{position:absolute;width:38%;height:27%;top:0;left:0;padding:0;max-height:330px;filter:drop-shadow(0 7px 10px #080217)}
+ .entry-content{height:100%;max-height:none;justify-content:flex-start;position:relative}
+ .entry-logo{align-self:flex-end;width:66%;height:25%;max-height:none;margin:0 0 14px;flex-shrink:0}
+ .entry-prize{height:29%;margin:0 0 4%;justify-content:center;align-self:flex-end;width:65%;gap:10px}
+ .entry-prize strong{font-size:clamp(43px,11.8vw,72px)}
+ .entry-prize>span{font-size:7px;letter-spacing:.09em}
+ .entry-features{grid-template-columns:1fr;gap:10px;margin:0 0 18px;max-width:400px}
+ .entry-feature{display:grid;grid-template-columns:94px minmax(0,1fr);grid-template-rows:auto auto;padding:10px 16px 10px 8px;column-gap:12px;min-height:103px;text-align:left}
+ .entry-symbols{grid-column:1;grid-row:1/3;height:83px}
+ .entry-feature h2{align-self:end;font-size:18px;margin:0 0 6px;white-space:normal}
+ .entry-feature p{align-self:start;font-size:11px;line-height:1.45}
+ .entry-start.alchemy-button{width:320px;max-width:96%;margin-top:auto}
+ .entry-footnote{font-size:8px;margin-top:12px}
+ .entry-loader{padding-top:7%;gap:20px}
+ .entry-loading .entry-content{justify-content:center}.entry-loading .entry-logo{align-self:center;width:90%;height:20%}
+}
+@media(max-height:620px) and (orientation:landscape){
+ .laboratory-entry{padding:12px 24px}.entry-layout{height:calc(100svh - 24px);max-width:920px;grid-template-columns:35% 65%}.entry-professor{height:100%;padding:0}.entry-content{height:100%}
+ .entry-logo{height:24%;max-height:none;width:70%;margin:0 0 8px}.entry-prize{gap:4px;margin:0 0 5px}.entry-prize strong{font-size:clamp(32px,8svh,53px)}.entry-prize>span{font-size:7px}
+ .entry-features{gap:10px;max-width:650px;margin:0 0 12px}.entry-feature{padding:10px 5px 14px}.entry-symbols{height:20svh}.entry-feature h2{font-size:13px;margin:8px 0 5px}.entry-feature p{font-size:9px;line-height:1.45}
+ .entry-start.alchemy-button{width:250px;height:auto}.entry-footnote{font-size:7px;margin-top:6px}.entry-loader>img{height:120px;width:110px}.entry-loader{gap:8px}
+}
+.entry-static .entry-professor,.entry-static .entry-content{animation:none!important}.entry-static .entry-progress>i{transition:none}

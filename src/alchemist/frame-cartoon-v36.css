@@ -1,0 +1,26 @@
+/* Generated smooth cartoon hardware; headers physically seat on the field. */
+.game-shell .machine--connected .wild-rail {
+  margin-bottom:calc(-1 * var(--reel-inset));
+  padding-inline:var(--reel-inset);
+}
+.game-shell .machine--connected .wild-type {
+  aspect-ratio:512 / 308;
+  transform:none;
+  filter:none;
+}
+.game-shell .machine--connected .wild-type .rail-art { display:block; object-fit:fill; }
+.game-shell .machine--connected .wild-type .rail-medallion {
+  top:12%;left:35%;width:30%;height:42%;
+}
+.game-shell .machine--connected .wild-type .rail-ribbon {
+  top:65%;bottom:auto;left:8%;right:8%;height:24%;
+}
+.game-shell .machine--connected .rail-jewel-light--left { left:20%;top:30%; }
+.game-shell .machine--connected .rail-jewel-light--right { right:20%;top:30%; }
+.game-shell .machine--connected .reel-column:nth-child(n+2):nth-child(-n+5)::before,
+.game-shell .machine--connected .reel-column:nth-child(n+2):nth-child(-n+5)::after {
+  background-image:url('/alchemist/effects/column-jamb-v36.webp');
+}
+.game-shell .machine--connected .wild-type:is(.activated,.unsealed,[data-opening]) .rail-art {
+  filter:brightness(1.08) drop-shadow(0 0 3px var(--wild));
+}

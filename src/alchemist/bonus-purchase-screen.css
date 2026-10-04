@@ -1,0 +1,79 @@
+/* v35: one painted teal/gold material, quiet navigation, legible money. */
+.game-shell .cabin-feature-button,.ceremony-screen.expedition-planner { --exp-panel-art:url('/alchemist/ui/v35/panel.webp'); }
+.game-shell .cabin-feature-button { position:relative; isolation:isolate; min-height:44px; border:0; border-radius:9px; background:transparent; color:#fff2cd; font-weight:750; text-shadow:none; transition:transform .12s ease,opacity .12s ease; }
+.game-shell .cabin-feature-button::before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; border:12px solid transparent; border-image:var(--exp-panel-art) 72 fill / 12px / 0 stretch; }
+.game-shell .cabin-feature-button:hover:not(:disabled) { background:transparent; box-shadow:0 0 0 2px #ffe0a160; }
+.game-shell .cabin-feature-button:active:not(:disabled) { transform:translateY(1px); }
+.game-shell .cabin-feature-button:disabled { opacity:.68; }
+.game-shell .cabin-feature-button:focus-visible { outline:3px solid #ffe6a7; outline-offset:2px; }
+.ceremony-screen.expedition-planner { --exp-ink:#174951; --exp-deep:#103f48; --exp-gold:#efc574; --exp-ivory:#fff2cd; --exp-muted:#c8d8ce; --exp-sea:#b2f2d9; }
+.ceremony-screen.expedition-planner::before { background:#082735c0; }
+.expedition-planner .expedition-planner__panel { position:relative; border-color:transparent; border-radius:15px; background:transparent; box-shadow:0 10px 30px #00151f80; }
+.expedition-planner__panel::before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; border:16px solid transparent; border-image:var(--exp-panel-art) 72 fill / 16px / 0 stretch; }
+.expedition-planner .expedition-heading h2 { color:var(--exp-ivory); text-shadow:none; }
+.expedition-planner .expedition-heading > div > span { color:var(--exp-sea); }
+.expedition-planner .expedition-tabs { border-color:#adc8b14d; gap:8px; }
+.expedition-planner .expedition-tabs > button { min-height:44px; border:0; border-radius:5px; background:transparent; color:var(--exp-muted); font-weight:650; }
+.expedition-planner .expedition-tabs > button[aria-selected=true] { background:#082e35a8; color:var(--exp-ivory); box-shadow:inset 0 -3px var(--exp-gold); }
+.expedition-planner .expedition-tabs > button:hover:not(:disabled) { background:#b5dcd015; }
+.expedition-planner .expedition-tabs > button:disabled { opacity:.7; }
+.expedition-planner .expedition-close { min-width:44px; min-height:44px; width:44px; height:44px; padding:7px; border:0; border-radius:6px; background:transparent; }
+.expedition-planner .expedition-close > img { width:28px; height:28px; }
+.expedition-planner .expedition-close:hover { background:#b5dcd015; }
+.expedition-planner .expedition-button { position:relative; isolation:isolate; min-height:44px; border:1px solid #afc1a778; border-radius:7px; background:#082e3580; color:var(--exp-ivory); box-shadow:none; text-shadow:none; transition:background-color .12s ease,transform .12s ease; }
+.expedition-planner .expedition-button--primary { border-color:transparent; background:transparent; color:var(--exp-ivory) !important; }
+.expedition-button--primary::before { content:''; position:absolute; inset:-1px; z-index:-1; border:12px solid transparent; border-image:var(--exp-panel-art) 72 fill / 12px / 0 stretch; pointer-events:none; }
+.expedition-planner .expedition-button:hover:not(:disabled) { background:#1f5960; }
+.expedition-planner .expedition-button--primary:hover:not(:disabled) { background:transparent; box-shadow:0 0 0 2px #ffe0a160; }
+.expedition-planner .expedition-button:disabled { opacity:.68; }
+.expedition-planner .expedition-content { scrollbar-color:#c3b273 #103f48; }
+.expedition-planner .expedition-choice,.expedition-planner .expedition-crew > button { border-color:#86ac9c78; background:#103a43; box-shadow:none; }
+.expedition-planner .expedition-choice[aria-pressed=true],.expedition-planner .expedition-crew > button[aria-pressed=true] { border-color:var(--exp-gold); background:#15555b; box-shadow:none; }
+.expedition-planner .expedition-choice:hover:not(:disabled),.expedition-planner .expedition-crew > button:hover:not(:disabled) { border-color:#c7e0c3; }
+.expedition-planner .expedition-choice__price { border-color:#9ebca755; }
+.expedition-planner .expedition-detail__note,.expedition-planner .expedition-rule-note,.expedition-planner .expedition-footnote { color:#c1d0c9; }
+.expedition-planner .expedition-commit { background:#072e3790; border-color:#94b69f70; }
+.expedition-planner .expedition-comparison { border-color:#93b1a27a; }
+.expedition-planner .expedition-comparison th,.expedition-planner .expedition-comparison td { border-color:#93b1a245; }
+.expedition-planner .expedition-comparison thead th { background:#13464e; }
+.expedition-planner .expedition-multipliers { border-color:#93b1a245; }
+.expedition-planner .expedition-home-reel > div > span,.expedition-planner .expedition-multipliers > div > span { border-color:#8bb7a17a; background:#123e47; color:#d1e5d8; }
+.expedition-planner .expedition-home-reel > div > span[data-home] { border-color:#edc578; background:#e7c37b; color:#163b42; }
+.expedition-planner .expedition-summary { background:#072e3760; border-color:#93b1a245; }
+.expedition-planner .expedition-summary__mode,.expedition-planner .expedition-quote__total { border-color:#93b1a260; }
+/* Confirmation actions occupy the panel's existing fixed footer grid row.
+   The quote remains in the separate scroll region, with no sticky overlay. */
+.expedition-planner .expedition-summary--confirmation { grid-template-columns:minmax(0,1fr) minmax(250px,1fr); gap:16px; padding:12px 24px; }
+.expedition-summary--confirmation .expedition-confirmation-cost > span:first-child { font-size:11px; line-height:1.3; }
+.expedition-summary--confirmation .expedition-confirmation-cost > span:first-child > small { display:block; margin-top:2px; font-size:10px; }
+.expedition-summary--confirmation .expedition-confirmation-cost > .expedition-money { color:var(--exp-sea); }
+.expedition-summary--confirmation .expedition-money > strong { font-size:21px; }
+.expedition-summary--confirmation .expedition-actions { margin:0; gap:12px; }
+.expedition-summary--confirmation .expedition-actions > button { min-height:44px; }
+@media (max-width:520px) { .expedition-planner .expedition-heading { padding:12px 14px 10px; } .expedition-planner__panel::before { border-image-width:13px; } }
+@media (max-width:520px) {
+  .expedition-planner .expedition-summary--confirmation { grid-template-columns:1fr; gap:8px; padding:10px 12px; }
+  .expedition-summary--confirmation .expedition-confirmation-cost { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:8px; }
+  .expedition-summary--confirmation .expedition-confirmation-cost > span:first-child { margin:0; font-size:10px; }
+  .expedition-summary--confirmation .expedition-confirmation-cost > span:first-child > small { font-size:9px; }
+  .expedition-summary--confirmation .expedition-confirmation-cost > .expedition-money { justify-content:flex-end; }
+  .expedition-summary--confirmation .expedition-money > strong { font-size:19px; }
+  .expedition-summary--confirmation .expedition-actions { gap:8px; }
+}
+@media (orientation:landscape) and (max-height:280px) {
+  .expedition-planner .expedition-planner__panel { grid-template-columns:minmax(0,1fr) 52px; grid-template-rows:48px minmax(0,1fr) auto; padding-top:4px; }
+  .expedition-planner__panel::before { border-image-width:11px; }
+  .expedition-planner .expedition-heading { padding:0 6px 4px 0; }
+  .expedition-planner .expedition-tabs { padding-top:0; gap:4px; }
+  .expedition-planner .expedition-tabs > button { padding-inline:4px; font-size:11px; }
+  .expedition-planner .expedition-content { border-color:#adc8b14d; }
+  .expedition-planner .expedition-summary--confirmation { grid-template-columns:minmax(90px,1fr) minmax(0,1.65fr); gap:10px; padding:6px 10px; }
+  .expedition-summary--confirmation .expedition-confirmation-cost { display:block; }
+  .expedition-summary--confirmation .expedition-confirmation-cost > span:first-child { font-size:9px; }
+  .expedition-summary--confirmation .expedition-confirmation-cost > span:first-child > small { font-size:8px; margin-top:0; }
+  .expedition-summary--confirmation .expedition-confirmation-cost > .expedition-money { justify-content:flex-start; margin-top:2px; }
+  .expedition-summary--confirmation .expedition-money > strong { font-size:17px; }
+  .expedition-summary--confirmation .expedition-actions > button { padding:7px 5px; }
+}
+@media (prefers-reduced-motion:reduce) { .game-shell .cabin-feature-button,.expedition-planner button { transition:none; } }
+.no-motion .cabin-feature-button,.expedition-planner[data-reduced-motion] button { transition:none; }

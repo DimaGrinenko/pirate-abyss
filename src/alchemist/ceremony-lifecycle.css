@@ -1,0 +1,6 @@
+/* Native Spine clips drive the props; live text follows the same exit phase. */
+.win-celebration[data-stage-exiting=true] .win-celebration__copy,
+.bonus-stage-v3[data-stage-exiting=true] .bonus-stage-v3__copy{animation:ceremony-copy-out .72s cubic-bezier(.4,0,.8,.5) both}
+.win-celebration[data-stage-exiting=true]::before,.bonus-stage-v3[data-stage-exiting=true]::before{transition:opacity .8s ease;opacity:.35}
+@keyframes ceremony-copy-out{0%{opacity:1;transform:translateY(0)}35%{opacity:1;transform:translateY(-3px)}100%{opacity:0;transform:translateY(18px)}}
+.no-motion [data-stage-exiting=true] .win-celebration__copy,.no-motion [data-stage-exiting=true] .bonus-stage-v3__copy{animation:none}

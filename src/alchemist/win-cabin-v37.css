@@ -1,0 +1,92 @@
+/* Existing tier actors and clocks now inhabit one award above the retained
+   reel field. The shell never paints a replacement room or full-screen veil. */
+.celebration.win-celebration.win-cabin {
+  display:grid; grid-template-columns:minmax(0,1fr); place-items:center; padding:0 14px;
+  background:transparent; backdrop-filter:none; overflow:hidden;
+}
+.celebration.win-celebration.win-cabin::before,.celebration.win-celebration.win-cabin::after { content:none; }
+.win-cabin-stage {
+  position:relative; left:calc(var(--bonus-card-x,50vw) - 50vw); isolation:isolate;
+  display:grid; grid-template-columns:minmax(0,1fr); place-items:center; box-sizing:border-box;
+  width:min(740px,var(--board-width,640px),calc(100vw - 28px));
+  height:min(470px,calc(100svh - var(--hud-height,96px) - 48px));
+  transform:translateY(calc(-.5 * var(--hud-height,96px)));
+  overflow:hidden; border-radius:26px; container-type:inline-size;
+}
+.win-cabin-stage::before {
+  content:''; position:absolute; inset:0; z-index:0; pointer-events:none; border:18px solid transparent;
+  border-image:url('/alchemist/ui/aquarium-panel-v37.webp') 100 / 18px / 0 stretch;
+  background:#063a4ce8; background-clip:padding-box; border-radius:26px;
+}
+.win-cabin-stage>.celebration-vfx { z-index:1; overflow:hidden; }
+.win-cabin-stage>.win-scenery { z-index:2; border-radius:24px; }
+.win-cabin__treasure { left:2%; bottom:7px; width:96%; height:40%; z-index:2; }
+.win-cabin__treasure .treasure-props__chest { width:24%; bottom:4%; }
+.win-cabin__treasure .treasure-props__chest--0 { left:-1%; }
+.win-cabin__treasure .treasure-props__chest--1 { right:-1%; }
+.win-cabin__treasure>.treasure-props__gold { width:90%; left:5%; }
+.celebration.win-cabin .win-celebration__amount,.win-cabin .win-amount__glyph { font-family:var(--pirate-number-font,var(--display-font,Rubik)),sans-serif; }
+/* Dark water contour separates every digit from the gold ship behind it.
+   The copy is already above the actor; gold-on-gold edging hid that boundary. */
+.win-cabin .win-amount__live .win-amount__glyph { color:#fff1b3; -webkit-text-stroke:.045em #043340; paint-order:stroke fill; text-shadow:0 0 .075em #043340,0 2px 0 #a06121,0 4px 0 #714515,0 7px 0 #05303b; }
+.win-cabin[data-count-complete=true] .win-amount__live { animation:cabin-win-total-arrive calc(650ms / var(--treasure-rate,1)) cubic-bezier(.17,.72,.2,1) both; }
+.win-cabin[data-count-complete=true] .win-cabin-stage::after { content:''; position:absolute; inset:4px; z-index:2; pointer-events:none; border:18px solid transparent; border-image:url('/alchemist/ui/aquarium-panel-v37.webp') 100 / 18px / 0 stretch; opacity:0; animation:cabin-win-rim-reward calc(1.1s / var(--treasure-rate,1)) ease-out both; }
+.win-cabin.win-tier--max .win-cabin__treasure .treasure-props__chest { width:28%; }
+.win-cabin.win-tier--max .win-scenery__halo { opacity:.42; }
+@keyframes cabin-win-total-arrive { 0%,100% { transform:translateY(0) scale(1); } 34% { transform:translateY(-3px) scale(1.055); } 68% { transform:translateY(1px) scale(.995); } }
+@keyframes cabin-win-rim-reward { 0% { opacity:0; transform:scale(.985); } 22% { opacity:.75; } 100% { opacity:0; transform:scale(1.015); } }
+.win-cabin .win-celebration__copy {
+  position:relative; z-index:3; box-sizing:border-box; container-type:inline-size;
+  width:66%; max-width:none; padding:16px 0; translate:none; transform:none;
+}
+.win-cabin .win-celebration__story { font-size:clamp(10px,2.8cqw,14px); margin-bottom:7px; text-wrap:balance; }
+.celebration.win-celebration.win-cabin h2.win-celebration__title.win-title--painted {
+  --title-art-height:clamp(58px,14svh,100px); margin-bottom:9px;
+}
+.celebration.win-celebration.win-cabin .win-celebration__amount {
+  font-size:clamp(20px,calc(96cqw / var(--amount-chars) / .66),70px); line-height:1.1;
+}
+.win-cabin .win-celebration__currency { font-size:11px; margin-top:4px; }
+.win-cabin .win-celebration__multiplier { font-size:17px; margin:8px 0; }
+.win-cabin .win-celebration__continue.alchemy-button { width:min(250px,92%); min-height:44px; margin:2px 0 0; }
+.win-cabin .win-scenery__salute-light { width:52cqw; }
+.win-cabin .win-scenery__halo { filter:none; }
+@media(orientation:portrait) {
+  .win-cabin-stage {
+    width:min(600px,calc(100vw - 28px));
+    height:min(430px,calc(100svh - var(--hud-height,110px) - var(--mobile-captain-height,120px) - 28px));
+    transform:translateY(8px);
+  }
+  .win-cabin .win-celebration__copy { width:78%; padding:16px 0; }
+  .celebration.win-celebration.win-cabin h2.win-celebration__title.win-title--painted { --title-art-height:clamp(52px,12svh,94px); }
+  .win-cabin .win-celebration__story { font-size:clamp(10px,3.5cqw,13px); }
+  .celebration.win-celebration.win-cabin .win-celebration__amount { font-size:clamp(17px,calc(94cqw / var(--amount-chars) / .66),62px); }
+  .win-cabin .win-celebration__multiplier { font-size:15px; margin:7px 0; }
+  .win-cabin .win-celebration__continue.alchemy-button { width:min(240px,100%); max-width:none; }
+}
+@media(orientation:landscape) and (max-height:550px) {
+  .win-cabin-stage { width:min(580px,calc(100vw - 130px)); height:calc(100svh - var(--hud-height,64px) - 32px); transform:translateY(-28px); }
+  .win-cabin .win-celebration__copy { width:70%; padding:8px 0; }
+  .celebration.win-celebration.win-cabin h2.win-celebration__title.win-title--painted { --title-art-height:clamp(38px,15svh,66px); margin-bottom:5px; }
+  .win-cabin .win-celebration__story { font-size:10px; margin-bottom:3px; }
+  .celebration.win-celebration.win-cabin .win-celebration__amount { font-size:clamp(18px,calc(94cqw / var(--amount-chars) / .66),52px); }
+  .win-cabin .win-celebration__multiplier { font-size:13px; margin:4px 0; }
+  .win-cabin .win-celebration__continue.alchemy-button { width:210px; }
+}
+@media(orientation:landscape) and (max-height:300px) {
+  .win-cabin-stage { width:min(480px,calc(100vw - 24px)); height:calc(100svh - var(--hud-height,64px) - 12px); transform:translateY(-30px); }
+  .win-cabin-stage::before { border-width:14px; border-image-width:14px; }
+  .win-cabin .win-celebration__copy { width:70%; padding:6px 0; }
+  .win-cabin .win-celebration__story { display:none; }
+  .celebration.win-celebration.win-cabin h2.win-celebration__title.win-title--painted { --title-art-height:30px; margin-bottom:1px; }
+  .celebration.win-celebration.win-cabin .win-celebration__amount { font-size:clamp(15px,calc(90cqw / var(--amount-chars) / .66),28px); line-height:1; }
+  .win-cabin .win-celebration__currency { font-size:8px; margin-top:1px; }
+  .win-cabin .win-celebration__multiplier { font-size:10px; margin:2px 0; }
+  .win-cabin .win-celebration__continue.alchemy-button { width:172px; min-height:44px; margin:0; }
+  .win-cabin .win-celebration__continue .alchemy-button__label { font-size:10px; }
+  .win-cabin__treasure { bottom:1px; height:42%; }
+  .win-cabin__treasure .treasure-props__chest,.win-cabin.win-tier--max .win-cabin__treasure .treasure-props__chest { width:21%; }
+}
+.win-cabin[data-reduced-motion=true] .win-cabin-stage::after { content:none; }
+html[data-scenery-hidden=true] .win-cabin *,html[data-scenery-hidden=true] .win-cabin *::before,html[data-scenery-hidden=true] .win-cabin *::after { animation-play-state:paused!important; }
+@media(prefers-reduced-motion:reduce) { .win-cabin-stage::after { content:none!important; } }

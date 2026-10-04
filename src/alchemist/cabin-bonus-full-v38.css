@@ -1,0 +1,60 @@
+/* Final user direction: a complete bonus stage hides the game, captain and HUD
+   until Start/Continue. It is a sea/treasure set, never the old octopus room. */
+.cabin-bonus--full .cabin-bonus__backdrop { inset:0; width:100vw; height:100svh; border-radius:0; background:#06475b; }
+.cabin-bonus--full .cabin-bonus__sea { inset:-18%; width:136%; height:136%; opacity:.31; }
+.cabin-bonus--full .cabin-bonus__fog--back { top:-42%; opacity:.32; }
+.cabin-bonus--full .cabin-bonus__fog--front { bottom:-43%; opacity:.54; }
+.cabin-bonus--full .cabin-bonus__card,.cabin-bonus--full[data-bonus-mode=captains_course] .cabin-bonus__card {
+  --portal-size:min(600px,72svh,65vw); --portal-head:56px;
+  left:50%; top:50%; width:min(1200px,96vw); height:min(850px,96svh); transform:translate(-50%,-50%);
+}
+.cabin-bonus--full .cabin-bonus__heading { top:8px; left:0; width:100%; }
+.cabin-bonus--full .cabin-bonus__heading>span { font-size:clamp(10px,1.2vw,13px); }
+.celebration.cabin-bonus--full .cabin-bonus__heading h2 { font-size:clamp(26px,3.2vw,42px); margin:0; }
+.cabin-bonus--full .cabin-bonus__artifact { left:50%; top:var(--portal-head); }
+.cabin-bonus--full .cabin-bonus__result { left:50%; top:calc(var(--portal-head) + var(--portal-size) * .45096); }
+.cabin-bonus--full .cabin-bonus__spins>strong { font-size:min(160px,calc(var(--portal-size) * .28),calc(var(--portal-size) * .64 / var(--spin-digits))); }
+.cabin-bonus--full .cabin-bonus__treasure { width:min(1060px,92%); left:50%; bottom:42px; aspect-ratio:2.5; transform:translateX(-50%); }
+.cabin-bonus--full[data-reduced-motion=false] .cabin-bonus__treasure { animation:none; }
+.cabin-bonus--full .cabin-bonus__result>strong { font-family:var(--pirate-number-font,var(--display-font,Rubik)),sans-serif; color:#fff2b5; -webkit-text-stroke:.6px #cc8531; paint-order:stroke fill; text-shadow:0 2px 0 #a06121,0 4px 0 #704112,0 7px 0 #043d48; }
+.cabin-bonus--full .cabin-bonus__caption { top:auto; bottom:3px; left:10%; width:80%; font-size:clamp(12px,1.4vw,16px); }
+.cabin-bonus--full .cabin-bonus__action.alchemy-button { left:50%; top:auto; bottom:38px; width:290px; min-height:44px; }
+.cabin-bonus--full .cabin-bonus__action .alchemy-button__label { font-size:14px; }
+@media(orientation:portrait) {
+  .cabin-bonus--full .cabin-bonus__card,.cabin-bonus--full[data-bonus-mode=captains_course] .cabin-bonus__card {
+    --portal-size:min(600px,calc(100vw - 20px),calc(100svh - 190px)); --portal-head:54px;
+    width:min(650px,calc(100vw - 16px)); height:calc(var(--portal-head) + var(--portal-size) + 98px);
+  }
+  .cabin-bonus--full .cabin-bonus__heading>span { font-size:10px; }
+  .celebration.cabin-bonus--full .cabin-bonus__heading h2 { font-size:clamp(23px,6.1vw,34px); }
+  .cabin-bonus--full .cabin-bonus__treasure { top:calc(var(--portal-head) + var(--portal-size) * .61); bottom:auto; width:98%; aspect-ratio:2.5; }
+  .cabin-bonus--full .treasure-props__chest { width:34%; }
+  .cabin-bonus--full .cabin-bonus__action.alchemy-button { top:calc(var(--portal-head) + var(--portal-size) * .93); bottom:auto; width:min(290px,70%); }
+  .cabin-bonus--full .cabin-bonus__action .alchemy-button__label { font-size:clamp(11px,3.2vw,14px); }
+  .cabin-bonus--full .cabin-bonus__caption { top:calc(var(--portal-head) + var(--portal-size) + 66px); bottom:auto; left:5%; width:90%; font-size:clamp(11px,3vw,14px); }
+}
+@media(orientation:landscape) and (max-height:550px) {
+  .cabin-bonus--full .cabin-bonus__card,.cabin-bonus--full[data-bonus-mode=captains_course] .cabin-bonus__card { --portal-head:48px; }
+  .cabin-bonus--full .cabin-bonus__heading>span { font-size:9px; }
+  .celebration.cabin-bonus--full .cabin-bonus__heading h2 { font-size:24px; }
+  .cabin-bonus--full .cabin-bonus__caption { bottom:0; font-size:11px; }
+  .cabin-bonus--full .cabin-bonus__action.alchemy-button { bottom:28px; width:225px; }
+}
+@media(orientation:landscape) and (max-height:300px) {
+  .cabin-bonus--full .cabin-bonus__card,.cabin-bonus--full[data-bonus-mode=captains_course] .cabin-bonus__card {
+    --portal-size:min(210px,88svh,54vw); --portal-head:0px; width:96vw; height:94svh;
+  }
+  .cabin-bonus--full .cabin-bonus__artifact { left:74%; top:0; }
+  .cabin-bonus--full .cabin-bonus__result { left:74%; top:calc(var(--portal-size) * .45096); }
+  .cabin-bonus--full .cabin-bonus__result>strong { font-size:40px; }
+  .cabin-bonus--full .cabin-bonus__spins>strong { font-size:min(56px,calc(var(--portal-size) * .28),calc(var(--portal-size) * .64 / var(--spin-digits))); }
+  .cabin-bonus--full .cabin-bonus__result>span { font-size:8px; }
+  .cabin-bonus--full .cabin-bonus__payout>strong { font-size:min(calc(var(--portal-size) * .17),calc(var(--portal-size) * .65 / var(--payout-length)),32px); }
+  .cabin-bonus--full .cabin-bonus__heading { left:2%; top:48px; width:43%; }
+  .cabin-bonus--full .cabin-bonus__heading>span { font-size:8px; }
+  .celebration.cabin-bonus--full .cabin-bonus__heading h2 { font-size:18px; margin-top:4px; }
+  .cabin-bonus--full .cabin-bonus__caption { left:3%; top:80px; bottom:auto; width:41%; font-size:9px; line-height:1.25; }
+  .cabin-bonus--full .cabin-bonus__action.alchemy-button { left:24%; bottom:9px; top:auto; width:44%; min-height:44px; }
+  .cabin-bonus--full .cabin-bonus__action .alchemy-button__label { font-size:10px; }
+  .cabin-bonus--full .cabin-bonus__treasure { left:42%; top:auto; bottom:8px; width:57%; transform:none; }
+}

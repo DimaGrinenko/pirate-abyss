@@ -1,0 +1,241 @@
+{
+  "project": "Pirate Abyss",
+  "spine": "4.2.43",
+  "generator": "scripts/generate-pirate-world.mjs",
+  "art": "Original generated pirate raster art; original alpha preserved",
+  "sources": [
+    {
+      "file": "construction.png",
+      "sha256": "0aa9590f6bff3ce3fe7976df8eb5f0de2822fce3d9b3a8999ddc609f35d90b83"
+    },
+    {
+      "file": "particles.png",
+      "sha256": "552036d05973ac475386ab56bd56a6a97da4414fbb5ff32654a4e52b96710245"
+    }
+  ],
+  "frame": {
+    "atlas": "reel-vfx.atlas",
+    "texture": "reel-vfx.webp",
+    "size": [
+      2048,
+      128
+    ],
+    "regions": 4
+  },
+  "reels": {
+    "atlas": "tarot-reels.atlas",
+    "texture": "tarot-reels.webp",
+    "size": [
+      2048,
+      832
+    ],
+    "regions": 43,
+    "revealSeconds": 1.8,
+    "multiplierSelectionSeconds": [
+      1.08,
+      1.6
+    ]
+  },
+  "environment": {
+    "atlas": "laboratory-motion-v36.atlas",
+    "texture": "laboratory-motion-v36.webp",
+    "size": [
+      2048,
+      448
+    ],
+    "regions": 4
+  },
+  "transition": {
+    "atlas": "raster-vfx.atlas",
+    "texture": "raster-vfx.webp",
+    "size": [
+      2048,
+      512
+    ],
+    "regions": 4,
+    "durationSeconds": 2.6,
+    "fullyCoveredSeconds": [
+      0.74,
+      1.1
+    ],
+    "doorsClosedAt": 0.72
+  },
+  "bigwin": {
+    "atlas": "bigwin-modular.atlas",
+    "texture": "bigwin-modular.webp",
+    "size": [
+      2048,
+      512
+    ],
+    "regions": 17,
+    "burstSeconds": 1.8,
+    "buildSeconds": 1.6,
+    "portraitWorldHeight": 3240
+  },
+  "altar": {
+    "atlas": "altar.atlas",
+    "texture": "altar.webp",
+    "size": [
+      2048,
+      768
+    ],
+    "regions": 9
+  },
+  "bonus": {
+    "atlas": "medallion.atlas",
+    "texture": "medallion.webp",
+    "size": [
+      2048,
+      320
+    ],
+    "regions": 10
+  },
+  "builds": [
+    {
+      "id": "reel-frame",
+      "dir": "public/alchemist/effects",
+      "atlas": "reel-vfx",
+      "width": 768,
+      "height": 644,
+      "bones": 33,
+      "attachments": 30,
+      "animations": [
+        "idle"
+      ]
+    },
+    {
+      "id": "reel-blue",
+      "dir": "public/alchemist/effects",
+      "atlas": "tarot-reels",
+      "width": 320,
+      "height": 1600,
+      "bones": 34,
+      "attachments": 23,
+      "animations": [
+        "reveal",
+        "idle",
+        "win"
+      ]
+    },
+    {
+      "id": "reel-red",
+      "dir": "public/alchemist/effects",
+      "atlas": "tarot-reels",
+      "width": 320,
+      "height": 1600,
+      "bones": 34,
+      "attachments": 23,
+      "animations": [
+        "reveal",
+        "idle",
+        "win"
+      ]
+    },
+    {
+      "id": "reel-gold",
+      "dir": "public/alchemist/effects",
+      "atlas": "tarot-reels",
+      "width": 320,
+      "height": 1600,
+      "bones": 34,
+      "attachments": 23,
+      "animations": [
+        "reveal",
+        "idle",
+        "win"
+      ]
+    },
+    {
+      "id": "reel-green",
+      "dir": "public/alchemist/effects",
+      "atlas": "tarot-reels",
+      "width": 320,
+      "height": 1600,
+      "bones": 34,
+      "attachments": 23,
+      "animations": [
+        "reveal",
+        "idle",
+        "win"
+      ]
+    },
+    {
+      "id": "laboratory-motion",
+      "dir": "public/alchemist/environment",
+      "atlas": "laboratory-motion",
+      "width": 1672,
+      "height": 941,
+      "bones": 25,
+      "attachments": 20,
+      "animations": [
+        "idle"
+      ]
+    },
+    {
+      "id": "ambient",
+      "dir": "public/alchemist/effects",
+      "atlas": "raster-vfx",
+      "width": 1600,
+      "height": 900,
+      "bones": 15,
+      "attachments": 14,
+      "animations": [
+        "idle"
+      ]
+    },
+    {
+      "id": "curtain",
+      "dir": "public/alchemist/effects",
+      "atlas": "raster-vfx",
+      "width": 1600,
+      "height": 900,
+      "bones": 6,
+      "attachments": 5,
+      "animations": [
+        "transition"
+      ]
+    },
+    {
+      "id": "bigwin",
+      "dir": "public/alchemist/effects",
+      "atlas": "bigwin-modular",
+      "width": 1600,
+      "height": 900,
+      "bones": 48,
+      "attachments": 39,
+      "animations": [
+        "burst",
+        "build",
+        "idle"
+      ]
+    },
+    {
+      "id": "altar",
+      "dir": "public/alchemist/altar",
+      "atlas": "altar",
+      "width": 1200,
+      "height": 900,
+      "bones": 31,
+      "attachments": 25,
+      "animations": [
+        "awakening",
+        "idle",
+        "pour",
+        "reward"
+      ]
+    },
+    {
+      "id": "medallion",
+      "dir": "public/alchemist/bonus",
+      "atlas": "medallion",
+      "width": 360,
+      "height": 360,
+      "bones": 12,
+      "attachments": 10,
+      "animations": [
+        "intro",
+        "idle"
+      ]
+    }
+  ]
+}

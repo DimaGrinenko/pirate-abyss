@@ -1,0 +1,141 @@
+laboratory-motion-v38.webp
+size: 2048, 960
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+glow
+  rotate: false
+  xy: 600, 4
+  size: 408, 408
+  orig: 408, 408
+  offset: 0, 0
+  index: -1
+twinkle
+  rotate: false
+  xy: 1668, 4
+  size: 291, 315
+  orig: 291, 315
+  offset: 0, 0
+  index: -1
+flame
+  rotate: false
+  xy: 1012, 4
+  size: 289, 379
+  orig: 289, 379
+  offset: 0, 0
+  index: -1
+kelpGreen
+  rotate: false
+  xy: 294, 4
+  size: 302, 549
+  orig: 302, 549
+  offset: 0, 0
+  index: -1
+kelpCyan
+  rotate: false
+  xy: 4, 4
+  size: 286, 572
+  orig: 286, 572
+  offset: 0, 0
+  index: -1
+fishOrange
+  rotate: false
+  xy: 4, 580
+  size: 350, 314
+  orig: 350, 314
+  offset: 0, 0
+  index: -1
+fishBlue
+  rotate: false
+  xy: 358, 580
+  size: 355, 308
+  orig: 355, 308
+  offset: 0, 0
+  index: -1
+bubble
+  rotate: false
+  xy: 1305, 4
+  size: 359, 343
+  orig: 359, 343
+  offset: 0, 0
+  index: -1
+
+fish-school-v38.webp
+size: 960, 512
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+clownfish
+ rotate: false
+ xy: 4, 4
+ size: 310, 234
+ orig: 310, 234
+ offset: 0, 0
+ index: -1
+blue-tang
+ rotate: false
+ xy: 324, 4
+ size: 310, 222
+ orig: 310, 222
+ offset: 0, 0
+ index: -1
+butterflyfish
+ rotate: false
+ xy: 644, 4
+ size: 294, 246
+ orig: 294, 246
+ offset: 0, 0
+ index: -1
+angelfish
+ rotate: false
+ xy: 4, 260
+ size: 250, 246
+ orig: 250, 246
+ offset: 0, 0
+ index: -1
+mint-fish
+ rotate: false
+ xy: 324, 260
+ size: 297, 246
+ orig: 297, 246
+ offset: 0, 0
+ index: -1
+pufferfish
+ rotate: false
+ xy: 644, 260
+ size: 310, 242
+ orig: 310, 242
+ offset: 0, 0
+ index: -1
+
+window-foreground-v13.png
+size: 416, 736
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+window-foreground-v13
+ rotate: false
+ xy: 0, 0
+ size: 416, 736
+ orig: 416, 736
+ offset: 0, 0
+ index: -1
+
+cabin-lantern-v25.webp
+size: 1152,944
+filter: Linear,Linear
+repeat: none
+lantern-restoration-v25
+ rotate: false
+ xy: 0,0
+ size: 576,944
+ orig: 576,944
+ offset: 0,0
+ index: -1
+lantern-body-v25
+ rotate: false
+ xy: 576,0
+ size: 576,944
+ orig: 576,944
+ offset: 0,0
+ index: -1

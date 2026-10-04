@@ -1,0 +1,34 @@
+/* Painted costume shading stays on the moving rig. A small, stationary raster
+   contact shadow anchors his boots without filtering the full canvas per frame. */
+.game-shell .character-view,
+.laboratory-entry .entry-professor { filter: none; }
+.captain-ground-shadow {
+  position: absolute;
+  left: 20%;
+  bottom: -1%;
+  width: 75%;
+  height: 8%;
+  object-fit: fill;
+  pointer-events: none;
+  opacity: .48;
+  filter: brightness(0);
+}
+.captain-platform {
+  position: absolute;
+  left: var(--captain-platform-left, 16%);
+  top: var(--captain-platform-top, 90%);
+  width: var(--captain-platform-width, 70%);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  transform: none;
+}
+.captain-poster {
+  position:absolute;
+  left:var(--captain-poster-left,0px);
+  top:var(--captain-poster-top,0px);
+  width:var(--captain-poster-width,100%);
+  height:var(--captain-poster-height,100%);
+  max-width:none; object-fit:fill;
+  pointer-events:none; user-select:none;
+}

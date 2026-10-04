@@ -1,0 +1,29 @@
+/* Each silhouette is authored to end naturally. The 1728px gold island is
+   capped below its native width, and its canvas never exceeds the viewport. */
+.treasure-props { position:absolute; pointer-events:none; isolation:isolate; }
+.cabin-bonus .treasure-props { --treasure-rate:var(--bonus-motion-rate,1); }
+.treasure-props__chest { position:absolute; z-index:1; bottom:5%; width:33%; --chest-lean:-1.3deg; --chest-arrive:-22px; }
+.treasure-props__chest--0 { left:4%; }
+.treasure-props__chest--1 { right:4%; --chest-lean:1.3deg; --chest-arrive:22px; }
+.treasure-props__chest-bob { transform-origin:50% 92%; }
+.treasure-props__chest-bob>img { display:block; width:100%; height:auto; }
+.treasure-props__chest--1 .treasure-props__chest-bob>img { transform:scaleX(-1); }
+.treasure-props>.treasure-props__gold { position:absolute; left:0; bottom:0; z-index:2; display:block; width:100%; height:auto; }
+.treasure-props__coins { position:absolute; inset:0; z-index:3; }
+.treasure-props__coins>span { position:absolute; left:var(--coin-x); top:54%; width:clamp(11px,2.2cqw,25px); aspect-ratio:1; opacity:0; }
+.treasure-props__coins img { width:100%; height:100%; object-fit:contain; }
+.celebration[data-reduced-motion=false] .treasure-props__chest { animation:treasure-chest-arrive calc(820ms / var(--treasure-rate)) cubic-bezier(.17,.72,.2,1) both; }
+.celebration[data-reduced-motion=false] .treasure-props__chest-bob { animation:treasure-chest-float calc(4.6s / var(--treasure-rate)) calc(820ms / var(--treasure-rate)) ease-in-out infinite; }
+.celebration[data-reduced-motion=false] .treasure-props__chest--1 .treasure-props__chest-bob { animation-duration:calc(5.1s / var(--treasure-rate)); }
+.celebration[data-reduced-motion=false] .treasure-props__gold { animation:treasure-gold-settle calc(820ms / var(--treasure-rate)) cubic-bezier(.17,.72,.2,1) both; }
+.celebration[data-reduced-motion=false] .treasure-props__coins>span { animation:treasure-coin-rise calc(var(--coin-cycle) / var(--treasure-rate)) calc(var(--coin-phase) / var(--treasure-rate)) ease-in-out infinite; }
+.celebration[data-reduced-motion=false] .treasure-props__coins img { animation:treasure-coin-turn calc(var(--coin-cycle) / var(--treasure-rate)) calc(var(--coin-phase) / var(--treasure-rate)) linear infinite; }
+.celebration[data-animation-held=true] .treasure-props *,html[data-scenery-hidden=true] .treasure-props * { animation-play-state:paused!important; }
+.celebration[data-reduced-motion=true] .treasure-props * { animation:none!important; }
+.celebration[data-reduced-motion=true] .treasure-props__coins { display:none; }
+@keyframes treasure-chest-arrive { 0%,8% { opacity:0; transform:translate(var(--chest-arrive),38px) rotate(calc(var(--chest-lean) * 4)); } 73% { opacity:1; transform:translate(0,-4px) rotate(calc(var(--chest-lean) * -.7)); } 100% { opacity:1; transform:translate(0,0) rotate(0); } }
+@keyframes treasure-chest-float { 0%,100% { transform:translateY(0) rotate(0); } 50% { transform:translateY(-5px) rotate(var(--chest-lean)); } }
+@keyframes treasure-gold-settle { 0%,16% { opacity:0; transform:translateY(22px); } 76% { opacity:1; transform:translateY(-2px); } 100% { opacity:1; transform:translateY(0); } }
+@keyframes treasure-coin-rise { 0%,8% { opacity:0; transform:translate(0,8px) scale(.7); } 24% { opacity:1; } 75% { opacity:.8; } 100% { opacity:0; transform:translate(var(--coin-drift),var(--coin-rise)) scale(1); } }
+@keyframes treasure-coin-turn { 0% { transform:rotate(0) rotateY(0); } 100% { transform:rotate(var(--coin-turn)) rotateY(360deg); } }
+@media(prefers-reduced-motion:reduce) { .treasure-props * { animation:none!important; } .treasure-props__coins { display:none; } }

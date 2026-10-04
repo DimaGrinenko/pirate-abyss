@@ -1,0 +1,35 @@
+.cabin-floor-crabs { position:absolute;inset:0;z-index:2;pointer-events:none;visibility:hidden;overflow:hidden; }
+.cabin-floor-crabs[data-fits=true] { visibility:visible; }
+.floor-crab__corridor { position:absolute;inset:0; }
+/* Each measured strip is separate; a narrow strip can carry one small crab
+   without requiring a second, arbitrarily wide empty corridor. */
+.floor-crab__lane { position:absolute;left:0;top:0;visibility:hidden; }
+.floor-crab__lane[data-enabled=true] { visibility:inherit; }
+.floor-crab__lane--second { --scuttle-duration:21.7s;--scuttle-delay:-12.4s;--step-duration:.31s; }
+.floor-crab__runner { position:absolute;left:0;top:0;width:var(--crab-size);height:var(--crab-size);animation:floor-crab-scuttle var(--scuttle-duration,17.6s) var(--scuttle-delay,-3.2s) ease-in-out infinite; }
+.floor-crab__pose { position:absolute;inset:0;animation:floor-crab-bob .56s -.19s ease-in-out infinite; }
+.floor-crab__part { position:absolute;display:block;object-fit:contain;pointer-events:none; }
+.floor-crab__leg-pair { position:absolute;inset:0;--leg-rest:0deg;--leg-delay:0s; }
+.floor-crab__leg-pair--0 { --leg-rest:-17deg;--leg-delay:-.11s; }
+.floor-crab__leg-pair--1 { --leg-rest:2deg;--leg-delay:-.22s; }
+.floor-crab__leg-pair--2 { --leg-rest:19deg;--leg-delay:-.33s; }
+.floor-crab__leg { transform-origin:52% 9%;animation:floor-crab-leg var(--step-duration,.36s) var(--leg-delay) ease-in-out infinite alternate; }
+.floor-crab__leg--right { animation-direction:alternate-reverse; }
+.floor-crab__claw { animation:floor-crab-claw 4.7s -.4s ease-in-out infinite; }
+.floor-crab__claw--right { animation-duration:5.9s;animation-delay:-2.7s;animation-direction:reverse; }
+.floor-crab__eye { transform-origin:50% 90%;animation:floor-crab-look 6.9s -2.8s ease-in-out infinite; }
+.floor-crab__eye--right { animation-delay:-2.9s; }
+.floor-crab__hat { transform-origin:50% 90%;animation:floor-crab-hat 2.3s -.7s ease-in-out infinite; }
+.floor-crab__lane--second .floor-crab__pose { transform:scale(.85);transform-origin:50% 84%;animation-name:floor-crab-small-bob; }
+@keyframes floor-crab-scuttle { 0%,7%,100%{transform:translate3d(0,0,0)}23%{transform:translate3d(calc(var(--crab-travel) * .48),0,0)}44%,51%{transform:translate3d(var(--crab-travel),0,0)}71%{transform:translate3d(calc(var(--crab-travel) * .37),0,0)}92%{transform:translate3d(0,0,0)} }
+@keyframes floor-crab-leg { from{transform:rotate(calc(var(--leg-rest) - 9deg))}to{transform:rotate(calc(var(--leg-rest) + 9deg))} }
+@keyframes floor-crab-bob { 0%,100%{transform:translate3d(0,0,0) rotate(-.7deg)}50%{transform:translate3d(0,-.7px,0) rotate(.7deg)} }
+@keyframes floor-crab-small-bob { 0%,100%{transform:scale(.85) translate3d(0,0,0) rotate(.8deg)}50%{transform:scale(.85) translate3d(0,-.7px,0) rotate(-.8deg)} }
+@keyframes floor-crab-claw { 0%,100%{transform:rotate(-6deg)}35%{transform:rotate(9deg)}63%{transform:rotate(1deg)} }
+@keyframes floor-crab-look { 0%,100%{transform:rotate(-4deg)}40%,58%{transform:rotate(5deg)} }
+@keyframes floor-crab-hat { 0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)} }
+.cabin-floor-crabs[data-paused=true] *, .cabin-floor-crabs[data-fits=false] *, html[data-scenery-hidden=true] .cabin-floor-crabs * { animation-play-state:paused!important; }
+.floor-crab__lane[data-enabled=false] * { animation-play-state:paused!important; }
+.cabin-floor-crabs[data-reduced=true] * { animation:none!important; }
+.cabin-floor-crabs[data-reduced=true] .floor-crab__runner { transform:translateX(calc(var(--crab-travel) * .4)); }
+@media(prefers-reduced-motion:reduce) { .cabin-floor-crabs *{animation:none!important;} }

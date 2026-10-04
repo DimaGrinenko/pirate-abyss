@@ -1,0 +1,64 @@
+{
+  "world": {
+    "width": 1672,
+    "height": 941
+  },
+  "body": {
+    "x": 1334,
+    "y": 654,
+    "width": 146,
+    "height": 134
+  },
+  "hinge": {
+    "x": 1414,
+    "y": 662,
+    "left": 1351,
+    "right": 1477,
+    "overlapBehindRearWall": 8,
+    "innerFaceBottom": 326
+  },
+  "sources": {
+    "body": {
+      "x": 37,
+      "y": 21,
+      "width": 686,
+      "height": 486
+    },
+    "outer": {
+      "x": 783,
+      "y": 153,
+      "width": 720,
+      "height": 325
+    },
+    "inner": {
+      "x": 38,
+      "y": 562,
+      "width": 694,
+      "height": 408
+    },
+    "coin": {
+      "x": 879,
+      "y": 564,
+      "width": 256,
+      "height": 208
+    },
+    "diamond": {
+      "x": 1217,
+      "y": 578,
+      "width": 206,
+      "height": 206
+    },
+    "ruby": {
+      "x": 931,
+      "y": 793,
+      "width": 164,
+      "height": 169
+    },
+    "emerald": {
+      "x": 1203,
+      "y": 784,
+      "width": 164,
+      "height": 186
+    }
+  }
+}

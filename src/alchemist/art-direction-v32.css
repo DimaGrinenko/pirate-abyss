@@ -1,0 +1,110 @@
+/* Cabin, playfield and controls share one hierarchy: painted world, readable
+   playfield, steady data deck. Keep decorative light below event accents. */
+.game-shell { --board-width:min(700px,calc((100svh - 237px - var(--session-meta-height,0px))*1.2),calc(100vw - 320px)); }
+.game-shell > .control-wrap { width:min(1100px,calc(100vw - 32px)); max-width:1100px; }
+.game-shell .environment::after { background:#021a2438; }
+.game-shell .cabin-wall-relic { opacity:.79; }
+.game-shell .reel-frame { box-shadow:0 6px 20px #00131f80; }
+.game-shell .reels { background-color:#082e39; background-image:none; }
+.game-shell .reel-column { background-image:none; }
+.game-shell .reel-frame-glint { display:none; }
+.game-shell .rail-ribbon { color:#fff0d0; font-weight:750; letter-spacing:.025em; text-shadow:0 1px 1px #12333d; }
+.game-shell .rail-jewel-light { opacity:0; }
+.captain-deck__money strong { letter-spacing:0; }
+.entry-welcome .entry-professor { box-sizing:border-box; padding-left:clamp(16px,5.5vw,66px); }
+.cabin-feature-button {
+  position:relative; display:flex; align-items:center; justify-content:center; gap:8px;
+  width:min(100%,190px); min-height:44px; margin:6px 0 0; padding:8px 16px;
+  color:#eee1b5; background:#0b303bcc; border:1px solid #b49156; border-radius:8px;
+  font:750 12px/1.2 var(--body-font),Arial,sans-serif; letter-spacing:.05em;
+  cursor:pointer; touch-action:manipulation; transition:background-color .16s,border-color .16s;
+}
+.cabin-feature-button:hover:not(:disabled){ background:#154551; border-color:#e9c887; }
+.cabin-feature-button:disabled { opacity:.4; cursor:default; }
+.cabin-feature-button:focus-visible { outline:3px solid #fff0b4; outline-offset:3px; }
+.entry-feature,.dialog { background-color:#092b36; }
+.entry-feature h2 { color:#fff0cc; }
+.entry-feature p { color:#c6dcd9; }
+.entry-feature::before { opacity:.72; }
+.entry-start.alchemy-button { filter:none; }
+.dialog .secondary-button { background:#0d3540; border:1px solid #56807d; color:#f5ebd1; border-radius:6px; }
+.dialog .dialog-close { min-width:44px; min-height:44px; }
+.dialog .selection-row > button { min-width:64px; min-height:48px; font-size:17px; }
+
+@media(orientation:landscape) and (max-height:550px) {
+ .game-shell { --board-width:min(520px,calc((100svh - 169px - var(--session-meta-height,0px))*1.2),calc(100vw - 225px)); }
+ .cabin-feature-button { font-size:10px; padding:5px 10px; min-height:38px; margin-top:2px; }
+ .game-shell > .control-wrap { width:calc(100vw - 24px); }
+}
+@media(orientation:landscape) and (max-height:300px) {
+ /* Reserve the whole deck and line result, including the painted frame gutter. */
+ .game-shell { --board-width:min(calc((100svh - 116px - var(--session-meta-height,0px))*1.2),calc(100vw - 126px)); }
+ .game-shell > .lab-main { min-height:0; height:100%; }
+ .game-shell .alchemist-sidebar { min-height:0; max-height:100%; }
+ .cabin-feature-button { min-height:32px; font-size:9px; padding:4px 5px; gap:3px; }
+ .cabin-feature-button img { width:17px; height:17px; }
+ .game-shell > .control-wrap { width:100%; }
+ .game-shell .win-readout { height:15px; min-height:15px; padding-top:2px; }
+ .game-shell .win-readout .line-win { gap:3px; }
+ .game-shell .win-readout .line-win strong { font-size:12px; }
+ .game-shell .win-readout .line-win small, .game-shell .win-readout .line-win > span { font-size:7px; }
+ .game-shell .rail-medallion span { font-size:8px; }
+ .dialog .dialog-close { min-width:36px; min-height:36px; }
+}
+
+/* Portrait phones and tablets use the same deliberate stacked composition.
+   The board shrinks only after reserving real touch-sized controls. */
+@media(orientation:portrait) {
+ .game-shell {
+   --board-width:min(700px,calc(100vw - 28px),calc((100svh - 318px - var(--session-meta-height,0px))*1.2));
+   padding:8px 10px max(8px,env(safe-area-inset-bottom)); gap:8px;
+   grid-template-rows:minmax(0,1fr) auto;
+ }
+ .game-shell > .lab-main {
+   display:flex; flex-direction:column; justify-content:center; align-items:center;
+   width:100%; max-width:100%; height:100%; gap:4px; margin:0; padding:0;
+ }
+ .game-shell > .lab-main > .alchemist-sidebar {
+   display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-rows:1fr;
+   width:var(--board-width); height:82px; min-height:82px; margin:0; padding:0;
+   position:relative; align-items:center;
+ }
+ .game-shell .alchemist-sidebar .game-brand { position:relative; inset:auto; width:170px; max-width:64%; height:72px; margin:0; }
+ .game-shell .alchemist-sidebar .game-brand img { width:100%; height:100%; }
+ .game-shell .alchemist-sidebar .character-scene { position:absolute; inset:auto 112px 0 auto; width:75px; height:88px; min-height:0; margin:0; opacity:.92; }
+ .cabin-feature-button { grid-column:2; width:106px; min-height:44px; margin:0; font-size:10px; padding:6px; gap:4px; }
+ .cabin-feature-button img { width:21px; height:21px; }
+ .game-shell .machine { width:var(--board-width); margin:0; }
+ .game-shell .wild-rail { height:39px; margin:0 0 3px; padding:0 7px; }
+ .game-shell .reel-frame { padding:7px; }
+ .game-shell .win-readout { height:30px; padding-top:12px; }
+ .game-shell > .control-wrap { width:min(700px,100%); max-width:700px; margin:0 auto; }
+ .game-shell .toast { bottom:194px; }
+ .game-shell .rail-ribbon { font-size:7px; line-height:1.1; }
+ .game-shell .rail-medallion span { font-size:13px; }
+ .game-shell .line-win { gap:5px; }
+ .game-shell .line-win strong { font-size:17px; }
+ .game-shell .line-win small,.game-shell .line-win > span { font-size:9px; }
+}
+@media(orientation:portrait) and (min-width:701px) {
+ .game-shell { --board-width:min(700px,calc(100vw - 70px),calc((100svh - 354px - var(--session-meta-height,0px))*1.2)); padding:16px 24px 18px; }
+ .game-shell > .lab-main > .alchemist-sidebar { height:108px; min-height:108px; }
+ .game-shell .alchemist-sidebar .game-brand { width:230px; max-width:45%; height:94px; }
+ .game-shell .alchemist-sidebar .character-scene { right:164px; width:104px; height:128px; }
+ .cabin-feature-button { width:142px; min-height:48px; font-size:12px; }
+ .game-shell .wild-rail { height:53px; }
+ .game-shell .rail-ribbon { font-size:10px; }
+ .game-shell .rail-medallion span { font-size:18px; }
+}
+@media(orientation:portrait) and (max-height:600px) {
+ .game-shell { --board-width:min(calc(100vw - 26px),calc((100svh - 291px - var(--session-meta-height,0px))*1.2)); padding:5px 8px; gap:4px; }
+ .game-shell > .lab-main > .alchemist-sidebar { height:63px; min-height:63px; }
+ .game-shell .alchemist-sidebar .game-brand { height:60px; width:143px; }
+ .game-shell .alchemist-sidebar .character-scene { display:none; }
+ .game-shell .wild-rail { height:32px; }
+ .cabin-feature-button { width:101px; }
+}
+
+.game-shell[data-startup=true] > .lab-main, .game-shell[data-startup=true] > .control-wrap { visibility:hidden; opacity:0; pointer-events:none; }
+
+.game-shell:has(.session-compliance-meta) { --session-meta-height:18px; }

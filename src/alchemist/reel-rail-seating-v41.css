@@ -1,0 +1,28 @@
+/* All four crests share the reel aperture's six-column grid. Their painted
+   lower gold edge seats exactly on the upper aperture edge, with no gap. */
+.game-shell .machine--connected .wild-rail {
+  --rail-column-width:calc((100cqw - 2 * var(--reel-inset)) / 6);
+  height:calc(var(--rail-column-width) * .6015625);
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  grid-template-rows:minmax(0,1fr);
+  padding:0 var(--reel-inset);
+  gap:0;
+  margin:0 0 calc(-1 * var(--reel-inset));
+  align-items:end;
+}
+.game-shell .machine--connected .wild-type {
+  width:100%; height:100%; min-height:0; margin:0;
+  aspect-ratio:512/308; align-self:end; transform:none;
+}
+.game-shell .machine--connected .wild-type .rail-ribbon {
+  display:grid; place-items:center; top:64%; height:25%; bottom:auto;
+  left:7%; right:7%; padding:0; margin:0;
+  font-size:clamp(4px,1.3cqw,11px); line-height:1; letter-spacing:0;
+}
+.game-shell .machine--connected .wild-type .rail-medallion {
+  display:grid; place-items:center; top:10%; left:34%; width:32%; height:44%;
+  margin:0; border:0; padding:0; box-shadow:none;
+}
+.game-shell .machine--connected .rail-medallion span {
+  line-height:1; font-size:clamp(6px,2.55cqw,21px);
+}

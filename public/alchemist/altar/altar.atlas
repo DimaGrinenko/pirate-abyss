@@ -1,0 +1,181 @@
+bonus-v3.webp
+size: 2048, 3328
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+chest-lid
+  rotate: false
+  xy: 4, 1912
+  size: 1330, 538
+  orig: 1330, 538
+  offset: 0, 0
+  index: -1
+chest-body
+  rotate: false
+  xy: 4, 1262
+  size: 1330, 646
+  orig: 1330, 646
+  offset: 0, 0
+  index: -1
+tentacle
+  rotate: false
+  xy: 1262, 4
+  size: 391, 667
+  orig: 391, 667
+  offset: 0, 0
+  index: -1
+coin
+  rotate: false
+  xy: 1338, 1912
+  size: 524, 536
+  orig: 524, 536
+  offset: 0, 0
+  index: -1
+sparkle
+  rotate: false
+  xy: 4, 2454
+  size: 475, 510
+  orig: 475, 510
+  offset: 0, 0
+  index: -1
+bubble
+  rotate: false
+  xy: 1386, 2454
+  size: 476, 468
+  orig: 476, 468
+  offset: 0, 0
+  index: -1
+interior-light
+  rotate: false
+  xy: 4, 4
+  size: 1254, 1254
+  orig: 1254, 1254
+  offset: 0, 0
+  index: -1
+compass
+  rotate: false
+  xy: 971, 2454
+  size: 411, 483
+  orig: 411, 483
+  offset: 0, 0
+  index: -1
+needle
+  rotate: false
+  xy: 1866, 2454
+  size: 96, 418
+  orig: 96, 418
+  offset: 0, 0
+  index: -1
+key
+  rotate: false
+  xy: 4, 2968
+  size: 571, 298
+  orig: 571, 298
+  offset: 0, 0
+  index: -1
+seal
+  rotate: false
+  xy: 483, 2454
+  size: 484, 494
+  orig: 484, 494
+  offset: 0, 0
+  index: -1
+
+chest-outer-v11.webp
+size: 1024, 355
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+chest-outer-v11
+  rotate: false
+  xy: 0, 0
+  size: 1024, 355
+  orig: 1024, 355
+  offset: 0, 0
+  index: -1
+
+octopus-source.png
+size: 1254, 1254
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+octopus-guardian-v14
+ rotate: false
+ xy: 0, 0
+ size: 1254, 1254
+ orig: 1254, 1254
+ offset: 0, 0
+ index: -1
+
+octopus-front-grip-v15.png
+size: 1536, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+octopus-front-grip-v15
+ rotate: false
+ xy: 0, 0
+ size: 1536, 1024
+ orig: 1536, 1024
+ offset: 0, 0
+ index: -1
+
+chest-fracture-v18.webp
+size: 1536, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+fracture-0
+ rotate: false
+ xy: 42, 82
+ size: 450, 447
+ orig: 450, 447
+ offset: 0, 0
+ index: -1
+fracture-1
+ rotate: false
+ xy: 565, 121
+ size: 414, 406
+ orig: 414, 406
+ offset: 0, 0
+ index: -1
+fracture-2
+ rotate: false
+ xy: 1055, 82
+ size: 438, 447
+ orig: 438, 447
+ offset: 0, 0
+ index: -1
+fracture-3
+ rotate: false
+ xy: 32, 683
+ size: 480, 203
+ orig: 480, 203
+ offset: 0, 0
+ index: -1
+fracture-4
+ rotate: false
+ xy: 512, 714
+ size: 512, 172
+ orig: 512, 172
+ offset: 0, 0
+ index: -1
+fracture-5
+ rotate: false
+ xy: 1024, 706
+ size: 479, 185
+ orig: 479, 185
+ offset: 0, 0
+ index: -1
+
+octopus-blink-v21.webp
+size: 1254,1254
+filter: Linear,Linear
+repeat: none
+octopus-blink-v21
+ rotate: false
+ xy: 0,0
+ size: 1254,1254
+ orig: 1254,1254
+ offset: 0,0
+ index: -1

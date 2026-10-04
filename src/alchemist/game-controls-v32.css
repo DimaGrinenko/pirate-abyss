@@ -1,0 +1,213 @@
+/* Raster-painted captain's deck. The gold rope and enamel retain their corner
+   proportions through nine-slicing, including the narrow phone composition. */
+.captain-deck,
+.captain-deck-dialog {
+  --deck-ivory: #fff8d4;
+  --deck-muted: #dceeff;
+  --deck-seafoam: #9ffff0;
+  color: var(--deck-ivory);
+  font-family: var(--body-font),Arial,sans-serif;
+  isolation: isolate;
+}
+.captain-deck {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(176px,1fr) minmax(180px,220px) 100px 94px 100px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 88px;
+  padding: 11px 18px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 17px;
+  background: transparent;
+  box-shadow: 0 4px 0 #05213b80,0 8px 15px #00121f40;
+}
+.captain-deck::before,
+.captain-deck-dialog::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border: 22px solid transparent;
+  border-image: var(--deck-panel-art) 24% fill / 22px / 0 round;
+  pointer-events: none;
+}
+.captain-deck *, .captain-deck-dialog * { box-sizing: border-box; }
+.captain-deck button, .captain-deck-dialog button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  font-family: var(--body-font),Arial,sans-serif;
+  color: inherit;
+  cursor: pointer;
+  transition: transform .12s ease,opacity .12s ease,box-shadow .12s ease;
+}
+.captain-deck button:disabled, .captain-deck-dialog button:disabled { cursor: default; opacity: .46; }
+.captain-deck button:focus-visible, .captain-deck-dialog button:focus-visible { outline: 3px solid #fff9c9; outline-offset: 2px; }
+.captain-deck button:active:not(:disabled), .captain-deck-dialog button:active:not(:disabled) { transform: translateY(1px); }
+.captain-deck__ledger { min-width: 0; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 15px; }
+.captain-deck__readout { min-width: 0; }
+.captain-deck__readout--win { color: var(--deck-seafoam); }
+.captain-deck__label { display: block; margin-bottom: 5px; font-size: 10px; line-height: 1.15; font-weight: 750; color: var(--deck-muted); letter-spacing: .02em; text-shadow: 0 1px #071e50; }
+.captain-deck__money { min-width: 0; max-width: 100%; display: flex; align-items: baseline; gap: 4px; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+.captain-deck__money strong { min-width: 0; font-size: clamp(12px,calc(160px / var(--amount-chars)),22px); line-height: 1.2; font-weight: 800; letter-spacing: -.035em; text-shadow: 0 2px #072c56; }
+.captain-deck__money small { flex: none; font-size: 9px; line-height: 1; color: var(--deck-muted); font-weight: 700; }
+.captain-deck__bet { min-width: 0; }
+.captain-deck__bet > .captain-deck__label { text-align: center; }
+.captain-deck__stepper { display: grid; grid-template-columns: 44px minmax(44px,1fr) 44px; align-items: stretch; gap: 3px; }
+.captain-deck__step,
+.captain-deck__bet-amount,
+.captain-deck__tool,
+.captain-deck__close,
+.captain-deck-dialog__bets > button {
+  position: relative;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  isolation: isolate;
+}
+.captain-deck__step::before,
+.captain-deck__bet-amount::before,
+.captain-deck__tool::before,
+.captain-deck__close::before,
+.captain-deck-dialog__bets > button::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border: 10px solid transparent;
+  border-image: var(--deck-tool-art) 72 120 fill / 10px / 0 stretch;
+  pointer-events: none;
+}
+.captain-deck__step, .captain-deck__bet-amount { display: grid; place-items: center; min-width: 44px; min-height: 44px; padding: 3px; }
+.captain-deck__step:hover:not(:disabled), .captain-deck__bet-amount:hover:not(:disabled), .captain-deck__tool:hover:not(:disabled), .captain-deck__close:hover:not(:disabled), .captain-deck-dialog__bets > button:hover:not(:disabled) { box-shadow: 0 0 0 2px #ffeaa590; }
+.captain-deck__tool[aria-pressed=true]::before,
+.captain-deck-dialog__bets > button[aria-pressed=true]::before { border-image-source: var(--deck-action-art); border-image-slice: 60; }
+.captain-deck__tool:active:not(:disabled)::before,
+.captain-deck__step:active:not(:disabled)::before { border-image-source: var(--deck-tool-pressed-art); }
+.captain-deck__bet-amount { padding-inline: 7px; align-content: center; }
+.captain-deck__bet-amount .captain-deck__money { flex-wrap: wrap; justify-content: center; gap: 0 4px; }
+.captain-deck__bet-amount .captain-deck__money strong { font-size: clamp(12px,calc(123px / var(--amount-chars)),20px); }
+.captain-deck__factor { display: block; margin-top: 2px; color: var(--deck-muted); font-size: 8px; line-height: 1; white-space: nowrap; }
+.captain-deck__modes, .captain-deck__utilities { display: flex; justify-content: center; gap: 4px; }
+.captain-deck__tool { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; width: 48px; min-width: 44px; min-height: 48px; padding: 5px 3px; }
+.captain-deck__tool > span { font-size: 10px; font-weight: 750; line-height: 1.15; white-space: nowrap; text-shadow: 0 1px 2px #052047; }
+.captain-deck__tool > img { object-fit: contain; flex: none; }
+.captain-deck__spin {
+  position: relative; isolation: isolate;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  min-width: 44px; width: 94px; min-height: 66px; padding: 8px;
+  border: 0; border-radius: 15px; background: transparent; color: #fffde2 !important;
+  box-shadow: 0 3px 0 #041d5280;
+}
+.captain-deck__spin::before { content: ''; position: absolute; z-index: -1; inset: 0; border: 15px solid transparent; border-image: var(--deck-action-art) 60 fill / 15px / 0 stretch; pointer-events: none; }
+.captain-deck__spin > span { display: block; font-size: 13px; line-height: 1.05; font-weight: 850; letter-spacing: .01em; text-shadow: 0 1px 2px #064c68; }
+.captain-deck__spin:hover:not(:disabled) { box-shadow: 0 0 0 2px #fff5b5,0 4px 0 #07305390; }
+.captain-deck__spin[data-action=stop]::before { border-image-source: var(--deck-tool-pressed-art); border-image-slice: 72 120; }
+.captain-deck__bonus-count { min-height: 44px; display: flex; justify-content: center; align-items: center; gap: 12px; }
+.captain-deck__bonus-count > strong { font-size: 29px; color: var(--deck-seafoam); line-height: 1; font-variant-numeric: tabular-nums; text-shadow: 0 2px #064d62; }
+.captain-deck__bonus-count > span { display: grid; gap: 3px; font-size: 9px; color: var(--deck-muted); }
+.captain-deck__bonus-count .captain-deck__money strong { font-size: 13px; }
+.captain-deck__compact-menu { display: none; }
+
+.captain-deck-overlay { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left)); background: #041837dd; }
+.captain-deck-dialog {
+  position: relative; width: min(520px,100%); max-height: 100%; overflow: auto; overscroll-behavior: contain;
+  padding: 24px; border: 0; border-radius: 20px; background: #102f67;
+  box-shadow: 0 12px 40px #0007; scrollbar-width: thin; scrollbar-color: #e7bc52 #193b73;
+}
+.captain-deck-dialog header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.captain-deck-dialog h2 { margin: 0; font: 400 25px/1.15 var(--display-font),Georgia,serif; color: #ffe999; text-shadow: 0 2px #0b245b; }
+.captain-deck__close { flex: none; display: grid; place-items: center; width: 44px; height: 44px; padding: 8px; }
+.captain-deck-dialog__intro { margin: 0 0 16px; color: var(--deck-muted); font-size: 13px; line-height: 1.5; }
+.captain-deck-dialog__intro > span { display: block; font-size: 11px; }
+.captain-deck-dialog__bets { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+.captain-deck-dialog__bets > button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 44px; min-height: 58px; padding: 8px; }
+.captain-deck-dialog__bets .captain-deck__money { justify-content: center; flex-wrap: wrap; }
+.captain-deck-dialog__bets .captain-deck__money strong { font-size: clamp(12px,calc(140px / var(--amount-chars)),19px); }
+.captain-deck-dialog__selected { font-size: 9px; color: #fff8ba; font-weight: 750; }
+.captain-deck-dialog__menu { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.captain-deck-dialog__menu .captain-deck__tool { width: 100%; min-height: 64px; }
+.captain-deck-dialog__menu .captain-deck__tool > span { font-size: 12px; }
+
+@media (max-width: 1000px) and (orientation: landscape), (min-width: 701px) and (orientation: portrait) {
+  .captain-deck { grid-template-columns: minmax(132px,1fr) minmax(165px,190px) 92px 80px 92px; gap: 8px; padding: 10px 14px; min-height: 82px; }
+  .captain-deck__ledger { gap: 10px; }
+  .captain-deck__money strong { font-size: clamp(11px,calc(134px / var(--amount-chars)),19px); }
+  .captain-deck__spin { width: 80px; min-height: 62px; }
+  .captain-deck__tool { width: 44px; min-height: 46px; }
+}
+@media (orientation: portrait) and (max-width: 700px) {
+  .captain-deck { grid-template-columns: minmax(0,1fr) 90px; grid-template-rows: 34px 61px 44px; gap: 6px 10px; padding: 11px 12px; min-height: 0; border-radius: 16px; }
+  .captain-deck::before { border-image-width: 20px; }
+  .captain-deck__ledger { grid-column: 1 / -1; grid-row: 1; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; align-self: start; }
+  .captain-deck__readout--win { text-align: right; }
+  .captain-deck__readout--win .captain-deck__money { justify-content: flex-end; }
+  .captain-deck__label { font-size: 10px; margin-bottom: 3px; }
+  .captain-deck__money strong { font-size: clamp(13px,calc(170px / var(--amount-chars)),19px); }
+  .captain-deck__money small { font-size: 9px; }
+  .captain-deck__bet { grid-column: 1; grid-row: 2; }
+  .captain-deck__bet-amount .captain-deck__money strong { font-size: clamp(11px,calc(108px / var(--amount-chars)),18px); }
+  .captain-deck__stepper { grid-template-columns: 44px minmax(44px,1fr) 44px; gap: 2px; }
+  .captain-deck__spin { grid-column: 2; grid-row: 2; width: 90px; min-height: 61px; height: 61px; gap: 3px; }
+  .captain-deck__spin > img { width: 29px; height: 29px; }
+  .captain-deck__spin > span { font-size: 12px; }
+  .captain-deck__modes { grid-column: 1 / -1; grid-row: 3; justify-self: end; gap: 8px; }
+  .captain-deck__utilities { grid-column: 1 / -1; grid-row: 3; justify-self: start; gap: 8px; }
+  .captain-deck__tool { width: 52px; min-height: 44px; height: 44px; gap: 2px; padding: 3px; }
+  .captain-deck__tool > img { width: 21px; height: 21px; }
+  .captain-deck__tool > span { font-size: 10px; }
+  .captain-deck-dialog { padding: 20px; }
+  .captain-deck-dialog h2 { font-size: 23px; }
+}
+@media (orientation: portrait) and (max-width: 350px) {
+  .captain-deck { grid-template-columns: minmax(0,1fr) 80px; gap-inline: 6px; padding-inline: 10px; }
+  .captain-deck__spin { width: 80px; }
+  .captain-deck__tool { width: 48px; }
+}
+@media (orientation: landscape) and (max-height: 550px) {
+  .captain-deck { min-height: 68px; padding-block: 7px; gap: 6px; }
+  .captain-deck__label { font-size: 9px; margin-bottom: 3px; }
+  .captain-deck__spin { min-height: 54px; height: 54px; gap: 2px; }
+  .captain-deck__spin > img { width: 27px; height: 27px; }
+  .captain-deck__spin > span { font-size: 11px; }
+}
+/* At 400 x 225 the labelled menu holds secondary actions. The money column,
+   minus, bet, plus, spin and menu keep real layout slots, never overlay hits. */
+@media (orientation: landscape) and (max-width: 700px) {
+  .captain-deck { grid-template-columns: minmax(66px,1fr) minmax(136px,160px) 58px 44px; gap: 4px; padding: 6px 8px; min-height: 68px; border-radius: 12px; }
+  .captain-deck::before { border-image-width: 15px; }
+  .captain-deck__ledger { grid-template-columns: 1fr; gap: 3px; }
+  .captain-deck__readout { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+  .captain-deck__readout .captain-deck__label { margin: 0; font-size: 8px; line-height: 1; }
+  .captain-deck__ledger .captain-deck__money { gap: 0 2px; }
+  .captain-deck__ledger .captain-deck__money strong { font-size: clamp(9px,calc(83px / var(--amount-chars)),12px); }
+  .captain-deck__ledger .captain-deck__money small { font-size: 7px; }
+  .captain-deck__stepper { grid-template-columns: 44px minmax(44px,1fr) 44px; gap: 2px; }
+  .captain-deck__step > img { width: 19px; height: 19px; }
+  .captain-deck__bet-amount { padding: 3px; }
+  .captain-deck__bet-amount .captain-deck__money { gap: 0 2px; }
+  .captain-deck__bet-amount .captain-deck__money strong { font-size: clamp(9px,calc(78px / var(--amount-chars)),14px); }
+  .captain-deck__bet-amount .captain-deck__money small { font-size: 7px; }
+  .captain-deck__factor { font-size: 7px; }
+  .captain-deck__spin { width: 58px; min-height: 52px; height: 52px; padding: 4px 2px; }
+  .captain-deck__spin::before { border-image-width: 10px; }
+  .captain-deck__spin > img { width: 23px; height: 23px; }
+  .captain-deck__spin > span { font-size: 10px; }
+  .captain-deck__modes, .captain-deck__settings, .captain-deck__sound { display: none; }
+  .captain-deck__compact-menu { display: flex; width: 44px; min-width: 44px; min-height: 44px; padding: 3px; }
+  .captain-deck__compact-menu > span { font-size: 9px; }
+  .captain-deck__bonus-count { min-height: 44px; gap: 6px; }
+  .captain-deck__bonus-count > strong { font-size: 24px; }
+  .captain-deck__bonus-count .captain-deck__money strong { font-size: 11px; }
+  .captain-deck-dialog { width: min(520px,100%); padding: 16px; }
+  .captain-deck-dialog header { margin-bottom: 4px; }
+  .captain-deck-dialog h2 { font-size: 21px; }
+  .captain-deck-dialog__intro { font-size: 11px; margin-bottom: 8px; }
+  .captain-deck-dialog__bets { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 6px; }
+  .captain-deck-dialog__bets > button { min-height: 44px; padding: 6px; }
+  .captain-deck-dialog__menu .captain-deck__tool { min-height: 52px; }
+}
+@media (prefers-reduced-motion: reduce) { .captain-deck button,.captain-deck-dialog button { transition: none; } }
+.no-motion .captain-deck button { transition: none; }

@@ -1,0 +1,127 @@
+/* Room geometry and HUD each have a stable independent centre axis. */
+.game-shell {
+  --board-width:min(820px,calc((100svh - 152px - var(--session-meta-height,0px))*1.065),calc(100vw - 320px));
+  --hud-width:min(1060px,calc(100vw - 40px)); --hud-height:84px;
+  --hud-utility:92px; --hud-spin:80px; --hud-gap:12px; --hud-stake:210px; gap:6px;
+}
+.game-shell > .control-wrap { width:var(--hud-width); max-width:1060px; margin:0 auto; isolation:isolate; }
+.game-shell > .control-wrap::before { content:none; }
+.game-shell .alchemist-sidebar .character-scene { container-type:size; }
+/* The v42 native stance and deck now share the host centre. */
+.game-shell .alchemist-sidebar .character-view { transform:none; }
+.game-shell .alchemist-sidebar .cabin-feature-button {
+  position:relative; isolation:isolate; width:100%; max-width:260px; min-height:44px; aspect-ratio:3.9;
+  margin-top:4px; padding:7px 6% 3px 29%; border:0; border-radius:0;
+  background:transparent; color:#fff9e9; font-weight:800; letter-spacing:.01em;
+  text-shadow:0 1px 2px #00131f; box-shadow:none; overflow:visible;
+}
+.game-shell .alchemist-sidebar .cabin-feature-button::before {
+  content:''; position:absolute; inset:0; z-index:-1; border:0; border-image:none;
+  background:url('/alchemist/ui/features-cartoon-v36.webp') center/100% auto no-repeat;
+}
+.game-shell .alchemist-sidebar .cabin-feature-button img { display:none; }
+.game-shell .alchemist-sidebar .cabin-feature-button:hover:not(:disabled) { background:transparent; box-shadow:none; filter:brightness(1.09); }
+.game-shell .alchemist-sidebar .cabin-feature-button:active:not(:disabled) { transform:translateY(1px); }
+.game-shell .alchemist-sidebar .cabin-feature-button:disabled { filter:none; opacity:.65; }
+@media (max-width:1100px) { .game-shell { --hud-height:82px; --hud-utility:44px; --hud-spin:72px; --hud-gap:8px; --hud-stake:188px; } }
+@media (orientation:landscape) and (min-width:701px) {
+  .game-shell {
+    --board-side-room:calc((100vw - 36px - var(--board-width)) / 2);
+    --captain-slot-width:min(230px,calc(var(--board-side-room) * .76));
+  }
+  .game-shell > .lab-main > .alchemist-sidebar {
+    justify-self:end; width:var(--captain-slot-width); margin-right:12px; margin-left:0;
+  }
+  .game-shell > .lab-main > .alchemist-sidebar .character-scene { width:100%; height:min(385px,calc((100svh - 205px) * .94),calc(var(--captain-slot-width) * 1.22)); }
+  .game-shell > .lab-main > .alchemist-sidebar .game-brand { margin-bottom:0; }
+  .game-shell > .lab-main > .alchemist-sidebar .game-brand img { height:clamp(56px,11svh,106px); }
+}
+@media (orientation:landscape) and (min-width:701px) and (min-height:551px) {
+  .game-shell {
+    --board-width:min(900px,calc((100svh - 104px - var(--session-meta-height,0px))*1.065),calc(100vw - 320px)); padding-top:4px;
+  }
+  .game-shell > .lab-main { align-self:start; margin-block:0; }
+  /* The payout occupies the clear upper portion above the spaced ledger. */
+  .game-shell > .lab-main > .machine > .win-readout {
+    position:fixed; left:calc(50% + var(--hud-utility) / 2 - var(--hud-stake) / 2 - 46px - var(--hud-spin) / 2 - var(--hud-gap));
+    bottom:calc(10px + var(--session-meta-height,0px) + var(--hud-height) - 18px);
+    transform:translateX(-50%); width:min(340px,calc(var(--hud-width) - var(--hud-utility) - var(--hud-stake) - 92px - var(--hud-spin) - 4 * var(--hud-gap)));
+    height:18px; min-height:18px; padding:0; z-index:9; pointer-events:none;
+  }
+  .game-shell > .lab-main > .machine > .win-readout .line-win { gap:4px; }
+  .game-shell > .lab-main > .machine > .win-readout .line-win strong { font-size:clamp(11px,1.1vw,15px); }
+  .game-shell > .lab-main > .machine > .win-readout .line-win small,
+  .game-shell > .lab-main > .machine > .win-readout .line-win > span { font-size:8px; letter-spacing:0; white-space:nowrap; }
+  .game-shell > .lab-main > .machine > .win-readout .bonus-strip,
+  .game-shell > .lab-main > .machine > .win-readout > button { display:none; }
+  .game-shell .captain-deck__ledger { align-self:end; padding-bottom:2px; }
+}
+@media (orientation:landscape) and (max-height:550px) {
+  .game-shell { --board-width:min(650px,calc((100svh - 120px - var(--session-meta-height,0px))*1.065),calc(100vw - 225px)); --hud-width:calc(100vw - 24px); --hud-height:64px; }
+  .game-shell > .lab-main > .alchemist-sidebar { margin-left:0; }
+}
+@media (orientation:landscape) and (max-width:700px) {
+  .game-shell { --hud-width:min(540px,calc(100vw - 20px)); }
+  .game-shell > .lab-main { grid-template-columns:100px var(--board-width); gap:12px; width:calc(var(--board-width) + 112px); }
+  .game-shell .alchemist-sidebar { width:100px; }
+  .game-shell .alchemist-sidebar .game-brand { width:100%; margin:0; }
+  .game-shell .alchemist-sidebar .game-brand img { height:42px; }
+  .game-shell .alchemist-sidebar .character-scene { width:92px; height:calc(100svh - 168px); min-height:40px; }
+  .game-shell .alchemist-sidebar .cabin-feature-button { width:100px; min-height:44px; margin:0; font-size:8px; }
+}
+@media (orientation:landscape) and (max-height:300px) {
+  .game-shell { --board-width:min(calc((100svh - 113px - var(--session-meta-height,0px))*1.2),calc(100vw - 132px)); gap:2px; }
+  .game-shell > .lab-main { height:100%; min-height:0; }
+  .game-shell .alchemist-sidebar .game-brand img { height:35px; }
+  .game-shell .alchemist-sidebar .character-scene { height:calc(100svh - 158px); }
+}
+@media (orientation:portrait) {
+  .game-shell {
+    --mobile-captain-height:clamp(116px,20svh,158px);
+    --board-width:min(700px,calc(100vw - 28px),calc((100svh - 200px - var(--mobile-captain-height) - var(--session-meta-height,0px))*1.2));
+    --hud-width:min(700px,100%); --hud-height:110px; gap:6px;
+  }
+  .game-shell > .lab-main > .alchemist-sidebar {
+    width:var(--board-width); height:var(--mobile-captain-height); min-height:var(--mobile-captain-height);
+    grid-template-columns:minmax(0,1fr) 112px; grid-template-rows:minmax(0,1fr) 44px;
+    column-gap:16px; row-gap:0; align-items:center;
+  }
+  .game-shell .alchemist-sidebar .game-brand { grid-column:1; grid-row:1; width:min(230px,100%); height:100%; justify-self:center; }
+  .game-shell .alchemist-sidebar .character-scene { grid-column:2; grid-row:1 / -1; width:100%; height:100%; min-height:0; margin:0; justify-self:center; }
+  .game-shell .alchemist-sidebar .cabin-feature-button { grid-column:1; grid-row:2; width:min(210px,100%); min-height:44px; margin:0; justify-self:center; font-size:10px; }
+  .game-shell > .control-wrap { width:100%; max-width:700px; }
+  .game-shell .toast { bottom:140px; }
+}
+@media (orientation:portrait) and (max-width:350px) {
+  .game-shell { --mobile-captain-height:116px; gap:4px; }
+  .game-shell > .lab-main > .alchemist-sidebar { grid-template-columns:minmax(0,1fr) 104px; column-gap:12px; }
+  .game-shell .alchemist-sidebar .cabin-feature-button { font-size:9px; }
+}
+@media (orientation:portrait) and (min-width:701px) {
+  .game-shell {
+    --mobile-captain-height:176px;
+    --board-width:min(760px,calc(100vw - 70px),calc((100svh - 200px - var(--mobile-captain-height) - var(--session-meta-height,0px))*1.2));
+  }
+  .game-shell > .lab-main > .alchemist-sidebar { grid-template-columns:minmax(0,1fr) 150px; column-gap:24px; }
+  .game-shell .alchemist-sidebar .game-brand { width:300px; height:130px; }
+  .game-shell .alchemist-sidebar .cabin-feature-button { width:210px; font-size:12px; }
+}
+/* Squarer landscape tablets need a real actor column. Equal side tracks at
+   1024x768 left only 142px before the board and reduced the captain to 108px.
+   Reserve the full pose and painted frame, then return any surplus to the
+   right track so wider tablets naturally recover a centred playfield. */
+@media (orientation:landscape) and (min-width:701px) and (min-height:551px) and (max-aspect-ratio:3/2) {
+  .game-shell {
+    --board-width:min(900px,calc((100svh - 104px - var(--session-meta-height,0px))*1.065),calc(100vw - 316px));
+    --board-side-room:max(280px,calc((100vw - 36px - var(--board-width)) / 2));
+    /* At height=1.3w the native scale is w/1200. Reserve 984 native units
+       left of the torso axis: half the host plus that sweep is 1.32w. */
+    --captain-slot-width:min(230px,calc((var(--board-side-room) - 14px) / 1.32));
+  }
+  .game-shell > .lab-main { grid-template-columns:minmax(280px,1fr) var(--board-width) minmax(0,1fr); }
+  .game-shell > .lab-main > .alchemist-sidebar { margin-right:24px; }
+  .game-shell .alchemist-sidebar .cabin-feature-button { width:100%; max-width:100%; min-width:0; }
+}
+@media (prefers-reduced-motion:reduce) { .game-shell .alchemist-sidebar .cabin-feature-button { transition:none; } }
+.no-motion .alchemist-sidebar .cabin-feature-button { transition:none; }
+

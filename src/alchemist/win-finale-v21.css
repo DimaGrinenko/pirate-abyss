@@ -1,0 +1,22 @@
+/* The last counted credit launches one treasure salute. The centre stays readable. */
+.win-scenery__treasure-salute { position:absolute; inset:0; pointer-events:none; }
+.win-scenery__salute-origin { position:absolute; top:64%; width:0; height:0; }
+.win-scenery__salute-origin--0 { left:14%; }
+.win-scenery__salute-origin--1 { right:14%; }
+.win-scenery__salute-light { position:absolute; width:clamp(160px,25vw,430px); max-width:none; aspect-ratio:1; transform:translate(-50%,-50%) scale(.6); opacity:0; mix-blend-mode:screen; }
+.win-scenery__salute-coin { position:absolute; width:var(--salute-size); height:var(--salute-size); opacity:0; }
+.win-scenery__salute-coin img { width:100%; height:100%; object-fit:contain; }
+.win-scenery__max-crown { position:absolute; top:-26%; left:24%; width:52%; height:66%; object-fit:contain; mix-blend-mode:screen; opacity:.12; animation:max-crown-prepare 9s ease-in-out infinite; }
+.win-celebration[data-count-complete=true] .win-scenery__salute-light { animation:win-salute-light calc(1.45s / var(--scenery-speed)) ease-out both; }
+.win-celebration[data-count-complete=true] .win-scenery__salute-coin { animation:win-salute-arc calc(1.8s / var(--scenery-speed)) calc(var(--salute-delay) / var(--scenery-speed)) cubic-bezier(.2,.65,.4,1) both; }
+.win-celebration[data-count-complete=true] .win-scenery__salute-coin img { animation:win-salute-turn calc(1.8s / var(--scenery-speed)) calc(var(--salute-delay) / var(--scenery-speed)) linear both; }
+.win-celebration[data-count-complete=true] .win-scenery__max-crown { animation:max-crown-finish calc(2.4s / var(--scenery-speed)) ease-out both; }
+@keyframes win-salute-light { 0% { opacity:0; transform:translate(-50%,-50%) scale(.5) rotate(-14deg); } 17% { opacity:.5; } 100% { opacity:0; transform:translate(-50%,-50%) scale(1.4) rotate(25deg); } }
+@keyframes win-salute-arc { 0% { opacity:0; transform:translate(0,0) scale(.6); } 9% { opacity:1; } 42% { opacity:1; transform:translate(calc(var(--salute-x) * .55),var(--salute-y)) scale(1); } 80% { opacity:.85; } 100% { opacity:0; transform:translate(var(--salute-x),var(--salute-fall)) scale(.82); } }
+@keyframes win-salute-turn { to { transform:rotate(var(--salute-turn)) rotateY(540deg); } }
+@keyframes max-crown-prepare { 0%,100% { transform:rotate(-12deg) scale(.92); opacity:.12; } 50% { transform:rotate(12deg) scale(1.05); opacity:.22; } }
+@keyframes max-crown-finish { 0% { opacity:.18; transform:scale(.92) rotate(-8deg); } 20% { opacity:.65; transform:scale(1.2) rotate(1deg); } 100% { opacity:.16; transform:scale(1.03) rotate(14deg); } }
+html[data-scenery-hidden=true] .win-scenery *, .win-celebration[data-animation-held=true] .win-scenery * { animation-play-state:paused!important; }
+.win-celebration[data-reduced-motion=true] .win-scenery__treasure-salute,.win-celebration[data-reduced-motion=true] .win-scenery__max-crown { display:none; }
+@media(orientation:portrait) { .win-scenery__salute-origin { top:78%; } .win-scenery__salute-origin--0 { left:8%; } .win-scenery__salute-origin--1 { right:8%; } .win-scenery__max-crown { width:90%; left:5%; top:-10%; height:40%; } }
+@media(prefers-reduced-motion:reduce) { .win-scenery__treasure-salute,.win-scenery__max-crown { display:none; } }

@@ -1,0 +1,195 @@
+/* Portrait keeps the reference's hierarchy: identity, connected reel field,
+   payout strip, then one compact aquarium deck. The whole game stays a single
+   centred stack on tall screens; unused height never splits field from HUD. */
+.captain-deck__phone-spins { display:none; }
+
+@media (orientation:portrait) and (max-width:700px) {
+  .game-shell {
+    --hud-height:132px;
+    --hud-width:calc(100vw - 16px);
+    --mobile-captain-height:clamp(100.32px,calc(17.2032svh - .9024px),147.4752px);
+    --board-width:min(calc(100vw - 16px),calc((100svh - var(--hud-height) - var(--mobile-captain-height) - 86px - var(--session-meta-height,0px) - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px)) * 1.2));
+    height:100svh; min-height:0;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    gap:4px; padding:max(6px,env(safe-area-inset-top,0px)) 8px max(6px,env(safe-area-inset-bottom,0px));
+  }
+  .game-shell > .lab-main {
+    flex:0 0 auto; display:flex; flex-direction:column;
+    width:100%; height:auto; min-height:0; max-height:none;
+    align-items:center; justify-content:flex-start; gap:4px;
+    margin:0; padding:0;
+  }
+  .game-shell > .lab-main > .alchemist-sidebar {
+    width:var(--board-width); height:var(--mobile-captain-height); min-height:var(--mobile-captain-height);
+    display:grid; grid-template-columns:minmax(0,1fr) calc(var(--mobile-captain-height) * .8);
+    grid-template-rows:minmax(0,1fr); column-gap:12px;
+    align-items:center; margin:0; padding:0;
+  }
+  .game-shell .alchemist-sidebar .game-brand {
+    grid-column:1; grid-row:1; position:relative; inset:auto;
+    width:min(234px,100%); max-width:100%; height:clamp(62px,calc(var(--mobile-captain-height) * .62),86px);
+    margin:0; justify-self:start; align-self:center;
+  }
+  .game-shell .alchemist-sidebar .game-brand img { width:100%; height:100%; object-fit:contain; }
+  .game-shell .alchemist-sidebar .character-scene {
+    display:block; grid-column:2; grid-row:1; position:relative; inset:auto;
+    width:100%; height:calc(100% - 12px); min-height:0; margin:0;
+    align-self:start; justify-self:center; opacity:1; overflow:visible;
+  }
+  .game-shell > .lab-main > .machine { flex:0 0 auto; width:var(--board-width); margin:0; }
+  /* Keep a full-size round jewel above each reel without widening its ribbon
+     into a neighbouring lane. Both pieces reuse the existing painted raster. */
+  .game-shell .machine--connected .wild-rail { height:44px; }
+  .game-shell .machine--connected .wild-type { aspect-ratio:auto; }
+  .game-shell .machine--connected .wild-type .rail-art {
+    position:absolute; inset:auto 0 0; width:100%; height:auto;
+    aspect-ratio:512/308; object-fit:contain; clip-path:inset(55% 0 0);
+  }
+  .game-shell .machine--connected .wild-type .rail-medallion {
+    top:auto; bottom:calc(var(--rail-column-width) * .270703125 - 1px);
+    left:calc(50% - 13px); width:26px; height:26px; isolation:isolate;
+  }
+  .game-shell .machine--connected .wild-type .rail-medallion::before {
+    content:''; position:absolute; inset:0; z-index:-1; border-radius:50%;
+    background-image:var(--phone-crest-art); background-size:256% auto;
+    background-position:center top; background-repeat:no-repeat;
+  }
+  .game-shell .machine--connected .wild-type[data-crest-type=blue] { --phone-crest-art:url('/alchemist/effects/rail-blue-cartoon-v36.webp'); }
+  .game-shell .machine--connected .wild-type[data-crest-type=red] { --phone-crest-art:url('/alchemist/effects/rail-red-cartoon-v36.webp'); }
+  .game-shell .machine--connected .wild-type[data-crest-type=gold] { --phone-crest-art:url('/alchemist/effects/rail-gold-cartoon-v36.webp'); }
+  .game-shell .machine--connected .wild-type[data-crest-type=green] { --phone-crest-art:url('/alchemist/effects/rail-green-cartoon-v36.webp'); }
+  .game-shell .machine--connected .rail-medallion span {
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:var(--body-font),serif; font-size:12px; font-weight:850;
+    line-height:1; letter-spacing:-.06em; padding:0; margin:0;
+  }
+  .game-shell .machine--connected .wild-type .rail-ribbon {
+    top:auto; bottom:2px; left:4%; right:4%;
+    height:calc(var(--rail-column-width) * .21); font-size:clamp(7px,1.9cqw,8px);
+    line-height:1; letter-spacing:-.02em;
+  }
+  .game-shell > .lab-main > .machine > .win-readout {
+    position:relative; inset:auto; transform:none; width:100%;
+    height:26px; min-height:26px; padding:6px 5px 0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .game-shell .win-readout .bonus-strip {
+    display:flex; justify-content:center; align-items:center;
+    width:100%; gap:12px; font-size:8px; line-height:16px;
+    letter-spacing:.02em; color:#d7fff5; white-space:nowrap;
+    text-shadow:0 1px 2px #002a36;
+  }
+  .game-shell .win-readout .bonus-strip b {
+    font-family:var(--body-font),serif; font-weight:850;
+    font-size:15px; line-height:18px; margin-left:4px; color:#fff4c8;
+  }
+  .game-shell .win-readout .bonus-strip i { height:14px; }
+  .game-shell .win-readout .line-win { gap:5px; }
+  .game-shell .win-readout .line-win strong { font-size:16px; }
+  .game-shell .win-readout .line-win small,
+  .game-shell .win-readout .line-win > span { font-size:8px; letter-spacing:0; }
+  .game-shell > .control-wrap {
+    flex:0 0 auto; width:var(--hud-width); max-width:700px;
+    margin:0; align-self:center;
+  }
+
+  /* The equal outer tracks fix Spin at the exact panel centre. Financial
+     values occupy their own first row, not the spaces between action buttons. */
+  .game-shell .captain-deck,
+  .game-shell .captain-deck:has(.captain-deck__ledger [data-long-amount]) {
+    grid-template-columns:minmax(0,1fr) 52px minmax(0,1fr);
+    grid-template-rows:44px 52px; column-gap:4px; row-gap:0;
+    min-height:132px; height:132px; padding:18px;
+  }
+  .game-shell .captain-deck::before { border-width:12px; border-image-width:12px; }
+  .game-shell .captain-deck__ledger {
+    display:grid; position:absolute; left:18px; top:18px; grid-column:auto; grid-row:auto;
+    width:calc((100% - 36px) * 2 / 3 - 4px); height:40px;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px;
+  }
+  .game-shell .captain-deck__readout {
+    grid-column:1; grid-row:1; align-self:center;
+    min-width:0; padding:0; text-align:left; position:relative;
+  }
+  .game-shell .captain-deck__readout--win { grid-column:2; text-align:center; }
+  .game-shell .captain-deck__ledger .captain-deck__label {
+    font-size:9px; line-height:11px; padding:0; margin:0 0 2px;
+    white-space:nowrap; letter-spacing:0;
+  }
+  .game-shell .captain-deck__ledger .captain-deck__money { flex-wrap:nowrap; justify-content:flex-start; gap:3px; }
+  .game-shell .captain-deck__readout--win .captain-deck__money { justify-content:center; }
+  .game-shell .captain-deck__ledger .captain-deck__money strong {
+    font-size:clamp(10px,calc((148cqw - var(--currency-chars,3) * 11.1px - 4.44px) / var(--amount-chars)),17px);
+    line-height:1.12; letter-spacing:-.025em;
+  }
+  .game-shell .captain-deck__ledger .captain-deck__money small { font-size:7px; line-height:9px; }
+  .game-shell .captain-deck__ledger .captain-deck__money:is([data-compact-amount],[data-long-amount],[data-wide-currency]) strong {
+    font-size:clamp(8px,calc(155cqw / var(--amount-chars)),17px);
+  }
+  .game-shell .captain-deck__ledger .captain-deck__money:is([data-compact-amount],[data-long-amount],[data-wide-currency]) small {
+    position:absolute; top:-1px; right:0; font-size:6px;
+  }
+  .game-shell .captain-deck__feature {
+    grid-column:1; grid-row:2; justify-self:start; align-self:center;
+    width:44px; height:52px; padding:0;
+  }
+  .game-shell .captain-deck .captain-deck__feature > span { top:64%; font-size:9px; line-height:.96; }
+  .game-shell .captain-deck__utilities { grid-column:1; grid-row:2; justify-self:end; width:44px; }
+  .game-shell .captain-deck .captain-deck__compact-menu {
+    width:44px; min-width:44px; height:50px; min-height:50px;
+  }
+  .game-shell .captain-deck .captain-deck__compact-menu::before { width:36px; height:36px; left:4px; top:0; }
+  .game-shell .captain-deck .captain-deck__compact-menu > img { width:22px; height:22px; top:7px; }
+  .game-shell .captain-deck .captain-deck__compact-menu > span { top:38px; font-size:9px; line-height:10px; }
+  .game-shell .captain-deck__bet {
+    grid-column:auto; grid-row:auto; align-self:center;
+    width:calc((100% - 36px) / 3 - 4px); min-width:0; min-height:40px;
+    position:absolute; right:18px; top:18px;
+  }
+  .game-shell .captain-deck__bet > .captain-deck__label {
+    position:absolute; left:0; top:3px; width:100%; padding:0; margin:0;
+    text-align:center; font-size:9px; line-height:11px; pointer-events:none;
+  }
+  .game-shell .captain-deck__stepper { min-height:44px; height:44px; grid-template-columns:minmax(0,1fr); grid-template-rows:44px; gap:0; }
+  .game-shell .captain-deck__step { display:none; }
+  .game-shell .captain-deck__bet-amount {
+    grid-column:1; grid-row:1; min-height:44px; height:44px;
+    padding:15px 2px 2px; align-content:center; border-radius:8px;
+  }
+  .game-shell .captain-deck__bet-amount .captain-deck__money { flex-wrap:nowrap; justify-content:center; gap:3px; }
+  .game-shell .captain-deck__bet-amount .captain-deck__money strong { font-size:clamp(10px,calc(145cqw / var(--amount-chars)),17px); line-height:1.1; }
+  .game-shell .captain-deck__bet-amount .captain-deck__money small { font-size:7px; }
+  .game-shell .captain-deck__factor { position:absolute; bottom:0; left:0; width:100%; font-size:6px; line-height:7px; margin:0; }
+  .game-shell .captain-deck__spin {
+    grid-column:2; grid-row:2; justify-self:center; align-self:center;
+    width:52px; height:52px; padding:9px;
+  }
+  .game-shell .captain-deck__spin > img { width:33px; height:33px; }
+  .game-shell .captain-deck__modes {
+    display:flex; grid-column:3; grid-row:2; flex-direction:row;
+    justify-self:end; align-items:center; justify-content:flex-end; gap:4px; width:92px;
+  }
+  .game-shell .captain-deck .captain-deck__modes .captain-deck__tool {
+    display:flex; width:44px; min-width:44px; height:50px; min-height:50px;
+  }
+  .game-shell .captain-deck .captain-deck__modes .captain-deck__tool::before { width:36px; height:36px; left:4px; top:0; }
+  .game-shell .captain-deck .captain-deck__modes .captain-deck__tool > img { width:22px; height:22px; top:7px; }
+  .game-shell .captain-deck .captain-deck__modes .captain-deck__tool > span { top:38px; font-size:9px; line-height:10px; }
+  .game-shell .captain-deck .captain-deck__modes .captain-deck__tool[aria-pressed=true]::after { top:33px; }
+
+  .game-shell .captain-deck[data-bonus] .captain-deck__bet > .captain-deck__label,
+  .game-shell .captain-deck[data-bonus] .captain-deck__bonus-count > strong,
+  .game-shell .captain-deck[data-bonus] .captain-deck__modes .captain-deck__auto { display:none; }
+  .game-shell .captain-deck__bonus-count { min-height:40px; height:40px; padding:0; margin:0; justify-content:center; gap:0; }
+  .game-shell .captain-deck__bonus-count > span { display:block; text-align:center; min-width:0; font-size:9px; line-height:11px; }
+  .game-shell .captain-deck__bonus-count .captain-deck__money { justify-content:center; flex-wrap:nowrap; gap:3px; margin-top:2px; }
+  .game-shell .captain-deck .captain-deck__bonus-count .captain-deck__money strong { font-size:clamp(10px,calc(145cqw / var(--amount-chars)),17px); line-height:1.12; }
+  .game-shell .captain-deck__bonus-count .captain-deck__money small { font-size:7px; }
+  .game-shell .captain-deck__phone-spins {
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    width:44px; min-width:44px; height:50px; color:#e0fff5;
+  }
+  .game-shell .captain-deck__phone-spins > span { font-size:7px; line-height:9px; letter-spacing:0; }
+  .game-shell .captain-deck__phone-spins > strong { font-size:24px; line-height:28px; font-family:var(--body-font),serif; font-weight:850; color:#fff4c8; }
+  .game-shell .toast { bottom:calc(144px + env(safe-area-inset-bottom,0px)); }
+}

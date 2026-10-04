@@ -1,0 +1,28 @@
+/* Preserve the three facts, character staging and welcome motion. Only replace
+   the old navy/rope material with the same painted teal/gold as the play deck. */
+.laboratory-entry.entry-welcome .entry-feature { background:transparent; border-radius:12px; }
+.laboratory-entry.entry-welcome .entry-feature::before {
+  border-image:url('/alchemist/ui/v35/panel.webp') 72 fill / 12px / 0 stretch;
+  opacity:1;
+}
+.laboratory-entry.entry-welcome .entry-feature h2 {
+  font-family:var(--body-font),Arial,sans-serif; font-weight:800;
+  color:#fff2cd; letter-spacing:0; text-shadow:none;
+}
+.laboratory-entry.entry-welcome .entry-feature p,.laboratory-entry.entry-welcome .entry-footnote { color:#c8d8ce; }
+.laboratory-entry.entry-welcome .entry-start .alchemy-button__art { display:none; }
+.laboratory-entry.entry-welcome .entry-start .alchemy-button__visual { filter:none; }
+.laboratory-entry.entry-welcome .entry-start .alchemy-button__visual::before {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  border:14px solid transparent; border-image:url('/alchemist/ui/v35/panel.webp') 72 fill / 14px / 0 stretch;
+}
+.laboratory-entry.entry-welcome .entry-start .alchemy-button__label {
+  color:#fff2cd; font-family:var(--body-font),Arial,sans-serif;
+  font-weight:800; text-shadow:none; letter-spacing:.02em;
+}
+.laboratory-entry.entry-welcome .entry-start:not(:disabled):hover .alchemy-button__visual { filter:brightness(1.08); }
+.laboratory-entry.entry-welcome .entry-start:focus-visible .alchemy-button__visual { outline:3px solid #ffecad; outline-offset:2px; border-radius:12px; filter:none; }
+@media (orientation:landscape) and (max-height:300px) {
+  .laboratory-entry.entry-welcome .entry-feature::before { border-image-width:7px; }
+  .laboratory-entry.entry-welcome .entry-start .alchemy-button__visual::before { border-image-width:9px; }
+}

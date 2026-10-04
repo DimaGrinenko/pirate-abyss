@@ -1,0 +1,14 @@
+{
+  "atlas": "tarot-reels.atlas",
+  "texture": "tarot-reels.webp",
+  "size": [
+    2048,
+    832
+  ],
+  "regions": 43,
+  "revealSeconds": 1.8,
+  "multiplierSelectionSeconds": [
+    1.08,
+    1.6
+  ]
+}

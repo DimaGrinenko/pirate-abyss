@@ -1,0 +1,151 @@
+/* A direct two-offer shop. The financial review remains a separate action. */
+.expedition-shop-v41.expedition-planner .expedition-planner__panel {
+  width:min(860px,100%); max-height:100%; grid-template-columns:minmax(0,1fr);
+  grid-template-rows:auto minmax(0,1fr) auto auto; padding:0;
+}
+.expedition-shop-v41 .expedition-heading { grid-area:1/1; padding:18px 24px 10px; }
+.expedition-shop-v41 .expedition-heading > div { position:static; width:auto; height:auto; overflow:visible; clip-path:none; white-space:normal; }
+.expedition-shop-v41 .expedition-heading h2 { margin:4px 0 0; font-size:clamp(20px,3.2vw,30px); line-height:1.15; }
+.expedition-shop-v41 .expedition-content { grid-area:2/1; padding:12px 24px; border:0; }
+.expedition-shop-v41 .expedition-secondary { grid-area:3/1; display:flex; justify-content:center; gap:32px; padding:0 20px 5px; }
+.expedition-shop-v41 .expedition-summary { grid-area:4/1; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:16px; padding:12px 24px; }
+.expedition-shop-v41 .expedition-summary__mode { display:none; }
+.expedition-shop-v41 .expedition-summary--confirmation { grid-template-columns:minmax(0,1fr) minmax(230px,1fr); }
+.expedition-shop-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:22px; padding-bottom:4px; }
+.expedition-shop-card { position:relative; isolation:isolate; min-width:0; min-height:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:0; padding:12px 18px 8px; border:2px solid transparent; border-radius:20px; background:transparent; box-shadow:0 4px 0 #002b39; text-align:center; }
+.expedition-shop-card::before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; border:18px solid transparent; border-image:var(--exp-glass-card) 32 fill / 18px / 0 stretch; }
+.expedition-shop-card > .expedition-art { width:80px; height:84px; flex-shrink:0; filter:drop-shadow(0 5px 2px #022a37); }
+.expedition-shop-card h3 { margin:5px 0 0; min-height:2.3em; display:grid; place-items:center; font-size:20px; line-height:1.15; color:#063e4b; text-shadow:0 1px #c5fff4; }
+.expedition-shop-spins { margin:3px 0 0; font-size:13px; color:#075460; line-height:1.3; }
+.expedition-shop-spins b { font-size:22px; }
+.expedition-shop-tag { margin:4px 0 7px; max-width:260px; min-height:2.8em; color:#0a5262; font-size:12px; line-height:1.4; }
+.expedition-shop-card > .expedition-money { justify-content:center; color:#06394e; }
+.expedition-shop-card > .expedition-money strong { font-size:31px; }
+.expedition-shop-rate { display:block; color:#07515e; font-size:11px; line-height:1.2; margin:4px 0 8px; }
+.expedition-shop-card > .expedition-button { width:100%; min-height:48px; font-size:16px!important; }
+.expedition-shop-card > .expedition-text-button { min-height:30px; padding:5px 4px; font-size:12px!important; line-height:1.2; border:0; color:#06404e!important; }
+.expedition-shop-card > .expedition-warning { margin-top:7px; color:#69301d!important; }
+.expedition-shop-card > .expedition-money > small { color:#0a5262; }
+.expedition-shop-details { margin-top:18px; padding:15px 18px; border:1px solid #7bc9c6; border-radius:12px; color:#cfede4; font-size:13px; line-height:1.5; }
+.expedition-shop-details h4 { margin:0 0 8px; font-size:17px; color:#fff1c6; }
+.expedition-shop-details p { margin:6px 0; }
+.expedition-shop-bet { justify-self:end; width:min(260px,100%); }
+.expedition-shop-bet > span { text-align:center; }
+.expedition-shop-bet > div { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:8px; }
+.expedition-shop-bet .expedition-money { justify-content:center; }
+.expedition-shop-bet button { width:44px; height:44px; border:2px solid #b4f4ed; border-radius:12px; background:#087485; color:#fff3cb; font-size:25px; font-weight:800; line-height:1; }
+.expedition-shop-bet button:disabled { opacity:.42; cursor:default; }
+.expedition-shop-v41 .expedition-secondary button[aria-pressed=true] { color:#fff1c6!important; border-color:#fff1c6; }
+@media(max-width:520px) {
+  .expedition-shop-v41.expedition-planner { padding:8px max(8px,env(safe-area-inset-right)) 8px max(8px,env(safe-area-inset-left)); }
+  .expedition-shop-v41 .expedition-heading { padding:9px 15px 4px; }
+  .expedition-shop-v41 .expedition-heading > div > span { display:none; }
+  .expedition-shop-v41 .expedition-heading h2 { font-size:22px; }
+  .expedition-shop-v41 .expedition-content { padding:10px 12px; scrollbar-gutter:auto; }
+  .expedition-shop-cards { gap:10px; }
+  .expedition-shop-card { padding:10px 8px 8px; border-radius:14px; }
+  .expedition-shop-card > .expedition-art { width:64px; height:64px; }
+  .expedition-shop-card h3 { font-size:16px; min-height:2.3em; margin-top:4px; }
+  .expedition-shop-spins { font-size:11px; line-height:1.3; }
+  .expedition-shop-spins b { display:inline; font-size:17px; }
+  .expedition-shop-tag { font-size:10px; min-height:2.8em; margin:4px 0 6px; }
+  .expedition-shop-card > .expedition-money strong { font-size:23px; }
+  .expedition-shop-card > .expedition-money small { font-size:9px; }
+  .expedition-shop-rate { font-size:9px; margin:3px 0 7px; }
+  .expedition-shop-card > .expedition-button { min-height:44px; font-size:13px!important; padding:8px 5px; }
+  .expedition-shop-v41 .expedition-secondary { gap:25px; padding-bottom:0; }
+  .expedition-shop-v41 .expedition-secondary button { min-height:40px; font-size:12px!important; }
+  .expedition-shop-v41 .expedition-summary { gap:8px; padding:8px 12px; grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr); }
+  .expedition-shop-v41 .expedition-summary .expedition-money > strong { font-size:18px; }
+  .expedition-shop-bet > div { gap:4px; }
+  .expedition-shop-v41 .expedition-summary--confirmation { grid-template-columns:1fr; }
+}
+@media(orientation:landscape) and (max-height:620px) {
+  .expedition-shop-v41 .expedition-heading { padding:4px 14px; }
+  .expedition-shop-v41 .expedition-heading > div > span { display:none; }
+  .expedition-shop-v41 .expedition-heading h2 { font-size:20px; margin:0; }
+  .expedition-shop-v41 .expedition-content { padding:8px 14px; }
+  .expedition-shop-card { display:grid; grid-template-columns:56px minmax(0,1fr); align-items:center; gap:3px 8px; padding:10px; border-radius:12px; }
+  .expedition-shop-card > .expedition-art { grid-column:1; grid-row:1/4; width:56px; height:65px; }
+  .expedition-shop-card h3 { grid-column:2; font-size:17px; min-height:0; margin:0; }
+  .expedition-shop-spins { grid-column:2; font-size:11px; margin:0; }
+  .expedition-shop-spins b { display:inline; font-size:15px; }
+  .expedition-shop-tag { display:none; }
+  .expedition-shop-card > .expedition-money { grid-column:2; }
+  .expedition-shop-card > .expedition-money strong { font-size:22px; }
+  .expedition-shop-rate { grid-column:1/-1; margin:2px 0; }
+  .expedition-shop-card > .expedition-button { grid-column:1/-1; min-height:44px; }
+  .expedition-shop-card > .expedition-text-button { grid-column:1/-1; min-height:28px; padding:4px; }
+  .expedition-shop-v41 .expedition-secondary { gap:25px; padding:0; }
+  .expedition-shop-v41 .expedition-secondary button { min-height:34px; }
+  .expedition-shop-v41 .expedition-summary { padding:5px 14px; }
+  .expedition-shop-v41 .expedition-summary:not(.expedition-summary--confirmation) { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .expedition-shop-v41 .expedition-shop-bet { display:flex; align-items:center; justify-content:flex-end; gap:8px; width:auto; }
+  .expedition-shop-v41 .expedition-shop-bet > span { margin:0; }
+  .expedition-shop-v41 .expedition-shop-bet > div { width:200px; }
+}
+@media(orientation:landscape) and (max-height:280px) {
+  .expedition-shop-v41.expedition-planner .expedition-planner__panel { grid-template-rows:44px minmax(0,1fr) auto auto; }
+  .expedition-shop-v41 .expedition-heading { padding-right:8px; }
+  .expedition-shop-v41 .expedition-heading h2 { font-size:17px; }
+  .expedition-shop-v41 .expedition-secondary { grid-area:3/1; }
+  .expedition-shop-v41 .expedition-summary { grid-area:4/1; }
+  .expedition-shop-cards { gap:8px; }
+  .expedition-shop-card { grid-template-columns:38px minmax(0,1fr); gap:4px; padding:7px; }
+  .expedition-shop-card > .expedition-art { width:38px; height:44px; }
+  .expedition-shop-card h3 { font-size:13px; }
+  .expedition-shop-card > .expedition-money strong { font-size:18px; }
+}
+/* The miniplayer keeps the financial footer intact. Put the chosen raid first
+   in the small scroll viewport, without an eyebrow pushing its title below it. */
+@media(orientation:landscape) and (max-height:300px) {
+  .expedition-shop-v41 .expedition-confirmation { padding:0; }
+  .expedition-shop-v41 .expedition-confirmation > .expedition-eyebrow { display:none; }
+  .expedition-shop-v41 .expedition-confirmation > h3 { margin:0 0 5px; font-size:16px; line-height:1.15; }
+  .expedition-shop-v41 .expedition-confirmation__visual { grid-template-columns:minmax(0,1fr); gap:0; }
+  .expedition-shop-v41 .expedition-confirmation__visual > .expedition-art { display:none; }
+  .expedition-shop-v41 .expedition-quote > div { padding:4px 0; gap:6px; }
+  .expedition-shop-v41 .expedition-quote dt { font-size:10px; line-height:1.25; }
+  .expedition-shop-v41 .expedition-quote dt small { font-size:9px; }
+  .expedition-shop-v41 .expedition-quote dd .expedition-money > strong { font-size:15px; }
+  .expedition-shop-v41 .expedition-confirmation > p { margin:7px 0; font-size:10px; line-height:1.35; }
+  .expedition-shop-v41 .expedition-confirmation > .expedition-footnote { margin-top:6px; font-size:9px; }
+}
+/* At 400×225 the two offers are the screen. Stake and close share one header;
+   balance and the two reference links share one footer. No purchase scroll. */
+@media(orientation:landscape) and (max-height:300px) {
+  .expedition-shop-v41.expedition-planner { padding:4px max(6px,env(safe-area-inset-right)) 4px max(6px,env(safe-area-inset-left)); }
+  .expedition-shop-v41.expedition-planner .expedition-planner__panel:has(.expedition-shop-cards) {
+    grid-template-rows:44px minmax(0,1fr) 29px;
+  }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-heading { padding:0 5px 0 11px; justify-content:space-between; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-heading > div { max-width:100px; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-heading h2 { font-size:14px; line-height:1.08; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-content { padding:3px 9px 5px; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-secondary { grid-area:3/1; justify-self:end; align-self:center; z-index:2; gap:12px; padding:0 12px 0 0; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-secondary button { min-height:27px; font-size:10px!important; padding:3px 0; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-summary { grid-area:3/1; display:block; padding:2px 12px; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-summary > div:first-child { display:flex; align-items:baseline; gap:5px; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-summary > div:first-child > span:first-child { margin:0; font-size:8px; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-summary .expedition-money > strong { font-size:13px; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-shop-bet { position:absolute; top:1px; right:51px; width:154px; height:44px; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-shop-bet > span { display:none; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-shop-bet > div { width:100%; grid-template-columns:44px minmax(0,1fr) 44px; gap:2px; }
+  .expedition-shop-v41:has(.expedition-shop-cards) .expedition-shop-bet button { border-radius:10px; font-size:22px; }
+  .expedition-shop-cards { gap:8px; padding-bottom:2px; }
+  .expedition-shop-card { grid-template-columns:minmax(0,1fr) auto; grid-template-rows:29px 16px 23px 44px; align-items:center; gap:1px 4px; padding:5px 7px; }
+  .expedition-shop-card::before { border-image-width:12px; }
+  .expedition-shop-card > .expedition-art { display:none; }
+  .expedition-shop-card h3 { grid-area:1/1/2/3; align-self:center; padding-right:18px; min-height:0; font-size:12px; line-height:1.15; }
+  .expedition-shop-spins { grid-area:2/1/3/3; font-size:9px; line-height:1.15; white-space:nowrap; }
+  .expedition-shop-spins b { font-size:12px; }
+  .expedition-shop-card > .expedition-money { grid-area:3/1; justify-content:center; gap:2px; }
+  .expedition-shop-card > .expedition-money strong { font-size:18px; }
+  .expedition-shop-card > .expedition-money small { font-size:8px; }
+  .expedition-shop-rate { grid-area:3/2; margin:0; font-size:10px; line-height:1; }
+  .expedition-shop-rate > span { display:none; }
+  .expedition-shop-card > .expedition-button { grid-area:4/1/5/3; height:44px; min-height:44px; padding:6px; font-size:12px!important; }
+  .expedition-shop-card > .expedition-text-button { position:absolute; top:4px; right:4px; width:24px; height:24px; min-height:24px; padding:0; font-size:0!important; border-radius:50%; background:#eaffff91; }
+  .expedition-shop-card > .expedition-text-button::after { content:'i'; font-size:13px; font-weight:800; }
+  .expedition-shop-card > .expedition-warning { grid-column:1/-1; font-size:9px; margin-top:4px; }
+}

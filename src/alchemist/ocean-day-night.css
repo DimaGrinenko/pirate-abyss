@@ -1,0 +1,11 @@
+/* Lighting covers the painted room only; the reel field and HUD are siblings.
+   Simple composited opacity, no animated full-screen blur or color filters. */
+.ocean-day-night{position:absolute;inset:0;pointer-events:none;z-index:3;--ocean-night:0}
+.ocean-day-night__shade{position:absolute;inset:0;background:#011127;opacity:calc(var(--ocean-night) * .56)}
+.ocean-day-night__lamp{position:absolute;object-fit:contain;mix-blend-mode:screen;filter:sepia(1) saturate(2.4);opacity:calc(var(--ocean-night) * .72);pointer-events:none}
+.ocean-day-night__lamp--left{left:17.7%;top:0;width:13%;height:29%}
+.ocean-day-night__lamp--right{left:85.5%;top:23%;width:17%;height:32%}
+.ocean-day-night__core{position:absolute;object-fit:fill;mix-blend-mode:screen;filter:sepia(1) saturate(2.1) brightness(1.7);opacity:calc(var(--ocean-night) * .95);pointer-events:none}
+.ocean-day-night__core--lantern{left:22.8%;top:9.4%;width:4.8%;height:11.6%}
+.ocean-day-night__core--candle-one{left:93.8%;top:27.4%;width:2.6%;height:6.8%}
+.ocean-day-night__core--candle-two{left:96.1%;top:25.6%;width:2.6%;height:6.8%}

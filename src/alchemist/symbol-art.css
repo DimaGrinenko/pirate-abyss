@@ -1,0 +1,15 @@
+.chemical-symbol { container-type: inline-size; }
+.chemical-symbol__fallback { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.chemical-symbol__multiplier,
+.chemical-symbol__scatter-label {
+  position: absolute; left: 50%; top: 81%; transform: translate(-50%, -50%);
+  font-family: var(--display-font, Manrope), 'Arial Rounded MT Bold', sans-serif; font-weight: 900;
+  line-height: 1; white-space: nowrap; text-align: center;
+  text-shadow: 0 2.5px 0 #101024, 1px 0 1px #101024, -1px 0 1px #101024;
+  -webkit-text-stroke: clamp(.4px, 1.3cqw, 1.8px) #111026; paint-order: stroke fill;
+}
+.chemical-symbol__multiplier { font-size: clamp(4px, 24cqw, 36px); letter-spacing: -.04em; }
+.chemical-symbol__scatter-label {
+  color: #fff3a8; font-size: clamp(3px, 15cqw, 22px); letter-spacing: -.035em;
+  top: 83%; text-shadow: 0 2.5px 0 #30102b, 1px 0 1px #30102b, -1px 0 1px #30102b;
+}

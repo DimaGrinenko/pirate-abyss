@@ -1,0 +1,63 @@
+/* One physical grid for the mast crests and their four central sail lanes.
+   The raster jamb repeats at its native ratio; the painted header is never stretched. */
+.machine--connected { --reel-inset: 10px; container-type: inline-size; }
+.machine--connected .reel-frame { padding: var(--reel-inset); background: transparent; }
+.machine--connected .wild-rail {
+  padding: 0 var(--reel-inset);
+  margin: 0 0 calc(-1 * var(--reel-inset));
+  height: clamp(32px, 10.2cqw, 78px);
+  gap: 0;
+  align-items: end;
+  z-index: 14;
+}
+.machine--connected .wild-type {
+  width: 100%; height: auto; aspect-ratio: 512 / 308;
+  margin: 0; align-self: end; transform-origin: 50% 100%;
+  filter: drop-shadow(0 2px 2px #00141c99);
+}
+.machine--connected .rail-art { width: 100%; height: 100%; object-fit: contain; }
+.machine--connected .rail-medallion { top: 8%; left: 33%; width: 34%; height: 54%; }
+.machine--connected .rail-medallion span {
+  font-size: clamp(7px, 2.65cqw, 21px); font-weight: 900;
+  color: #fff4c6; text-shadow: 0 1px 1px #043145, 0 0 2px #043145;
+}
+.machine--connected .rail-ribbon {
+  bottom: 11%; left: 7%; right: 7%; font-size: clamp(5px, 1.4cqw, 10.5px);
+  line-height: 1; letter-spacing: 0; color: #fff2c5; text-shadow: 0 1px 2px #00131d, 0 0 3px #00131d;
+}
+.machine--connected .wild-type[data-crest-type="gold"] .rail-ribbon,
+.machine--connected .wild-type[data-crest-type="gold"] .rail-medallion span {
+  color: #382605; text-shadow: 0 1px 1px #ffe392;
+}
+.machine--connected .wild-type.activated,
+.machine--connected .wild-type.unsealed { filter: brightness(1.12) drop-shadow(0 0 5px var(--wild)); }
+.machine--connected .wild-type.expectant { animation: mast-anticipation 750ms ease-in-out infinite alternate; }
+.machine--connected .wild-type[data-opening] { animation: mast-release 650ms ease-out both; }
+.machine--connected .reel-column { border: 0; }
+.machine--connected .reel-column[data-reel="1"] { --lane-ink: #063e61; --lane-light: #41ceee; }
+.machine--connected .reel-column[data-reel="2"] { --lane-ink: #3c192a; --lane-light: #ff765b; }
+.machine--connected .reel-column[data-reel="3"] { --lane-ink: #453918; --lane-light: #ffe680; }
+.machine--connected .reel-column[data-reel="4"] { --lane-ink: #113b39; --lane-light: #84ed9b; }
+.machine--connected .reel-column:nth-child(n+2):nth-child(-n+5) {
+  background-color: var(--lane-ink);
+  background-image: linear-gradient(90deg, #00111e66, transparent 18%, transparent 82%, #00111e66);
+}
+.machine--connected .reel-column:nth-child(n+2):nth-child(-n+5)::before,
+.machine--connected .reel-column:nth-child(n+2):nth-child(-n+5)::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: clamp(2px, .8cqw, 5px);
+  z-index: 5; pointer-events: none;
+  background: url('/alchemist/effects/column-jamb-v36.webp') center top / 100% auto repeat-y;
+}
+.machine--connected .reel-column:nth-child(n+2):nth-child(-n+5)::before { left: 0; }
+.machine--connected .reel-column:nth-child(n+2):nth-child(-n+5)::after { right: 0; transform: scaleX(-1); }
+@keyframes mast-anticipation { from { filter: brightness(1) drop-shadow(0 0 1px var(--wild)); } to { filter: brightness(1.3) drop-shadow(0 0 6px var(--wild)); } }
+@keyframes mast-release { 0%,100% { transform: translateY(0); } 24% { transform: translateY(-2px); } 56% { transform: translateY(1px); } }
+@media (orientation: portrait) and (max-width: 700px) { .machine--connected { --reel-inset: 7px; } }
+@media (orientation: landscape) and (max-height: 550px) { .machine--connected { --reel-inset: 7px; } }
+@media (orientation: landscape) and (max-height: 300px) {
+  .machine--connected { --reel-inset: 5px; }
+  .machine--connected .wild-rail { height: 20px; }
+  .machine--connected .rail-medallion span { font-size: 5px; }
+  .machine--connected .rail-ribbon { font-size: 3.5px; }
+}
+.no-motion .machine--connected .wild-type { animation: none; }

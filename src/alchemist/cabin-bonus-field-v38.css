@@ -1,0 +1,96 @@
+/* The bonus apparatus occupies the reel furniture; only the surrounding cabin
+   stays visible. Runtime registration follows the real responsive field. */
+.cabin-bonus--field {
+  --bonus-field-width:min(var(--board-width,650px),calc(100vw - 16px));
+  --bonus-field-height:min(600px,calc(100svh - var(--hud-height,96px) - 24px));
+  --bonus-field-left:calc(var(--bonus-card-x,50vw) - var(--bonus-field-width) / 2);
+  --bonus-field-top:calc((100svh - var(--hud-height,96px) - var(--bonus-field-height)) / 2);
+}
+.cabin-bonus--field .cabin-bonus__backdrop,.cabin-bonus--field .cabin-bonus__card {
+  position:absolute; left:var(--bonus-field-left); top:var(--bonus-field-top);
+  width:var(--bonus-field-width); height:var(--bonus-field-height); transform:none;
+}
+.cabin-bonus__backdrop { background:#076476; border-radius:14px; overflow:hidden; pointer-events:none; isolation:isolate; }
+.cabin-bonus__sea { position:absolute; inset:-20%; width:140%; height:140%; object-fit:cover; opacity:.27; }
+.cabin-bonus__fog { position:absolute; width:160%; height:100%; object-fit:fill; opacity:.42; pointer-events:none; }
+.cabin-bonus__fog--back { left:-25%; top:-45%; rotate:180deg; opacity:.34; }
+.cabin-bonus__fog--front { right:-35%; bottom:-41%; opacity:.48; }
+.cabin-bonus--field .cabin-bonus__card {
+  --caption-space:28px;
+  --portal-size:min(calc(var(--bonus-field-width) * .93),calc(var(--bonus-field-height) - 66px));
+  --portal-head:44px; container-type:size; overflow:visible;
+}
+.cabin-bonus--field[data-bonus-mode=captains_course] .cabin-bonus__card {
+  --caption-space:43px; --portal-size:min(calc(var(--bonus-field-width) * .93),calc(var(--bonus-field-height) - 81px));
+}
+.cabin-bonus--field .cabin-bonus__heading { top:8px; left:4%; width:92%; z-index:7; }
+.celebration.cabin-bonus--field .cabin-bonus__heading h2 { font-size:clamp(22px,5.1cqw,35px); margin-top:4px; }
+.cabin-bonus--field .cabin-bonus__artifact { top:var(--portal-head); }
+.cabin-bonus--field .cabin-bonus__result {
+  z-index:6; left:50%; top:calc(var(--portal-head) + var(--portal-size) * .45096);
+  width:calc(var(--portal-size) * .4); height:calc(var(--portal-size) * .35);
+}
+.cabin-bonus--field .cabin-bonus__result>strong { font-size:clamp(44px,calc(var(--portal-size) * .24),116px); }
+.cabin-bonus--field .cabin-bonus__result>span { font-size:clamp(9px,calc(var(--portal-size) * .027),13px); }
+.cabin-bonus--field .cabin-bonus__payout>strong { font-size:min(calc(var(--portal-size) * .17),calc(var(--portal-size) * .62 / var(--payout-length)),64px); }
+.cabin-bonus--field .cabin-bonus__caption { bottom:6px; left:7%; width:86%; font-size:clamp(10px,2.35cqw,14px); z-index:7; }
+.cabin-bonus--field .cabin-bonus__action.alchemy-button {
+  top:auto; bottom:calc(var(--caption-space) + 5px); left:50%; width:min(300px,58%); max-width:none; min-height:44px; z-index:8;
+}
+.cabin-bonus--field .cabin-bonus__action .alchemy-button__label { font-size:clamp(10px,4.9cqw,15px); }
+.cabin-bonus--field .cabin-bonus__treasure {
+  position:absolute; z-index:5; width:108%; max-width:none; height:auto; aspect-ratio:2; left:-4%; bottom:11px;
+  object-fit:contain; pointer-events:none;
+}
+.cabin-bonus__treasure>img { display:block; width:100%; height:auto; }
+.cabin-bonus__treasure-sparks { position:absolute; inset:0; pointer-events:none; }
+.cabin-bonus__treasure-sparks img { position:absolute; width:5%; aspect-ratio:1; object-fit:contain; opacity:0; }
+.cabin-bonus__treasure-sparks img:nth-child(1) { left:20%; top:28%; }
+.cabin-bonus__treasure-sparks img:nth-child(2) { right:15%; top:34%; }
+.cabin-bonus__treasure-sparks img:nth-child(3) { left:13%; top:71%; }
+.cabin-bonus__treasure-sparks img:nth-child(4) { right:25%; top:83%; }
+.cabin-bonus--summary[data-bonus-reward=false] .cabin-bonus__treasure-sparks { display:none; }
+.cabin-bonus--field[data-reduced-motion=false] .cabin-bonus__sea { animation:cabin-bonus-sea calc(20s / var(--bonus-motion-rate)) ease-in-out infinite; }
+.cabin-bonus--field[data-reduced-motion=false] .cabin-bonus__fog--back { animation:cabin-bonus-fog-back calc(12s / var(--bonus-motion-rate)) ease-in-out infinite; }
+.cabin-bonus--field[data-reduced-motion=false] .cabin-bonus__fog--front { animation:cabin-bonus-fog-front calc(10s / var(--bonus-motion-rate)) ease-in-out infinite; }
+.cabin-bonus--field[data-reduced-motion=false] .cabin-bonus__treasure { animation:cabin-bonus-treasure calc(820ms / var(--bonus-motion-rate)) cubic-bezier(.16,.7,.25,1) both; }
+.cabin-bonus--field[data-reduced-motion=false] .cabin-bonus__treasure-sparks img { animation:cabin-bonus-glint calc(5.4s / var(--bonus-motion-rate)) calc(var(--glint-index) * -1.3s / var(--bonus-motion-rate)) ease-in-out infinite; }
+.cabin-bonus--field[data-reduced-motion=false][data-stage-exiting=true] .cabin-bonus__backdrop { animation:cabin-bonus-field-depart calc(720ms / var(--bonus-motion-rate)) ease-in both; }
+@keyframes cabin-bonus-sea { 0%,100% { rotate:-4deg; scale:1; } 50% { rotate:4deg; scale:1.07; } }
+@keyframes cabin-bonus-fog-back { 0%,100% { translate:-3% 0; scale:1; } 50% { translate:4% 2%; scale:1.07; } }
+@keyframes cabin-bonus-fog-front { 0%,100% { translate:3% 0; scale:1; } 50% { translate:-4% -2%; scale:1.05; } }
+@keyframes cabin-bonus-treasure { 0%,15% { opacity:0; translate:0 45px; scale:.92; } 72% { opacity:1; translate:0 -3px; scale:1.01; } 100% { opacity:1; translate:0 0; scale:1; } }
+@keyframes cabin-bonus-field-depart { 0%,25% { opacity:1; } 100% { opacity:0; } }
+@media(orientation:portrait) {
+  .cabin-bonus--field { --bonus-field-top:calc(50svh - var(--bonus-field-height) / 2); --bonus-field-height:calc(var(--board-width,300px) * .94); }
+  .cabin-bonus--field .cabin-bonus__heading>span { font-size:9px; }
+  .celebration.cabin-bonus--field .cabin-bonus__heading h2 { font-size:clamp(19px,5.7cqw,25px); }
+  .cabin-bonus--field .cabin-bonus__action.alchemy-button { width:64%; }
+  .cabin-bonus--field .cabin-bonus__treasure { width:116%; left:-8%; bottom:18px; }
+}
+@media(orientation:landscape) and (max-height:550px) {
+  .cabin-bonus--field .cabin-bonus__card { --portal-head:36px; --portal-size:min(calc(var(--bonus-field-width) * .92),calc(var(--bonus-field-height) - 53px)); --caption-space:23px; }
+  .cabin-bonus--field[data-bonus-mode=captains_course] .cabin-bonus__card { --caption-space:34px; --portal-size:min(calc(var(--bonus-field-width) * .92),calc(var(--bonus-field-height) - 64px)); }
+  .cabin-bonus--field .cabin-bonus__heading { top:6px; }
+  .cabin-bonus--field .cabin-bonus__heading>span { font-size:8px; }
+  .celebration.cabin-bonus--field .cabin-bonus__heading h2 { font-size:20px; margin-top:3px; }
+  .cabin-bonus--field .cabin-bonus__caption { font-size:10px; }
+  .cabin-bonus--field .cabin-bonus__action.alchemy-button { width:62%; }
+}
+@media(orientation:landscape) and (max-height:300px) {
+  .cabin-bonus--field .cabin-bonus__card,.cabin-bonus--field[data-bonus-mode=captains_course] .cabin-bonus__card {
+    --portal-head:0px; --portal-size:min(calc(var(--bonus-field-height) * .97),calc(var(--bonus-field-width) * .6));
+  }
+  .cabin-bonus--field .cabin-bonus__artifact { left:74%; top:-1px; }
+  .cabin-bonus--field .cabin-bonus__result { left:74%; top:calc(var(--portal-size) * .45096 - 1px); }
+  .cabin-bonus--field .cabin-bonus__result>strong { font-size:34px; }
+  .cabin-bonus--field .cabin-bonus__result>span { font-size:7px; }
+  .cabin-bonus--field .cabin-bonus__payout>strong { font-size:min(calc(var(--portal-size) * .17),calc(var(--portal-size) * .65 / var(--payout-length)),25px); }
+  .cabin-bonus--field .cabin-bonus__heading { left:2%; top:8px; width:47%; }
+  .celebration.cabin-bonus--field .cabin-bonus__heading h2 { font-size:15px; margin-top:3px; }
+  .cabin-bonus--field .cabin-bonus__heading>span { font-size:7px; }
+  .cabin-bonus--field .cabin-bonus__caption { left:3%; top:47px; bottom:auto; width:44%; font-size:8px; line-height:1.23; }
+  .cabin-bonus--field .cabin-bonus__action.alchemy-button { left:26%; bottom:4px; width:47%; min-height:44px; }
+  .cabin-bonus--field .cabin-bonus__action .alchemy-button__label { font-size:8px; }
+  .cabin-bonus--field .cabin-bonus__treasure { width:74%; left:29%; bottom:-4px; }
+}

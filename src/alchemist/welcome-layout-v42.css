@@ -1,0 +1,156 @@
+/* A bounded welcome stage: the logo, three facts and native painted action
+   each own a grid row. The captain's deck is included in his visual budget. */
+.laboratory-entry.entry-welcome {
+  padding:max(18px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(18px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left));
+  overflow:hidden; display:grid; place-items:center;
+}
+.laboratory-entry.entry-welcome .entry-layout {
+  display:grid; width:min(1280px,100%); height:min(740px,100%); min-height:0; max-height:100%;
+  grid-template-columns:minmax(0,.28fr) minmax(0,.72fr); grid-template-rows:minmax(0,1fr);
+  gap:24px; align-items:center;
+}
+.laboratory-entry.entry-welcome .entry-professor {
+  display:block; position:relative; inset:auto; grid-column:1; grid-row:1;
+  width:82%; height:76%; min-height:0; max-height:600px; padding:0; margin:0;
+  align-self:center; justify-self:center; filter:none;
+}
+.laboratory-entry.entry-welcome .entry-content {
+  grid-column:2; grid-row:1; display:grid; grid-template-columns:minmax(0,1fr);
+  grid-template-rows:minmax(76px,.34fr) minmax(0,1fr) auto auto;
+  width:100%; height:min(640px,100%); max-height:none; min-height:0;
+  gap:12px; align-items:center; justify-items:center; align-self:center;
+}
+.laboratory-entry.entry-welcome .entry-logo {
+  grid-column:1; grid-row:1; width:min(420px,88%); height:100%; max-height:100%; min-height:0;
+  object-fit:contain; align-self:center; justify-self:center; margin:0;
+}
+.laboratory-entry.entry-welcome .entry-features {
+  grid-column:1; grid-row:2; display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-rows:minmax(0,1fr); gap:12px; width:100%; height:100%; max-width:none; max-height:340px;
+  min-height:0; margin:0; align-items:stretch;
+}
+.laboratory-entry.entry-welcome .entry-feature {
+  display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(64px,1fr) auto minmax(62px,auto);
+  gap:10px; justify-items:center; align-items:center; min-height:0; min-width:0;
+  padding:18px 14px; border:0; border-radius:0; background:none; text-align:center;
+}
+.laboratory-entry.entry-welcome .entry-feature::before {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  border:16px solid transparent; border-image:url('/alchemist/ui/interface-panel.webp') 165 fill / 16px / 0 stretch;
+  opacity:1;
+}
+.laboratory-entry.entry-welcome .entry-symbols {
+  grid-column:1; grid-row:1; align-self:center; width:100%; height:100%; min-height:0; max-height:130px;
+  display:flex; align-items:center; justify-content:center;
+}
+.laboratory-entry.entry-welcome .entry-feature h2 {
+  grid-column:1; grid-row:2; width:100%; min-width:0; margin:0; align-self:center;
+  font:850 clamp(14px,1.35vw,20px)/1.18 var(--body-font),Georgia,serif;
+  color:#fff0bc; text-shadow:0 2px 1px #061b3d; letter-spacing:-.02em; white-space:normal; text-wrap:balance;
+}
+.laboratory-entry.entry-welcome .entry-feature p {
+  grid-column:1; grid-row:3; width:100%; margin:0; align-self:start;
+  font:500 clamp(10px,.95vw,13px)/1.45 var(--body-font),Arial,sans-serif;
+  color:#cfe9f5; text-shadow:none; letter-spacing:0; text-wrap:balance;
+}
+.laboratory-entry.entry-welcome .entry-start.alchemy-button {
+  grid-column:1; grid-row:3; width:280px; max-width:88%; min-height:44px; margin:0; justify-self:center;
+}
+.laboratory-entry.entry-welcome .entry-start .alchemy-button__art { display:block; }
+.laboratory-entry.entry-welcome .entry-start .alchemy-button__visual::before { content:none; }
+.laboratory-entry.entry-welcome .entry-start .alchemy-button__visual { filter:none; }
+.laboratory-entry.entry-welcome .entry-start .alchemy-button__label {
+  font:850 clamp(10px,5cqw,15px)/1.12 var(--body-font),Georgia,serif; color:#fff8d9;
+  text-shadow:0 1px 2px #05404c; letter-spacing:0; text-decoration:none;
+}
+.laboratory-entry.entry-welcome .entry-start:focus-visible .alchemy-button__visual {
+  outline:none; filter:drop-shadow(0 0 3px #fff1a2);
+}
+.laboratory-entry.entry-welcome .entry-start:focus-visible .alchemy-button__label { text-decoration:none; }
+.laboratory-entry.entry-welcome .entry-footnote {
+  grid-column:1; grid-row:4; margin:0; font-size:9px; line-height:1.45; letter-spacing:0; color:#c9e4ed;
+}
+
+@media (orientation:landscape) and (max-height:620px) {
+  .laboratory-entry.entry-welcome { padding:10px 12px; }
+  .laboratory-entry.entry-welcome .entry-layout { gap:18px; }
+  .laboratory-entry.entry-welcome .entry-professor { height:76%; }
+  .laboratory-entry.entry-welcome .entry-content { grid-template-rows:minmax(64px,.32fr) minmax(0,1fr) auto auto; gap:8px; }
+  .laboratory-entry.entry-welcome .entry-logo { width:min(320px,84%); }
+  .laboratory-entry.entry-welcome .entry-features { gap:8px; max-height:280px; }
+  .laboratory-entry.entry-welcome .entry-feature { padding:12px 10px; grid-template-rows:minmax(42px,1fr) auto minmax(54px,auto); gap:7px; }
+  .laboratory-entry.entry-welcome .entry-feature::before { border-image-width:12px; }
+  .laboratory-entry.entry-welcome .entry-symbols { max-height:96px; }
+  .laboratory-entry.entry-welcome .entry-feature h2 { font-size:14px; }
+  .laboratory-entry.entry-welcome .entry-feature p { font-size:10px; line-height:1.35; }
+  .laboratory-entry.entry-welcome .entry-start.alchemy-button { width:224px; }
+  .laboratory-entry.entry-welcome .entry-footnote { font-size:8px; line-height:1.3; }
+}
+
+@media (orientation:portrait) and (max-width:700px) {
+  .laboratory-entry.entry-welcome { --welcome-header:clamp(112px,22svh,166px); padding:max(8px,env(safe-area-inset-top)) 10px max(8px,env(safe-area-inset-bottom)); }
+  .laboratory-entry.entry-welcome .entry-layout { display:block; height:min(740px,100%); min-height:0; width:100%; }
+  .laboratory-entry.entry-welcome .entry-professor {
+    position:absolute; left:0; top:calc(var(--welcome-header) * .07); width:36%; height:calc(var(--welcome-header) * .78);
+    max-height:none; padding:0; margin:0;
+  }
+  .laboratory-entry.entry-welcome .entry-content {
+    width:100%; height:100%; max-height:none; display:grid;
+    grid-template-rows:var(--welcome-header) minmax(0,1fr) auto auto; gap:8px;
+  }
+  .laboratory-entry.entry-welcome .entry-logo { width:62%; height:88%; max-height:none; justify-self:end; align-self:center; margin:0; }
+  .laboratory-entry.entry-welcome .entry-features {
+    grid-template-columns:minmax(0,1fr); grid-template-rows:repeat(3,minmax(0,1fr));
+    width:100%; height:100%; max-height:430px; gap:8px; margin:0;
+  }
+  .laboratory-entry.entry-welcome .entry-feature {
+    grid-template-columns:82px minmax(0,1fr); grid-template-rows:auto auto; gap:3px 10px;
+    padding:11px 13px 11px 9px; min-height:0; text-align:left; align-content:center;
+  }
+  .laboratory-entry.entry-welcome .entry-feature::before { border-image-width:12px; }
+  .laboratory-entry.entry-welcome .entry-symbols { grid-column:1; grid-row:1/3; max-height:86px; height:100%; }
+  .laboratory-entry.entry-welcome .entry-feature h2 { grid-column:2; grid-row:1; align-self:end; font-size:16px; line-height:1.15; }
+  .laboratory-entry.entry-welcome .entry-feature p { grid-column:2; grid-row:2; align-self:start; font-size:10px; line-height:1.35; }
+  .laboratory-entry.entry-welcome .entry-start.alchemy-button { width:260px; max-width:86%; margin:0; }
+  .laboratory-entry.entry-welcome .entry-footnote { font-size:8px; line-height:1.4; }
+}
+@media (orientation:portrait) and (max-width:350px) {
+  .laboratory-entry.entry-welcome .entry-feature { grid-template-columns:68px minmax(0,1fr); padding:9px 11px 9px 8px; column-gap:7px; }
+  .laboratory-entry.entry-welcome .entry-feature h2 { font-size:14px; }
+  .laboratory-entry.entry-welcome .entry-feature p { font-size:9px; line-height:1.3; }
+  .laboratory-entry.entry-welcome .entry-start.alchemy-button { width:224px; }
+}
+
+/* Small landscape keeps all three facts. The narrow left column holds the
+   complete logo and captain; the action has a separate 44px target row. */
+@media (orientation:landscape) and (max-height:300px) {
+  .laboratory-entry.entry-welcome { padding:4px 6px; }
+  .laboratory-entry.entry-welcome .entry-layout {
+    display:grid; width:100%; height:100%; grid-template-columns:88px minmax(0,1fr);
+    grid-template-rows:minmax(0,1fr) 44px; gap:4px 8px;
+  }
+  .laboratory-entry.entry-welcome .entry-content { display:contents; }
+  .laboratory-entry.entry-welcome .entry-professor {
+    display:block; grid-column:1; grid-row:1; position:relative; inset:auto;
+    width:100%; height:calc(100% - 62px); max-height:140px; align-self:end; padding:0; margin:0 0 12px;
+  }
+  .laboratory-entry.entry-welcome .entry-logo {
+    grid-column:1; grid-row:1; width:100%; height:50px; max-height:none; margin:0; align-self:start; justify-self:center;
+  }
+  .laboratory-entry.entry-welcome .entry-features {
+    grid-column:2; grid-row:1; width:100%; height:100%; max-height:none;
+    grid-template-columns:minmax(0,1fr); grid-template-rows:repeat(3,minmax(0,1fr)); gap:4px; margin:0;
+  }
+  .laboratory-entry.entry-welcome .entry-feature {
+    grid-template-columns:38px minmax(0,1fr); grid-template-rows:auto auto; align-content:center;
+    padding:5px 7px; gap:2px 5px; min-height:0; text-align:left;
+  }
+  .laboratory-entry.entry-welcome .entry-feature::before { border-image-width:7px; }
+  .laboratory-entry.entry-welcome .entry-symbols { grid-column:1; grid-row:1/3; height:100%; max-height:40px; }
+  .laboratory-entry.entry-welcome .entry-feature h2 { grid-column:2; grid-row:1; font-size:9.5px; line-height:1.08; margin:0; align-self:end; }
+  .laboratory-entry.entry-welcome .entry-feature p { grid-column:2; grid-row:2; font-size:7.5px; line-height:1.2; margin:0; align-self:start; }
+  .laboratory-entry.entry-welcome .entry-feature p br { display:initial; }
+  .laboratory-entry.entry-welcome .entry-start.alchemy-button { grid-column:2; grid-row:2; width:160px; max-width:100%; min-height:44px; margin:0; align-self:center; justify-self:center; }
+  .laboratory-entry.entry-welcome .entry-start .alchemy-button__label { font-size:10px; }
+  .laboratory-entry.entry-welcome .entry-footnote { grid-column:1; grid-row:2; margin:0; font-size:6.5px; line-height:1.2; align-self:center; }
+}

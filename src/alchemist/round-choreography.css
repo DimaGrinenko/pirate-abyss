@@ -1,0 +1,21 @@
+/* Existing raster Scatter supplies the art; live text keeps awards readable. */
+.retrigger-award {
+  position: absolute; inset: 28% 8%; z-index: 12; pointer-events: none;
+  display: flex; align-items: center; justify-content: center; gap: 3%;
+  filter: drop-shadow(0 4px 8px #00161feb);
+  animation: retrigger-arrive var(--retrigger-duration, 1500ms) both;
+}
+.retrigger-award img { width: 23%; max-height: 100%; object-fit: contain; }
+.retrigger-award div { display: flex; align-items: center; flex-direction: column; }
+.retrigger-award strong { font-family: var(--body-font), Arial, sans-serif; font-weight: 900; font-size: clamp(36px, 9vw, 112px); line-height: 1; color: #fff3b0; text-shadow: 0 3px #6f3715; }
+.retrigger-award span { font-size: clamp(9px, 1.8vw, 22px); font-weight: 900; text-align: center; color: #f8ffff; text-shadow: 0 2px 4px #002a33; }
+@keyframes retrigger-arrive {
+  0% { opacity: 0; transform: translateY(14px) scale(.88); }
+  23% { opacity: 1; transform: translateY(0) scale(1); animation-timing-function: ease-out; }
+  78% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-12px) scale(.98); }
+}
+.no-motion .retrigger-award { animation: none; }
+.game-shell[data-document-hidden="true"] *,
+.game-shell[data-document-hidden="true"] *::before,
+.game-shell[data-document-hidden="true"] *::after { animation-play-state: paused !important; }

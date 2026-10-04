@@ -1,0 +1,164 @@
+/* Painted actions and an open scene; no encompassing HUD panel. */
+@import './game-controls-v35.css';
+.captain-deck {
+  --deck-ivory:#fff9e9; --deck-muted:#fff4dc; --deck-seafoam:#c3f5df;
+  grid-template-columns:92px minmax(0,1fr) minmax(176px,210px) 92px 80px;
+  grid-template-rows:1fr; gap:12px; min-height:84px; padding:2px 0;
+  border:0; border-radius:0; background:none; box-shadow:none;
+  text-shadow:0 1px 2px #00111f,0 0 5px #00111f,0 2px 8px #00111f;
+}
+.captain-deck::before { content:none; }
+.captain-deck__ledger { grid-column:2; grid-row:1; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:18px; align-self:center; padding:0; }
+.captain-deck__bet { grid-column:3; grid-row:1; width:100%; justify-self:center; }
+.captain-deck__utilities { grid-column:1; grid-row:1; gap:4px; }
+.captain-deck__modes { grid-column:4; grid-row:1; gap:4px; }
+.captain-deck__spin { grid-column:5; grid-row:1; width:80px; height:80px; padding:14px; border:0; background:transparent; box-shadow:none; }
+.captain-deck__spin::before { content:''; inset:0; border:0; background:url('/alchemist/ui/spin-cartoon-v36.webp') center/contain no-repeat; }
+.captain-deck__spin > img { width:48px; height:48px; }
+.captain-deck__spin > span { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.captain-deck__spin:hover:not(:disabled) { background:transparent; box-shadow:none; filter:brightness(1.1); }
+.captain-deck__spin:disabled { opacity:.7; }
+.captain-deck__label { margin-bottom:4px; color:var(--deck-muted); font-size:11px; font-weight:750; letter-spacing:.01em; }
+.captain-deck__money strong { font-size:clamp(11px,calc(210px / var(--amount-chars)),21px); letter-spacing:0; }
+.captain-deck__money small { font-size:10px; font-weight:750; }
+.captain-deck__stepper { min-height:44px; border:0; background:none; border-radius:0; grid-template-columns:44px minmax(44px,1fr) 44px; gap:2px; }
+.captain-deck__step,.captain-deck__bet-amount { min-height:44px; border:0; border-radius:50%; background:transparent; }
+.captain-deck__step { position:relative; isolation:isolate; }
+.captain-deck__step > img { width:23px; height:23px; }
+.captain-deck__bet-amount { padding:3px; border-radius:8px; container-type:inline-size; }
+.captain-deck__bet-amount .captain-deck__money strong { font-size:clamp(9px,calc(155cqw / var(--amount-chars)),20px); }
+.captain-deck__step:hover:not(:disabled),.captain-deck__bet-amount:hover:not(:disabled) { background:transparent; filter:brightness(1.12); }
+.captain-deck__tool { position:relative; isolation:isolate; width:44px; min-width:44px; height:48px; min-height:44px; padding:2px; gap:2px; border:0; background:transparent; border-radius:50%; color:var(--deck-ivory); }
+.captain-deck__tool > img { width:25px; height:25px; }
+.captain-deck__tool > span { font-size:9px; line-height:10px; font-weight:750; white-space:normal; text-align:center; }
+.captain-deck__tool:hover:not(:disabled) { box-shadow:none; background:transparent; filter:brightness(1.1); }
+.captain-deck__tool[aria-pressed=true] { color:var(--deck-ivory); box-shadow:none; }
+.captain-deck__compact-menu { display:none; }
+.captain-deck__bonus-count { min-height:44px; }
+.captain-deck__bonus-count .captain-deck__money { flex-wrap:wrap; }
+@media (max-width:1100px) {
+  .captain-deck { grid-template-columns:44px minmax(0,1fr) minmax(156px,188px) 92px 72px; gap:8px; min-height:82px; }
+  .captain-deck__settings,.captain-deck__sound { display:none; }
+  .captain-deck__compact-menu { display:flex; }
+  .captain-deck__spin { width:72px; height:72px; }
+  .captain-deck__spin > img { width:42px; height:42px; }
+  .captain-deck__ledger { gap:12px; }
+  .captain-deck__money strong { font-size:clamp(9px,calc(184px / var(--amount-chars)),19px); }
+}
+@media (orientation:landscape) and (max-height:550px) {
+  .captain-deck { grid-template-columns:44px minmax(0,1fr) minmax(146px,176px) 92px 60px; gap:8px; min-height:64px; }
+  .captain-deck__settings,.captain-deck__sound { display:none; }
+  .captain-deck__compact-menu { display:flex; }
+  .captain-deck__spin { width:60px; height:60px; padding:10px; }
+  .captain-deck__spin > img { width:36px; height:36px; }
+  .captain-deck__label { font-size:9px; margin-bottom:2px; }
+  .captain-deck__money strong { font-size:clamp(10px,calc(182px / var(--amount-chars)),18px); }
+  .captain-deck__money small { font-size:9px; }
+}
+@media (orientation:landscape) and (max-width:700px) {
+  .captain-deck,.captain-deck:has(.captain-deck__ledger [data-long-amount]) {
+    grid-template-columns:44px minmax(0,1fr) 136px 56px;
+    grid-template-rows:1fr; gap:4px; padding:0; min-height:64px;
+  }
+  .captain-deck__ledger { grid-column:2; grid-row:1; grid-template-columns:1fr; gap:3px; }
+  .captain-deck__readout { display:block; text-align:left; }
+  .captain-deck__readout .captain-deck__label { font-size:8px; margin:0; }
+  .captain-deck__ledger .captain-deck__money { justify-content:flex-start; gap:0 2px; }
+  .captain-deck__ledger .captain-deck__money strong { font-size:clamp(9px,calc(124px / var(--amount-chars)),13px); }
+  .captain-deck__ledger .captain-deck__money small { font-size:7px; }
+  .captain-deck__bet { grid-column:3; grid-row:1; }
+  .captain-deck__bet-amount { padding:1px; }
+  .captain-deck__bet-amount .captain-deck__money strong { font-size:clamp(9px,calc(165cqw / var(--amount-chars)),15px); }
+  .captain-deck__bet-amount .captain-deck__money small { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+  .captain-deck__bet-amount .captain-deck__money small,.captain-deck__factor { font-size:8px; }
+  .captain-deck__spin { grid-column:4; grid-row:1; }
+  .captain-deck__spin > img { width:34px; height:34px; }
+  .captain-deck__utilities { grid-column:1; grid-row:1; }
+  .captain-deck__modes { display:none; }
+  .captain-deck__compact-menu { width:44px; height:44px; }
+}
+/* The phone keeps large amounts in their own row. Stake, mode actions and
+   Spin then read left to right without shrinking any 44px action target. */
+@media (orientation:portrait) {
+  .captain-deck {
+    grid-template-columns:44px minmax(136px,1fr) 92px 68px;
+    grid-template-rows:minmax(34px,auto) 68px; gap:4px; min-height:110px;
+    padding:2px 0; border:0; border-radius:0;
+  }
+  .captain-deck__ledger { grid-column:1 / -1; grid-row:1; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px; align-self:center; }
+  .captain-deck__readout { display:block; text-align:left; }
+  .captain-deck__readout--win { text-align:right; }
+  .captain-deck__readout--win .captain-deck__money { justify-content:flex-end; }
+  .captain-deck__label { font-size:10px; margin-bottom:2px; }
+  .captain-deck__money strong { font-size:clamp(10px,calc(178px / var(--amount-chars)),19px); }
+  .captain-deck__money small { font-size:8px; }
+  .captain-deck__bet { grid-column:2; grid-row:2; }
+  .captain-deck__bet > .captain-deck__label { font-size:9px; }
+  .captain-deck__bet-amount { min-height:44px; padding:1px; }
+  .captain-deck__bet-amount .captain-deck__money strong { font-size:clamp(9px,calc(165cqw / var(--amount-chars)),17px); }
+  .captain-deck__bet-amount .captain-deck__money small { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+  .captain-deck__bet-amount .captain-deck__money { gap:0 2px; }
+  .captain-deck__factor { margin-top:1px; font-size:8px; }
+  .captain-deck__spin { grid-column:4; grid-row:2; width:68px; height:68px; padding:12px; }
+  .captain-deck__spin > img { width:40px; height:40px; }
+  .captain-deck__utilities { grid-column:1; grid-row:2; justify-self:start; }
+  .captain-deck__modes { display:flex; grid-column:3; grid-row:2; justify-self:center; gap:4px; }
+  .captain-deck__settings,.captain-deck__sound { display:none; }
+  .captain-deck__compact-menu { display:flex; width:44px; height:44px; }
+  .captain-deck__tool { height:44px; }
+  .captain-deck__bonus-count { gap:5px; }
+  .captain-deck__bonus-count > strong { font-size:24px; }
+  .captain-deck__bonus-count > span { font-size:8px; }
+  .captain-deck__bonus-count .captain-deck__money strong { font-size:10px; }
+}
+@media (orientation:portrait) and (max-width:374px) {
+  .captain-deck { grid-template-columns:44px minmax(136px,1fr) 44px 68px; gap-inline:4px; }
+  .captain-deck__turbo { display:none; }
+}
+@media (orientation:portrait) and (min-width:701px) {
+  .captain-deck { grid-template-columns:92px minmax(132px,1fr) 92px 72px; }
+  .captain-deck__utilities { width:92px; }
+  .captain-deck__sound { display:flex; }
+  .captain-deck__money strong { font-size:clamp(12px,calc(250px / var(--amount-chars)),24px); }
+  .captain-deck__spin { width:72px; height:72px; }
+}
+@media (prefers-reduced-motion:reduce) { .captain-deck button { transition:none; } }
+.no-motion .captain-deck button { transition:none; }
+
+/* Raster enamel/gold controls. The painted circle and the caption have
+   separate positions; labels never cover the central glyph. */
+.captain-deck .captain-deck__tool {
+  --utility-art:url('/alchemist/ui/menu-cartoon-v36.webp');
+  width:44px; min-width:44px; height:58px; min-height:58px;
+  padding:0; overflow:visible;
+}
+.captain-deck .captain-deck__sound { --utility-art:url('/alchemist/ui/sound-cartoon-v36.webp'); }
+.captain-deck .captain-deck__turbo { --utility-art:url('/alchemist/ui/turbo-cartoon-v36.webp'); }
+.captain-deck .captain-deck__auto { --utility-art:url('/alchemist/ui/auto-cartoon-v36.webp'); }
+.captain-deck .captain-deck__tool::before {
+  content:''; position:absolute; width:44px; height:44px; left:0; top:0; z-index:-1;
+  background:var(--utility-art) center/contain no-repeat; pointer-events:none;
+}
+.captain-deck .captain-deck__tool > img { position:absolute; top:9.5px; left:50%; transform:translateX(-50%); width:25px; height:25px; }
+.captain-deck .captain-deck__tool > span {
+  position:absolute; top:46px; left:50%; transform:translateX(-50%); white-space:nowrap;
+  font-size:9px; line-height:10px; font-weight:800; text-shadow:0 1px 2px #00111f,0 0 4px #00111f,0 0 7px #00111f;
+}
+.captain-deck .captain-deck__tool[aria-pressed=true]::after {
+  content:''; position:absolute; width:4px; height:4px; border-radius:50%; left:20px; top:38px;
+  background:#d8ffe8; box-shadow:0 0 3px #0d514b; pointer-events:none;
+}
+.captain-deck .captain-deck__step::before {
+  content:''; position:absolute; inset:3px; z-index:-1;
+  background:url('/alchemist/ui/sound-cartoon-v36.webp') center/contain no-repeat; pointer-events:none;
+}
+.captain-deck .captain-deck__step:disabled::before,
+.captain-deck .captain-deck__tool:disabled::before { opacity:.55; }
+@media (orientation:landscape) and (max-height:550px) {
+  .captain-deck .captain-deck__tool { height:52px; min-height:52px; }
+  .captain-deck .captain-deck__tool::before { width:38px; height:38px; left:3px; }
+  .captain-deck .captain-deck__tool > img { width:23px; height:23px; top:7.5px; }
+  .captain-deck .captain-deck__tool > span { top:40px; font-size:8px; line-height:9px; }
+  .captain-deck .captain-deck__tool[aria-pressed=true]::after { top:32px; }
+}
+

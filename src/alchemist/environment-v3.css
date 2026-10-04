@@ -1,0 +1,4 @@
+/* Generated raster lights use native Spine additive slots; painted fish and kelp
+   remain normally composited so saturated colours and outlines stay intact. */
+.background-scene > canvas{mix-blend-mode:normal}
+.background-scene{isolation:isolate}

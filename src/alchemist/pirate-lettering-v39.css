@@ -1,0 +1,28 @@
+/* Locally bundled original OFL fonts: carved cartoon headings and sturdy
+   ship-ledger text. Cyrillic and Latin use the same families throughout. */
+@font-face { font-family:'Ruslan Display'; src:url('/alchemist/fonts/ruslan-display.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Bitter'; src:url('/alchemist/fonts/bitter-variable.ttf') format('truetype'); font-weight:100 900; font-style:normal; font-display:swap; }
+:root { --display-font:'Ruslan Display'; --body-font:'Bitter'; --pirate-number-font:'Ruslan Display'; font-family:var(--body-font),serif; }
+.game-shell,.laboratory-entry,.dialog,.asset-gallery,.celebration,
+.captain-menu,.captain-bet-picker { font-family:var(--body-font),serif; }
+.game-shell button,.game-shell input,.game-shell select,
+.dialog button,.captain-menu button,.captain-bet-picker button { font-family:var(--body-font),serif; }
+.game-shell :is(h2,h3),.dialog :is(h2,h3),.game-shell .dialog :is(h2,h3),.laboratory-entry h2,.laboratory-entry .entry-feature h2,
+.captain-deck-dialog h2,
+.expedition-heading h2,.asset-gallery :is(h2,h3),.cabin-bonus__heading h2 {
+  font-family:var(--display-font),serif; font-weight:400; font-synthesis:none;
+  letter-spacing:.018em;
+}
+.captain-deck__money strong,.expedition-money strong,.line-win strong {
+  font-family:var(--body-font),serif; font-weight:850; font-variant-numeric:tabular-nums lining-nums;
+}
+.celebration.win-celebration .win-celebration__amount,
+.celebration.cabin-bonus .cabin-bonus__result>strong,
+.celebration.cabin-bonus .cabin-bonus__payout>strong,
+.celebration-value,.alchemist-reel-curtain__award strong {
+  font-family:var(--pirate-number-font),serif; font-weight:400; font-synthesis:none;
+  letter-spacing:.012em; color:#fff0b7;
+  text-shadow:0 1px 0 #ad6d27,0 2px 0 #7c421b,0 4px 0 #063344;
+}
+.rail-ribbon { font-family:var(--body-font),serif; font-weight:800; }
+.rail-medallion span { font-family:var(--pirate-number-font),serif; font-weight:400; }

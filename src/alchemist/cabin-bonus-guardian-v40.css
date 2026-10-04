@@ -1,0 +1,114 @@
+/* The live cabin surrounds an opaque painted reward panel. The amount is
+   printed directly on that panel, with no second rectangular plaque. */
+.game-shell[data-cabin-bonus=true] > .lab-main,
+.game-shell[data-cabin-bonus=true] > .control-wrap {
+  visibility:hidden; opacity:0!important; pointer-events:none;
+}
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__card,
+.cabin-bonus--guardian.cabin-bonus--full[data-bonus-mode=captains_course] .cabin-bonus__card {
+  position:absolute; width:min(960px,95%); height:min(800px,95%); left:50%; top:50%;
+  margin:0; padding:0; transform:translate(-50%,-50%); container-type:size;
+  background:none;
+}
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__backdrop {
+  inset:0; width:100%; height:100%; background:transparent; border-radius:0;
+  backdrop-filter:none;
+}
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__fog--back { opacity:.12; }
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__fog--front { opacity:.18; }
+.cabin-bonus__frame {
+  position:absolute; inset:0; z-index:0; pointer-events:none; box-sizing:border-box;
+  border:22px solid transparent;
+  border-image:var(--guardian-frame) 64 fill / 22px / 0 stretch;
+}
+.cabin-bonus--guardian .cabin-bonus__guardian-stage {
+  position:absolute; left:50%; top:12%; translate:-50% 0;
+  width:min(78cqw,60cqh); aspect-ratio:900/820; z-index:3; pointer-events:none;
+}
+.cabin-bonus__guardian-stage > .bonus-octopus-guardian { position:absolute; inset:0; }
+.cabin-bonus__guardian-stage .guardian-chest {
+  position:absolute; left:10.5%; width:79%; height:69%; bottom:-1%; z-index:2;
+}
+.guardian-chest > canvas,.guardian-chest > img {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block;
+}
+.cabin-bonus--guardian .cabin-bonus__prop-layers { z-index:3; }
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__heading { top:3.5%; left:6%; width:88%; }
+.celebration.cabin-bonus--guardian .cabin-bonus__heading h2 {
+  font-size:clamp(22px,5cqh,40px); line-height:1.1; margin:0;
+  text-shadow:0 2px 0 #362214,0 4px 9px #061d2fe6;
+}
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__result {
+  top:auto; bottom:18%; left:50%; translate:-50% 0; width:70%; height:14%;
+  box-sizing:border-box; z-index:6; gap:3px; padding:0;
+  border:0; border-image:none; border-radius:0; background:none; box-shadow:none;
+}
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__result > strong {
+  font-size:min(8cqh,calc(84cqw / var(--payout-length))); line-height:1;
+}
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__spins > strong {
+  font-size:min(10cqh,calc(105cqw / var(--spin-digits)));
+}
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__result > span {
+  font-size:clamp(10px,1.9cqh,15px); line-height:1.1; letter-spacing:.03em;
+}
+.cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__action.alchemy-button {
+  top:auto; bottom:2.5%; left:50%; width:min(260px,37.5cqh,65%); max-width:none;
+  height:clamp(44px,15cqh,104px)!important; min-height:44px; aspect-ratio:auto;
+}
+.cabin-bonus--guardian .cabin-bonus__action .alchemy-button__visual {
+  height:100%; width:100%; max-width:100%; aspect-ratio:2.5;
+  background:var(--guardian-cta) center/100% 100% no-repeat;
+}
+.cabin-bonus--guardian .cabin-bonus__action .alchemy-button__art { display:none; }
+.cabin-bonus--guardian .cabin-bonus__action .alchemy-button__visual::before {
+  content:none;
+}
+.cabin-bonus--guardian .cabin-bonus__action .alchemy-button__label {
+  inset:30% 17%; color:#fffdf0; text-shadow:0 2px 0 #07434d,0 1px 4px #073845;
+  font-size:clamp(10px,2cqh,14px); line-height:1.1;
+}
+@media(orientation:portrait) {
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__card,
+  .cabin-bonus--guardian.cabin-bonus--full[data-bonus-mode=captains_course] .cabin-bonus__card {
+    height:min(95%,calc(120vw + 160px)); width:95%;
+  }
+  .cabin-bonus__frame { border-width:16px; border-image-width:16px; }
+  .cabin-bonus--guardian .cabin-bonus__guardian-stage { width:min(90cqw,59cqh); top:14%; }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__heading { top:5%; left:7%; width:86%; }
+  .celebration.cabin-bonus--guardian .cabin-bonus__heading h2 { font-size:clamp(22px,6.3cqw,34px); }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__result { width:82%; bottom:20%; height:14%; }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__result > strong {
+    font-size:min(8cqh,calc(120cqw / var(--payout-length)));
+  }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__spins > strong {
+    font-size:min(9.5cqh,calc(100cqw / var(--spin-digits)));
+  }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__action.alchemy-button {
+    top:auto; bottom:2.3%; width:min(250px,42cqh,78%);
+    height:clamp(64px,16.8cqh,100px)!important;
+  }
+}
+@media(orientation:landscape) and (max-height:300px) {
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__card,
+  .cabin-bonus--guardian.cabin-bonus--full[data-bonus-mode=captains_course] .cabin-bonus__card {
+    width:98%; height:96%;
+  }
+  .cabin-bonus__frame { border-width:12px; border-image-width:12px; }
+  .cabin-bonus--guardian .cabin-bonus__guardian-stage { left:27%; top:22%; width:min(45cqw,70cqh); }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__heading { top:5%; left:5%; width:90%; }
+  .celebration.cabin-bonus--guardian .cabin-bonus__heading h2 { font-size:clamp(16px,8cqh,22px); }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__result {
+    top:25%; bottom:auto; left:73%; width:44%; height:33%; padding:0; gap:3px;
+  }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__result > strong,
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__spins > strong {
+    font-size:min(18cqh,calc(70cqw / var(--payout-length)));
+  }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__spins > strong { font-size:20cqh; }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__result > span { font-size:9px; }
+  .cabin-bonus--guardian.cabin-bonus--full .cabin-bonus__action.alchemy-button {
+    left:73%; width:44%; bottom:8px; min-height:44px; height:30cqh!important;
+  }
+  .cabin-bonus--guardian .cabin-bonus__action .alchemy-button__label { font-size:10px; }
+}

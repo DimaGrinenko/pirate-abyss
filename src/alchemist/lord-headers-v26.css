@@ -1,0 +1,20 @@
+/* Painted diamonds/gold: aperture coordinates belong to rail-*-diamond-v26. */
+.machine--connected .wild-type .rail-medallion{top:7%;left:35%;width:30%;height:39%;z-index:3;}
+.machine--connected .wild-type .rail-medallion span{font-size:clamp(7px,2.35cqw,19px);}
+.machine--connected .wild-type .rail-ribbon{top:63%;bottom:auto;left:11%;right:11%;height:17%;display:flex;justify-content:center;align-items:center;z-index:3;}
+.machine--connected .wild-type .rail-jewel-light{position:absolute;pointer-events:none;z-index:2;display:block;width:18%;aspect-ratio:1;object-fit:contain;opacity:0;transform:scale(.65);}
+.rail-jewel-light--crown{left:41%;top:-10%;}
+.rail-jewel-light--left{left:0%;top:70%;}
+.rail-jewel-light--right{right:0%;top:70%;}
+/* Decorative light is enabled by confirmed game state only. Anticipation is silent. */
+.machine--connected .wild-type.expectant:not(.activated):not(.unsealed):not([data-opening]){animation:none;}
+.machine--connected .wild-type:is(.activated,.unsealed,[data-opening]) .rail-jewel-light{animation:lord-diamond-breathe 2.8s ease-in-out infinite;}
+.machine--connected .wild-type:is(.activated,.unsealed,[data-opening]) .rail-jewel-light--left{animation-delay:.25s;}
+.machine--connected .wild-type:is(.activated,.unsealed,[data-opening]) .rail-jewel-light--right{animation-delay:.45s;}
+.machine--connected .wild-type:is(.activated,.unsealed,[data-opening]) .rail-art{filter:brightness(1.08) drop-shadow(0 0 3px var(--wild));transition:filter 220ms ease;}
+@keyframes lord-diamond-breathe{0%,100%{opacity:.17;transform:scale(.72) rotate(-12deg);}32%{opacity:.78;transform:scale(1.08) rotate(10deg);}65%{opacity:.26;transform:scale(.86) rotate(26deg);}}
+.game-shell[data-bonus-motion=paused] .rail-jewel-light,[data-scenery-hidden=true] .rail-jewel-light{animation-play-state:paused!important;}
+.no-motion .machine--connected .wild-type .rail-jewel-light{animation:none!important;opacity:0;}
+.no-motion .machine--connected .wild-type:is(.activated,.unsealed,[data-opening]) .rail-jewel-light{opacity:.38;transform:none;}
+@media(prefers-reduced-motion:reduce){.machine--connected .wild-type .rail-jewel-light{animation:none!important;}.machine--connected .wild-type:is(.activated,.unsealed,[data-opening]) .rail-jewel-light{opacity:.38;transform:none;}}
+@media(orientation:landscape) and (max-height:300px){.machine--connected .wild-type .rail-medallion span{font-size:5px;}}

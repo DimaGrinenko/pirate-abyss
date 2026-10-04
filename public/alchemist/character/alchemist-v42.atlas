@@ -1,0 +1,53 @@
+captain-puppet-v42.webp
+size: 2048,2893
+filter: Linear,Linear
+repeat: none
+captain-body-v41
+  rotate: false
+  xy: 4,4
+  size: 1080,1457
+  orig: 1080,1457
+  offset: 0,0
+  index: -1
+head-happy
+  rotate: false
+  xy: 1092,4
+  size: 768,619
+  orig: 768,619
+  offset: 0,0
+  index: -1
+head-closed
+  rotate: false
+  xy: 4,1469
+  size: 768,619
+  orig: 768,619
+  offset: 0,0
+  index: -1
+head-surprise
+  rotate: false
+  xy: 780,1469
+  size: 768,619
+  orig: 768,619
+  offset: 0,0
+  index: -1
+lantern
+  rotate: false
+  xy: 1556,1469
+  size: 209,294
+  orig: 209,294
+  offset: 0,0
+  index: -1
+lantern-halo
+  rotate: false
+  xy: 1773,1469
+  size: 192,192
+  orig: 192,192
+  offset: 0,0
+  index: -1
+captain-connected-arms-v42
+  rotate: false
+  xy: 4,2096
+  size: 1983,793
+  orig: 1983,793
+  offset: 0,0
+  index: -1

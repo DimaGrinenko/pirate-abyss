@@ -1,0 +1,33 @@
+/* Typography belongs to the live award bone; all nautical artwork is raster Spine art. */
+.alchemist-reel-curtain__award{line-height:.98;filter:drop-shadow(0 1px 1px #052534);width:90%;}
+.alchemist-reel-curtain__award strong{font-variant-numeric:tabular-nums;letter-spacing:-.055em;}
+.alchemist-reel-curtain__award small{margin-bottom:.055em;letter-spacing:.035em;}
+.alchemist-reel-curtain[data-winning=true] .alchemist-reel-curtain__award{color:#fffce5;}
+.alchemist-reel-curtain__fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+.alchemist-reel-curtain[data-failed=true]{container-type:size;background:#05232e;}
+.alchemist-reel-curtain[data-failed=true]>canvas{visibility:hidden;}
+.alchemist-reel-curtain[data-failed=true] .alchemist-reel-curtain__award{visibility:visible!important;left:50%!important;top:calc(50cqh + min(39cqh,195cqw))!important;width:min(90cqw,18cqh);transform:translate(-50%,-50%)!important;}
+.alchemist-reel-curtain__selection{display:block;width:100%;}
+.alchemist-reel-curtain__selection strong{display:grid;place-items:center;width:100%;}
+.alchemist-reel-curtain__selection strong>span{grid-area:1/1;}
+.alchemist-reel-curtain__pending{visibility:hidden;}
+.alchemist-reel-curtain__selection[data-selecting=true] .alchemist-reel-curtain__pending{visibility:visible;color:#fff6c2;}
+.alchemist-reel-curtain[data-phase=reveal][data-animated=true] .alchemist-reel-curtain__selection[data-selecting=true] .alchemist-reel-curtain__pending{animation:sail-choice-breathe .8s ease-in-out infinite;}
+.alchemist-reel-curtain[data-phase=reveal][data-animated=true] .alchemist-reel-curtain__selection[data-selecting=false] .alchemist-reel-curtain__result{animation:sail-choice-land .42s cubic-bezier(.18,.75,.28,1) both;}
+.alchemist-reel-curtain__selection[data-selecting=true] .alchemist-reel-curtain__result{visibility:hidden;}
+.alchemist-reel-curtain[data-failed=true] .alchemist-reel-curtain__pending,
+.alchemist-reel-curtain[data-animated=false] .alchemist-reel-curtain__pending{visibility:hidden!important;}
+.alchemist-reel-curtain[data-failed=true] .alchemist-reel-curtain__result,
+.alchemist-reel-curtain[data-animated=false] .alchemist-reel-curtain__result{visibility:visible!important;}
+@keyframes sail-choice-breathe{0%,100%{opacity:.72;transform:translateY(.025em);}50%{opacity:1;transform:translateY(-.025em);}}
+/* The native award bone supplies the single scale accent for plaque and type.
+   A second CSS zoom made the number overshoot and look detached from its frame. */
+@keyframes sail-choice-land{0%{opacity:.45;transform:translateY(.07em);}58%{opacity:1;transform:translateY(0);}100%{opacity:1;transform:translateY(0);}}
+/* The overhead beam is bolted to the lane. A release lights the hardware;
+   it never jerks the complete crest out of alignment with its reel. */
+.machine--connected .wild-type[data-reel-crest][data-opening]{animation:sail-mast-wake var(--curtain-reveal-duration,3.3s) ease-in-out both;transform:none;}
+@keyframes sail-mast-wake{0%{filter:brightness(1.05) drop-shadow(0 0 2px var(--wild));}16%{filter:brightness(1.25) drop-shadow(0 0 7px var(--wild));}56%{filter:brightness(1.12) drop-shadow(0 0 4px var(--wild));}72%{filter:brightness(1.3) drop-shadow(0 0 8px var(--wild));}100%{filter:brightness(1.12) drop-shadow(0 0 5px var(--wild));}}
+.no-motion .machine--connected .wild-type[data-reel-crest][data-opening]{animation:none;}
+.no-motion .alchemist-reel-curtain__selection strong>span{animation:none!important;}
+.alchemist-reel-curtain[data-phase=reveal][data-animated=true][data-ready=false]{clip-path:inset(0 0 100% 0);}
+.alchemist-reel-curtain[data-failed=true],.alchemist-reel-curtain[data-animated=false]{clip-path:none!important;}

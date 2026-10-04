@@ -1,0 +1,39 @@
+/* Display type belongs to headings; controls and live values share a readable face. */
+@font-face{font-family:'Yeseva One';src:url('/alchemist/fonts/yeseva-one.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Golos Text';src:url('/alchemist/fonts/golos-text-variable.ttf') format('truetype');font-weight:400 900;font-style:normal;font-display:swap}
+:root{--display-font:'Yeseva One';--body-font:'Golos Text';font-family:var(--body-font),Arial,sans-serif}
+.game-shell,.laboratory-entry,.dialog,.asset-gallery,.celebration{font-family:var(--body-font),Arial,sans-serif}
+.dialog h2,.dialog h3,.laboratory-entry h2,.purchase-heading h2,.experiment-card h3,.asset-gallery h2,.asset-gallery h3,
+.win-celebration h2.win-celebration__title,.celebration.bonus-stage-v3 .bonus-stage-v3__heading h2{
+ font-family:var(--display-font),Georgia,serif;font-weight:400;font-synthesis:none;letter-spacing:.005em;line-height:1.1
+}
+.win-celebration h2.win-celebration__title{text-shadow:0 2px 3px #052330;-webkit-text-stroke:0}
+.alchemy-button .alchemy-button__label,.alchemy-button--buy .alchemy-button__label{
+ font-family:var(--body-font),Arial,sans-serif;font-weight:700;font-synthesis:none;letter-spacing:0;line-height:1.15;text-shadow:0 1px 2px #052330cc!important
+}
+/* The legacy purchase skin has an important font shorthand. Keep its sizing,
+   but use the same readable action lettering as the other controls. */
+.purchase-screen .purchase-cards-v3 .experiment-buy.alchemy-button .alchemy-button__label{
+ font-family:var(--body-font),Arial,sans-serif!important;font-weight:700!important;font-synthesis:none;letter-spacing:0
+}
+.cabin-feature-button{font-family:var(--body-font),Arial,sans-serif;font-weight:700;letter-spacing:0}
+.control-value,.line-win strong,.bonus-strip b,.bar-free-spins b,.rail-medallion span,
+.alchemist-reel-curtain__award,.alchemist-reel-curtain__award strong,.alchemist-reel-curtain__award small,
+.win-celebration__amount,.win-celebration__currency,.win-celebration__multiplier,.win-celebration__story,
+.bonus-stage-v3__heading>span,.bonus-stage-v3__result>strong,.bonus-stage-v3__result>span,.bonus-stage-v3__caption,
+.welcome-prize>strong,.reactor-result>strong,.experiment-price strong,.reward-caption b{
+ font-family:var(--body-font),Arial,sans-serif
+}
+.control-value,.win-celebration__amount,.bonus-stage-v3__result>strong,.experiment-price strong{font-variant-numeric:tabular-nums lining-nums;letter-spacing:0}
+/* This selector also supersedes the legacy celebration lettering stylesheet. */
+.celebration.win-celebration .win-celebration__amount{font-family:var(--body-font),Arial,sans-serif;letter-spacing:0;text-shadow:0 2px 0 #845020,0 4px 5px #00152199}
+.rail-ribbon,.control-label,.setting-row,.scene-options,.secondary-button,.selection-row button,.rules-screen,.paytable{font-family:var(--body-font),Arial,sans-serif}
+.rail-ribbon{font-weight:700;letter-spacing:0}
+.control-label{font-weight:650;letter-spacing:.015em;text-shadow:none}
+.win-celebration__story,.bonus-stage-v3__heading>span{font-weight:650;letter-spacing:.035em}
+.laboratory-entry .entry-feature h2,.dialog h2,.dialog h3,.purchase-heading h2{letter-spacing:0;text-shadow:0 1px 2px #05233099}
+.laboratory-entry .entry-feature p,.entry-footnote,.dialog p{font-family:var(--body-font),Arial,sans-serif;letter-spacing:0;text-shadow:none}
+.asset-gallery h2{letter-spacing:0}
+.bonus-button.alchemy-button .alchemy-button__label{font-size:5.5cqw}
+@media(orientation:portrait) and (max-width:375px){.win-celebration h2.win-celebration__title{font-size:clamp(23px,7.8vw,29px)}}
+@media(orientation:landscape) and (max-height:300px){.alchemy-button .alchemy-button__label{font-weight:700;letter-spacing:0}}

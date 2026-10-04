@@ -1,0 +1,132 @@
+/* Active free-spins presentation. Import after pirate-theme.css.
+   Root contract: .game-shell[data-bonus-mode="devastation"|"reckoning"].
+   Optional readable HUD: .bonus-mode-meter / __label / __value;
+   accumulated payout: .bonus-mode-total on the existing last-win-block.
+   Keep HUD values in React; decorative pseudo-elements contain no text. */
+.game-shell {
+  --bonus-mode-light: #67ffe8;
+  --bonus-mode-glow: #20d8dc66;
+  --bonus-mode-soft: #1fb9d422;
+  --bonus-mode-ink: #052d40;
+}
+.scene-options + .scene-options { margin-top: 14px; }
+.game-shell[data-bonus-mode="reckoning"] {
+  --bonus-mode-light: #ffe88e;
+  --bonus-mode-glow: #fac74f5c;
+  --bonus-mode-soft: #dac45824;
+}
+.game-shell .reel-frame {
+  transition: box-shadow 700ms ease, background-color 700ms ease;
+}
+.game-shell[data-bonus-mode] .reel-frame {
+  background-color: #084557;
+  box-shadow: 0 0 0 2px var(--bonus-mode-soft), 0 0 24px var(--bonus-mode-glow), 0 10px 30px #00121ed9;
+}
+.game-shell[data-bonus-mode] .environment {
+  filter: saturate(1.08);
+}
+/* Native raster bubbles stay outside the symbol cells. One auto dimension
+   preserves the source ratio at every size. Only their vertical position moves. */
+.game-shell .reel-frame::before,
+.game-shell .reel-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 13;
+  top: 5%;
+  bottom: 4%;
+  width: 24px;
+  pointer-events: none;
+  opacity: 0;
+  background-image: url('/alchemist/effects/parts/bubble.png'), url('/alchemist/effects/parts/bubble.png'), url('/alchemist/effects/parts/bubble.png');
+  background-size: 20px auto, 11px auto, 7px auto;
+  background-repeat: no-repeat;
+  background-position: 50% 83%, 30% 47%, 75% 12%;
+  transition: opacity 750ms ease;
+  animation: bonus-edge-bubbles 7s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+.game-shell .reel-frame::before { left: -23px; }
+.game-shell .reel-frame::after { right: -23px; animation-delay: -3.7s; }
+.game-shell[data-bonus-mode] .reel-frame::before,
+.game-shell[data-bonus-mode] .reel-frame::after {
+  opacity: .54;
+  animation-play-state: running;
+}
+.game-shell[data-bonus-mode] .control-panel {
+  box-shadow: 0 0 17px var(--bonus-mode-glow), 0 10px 28px #00111b8c;
+}
+.game-shell .control-panel { transition: box-shadow 700ms ease; }
+.game-shell[data-bonus-mode] .bonus-strip {
+  color: #bcefff;
+  letter-spacing: .025em;
+  font-weight: 700;
+}
+.game-shell[data-bonus-mode] .bonus-strip b,
+.game-shell[data-bonus-mode] .bonus-mode-total .control-value {
+  color: var(--bonus-mode-light);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 2px 0 #062b43;
+}
+.game-shell[data-bonus-mode] .bonus-mode-total .control-label { color: #ddfaff; }
+.bonus-mode-meter {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 7px;
+  border-radius: 7px;
+  background: var(--bonus-mode-soft);
+  box-shadow: inset 0 0 0 1px var(--bonus-mode-glow);
+}
+.bonus-mode-meter__label {
+  font-size: 9px;
+  line-height: 1.15;
+  color: #d9fbff;
+  font-weight: 700;
+  letter-spacing: .025em;
+  overflow-wrap: anywhere;
+}
+.bonus-mode-meter__value {
+  font-family: var(--display-font), sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--bonus-mode-light);
+  text-shadow: 0 2px 0 var(--bonus-mode-ink);
+}
+@keyframes bonus-edge-bubbles {
+  from { transform: translateY(5px); }
+  to { transform: translateY(-17px); }
+}
+@media (orientation: portrait) and (max-width: 700px) {
+  .game-shell .reel-frame::before,
+  .game-shell .reel-frame::after { width: 12px; background-size: 11px auto, 7px auto, 5px auto; }
+  .game-shell .reel-frame::before { left: -9px; }
+  .game-shell .reel-frame::after { right: -9px; }
+  .bonus-mode-meter { padding: 3px 5px; gap: 4px; }
+  .bonus-mode-meter__label { font-size: 8px; }
+  .bonus-mode-meter__value { font-size: 23px; }
+}
+@media (orientation: landscape) and (max-height: 550px) {
+  .game-shell .reel-frame::before,
+  .game-shell .reel-frame::after { width: 14px; background-size: 12px auto, 7px auto, 5px auto; }
+  .game-shell .reel-frame::before { left: -12px; }
+  .game-shell .reel-frame::after { right: -12px; }
+  .bonus-mode-meter__label { font-size: 8px; }
+  .bonus-mode-meter__value { font-size: 21px; }
+}
+@media (orientation: landscape) and (max-height: 300px) {
+  .bonus-mode-meter { padding: 2px 4px; gap: 3px; border-radius: 4px; }
+  .bonus-mode-meter__label { font-size: 7px; }
+  .bonus-mode-meter__value { font-size: 17px; }
+}
+.game-shell.no-motion .reel-frame::before,
+.game-shell.no-motion .reel-frame::after,
+.game-shell[data-bonus-motion="paused"] .reel-frame::before,
+.game-shell[data-bonus-motion="paused"] .reel-frame::after { animation: none; }
+.game-shell.no-motion .reel-frame::before,
+.game-shell.no-motion .reel-frame::after { transition: none; }
+.game-shell.no-motion .reel-frame,
+.game-shell.no-motion .control-panel { transition: none; }

@@ -1,0 +1,23 @@
+/* Native reel children explicitly set visibility:visible. Hide the ancestor's
+   paint as well so they cannot show through a presentation. */
+.game-shell:has(.celebration[aria-modal=true]) > .lab-main,
+.game-shell:has(.celebration[aria-modal=true]) > .control-wrap{
+  visibility:hidden;opacity:0!important;pointer-events:none
+}
+.bonus-vault-restored[data-reduced-motion=false] .bonus-stage-v3__copy{
+  animation-duration:calc(.55s / var(--bonus-motion-rate,1))
+}
+.bonus-vault-restored[data-stage-exiting=true] .bonus-stage-v3__copy{
+  animation:ceremony-copy-out calc(.72s / var(--bonus-motion-rate,1)) cubic-bezier(.4,0,.8,.5) both
+}
+.celebration.ceremony-screen.bonus-vault-restored[data-stage-exiting=true]{
+  animation-duration:calc(.8s / var(--bonus-motion-rate,1))
+}
+.bonus-vault-restored[data-animation-held=true] *,
+html[data-scenery-hidden=true] .bonus-vault-restored *{
+  animation-play-state:paused!important
+}
+.bonus-vault-restored[data-reduced-motion=true] .bonus-stage-v3__copy{
+  animation:none!important;transition:none!important
+}
+.bonus-vault-restored .bonus-stage-v3__action.alchemy-button{min-height:44px}

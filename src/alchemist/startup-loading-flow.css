@@ -1,0 +1,36 @@
+/* Prepare real renderers in their final layout underneath the loading screen.
+   Opacity retains measured dimensions; display:none would create 1px canvases. */
+.laboratory-entry.entry-welcome[data-preparing=true]{opacity:0;pointer-events:none;}
+.laboratory-entry.entry-welcome[data-preparing=true] *{animation-play-state:paused!important;}
+.laboratory-entry.entry-welcome[data-preparing=false]{opacity:1;}
+.laboratory-entry.entry-welcome{background:transparent;}
+.laboratory-entry.entry-welcome .entry-backdrop{background:none;}
+.entry-progress.entry-progress--smooth>i{transition:none;will-change:transform;}
+
+/* Native symbol idle provides the motion. One soft painted light at a time
+   leads the eye through the three cards, with quiet intervals between them. */
+.laboratory-entry.entry-welcome .welcome-feature-art__current{
+ opacity:.1;filter:none;animation-duration:16s;
+}
+.laboratory-entry.entry-welcome .welcome-feature-art__spark{display:none;}
+.laboratory-entry.entry-welcome .welcome-feature-art__halo{
+ opacity:.035;filter:none;transform:none;
+ animation:welcome-card-light-v32 18s 1.6s ease-in-out infinite both;
+}
+.laboratory-entry.entry-welcome .entry-feature:nth-child(2) .welcome-feature-art__halo{animation-delay:7.6s;}
+.laboratory-entry.entry-welcome .entry-feature:nth-child(3) .welcome-feature-art__halo{animation-delay:13.6s;}
+@keyframes welcome-card-light-v32{
+ 0%,16%,100%{opacity:.035;}
+ 7%{opacity:.2;}
+}
+html[data-scenery-hidden=true] .laboratory-entry.entry-welcome .welcome-feature-art img{
+ animation-play-state:paused!important;
+}
+.laboratory-entry.entry-welcome.entry-static .welcome-feature-art img{
+ animation:none!important;
+}
+.laboratory-entry.entry-welcome.entry-static .welcome-feature-art__halo{opacity:.07;}
+@media(prefers-reduced-motion:reduce){
+ .laboratory-entry.entry-welcome .welcome-feature-art img{animation:none!important;}
+ .laboratory-entry.entry-welcome .welcome-feature-art__halo{opacity:.07;}
+}

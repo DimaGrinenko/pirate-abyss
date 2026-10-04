@@ -1,0 +1,260 @@
+bigwin-v2.webp
+size: 2048, 1408
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+tentacle
+  rotate: false
+  xy: 4, 4
+  size: 377, 643
+  orig: 377, 643
+  offset: 0, 0
+  index: -1
+water
+  rotate: false
+  xy: 355, 651
+  size: 348, 350
+  orig: 348, 350
+  offset: 0, 0
+  index: -1
+lid
+  rotate: false
+  xy: 201, 1008
+  size: 515, 208
+  orig: 515, 208
+  offset: 0, 0
+  index: -1
+chestLight
+  rotate: false
+  xy: 914, 4
+  size: 525, 525
+  orig: 525, 525
+  offset: 0, 0
+  index: -1
+chest
+  rotate: false
+  xy: 1035, 651
+  size: 515, 250
+  orig: 515, 250
+  offset: 0, 0
+  index: -1
+skull
+  rotate: false
+  xy: 1779, 651
+  size: 196, 235
+  orig: 196, 235
+  offset: 0, 0
+  index: -1
+crabLegLeft
+  rotate: false
+  xy: 1518, 1008
+  size: 118, 152
+  orig: 118, 152
+  offset: 0, 0
+  index: -1
+crabLegRight
+  rotate: false
+  xy: 1296, 1008
+  size: 118, 155
+  orig: 118, 155
+  offset: 0, 0
+  index: -1
+crabClawLeft
+  rotate: false
+  xy: 4, 1239
+  size: 147, 131
+  orig: 147, 131
+  offset: 0, 0
+  index: -1
+crabClawRight
+  rotate: false
+  xy: 155, 1239
+  size: 147, 124
+  orig: 147, 124
+  offset: 0, 0
+  index: -1
+crabBody
+  rotate: false
+  xy: 720, 1008
+  size: 219, 165
+  orig: 219, 165
+  offset: 0, 0
+  index: -1
+crabEyeLeft
+  rotate: false
+  xy: 943, 1008
+  size: 96, 164
+  orig: 96, 164
+  offset: 0, 0
+  index: -1
+crabEyeRight
+  rotate: false
+  xy: 1418, 1008
+  size: 96, 155
+  orig: 96, 155
+  offset: 0, 0
+  index: -1
+crabHat
+  rotate: false
+  xy: 917, 1239
+  size: 126, 74
+  orig: 126, 74
+  offset: 0, 0
+  index: -1
+emerald
+  rotate: false
+  xy: 532, 1239
+  size: 102, 106
+  orig: 102, 106
+  offset: 0, 0
+  index: -1
+ruby
+  rotate: false
+  xy: 426, 1239
+  size: 102, 110
+  orig: 102, 110
+  offset: 0, 0
+  index: -1
+coin
+  rotate: false
+  xy: 306, 1239
+  size: 116, 119
+  orig: 116, 119
+  offset: 0, 0
+  index: -1
+burst
+  rotate: false
+  xy: 4, 651
+  size: 347, 353
+  orig: 347, 353
+  offset: 0, 0
+  index: -1
+smoke
+  rotate: false
+  xy: 1554, 651
+  size: 221, 236
+  orig: 221, 236
+  offset: 0, 0
+  index: -1
+sparkle
+  rotate: false
+  xy: 638, 1239
+  size: 96, 103
+  orig: 96, 103
+  offset: 0, 0
+  index: -1
+compass
+  rotate: false
+  xy: 4, 1008
+  size: 193, 227
+  orig: 193, 227
+  offset: 0, 0
+  index: -1
+needle
+  rotate: false
+  xy: 1931, 4
+  size: 96, 418
+  orig: 96, 418
+  offset: 0, 0
+  index: -1
+cannonCarriage
+  rotate: false
+  xy: 1043, 1008
+  size: 249, 164
+  orig: 249, 164
+  offset: 0, 0
+  index: -1
+cannonBarrel
+  rotate: false
+  xy: 1640, 1008
+  size: 270, 140
+  orig: 270, 140
+  offset: 0, 0
+  index: -1
+seal
+  rotate: false
+  xy: 1443, 4
+  size: 484, 494
+  orig: 484, 494
+  offset: 0, 0
+  index: -1
+key
+  rotate: false
+  xy: 738, 1239
+  size: 175, 91
+  orig: 175, 91
+  offset: 0, 0
+  index: -1
+
+chest-outer-v11.webp
+size: 1024, 355
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+chest-outer-v11
+  rotate: false
+  xy: 0, 0
+  size: 1024, 355
+  orig: 1024, 355
+  offset: 0, 0
+  index: -1
+
+cartoon-seas-v12.webp
+size: 1254, 1254
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+cartoonSeaSurface
+  rotate: false
+  xy: 5, 315
+  size: 723, 261
+  orig: 723, 261
+  offset: 0, 0
+  index: -1
+cartoonSeaCurl
+  rotate: false
+  xy: 733, 159
+  size: 516, 439
+  orig: 516, 439
+  offset: 0, 0
+  index: -1
+cartoonSeaFoam
+  rotate: false
+  xy: 14, 808
+  size: 753, 274
+  orig: 753, 274
+  offset: 0, 0
+  index: -1
+cartoonSeaDrops
+  rotate: false
+  xy: 813, 748
+  size: 401, 356
+  orig: 401, 356
+  offset: 0, 0
+  index: -1
+
+barrel-cartoon-v32-ceaa0e4ed2.webp
+size: 324, 332
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+barrel
+  rotate: false
+  xy: 0, 0
+  size: 324, 332
+  orig: 324, 332
+  offset: 0, 0
+  index: -1
+
+bigwin-v33-2e52c5ae531d.webp
+size: 525, 545
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+ship
+  rotate: false
+  xy: 0, 0
+  size: 525, 545
+  orig: 525, 545
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,255 @@
+/* One scrollable content region; controls never inherit the scaled game stage. */
+.ceremony-screen.expedition-planner {
+  --exp-ink: #082f38; --exp-deep: #06242e; --exp-gold: #e2b65f;
+  --exp-ivory: #fff1ca; --exp-muted: #bfdbd9; --exp-sea: #85e0cf;
+  padding: max(14px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(14px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  color: var(--exp-ivory); font-family: var(--body-font),Arial,sans-serif; text-align: left;
+}
+.ceremony-screen.expedition-planner::before { background: #031c25b8; }
+.expedition-planner *, .expedition-planner *::before, .expedition-planner *::after { box-sizing: border-box; }
+.expedition-planner__panel {
+  width: min(1040px,100%); max-height: 100%; min-height: 0; display: grid;
+  grid-template-rows: auto auto minmax(0,1fr) auto; overflow: hidden; justify-self: center;
+  border: 2px solid var(--exp-gold); border-radius: 18px; background: var(--exp-deep);
+  box-shadow: 0 10px 35px #00131f80; isolation: isolate;
+}
+.expedition-planner button { font: inherit; color: inherit; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.expedition-planner button:focus-visible { outline: 3px solid #fff1bd; outline-offset: 2px; }
+.expedition-planner button:disabled { opacity: .48; cursor: default; }
+.expedition-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 24px 14px; }
+.expedition-heading > div { min-width: 0; }
+.expedition-heading > div > span, .expedition-eyebrow { color: var(--exp-sea); font-size: 10px; font-weight: 750; letter-spacing: .12em; }
+.expedition-heading h2 { margin: 4px 0 0; font: 800 clamp(21px,2.6vw,31px)/1.12 var(--body-font),Arial,sans-serif; letter-spacing: -.025em; color: var(--exp-ivory); }
+.expedition-close { flex: none; display: grid; place-items: center; height: 44px; width: 44px; padding: 6px; border: 1px solid #6f9797; border-radius: 8px; background: var(--exp-ink); }
+.expedition-tabs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; padding: 0 24px 14px; border-bottom: 1px solid #53766c; }
+.expedition-tabs > button { min-width: 0; min-height: 44px; border: 1px solid #557d7d; border-radius: 8px; padding: 8px 12px; background: #082f38; font-size: 14px; font-weight: 750; }
+.expedition-tabs > button[aria-selected=true] { color: #062731; background: var(--exp-sea); border-color: #b3f3df; }
+.expedition-content { min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; scrollbar-gutter: stable; scrollbar-width: thin; scrollbar-color: #7baea3 var(--exp-deep); padding: 18px 24px; }
+.expedition-intro { margin-bottom: 18px; }
+.expedition-intro h3 { margin: 0 0 5px; color: var(--exp-ivory); font-size: 18px; font-weight: 750; line-height: 1.25; }
+.expedition-intro p { color: var(--exp-muted); font-size: 13px; line-height: 1.45; margin: 0; }
+.expedition-choices { display: grid; gap: 12px; }
+.expedition-choices--raids { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.expedition-choices--modes { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.expedition-choice { position: relative; display: grid; grid-template-columns: 88px minmax(0,1fr); gap: 8px 14px; min-width: 0; padding: 16px; border: 2px solid #577e7a; border-radius: 13px; background: var(--exp-ink); text-align: left; transition: border-color .15s ease,background-color .15s ease; }
+.expedition-choice[aria-pressed=true] { border-color: var(--exp-gold); background: #104850; box-shadow: inset 0 0 0 1px #d4ac5940; }
+.expedition-choice:hover { border-color: #a1d9c7; }
+.expedition-art { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; user-select: none; }
+.expedition-choice > .expedition-art { width: 88px; height: 88px; align-self: center; }
+.expedition-choice__copy { min-width: 0; align-self: center; }
+.expedition-choice__copy > strong { display: block; font-size: 19px; font-weight: 800; line-height: 1.15; color: var(--exp-ivory); }
+.expedition-choice__copy > span { display: block; margin-top: 6px; font-size: 11px; line-height: 1.35; color: var(--exp-muted); }
+.expedition-choice__copy > b { display: block; margin-top: 8px; font-size: 16px; font-weight: 800; color: var(--exp-sea); }
+.expedition-choice__copy > b > small { font-size: 10px; font-weight: 650; }
+.expedition-choice__price { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; min-width: 0; padding-top: 10px; border-top: 1px solid #7ba29b50; }
+.expedition-choice__price > span:last-child { flex-shrink: 0; color: var(--exp-muted); font-size: 10px; line-height: 1.35; }
+.expedition-money { display: inline-flex; flex-wrap: wrap; min-width: 0; align-items: baseline; gap: 3px 5px; font-variant-numeric: tabular-nums lining-nums; }
+.expedition-money > strong { overflow-wrap: anywhere; min-width: 0; font-size: 23px; line-height: 1.1; font-weight: 800; letter-spacing: -.035em; color: inherit; }
+.expedition-money > small { font-size: 10px; line-height: 1.2; color: var(--exp-muted); font-weight: 650; }
+.expedition-choice__state { grid-column: 1 / -1; color: var(--exp-sea); font-size: 11px; line-height: 1.2; font-weight: 700; min-height: 14px; }
+.expedition-choices--modes .expedition-choice { grid-template-columns: 56px minmax(0,1fr); gap: 8px; padding: 14px; }
+.expedition-choices--modes .expedition-choice > .expedition-art { width: 56px; height: 64px; }
+.expedition-choices--modes .expedition-choice__copy > strong { font-size: 15px; }
+.expedition-choices--modes .expedition-choice__price { flex-direction: column; gap: 4px; }
+.expedition-detail { display: grid; grid-template-columns: minmax(0,1fr) minmax(210px,30%); gap: 22px; padding: 20px 0 0; }
+.expedition-detail h4, .expedition-crew-detail h4, .expedition-multipliers h4 { margin: 0 0 7px; color: var(--exp-ivory); font-size: 17px; line-height: 1.25; }
+.expedition-detail p, .expedition-crew-detail p, .expedition-multipliers p { font-size: 13px; line-height: 1.5; color: var(--exp-muted); margin: 0 0 8px; }
+.expedition-detail .expedition-detail__note { font-size: 11px; color: #a6c3c2; }
+.expedition-text-button { min-height: 44px; padding: 8px 0; border: 0; border-bottom: 1px solid #73b6ac; background: transparent; color: var(--exp-sea) !important; font-size: 13px !important; font-weight: 750 !important; }
+.expedition-commit { display: flex; flex-direction: column; align-items: stretch; justify-content: center; min-width: 0; gap: 9px; padding: 14px; border-radius: 10px; background: #0c3b44; border: 1px solid #729283; }
+.expedition-commit > span:first-child { color: var(--exp-muted); font-size: 11px; line-height: 1.35; }
+.expedition-commit > .expedition-money > strong { font-size: 26px; }
+.expedition-button { display: flex; justify-content: center; align-items: center; gap: 8px; min-width: 0; min-height: 46px; padding: 10px 14px; border-radius: 8px; border: 1px solid #7baba0; background: #0a3540; font-size: 13px !important; line-height: 1.25 !important; font-weight: 750 !important; }
+.expedition-button--primary { background: #d7af63; border: 2px solid #ffdda0; color: #102e35 !important; box-shadow: inset 0 -2px 0 #90612c; }
+.expedition-button--primary:hover:not(:disabled) { background: #f0cc83; }
+.expedition-button:active:not(:disabled) { transform: translateY(1px); }
+.expedition-warning { color: #ffd399 !important; font-size: 11px; line-height: 1.4; }
+.expedition-rule-note { color: #a9c7c6; font-size: 11px; line-height: 1.45; margin: 16px 0 0; }
+.expedition-footnote { display: block; margin: 12px 0 0; color: #9ababb; font-size: 10px; line-height: 1.45; }
+.expedition-comparison { margin-top: 16px; border: 1px solid #668e82; border-radius: 9px; overflow: hidden; }
+.expedition-comparison table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 12px; line-height: 1.4; }
+.expedition-comparison caption { padding: 10px; color: var(--exp-sea); font-weight: 750; text-align: left; }
+.expedition-comparison th, .expedition-comparison td { vertical-align: top; padding: 10px; border-top: 1px solid #507568; overflow-wrap: anywhere; text-align: left; }
+.expedition-comparison th { color: var(--exp-ivory); font-weight: 700; }
+.expedition-comparison td { color: var(--exp-muted); }
+.expedition-comparison thead th { background: #0b3a43; }
+.expedition-comparison thead strong { display: block; margin-top: 5px; color: var(--exp-sea); font-size: 20px; }
+.expedition-crew { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; }
+.expedition-crew > button { display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; gap: 6px; min-height: 118px; padding: 10px; border: 2px solid #577e7a; border-radius: 11px; background: var(--exp-ink); }
+.expedition-crew > button[aria-pressed=true] { background: #104850; border-color: var(--exp-gold); }
+.expedition-crew > button > .expedition-art { width: 72px; max-width: 100%; height: 75px; }
+.expedition-crew > button > strong { font-size: 13px; font-weight: 750; }
+.expedition-crew-detail { display: grid; grid-template-columns: 150px minmax(0,1fr); align-items: center; gap: 24px; margin-top: 20px; }
+.expedition-crew-detail > .expedition-art { width: 150px; height: 160px; }
+.expedition-home-reel { display: flex; flex-wrap: wrap; align-items: center; gap: 9px 14px; margin: 10px 0 12px; }
+.expedition-home-reel > span { font-size: 12px; color: var(--exp-muted); }
+.expedition-home-reel > span strong { color: var(--exp-sea); }
+.expedition-home-reel > div { display: grid; grid-template-columns: repeat(6,26px); gap: 4px; }
+.expedition-home-reel > div > span { display: grid; place-items: center; height: 33px; font-size: 12px; border: 1px solid #537c7b; background: #082f38; color: #a4c1c0; border-radius: 4px; }
+.expedition-home-reel > div > span[data-home] { border-color: var(--exp-gold); background: #cda65e; color: #122f36; font-weight: 800; }
+.expedition-multipliers { margin-top: 16px; border-top: 1px solid #54766c; padding-top: 14px; }
+.expedition-multipliers > div { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.expedition-multipliers > div > span { min-width: 38px; padding: 6px 8px; border: 1px solid #638d82; border-radius: 5px; color: var(--exp-sea); background: #0b3540; text-align: center; font-size: 14px; font-weight: 750; }
+.expedition-summary { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1.2fr); align-items: center; gap: 14px; padding: 13px 24px; border-top: 1px solid #8e936b; background: #082f38; }
+.expedition-summary > div { min-width: 0; }
+.expedition-summary > div > span:first-child { display: block; color: var(--exp-muted); font-size: 10px; margin-bottom: 4px; }
+.expedition-summary .expedition-money > strong { font-size: 18px; }
+.expedition-summary__mode { text-align: right; }
+.expedition-summary__mode > strong { display: block; font-size: 12px; line-height: 1.2; color: var(--exp-sea); }
+.expedition-summary__mode > small { display: block; margin-top: 3px; color: var(--exp-muted); font-size: 10px; }
+.expedition-confirmation { max-width: 690px; margin: 0 auto; padding: 6px 0; }
+.expedition-confirmation > h3 { font-size: 25px; line-height: 1.15; margin: 8px 0 20px; color: var(--exp-ivory); }
+.expedition-confirmation__visual { display: grid; grid-template-columns: 120px minmax(0,1fr); align-items: center; gap: 24px; }
+.expedition-confirmation__visual > .expedition-art { width: 120px; height: 140px; }
+.expedition-quote { margin: 0; }
+.expedition-quote > div { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 11px 0; }
+.expedition-quote dt { font-size: 12px; line-height: 1.4; color: var(--exp-muted); }
+.expedition-quote dt small { display: block; font-size: 10px; }
+.expedition-quote dd { min-width: 0; margin: 0; text-align: right; }
+.expedition-quote dd .expedition-money { justify-content: flex-end; }
+.expedition-quote dd .expedition-money > strong { font-size: 19px; }
+.expedition-quote__total { border-block: 1px solid #749183; }
+.expedition-quote__total dd { color: var(--exp-sea); }
+.expedition-quote__total dd .expedition-money > strong { font-size: 25px; }
+.expedition-confirmation > p { font-size: 13px; line-height: 1.5; color: var(--exp-muted); margin: 18px 0; }
+.expedition-actions { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr); gap: 12px; margin-top: 20px; }
+@media (prefers-reduced-motion:no-preference) {
+  .expedition-planner:not([data-reduced-motion]) .expedition-planner__panel { animation: expedition-arrive .18s ease-out both; }
+  @keyframes expedition-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+}
+@media (max-width: 760px) {
+  .expedition-heading { padding: 14px 16px 12px; }
+  .expedition-tabs { padding-inline: 16px; }
+  .expedition-content { padding: 14px 16px; }
+  .expedition-choice { grid-template-columns: 62px minmax(0,1fr); gap: 8px; padding: 12px; }
+  .expedition-choice > .expedition-art { width: 62px; height: 72px; }
+  .expedition-choice__copy > strong { font-size: 16px; }
+  .expedition-choice__price { flex-wrap: wrap; }
+  .expedition-choices--modes .expedition-choice { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px; }
+  .expedition-choices--modes .expedition-choice__copy { flex: 1; }
+  .expedition-choices--modes .expedition-choice__price { width: 100%; align-items: center; }
+  .expedition-detail { gap: 16px; grid-template-columns: minmax(0,1fr) minmax(180px,34%); }
+  .expedition-summary { padding-inline: 16px; gap: 10px; }
+}
+@media (max-width: 520px) {
+  .ceremony-screen.expedition-planner { padding: max(6px,env(safe-area-inset-top)) max(6px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left)); }
+  .expedition-planner__panel { border-radius: 12px; }
+  .expedition-heading { padding: 10px 12px; }
+  .expedition-heading h2 { font-size: 22px; }
+  .expedition-heading > div > span { font-size: 8px; }
+  .expedition-tabs { gap: 5px; padding: 0 12px 10px; }
+  .expedition-tabs > button { padding-inline: 6px; font-size: 13px; }
+  .expedition-content { padding: 13px 12px; }
+  .expedition-intro { margin-bottom: 12px; }
+  .expedition-intro h3 { font-size: 16px; }
+  .expedition-intro p { font-size: 11px; }
+  .expedition-choices { gap: 8px; }
+  .expedition-choice { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px 8px 8px; }
+  .expedition-choice > .expedition-art { width: 67px; height: 67px; }
+  .expedition-choice__copy { flex: 1; }
+  .expedition-choice__copy > strong { font-size: 15px; min-height: 34px; }
+  .expedition-choice__copy > span { font-size: 10px; }
+  .expedition-choice__copy > b { font-size: 14px; }
+  .expedition-choice__copy > b > small { font-size: 9px; }
+  .expedition-choice__price { width: 100%; flex-direction: column; align-items: center; gap: 3px; padding-top: 7px; }
+  .expedition-choice__price .expedition-money { justify-content: center; }
+  .expedition-choice__price .expedition-money > strong { font-size: 19px; }
+  .expedition-choice__price > span:last-child { font-size: 9px; }
+  .expedition-choice__state { font-size: 10px; }
+  .expedition-detail { display: flex; flex-direction: column; gap: 12px; padding-top: 16px; }
+  .expedition-detail h4 { font-size: 16px; }
+  .expedition-detail p, .expedition-crew-detail p { font-size: 12px; }
+  .expedition-commit { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); align-items: center; gap: 5px 12px; padding: 12px; }
+  .expedition-commit > span:first-child { grid-column: 1; font-size: 10px; }
+  .expedition-commit > .expedition-money { grid-column: 1; }
+  .expedition-commit > .expedition-money > strong { font-size: 22px; }
+  .expedition-commit > button { grid-column: 2; grid-row: 1 / 3; min-height: 50px; padding: 8px; font-size: 11px !important; }
+  .expedition-commit > .expedition-warning { grid-column: 1 / -1; margin-top: 5px; }
+  .expedition-comparison table { font-size: 10px; }
+  .expedition-comparison th, .expedition-comparison td { padding: 8px 6px; }
+  .expedition-rule-note { font-size: 10px; }
+  .expedition-choices--modes { grid-template-columns: 1fr; }
+  .expedition-choices--modes .expedition-choice { display: grid; grid-template-columns: 48px minmax(0,1fr) minmax(64px,auto); gap: 4px 9px; text-align: left; padding: 9px; }
+  .expedition-choices--modes .expedition-choice > .expedition-art { grid-column: 1; grid-row: 1 / 3; width: 48px; height: 57px; }
+  .expedition-choices--modes .expedition-choice__copy { grid-column: 2; grid-row: 1; }
+  .expedition-choices--modes .expedition-choice__copy > strong { min-height: 0; font-size: 13px; }
+  .expedition-choices--modes .expedition-choice__copy > span { margin-top: 4px; }
+  .expedition-choices--modes .expedition-choice__price { grid-column: 3; grid-row: 1 / 3; padding: 0; border: 0; align-items: flex-end; max-width: 96px; }
+  .expedition-choices--modes .expedition-choice__price > .expedition-money { justify-content: flex-end; }
+  .expedition-choices--modes .expedition-choice__price .expedition-money > strong { font-size: 17px; }
+  .expedition-choices--modes .expedition-choice__state { grid-column: 2; grid-row: 2; }
+  .expedition-summary { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 6px 12px; padding: 10px 12px; }
+  .expedition-summary .expedition-money > strong { font-size: 16px; }
+  .expedition-summary > div > span:first-child { font-size: 9px; margin-bottom: 3px; }
+  .expedition-summary__mode { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 6px; border-top: 1px solid #54776d; padding-top: 6px; text-align: left; }
+  .expedition-summary__mode > strong { font-size: 10px; }
+  .expedition-summary__mode > small { font-size: 9px; margin: 0 0 0 auto; }
+  .expedition-summary__mode > span:first-child { margin: 0; }
+  .expedition-crew { gap: 6px; }
+  .expedition-crew > button { min-height: 89px; padding: 8px 3px; }
+  .expedition-crew > button > .expedition-art { height: 52px; width: 55px; }
+  .expedition-crew > button > strong { font-size: 10px; }
+  .expedition-crew-detail { grid-template-columns: 78px minmax(0,1fr); gap: 12px; margin-top: 16px; align-items: start; }
+  .expedition-crew-detail > .expedition-art { width: 78px; height: 100px; }
+  .expedition-home-reel { gap: 8px; }
+  .expedition-home-reel > div { grid-template-columns: repeat(6,minmax(0,1fr)); width: 100%; max-width: 195px; }
+  .expedition-home-reel > div > span { height: 27px; font-size: 10px; }
+  .expedition-crew-detail p { font-size: 11px; }
+  .expedition-multipliers h4 { font-size: 15px; }
+  .expedition-multipliers p { font-size: 11px; }
+  .expedition-confirmation > h3 { font-size: 22px; margin-bottom: 14px; }
+  .expedition-confirmation__visual { grid-template-columns: 66px minmax(0,1fr); gap: 12px; }
+  .expedition-confirmation__visual > .expedition-art { width: 66px; height: 90px; }
+  .expedition-quote > div { gap: 8px; padding-block: 10px; flex-wrap: wrap; }
+  .expedition-quote dt { font-size: 11px; }
+  .expedition-quote dd { margin-left: auto; }
+  .expedition-quote dd .expedition-money > strong { font-size: 18px; }
+  .expedition-confirmation > p { font-size: 12px; }
+  .expedition-actions { gap: 8px; margin-top: 14px; }
+}
+@media (orientation:landscape) and (max-height:450px) {
+  .ceremony-screen.expedition-planner { padding: 5px max(8px,env(safe-area-inset-right)) 5px max(8px,env(safe-area-inset-left)); }
+  .expedition-planner__panel { border-radius: 10px; }
+  .expedition-heading { padding: 5px 12px; }
+  .expedition-heading > div > span { display: none; }
+  .expedition-heading h2 { margin: 0; font-size: 19px; }
+  .expedition-close { height: 36px; width: 36px; }
+  .expedition-tabs { padding: 0 12px 6px; gap: 5px; }
+  .expedition-tabs > button { min-height: 36px; padding: 5px 8px; font-size: 12px; }
+  .expedition-content { padding: 10px 12px; }
+  .expedition-summary { grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1.1fr); padding: 6px 12px; gap: 9px; }
+  .expedition-summary > div > span:first-child { font-size: 8px; margin-bottom: 2px; }
+  .expedition-summary .expedition-money > strong { font-size: 14px; }
+  .expedition-summary .expedition-money > small { font-size: 8px; }
+  .expedition-summary__mode { display: block; grid-column: auto; border: 0; padding: 0; text-align: right; }
+  .expedition-summary__mode > strong { font-size: 9px; }
+  .expedition-summary__mode > small { font-size: 8px; margin-top: 2px; }
+  .expedition-button { min-height: 36px; }
+}
+/* A miniplayer needs one navigation row, not a title row above another rail.
+   Keep the close control reachable while the substantial content pane scrolls. */
+@media (orientation:landscape) and (max-height:280px) {
+  .ceremony-screen.expedition-planner { padding: 4px max(6px,env(safe-area-inset-right)) 4px max(6px,env(safe-area-inset-left)); }
+  .expedition-planner__panel { grid-template-columns: minmax(0,1fr) 44px; grid-template-rows: 40px minmax(0,1fr) auto; padding-top: 4px; }
+  .expedition-heading { grid-column: 2; grid-row: 1; padding: 0 6px 4px 0; justify-content: flex-end; }
+  .expedition-heading > div { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .expedition-tabs { grid-column: 1; grid-row: 1; padding: 0 4px 4px 8px; border: 0; gap: 4px; }
+  .expedition-tabs > button { min-height: 36px; padding: 5px 4px; font-size: 12px; }
+  .expedition-content { grid-column: 1 / -1; grid-row: 2; padding: 7px 10px; border-top: 1px solid #53766c; }
+  .expedition-summary { grid-column: 1 / -1; grid-row: 3; padding: 4px 10px; }
+  .expedition-summary__mode > span:first-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .expedition-intro { margin-bottom: 9px; }
+  .expedition-intro h3 { font-size: 14px; }
+  .expedition-intro p { font-size: 10px; line-height: 1.3; }
+  .expedition-choices--raids { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; }
+  .expedition-choices--raids .expedition-choice { display: grid; grid-template-columns: 42px minmax(0,1fr); gap: 5px; padding: 8px; text-align: left; }
+  .expedition-choices--raids .expedition-choice > .expedition-art { width: 42px; height: 49px; }
+  .expedition-choices--raids .expedition-choice__copy > strong { min-height: 0; font-size: 12px; line-height: 1.15; }
+  .expedition-choices--raids .expedition-choice__copy > span { display: none; }
+  .expedition-choices--raids .expedition-choice__copy > b { font-size: 11px; margin-top: 4px; }
+  .expedition-choices--raids .expedition-choice__copy > b > small { font-size: 8px; }
+  .expedition-choices--raids .expedition-choice__price { flex-direction: row; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 2px 5px; padding-top: 5px; }
+  .expedition-choices--raids .expedition-choice__price .expedition-money > strong { font-size: 16px; }
+  .expedition-choices--raids .expedition-choice__state { min-height: 11px; font-size: 9px; }
+  .expedition-commit > button { min-height: 40px; }
+}

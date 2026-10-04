@@ -1,0 +1,12 @@
+{
+  "atlas": "bigwin-modular.atlas",
+  "texture": "bigwin-modular.webp",
+  "size": [
+    2048,
+    512
+  ],
+  "regions": 17,
+  "burstSeconds": 1.8,
+  "buildSeconds": 1.6,
+  "portraitWorldHeight": 3240
+}

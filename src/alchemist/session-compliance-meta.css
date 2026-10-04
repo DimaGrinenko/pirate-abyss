@@ -1,0 +1,21 @@
+.session-compliance-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 18px;
+  padding: 2px 4px 0;
+  box-sizing: border-box;
+  color: #c0d2d2;
+  font: 500 10px/14px var(--body-font),Arial,sans-serif;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.session-compliance-meta > span { display: inline-flex; align-items: baseline; gap: 4px; white-space: nowrap; }
+.session-compliance-meta strong,.session-compliance-meta time { color: #fff0cf; font-weight: 650; }
+@media (max-width: 480px) {
+  .session-compliance-meta { gap: 10px; font-size: 8.5px; }
+  .session-compliance-meta > span { gap: 3px; }
+}
+@media (max-width: 350px) {
+  .session-compliance-meta { gap: 7px; padding-inline: 0; font-size: 8px; }
+}

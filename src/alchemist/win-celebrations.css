@@ -1,0 +1,30 @@
+/* V5: staged pirate ceremonies; raster props are rigged in Spine, live text stays stable. */
+.win-celebration{background:#052632ed;backdrop-filter:blur(5px);isolation:isolate;--win-ink:#ffe8a7;--win-edge:#9a4d19;--win-glow:#ffc62d66;--win-hit:480ms}
+.win-celebration .win-celebration__copy{width:min(590px,65vw);padding:10px 0;animation:none;display:flex;flex-direction:column;align-items:center;gap:0}
+.win-celebration__story{display:block;color:#cffaff;font:800 clamp(9px,1.1vw,15px)/1.2 Rubik,Arial,sans-serif;letter-spacing:.065em;max-width:100%;text-shadow:0 2px 4px #001119;margin:0 0 7px;animation:win-story-reveal .5s .12s both}
+.win-celebration h2.win-celebration__title{font:800 clamp(27px,4.4vw,65px)/.99 Rubik,Arial,sans-serif;letter-spacing:-.038em;max-width:100%;margin:0 0 13px;color:var(--win-ink);text-wrap:balance;-webkit-text-stroke:1px var(--win-edge);paint-order:stroke fill;text-shadow:0 3px 0 var(--win-edge),0 6px 0 #452311,0 8px 2px #001c29,0 0 26px var(--win-glow);transform-origin:50% 75%;animation:win-title-reveal .85s cubic-bezier(.16,.8,.22,1) both}
+.win-celebration__title span{display:block;transform-origin:50% 70%;animation:win-title-hit .6s var(--win-hit) cubic-bezier(.2,.8,.25,1) both}
+.win-celebration__amount{font:900 clamp(26px,calc(66vw / var(--amount-chars) / .62),96px)/1.05 Rubik,Arial,sans-serif;letter-spacing:-.045em;font-variant-numeric:tabular-nums;color:#fff8da;white-space:nowrap;text-shadow:0 4px 0 #8c4720,0 6px 2px #00101a,0 0 28px var(--win-glow);animation:win-amount-reveal .52s .15s both;transform-origin:50% 60%}
+.win-celebration__currency{font:800 clamp(9px,1vw,13px)/1.2 Rubik,Arial,sans-serif;letter-spacing:.14em;color:#b8f4ff;margin-top:6px}
+.win-celebration__multiplier{font:700 clamp(10px,1.5vw,19px)/1.2 Rubik,Arial,sans-serif;color:#e6efef;margin:9px 0 11px}.win-celebration__multiplier b{color:var(--win-ink)}.win-celebration__multiplier span{font-size:.7em}
+.win-celebration__exact{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.win-celebration .win-celebration__continue.alchemy-button{width:clamp(180px,20vw,250px);min-width:0;margin:3px 0 0;animation:none}.win-celebration .win-celebration__continue .alchemy-button__label{font-size:4.7cqw}
+.win-tier--super{--win-ink:#ffd9a0;--win-edge:#a6421b;--win-glow:#ff954955;--win-hit:620ms}.win-tier--super .win-celebration__title{animation-name:win-title-side-reveal}.win-tier--super .win-celebration__copy{translate:0 -5svh}
+.win-tier--mega{--win-ink:#baffdf;--win-edge:#17694d;--win-glow:#34ffbf66;--win-hit:940ms}.win-tier--mega .win-celebration__title{animation-name:win-title-rise-reveal}
+.win-tier--epic{--win-ink:#edc6ff;--win-edge:#68328a;--win-glow:#d27dff66;--win-hit:1180ms}.win-tier--epic .win-celebration__title{animation-name:win-title-crest-reveal}
+.win-tier--legendary{--win-ink:#fff0b7;--win-edge:#98501a;--win-glow:#ffdb6366;--win-hit:1440ms}.win-tier--legendary .win-celebration__title{animation-name:win-title-sail-reveal}
+.win-tier--max{--win-ink:#fff7c0;--win-edge:#a95523;--win-glow:#ffe69b88;--win-hit:1620ms}.win-tier--max .win-celebration__title{animation-name:win-title-crest-reveal;animation-duration:1s}
+.win-celebration[data-count-complete=true] .win-celebration__amount{color:#fffbe9;animation:win-total-settle .62s cubic-bezier(.2,.7,.25,1) both}
+@keyframes win-title-reveal{0%{opacity:0;transform:translateY(-30px) rotate(-2deg)}70%{opacity:1;transform:translateY(2px)}100%{opacity:1;transform:none}}
+@keyframes win-title-side-reveal{0%{opacity:0;transform:translateX(-42px) rotate(-4deg)}75%{opacity:1;transform:translateX(2px)}100%{opacity:1;transform:none}}
+@keyframes win-title-rise-reveal{0%{opacity:0;transform:translateY(34px)}72%{opacity:1;transform:translateY(-2px)}100%{opacity:1;transform:none}}
+@keyframes win-title-crest-reveal{0%{opacity:0;transform:translateY(18px) scale(.94)}75%{opacity:1;transform:translateY(-2px) scale(1.008)}100%{opacity:1;transform:none}}
+@keyframes win-title-sail-reveal{0%{opacity:0;transform:translateX(45px) rotate(3deg)}72%{opacity:1;transform:translateX(-2px)}100%{opacity:1;transform:none}}
+@keyframes win-title-hit{0%,100%{transform:none}38%{transform:translateY(-3px) scale(1.025)}67%{transform:translateY(1px) scale(.997)}}
+@keyframes win-amount-reveal{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes win-total-settle{0%,100%{transform:none}35%{transform:scale(1.032);filter:brightness(1.17)}70%{transform:scale(.998)}}
+@keyframes win-story-reveal{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@media(orientation:portrait){.win-celebration .win-celebration__copy{width:88vw;max-width:540px;padding:0}.win-celebration h2.win-celebration__title{font-size:clamp(27px,8.5vw,48px);margin-bottom:12px}.win-celebration__amount{font-size:clamp(26px,calc(87vw / var(--amount-chars) / .62),78px)}.win-celebration__story{font-size:clamp(10px,3vw,15px);margin-bottom:10px}.win-celebration__currency{font-size:11px}.win-celebration__multiplier{font-size:17px;margin:10px 0 14px}.win-celebration .win-celebration__continue.alchemy-button{width:220px;max-width:70vw}}
+@media(max-height:450px) and (orientation:landscape){.win-celebration .win-celebration__copy{width:66vw;padding:0}.win-celebration h2.win-celebration__title{font-size:clamp(18px,4.3vw,42px);margin-bottom:4px}.win-celebration__story{font-size:clamp(8px,1.4vw,12px);margin-bottom:3px}.win-celebration__amount{font-size:clamp(24px,calc(59vw / var(--amount-chars) / .62),60px)}.win-celebration__currency{font-size:8px;margin-top:3px}.win-celebration__multiplier{font-size:12px;margin:4px 0}.win-celebration .win-celebration__continue.alchemy-button{width:clamp(125px,25vw,185px);margin:0}.win-celebration .win-celebration__continue .alchemy-button__label{font-size:4.8cqw}}
+@media(max-height:270px) and (orientation:landscape){.win-tier--epic .win-celebration__copy,.win-tier--max .win-celebration__copy{transform:translateY(12px)}}
+.win-celebration[data-reduced-motion=true] *,.no-motion .win-celebration *{animation:none!important;transition:none!important}

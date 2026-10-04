@@ -1,0 +1,89 @@
+/* The hit area may grow, but art, label and seal share one undistorted plane. */
+.alchemy-button.alchemy-button,
+.alchemy-button.alchemy-button--buy {
+  aspect-ratio: 800 / 215; grid-template-columns: minmax(0,1fr); justify-content: stretch;
+}
+.alchemy-button__visual {
+  position: relative; isolation: isolate; display: grid; place-items: center;
+  width: 100%; aspect-ratio: 800 / 215; min-width: 0; pointer-events: none;
+  transition: transform .16s cubic-bezier(.2,.7,.2,1), filter .18s ease;
+}
+.alchemy-button .alchemy-button__art > .alchemy-button__seal {
+  left: 2.375%; top: 50%; width: 11%; height: auto; aspect-ratio: 176 / 168;
+  transform: translateY(-50%); transition: none;
+}
+.alchemy-button:not(:disabled):hover,
+.alchemy-button:not(:disabled):active { transform: none; }
+.alchemy-button:not(:disabled):hover .alchemy-button__visual { filter: brightness(1.08); }
+.alchemy-button:not(:disabled):active .alchemy-button__visual { transform: translateY(1px) scale(.985); }
+.alchemy-button:not(:disabled):is(:hover,:active) .alchemy-button__seal { transform: translateY(-50%); }
+.alchemy-button:not(:disabled):active .alchemy-button__label { transform: none; }
+.alchemy-button.alchemy-button:focus-visible { outline: none; }
+.alchemy-button:focus-visible .alchemy-button__visual { filter: brightness(1.12) drop-shadow(0 0 5px #fff4b2); }
+.alchemy-button .alchemy-button__label { inset: 22% 16%; }
+.bonus-button.alchemy-button .alchemy-button__label { font-size: clamp(8px,5.2cqw,15px); }
+.purchase-screen .purchase-cards-v3 .experiment-buy .alchemy-button__label {
+  font: 400 clamp(10px,4.9cqw,15px)/1.1 var(--display-font),Georgia,serif !important;
+}
+.purchase-tabs .alchemy-button__label,
+.purchase-screen .purchase-cards-v3 .experiment-tabs .alchemy-button__label {
+  font-family: var(--body-font),Arial,sans-serif; font-weight: 750;
+  font-size: clamp(9px,5.2cqw,13px); line-height: 1.1; letter-spacing: 0;
+  inset: 19% 15%;
+}
+.purchase-screen .experiment-tabs .alchemy-button { opacity: .86; }
+.purchase-screen .experiment-tabs .alchemy-button[aria-pressed=true] { opacity: 1; }
+.purchase-screen .purchase-cards-v3 .experiment-card h3 {
+  font-family: var(--display-font),Georgia,serif; font-weight: 400; font-synthesis: none;
+}
+.purchase-screen .purchase-cards-v3 :is(.experiment-card p,.experiment-spins,.experiment-price strong,.experiment-price span) {
+  font-family: var(--body-font),Arial,sans-serif;
+}
+
+/* Raster nine-slicing preserves the gold corners at every control width. */
+.toggle,.toggle.on { width: 60px; height: 44px; background: none; border: 0; }
+.toggle::before {
+  content: ''; position: absolute; inset: 8px 0; pointer-events: none;
+  border-image: url('/alchemist/ui/interface-panel.webp') 165 fill / 9px / 0 stretch;
+  opacity: .8; transition: filter .2s, opacity .2s;
+}
+.toggle.on::before { opacity: 1; filter: brightness(1.18); }
+.toggle::after,.toggle.on::after { width: 24px; height: 24px; left: 6px; top: 10px; }
+.toggle::after { transform: translateX(0); }
+.toggle.on::after { transform: translateX(24px); }
+.selection-row { justify-content: center; align-items: center; gap: 18px; }
+.selection-row button {
+  flex: 0 1 88px; aspect-ratio: 1; min-width: 44px; min-height: 44px;
+  display: grid; place-items: center; padding: 0; border: 0;
+  background: url('/alchemist/ui/v4/button-primary-seal.webp') center / contain no-repeat;
+  font: 800 clamp(21px,3vw,30px)/1 var(--body-font),Arial,sans-serif;
+  color: #fff5cb; text-shadow: 0 2px 2px #042a36;
+  transition: filter .16s, transform .16s;
+}
+.selection-row button:hover { filter: brightness(1.15); }
+.selection-row button:active { transform: translateY(1px) scale(.97); }
+.settings-links { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: stretch; }
+.settings-links .secondary-button { width: 100%; min-width: 0; min-height: 44px; }
+.dialog:has(.settings-links) .setting-row { padding-block: 12px; }
+.dialog:has(.settings-links) .settings-links { margin-block: 16px; }
+.dialog:has(.settings-links) .modal-actions { margin-top: 16px; }
+.secondary-button { min-height: 40px; }
+.secondary-button > img { object-fit: contain; }
+.icon-button { display: grid; place-items: center; padding: 0; flex: none; }
+.icon-button > img { margin: 0; object-position: center; }
+.spin-button:hover:not(:disabled) { transform: none; }
+.spin-button:active:not(:disabled) { transform: translateY(1px) scale(.97); }
+
+@media (orientation:portrait) and (max-width:700px) {
+  .settings-links { grid-template-columns: minmax(0,1fr); }
+  .selection-row { gap: 12px; }
+  .selection-row button { flex-basis: 76px; font-size: 26px; }
+}
+@media (orientation:landscape) and (max-height:300px) {
+  .settings-links .secondary-button { min-height: 32px; font-size: 9px; padding-inline: 27px; }
+  .settings-links .secondary-button > img { left: 9px; width: 14px; height: 14px; }
+  .secondary-button { min-height: 26px; }
+  .selection-row button { flex-basis: 54px; font-size: 23px; }
+  .bonus-button.alchemy-button .alchemy-button__label { inset-inline: 13%; font-size: 8px; }
+}
+.no-motion .alchemy-button__visual,.no-motion .toggle::before,.no-motion .selection-row button { transition: none; }

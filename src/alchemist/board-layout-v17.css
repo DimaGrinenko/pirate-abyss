@@ -1,0 +1,101 @@
+/* The machine, rather than the captain + machine group, owns the screen axis.
+   Equal flexible side tracks keep its centre at 50% with no magic translation.
+   The unchanged --board-width still controls every reel/cell and all breakpoints.
+   Portrait and landscape phones <=700px keep their existing stacked/compact UI. */
+@media (orientation: landscape) and (min-width: 701px) {
+  .game-shell {
+    --board-side-room: calc((100vw - 36px - var(--board-width)) / 2);
+    --captain-slot-max: 230px;
+    --captain-slot-width: min(var(--captain-slot-max), calc(var(--board-side-room) - 52px));
+    --captain-board-gap: 24px;
+  }
+
+  .game-shell > .lab-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--board-width) minmax(0, 1fr);
+    column-gap: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-inline: 0;
+    align-items: center;
+  }
+
+  .game-shell > .lab-main > .machine {
+    grid-column: 2;
+    grid-row: 1;
+    width: var(--board-width);
+    justify-self: center;
+    margin-inline: 0;
+  }
+
+  .game-shell > .lab-main > .alchemist-sidebar {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+    width: var(--captain-slot-width);
+    min-width: 0;
+    margin-right: var(--captain-board-gap);
+    padding: 0;
+    height: auto;
+  }
+
+  .game-shell > .lab-main > .alchemist-sidebar .game-brand {
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .game-shell > .lab-main > .alchemist-sidebar .character-scene {
+    width: 100%;
+    height: min(460px, calc(100svh - 280px), calc(var(--captain-slot-width) * 1.64));
+    min-height: 0;
+    /* The existing captainPlacement() reserves its raised-hand camera gutter.
+       Leave that gutter visible; the left grid track reserves 28px for it. */
+    overflow: visible;
+  }
+
+  .game-shell > .lab-main > .alchemist-sidebar .bonus-button.alchemy-button {
+    width: 100%;
+    max-width: var(--captain-slot-max);
+    min-width: 0;
+  }
+
+  .game-shell > .control-wrap {
+    justify-self: center;
+    margin-inline: auto;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 701px) and (max-width: 1100px) and (min-height: 551px) {
+  .game-shell { --captain-slot-max: 200px; }
+  .game-shell > .lab-main > .alchemist-sidebar .character-scene {
+    height: min(calc(100svh - 240px), calc(var(--captain-slot-width) * 1.64));
+  }
+}
+
+@media (orientation: landscape) and (min-width: 701px) and (max-height: 550px) {
+  .game-shell {
+    --board-side-room: calc((100vw - 24px - var(--board-width)) / 2);
+    --captain-slot-max: 165px;
+    --captain-slot-width: min(var(--captain-slot-max), calc(var(--board-side-room) - 44px));
+    --captain-board-gap: 20px;
+  }
+  .game-shell > .lab-main > .alchemist-sidebar .character-scene {
+    width: min(150px, 100%);
+    height: min(calc(100svh - 185px), calc(var(--captain-slot-width) * 1.64));
+  }
+}
+
+@media (orientation: landscape) and (min-width: 701px) and (max-height: 300px) {
+  .game-shell {
+    --board-side-room: calc((100vw - 16px - var(--board-width)) / 2);
+    --captain-slot-max: 96px;
+    --captain-slot-width: min(var(--captain-slot-max), calc(var(--board-side-room) - 36px));
+    --captain-board-gap: 16px;
+  }
+  .game-shell > .lab-main > .alchemist-sidebar .character-scene {
+    width: min(92px, 100%);
+    height: min(calc(100svh - 133px), calc(var(--captain-slot-width) * 1.64));
+  }
+}

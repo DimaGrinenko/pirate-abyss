@@ -1,0 +1,44 @@
+/* The typography arrives with the native Spine entrance, then counts through its build. */
+.big-win-scene .raster-win-heading{animation:prize-title-arrive .8s .15s cubic-bezier(.16,1,.3,1) both;transform-origin:50% 70%}
+.big-win-scene .celebration-value{animation:prize-value-arrive .6s .24s cubic-bezier(.16,1,.3,1) both}
+.big-win-scene .celebration-multiplier{animation:prize-detail-arrive .6s .4s ease-out both}
+.big-win-scene .celebration-continue{animation:prize-detail-arrive .6s .55s ease-out both}
+@keyframes prize-title-arrive{0%{opacity:0;transform:translateY(18px) scale(.87)}65%{opacity:1;transform:translateY(-2px) scale(1.025)}100%{opacity:1;transform:none}}
+@keyframes prize-value-arrive{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes prize-detail-arrive{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.no-motion .big-win-scene .raster-win-heading,.no-motion .big-win-scene .celebration-value,.no-motion .big-win-scene .celebration-multiplier,.no-motion .big-win-scene .celebration-continue{animation:none}
+
+/* The overlay owns a continuous fade, including the backdrop. Native props
+   finish their .8s exit before the screen is removed. Holds pause live type too. */
+.celebration.win-celebration{animation:ceremony-screen-in .32s ease-out both}
+/* The painted vault is preloaded with the bonus. A stable opaque backdrop
+   avoids repeatedly filtering all of the covered reel canvases. */
+.celebration.win-celebration{
+  backdrop-filter:none;
+  background:linear-gradient(180deg,#021a28db,#021522f0),url('/alchemist/ceremony/vault-background-v14.webp') center/cover no-repeat;
+}
+.celebration.win-celebration[data-stage-exiting=true],
+.celebration.bonus-stage-v3[data-stage-exiting=true]{animation:ceremony-screen-out .8s ease-in both}
+.celebration[data-animation-held=true],
+.celebration[data-animation-held=true]::before,
+.celebration[data-animation-held=true]::after,
+.celebration[data-animation-held=true] *,
+.celebration[data-animation-held=true] *::before,
+.celebration[data-animation-held=true] *::after{animation-play-state:paused!important}
+.celebration.win-celebration[data-reduced-motion=true],
+.celebration.bonus-stage-v3[data-reduced-motion=true]{animation:none!important}
+
+/* Landing begins at the exact counting pose instead of snapping the glyphs
+   to a rotated, compressed first frame when data-count-complete changes. */
+@keyframes win-digit-lock{
+  0%,100%{transform:none;filter:brightness(1)}
+  38%{transform:translateY(-.018em) rotateX(-3deg) scaleY(1.014);filter:brightness(1.16)}
+  70%{transform:translateY(.005em);filter:brightness(1.04)}
+}
+@keyframes win-multiplier-seal{
+  0%,100%{transform:none;filter:brightness(1)}
+  40%{transform:scale(1.035) rotateX(-2deg);filter:brightness(1.2)}
+}
+@keyframes ceremony-screen-in{from{opacity:0}to{opacity:1}}
+@keyframes ceremony-screen-out{0%,35%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.celebration.win-celebration,.celebration.bonus-stage-v3{animation:none!important}}

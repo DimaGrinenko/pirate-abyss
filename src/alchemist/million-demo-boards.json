@@ -1,0 +1,1098 @@
+[
+  {
+    "payout": 1050,
+    "board": [
+      [
+        {
+          "id": "sulfur"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "atom"
+        },
+        {
+          "id": "flask"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "atom"
+        },
+        {
+          "id": "atom"
+        },
+        {
+          "id": "iron"
+        }
+      ],
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "sulfur"
+        },
+        {
+          "id": "wild",
+          "wildType": "red",
+          "multiplier": 7
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "sulfur"
+        }
+      ],
+      [
+        {
+          "id": "iron"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "iron"
+        },
+        {
+          "id": "flask"
+        },
+        {
+          "id": "crystal"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "iron"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "flask"
+        },
+        {
+          "id": "atom"
+        }
+      ]
+    ]
+  },
+  {
+    "payout": 3260,
+    "board": [
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "flask"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "iron"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "sulfur"
+        }
+      ]
+    ]
+  },
+  {
+    "payout": 15200,
+    "board": [
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "mercury"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "sulfur"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "flask"
+        },
+        {
+          "id": "crystal"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "flask"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        }
+      ]
+    ]
+  },
+  {
+    "payout": 18020,
+    "board": [
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "wild",
+          "wildType": "red",
+          "multiplier": 7
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "iron"
+        },
+        {
+          "id": "elixir"
+        }
+      ],
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "sulfur"
+        },
+        {
+          "id": "wild",
+          "wildType": "gold",
+          "multiplier": 10
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "flask"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "flask"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ]
+    ]
+  },
+  {
+    "payout": 53600,
+    "board": [
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "flask"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "wild",
+          "wildType": "red",
+          "multiplier": 8
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "sulfur"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "flask"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ]
+    ]
+  },
+  {
+    "payout": 53900,
+    "board": [
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "wild",
+          "wildType": "blue",
+          "multiplier": 4
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "wild",
+          "wildType": "red",
+          "multiplier": 7
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        }
+      ],
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "sulfur"
+        },
+        {
+          "id": "lead"
+        }
+      ]
+    ]
+  },
+  {
+    "payout": 77220,
+    "board": [
+      [
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "sulfur"
+        }
+      ],
+      [
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "wild",
+          "wildType": "blue",
+          "multiplier": 4
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        }
+      ],
+      [
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "wild",
+          "wildType": "red",
+          "multiplier": 5
+        }
+      ],
+      [
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "elixir"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "flask"
+        }
+      ],
+      [
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "mercury"
+        }
+      ],
+      [
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        },
+        {
+          "id": "mercury"
+        }
+      ]
+    ]
+  },
+  {
+    "payout": 111350,
+    "board": [
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "atom"
+        },
+        {
+          "id": "wild",
+          "wildType": "blue",
+          "multiplier": 2
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "wild",
+          "wildType": "gold",
+          "multiplier": 15
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "copper"
+        },
+        {
+          "id": "flask"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        },
+        {
+          "id": "copper"
+        }
+      ]
+    ]
+  },
+  {
+    "payout": 247600,
+    "board": [
+      [
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "elixir"
+        },
+        {
+          "id": "retort"
+        }
+      ],
+      [
+        {
+          "id": "flask"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        }
+      ],
+      [
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "iron"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "crystal"
+        }
+      ],
+      [
+        {
+          "id": "atom"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        }
+      ],
+      [
+        {
+          "id": "wild",
+          "wildType": "green",
+          "multiplier": 30
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "retort"
+        }
+      ],
+      [
+        {
+          "id": "lead"
+        },
+        {
+          "id": "retort"
+        },
+        {
+          "id": "lead"
+        },
+        {
+          "id": "atom"
+        },
+        {
+          "id": "elixir"
+        }
+      ]
+    ]
+  },
+  {
+    "payout": 418800,
+    "board": [
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "flask"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "wild",
+          "wildType": "blue",
+          "multiplier": 4
+        },
+        {
+          "id": "copper"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "wild",
+          "wildType": "red",
+          "multiplier": 8
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        }
+      ],
+      [
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "crystal"
+        },
+        {
+          "id": "sulfur"
+        },
+        {
+          "id": "crystal"
+        }
+      ]
+    ]
+  }
+]

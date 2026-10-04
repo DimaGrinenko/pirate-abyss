@@ -1,0 +1,294 @@
+/* The reference's information order, with our painted pirate controls.
+   A raster glass frame supplies the material; no backdrop blur or filters. */
+@import './game-controls-v36.css';
+.captain-deck {
+  --deck-glass-art:url('/alchemist/ui/aquarium-panel-v37.webp');
+  --deck-ivory:#fffdf8; --deck-muted:#fffdf8; --deck-seafoam:#e0ffef;
+  grid-template-columns:80px 44px minmax(0,1fr) 176px 84px 44px;
+  grid-template-rows:88px; gap:12px; min-height:96px; padding:4px 12px;
+  border:0; border-radius:0; background:transparent; box-shadow:none;
+  text-shadow:0 1px 2px #002f3c,0 0 3px #002f3c;
+}
+.captain-deck::before {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  border:16px solid transparent; border-radius:18px;
+  border-image:var(--deck-glass-art) 100 fill / 16px / 0 stretch;
+  background:rgba(2,54,68,.42);
+}
+.captain-deck__feature {
+  position:relative; isolation:isolate; grid-column:1; grid-row:1; justify-self:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  width:80px; min-width:44px; height:80px; min-height:44px; padding:4px;
+  border:0; border-radius:12px;
+  background:transparent;
+  color:#073843;
+}
+.captain-deck__feature::before,.captain-deck__feature::after {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:url('/alchemist/ui/bonus-aquarium-v37.webp') center/contain no-repeat;
+}
+.captain-deck__feature::before { transition:filter .12s ease; }
+/* Retain the raster's blank lower glass at its original luminance, even
+   when the chest artwork is highlighted or dimmed. The text is independent. */
+.captain-deck__feature::after { clip-path:inset(62% 10% 10% 10%); }
+.captain-deck__feature > span {
+  position:absolute; left:8%; right:8%; top:64%; font-size:9.5px; line-height:1; font-weight:800;
+  text-align:center; overflow-wrap:normal;
+}
+/* Direct caption colour must beat v35's `.captain-deck button {color:inherit}`;
+   the disabled rule must also beat the generic fading of button captions. */
+.captain-deck .captain-deck__feature > span,
+.captain-deck .captain-deck__feature:disabled > span {
+  color:#073843; opacity:1; text-shadow:0 1px 1px #e2fff580;
+}
+.captain-deck .captain-deck__feature,
+.captain-deck .captain-deck__feature:disabled { opacity:1; filter:none; }
+.captain-deck__feature:hover:not(:disabled)::before { filter:brightness(1.055); }
+.captain-deck__feature[aria-pressed=true]::before { filter:brightness(1.055); }
+.captain-deck__feature:disabled::before { opacity:.65; filter:none; }
+@media (prefers-reduced-motion:reduce) {
+  .captain-deck__feature::before { transition:none; }
+}
+.no-motion .captain-deck__feature::before { transition:none; }
+.captain-deck .captain-deck__tool > span { color:#fffdf8; text-shadow:0 1px 2px #002f3c,0 0 3px #002f3c; }
+.captain-deck__utilities { grid-column:2; grid-row:1; width:44px; justify-self:center; }
+.captain-deck .captain-deck__compact-menu { display:flex; }
+.captain-deck__ledger {
+  grid-column:3; grid-row:1; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:24px; align-self:center; padding:0;
+}
+.captain-deck__readout { container-type:inline-size; display:block; text-align:left; }
+.captain-deck__readout--win .captain-deck__money { justify-content:flex-start; }
+.captain-deck__label { font-size:10px; margin-bottom:4px; }
+.captain-deck__ledger .captain-deck__money { justify-content:flex-start; gap:1px 4px; }
+.captain-deck__ledger .captain-deck__money strong { font-size:clamp(9px,calc(165cqw / var(--amount-chars)),22px); }
+.captain-deck__money small { font-size:9px; }
+.captain-deck__bet { position:relative; grid-column:4; grid-row:1; width:100%; align-self:center; }
+.captain-deck__bet > .captain-deck__label {
+  position:absolute; left:0; top:12px; width:calc(100% - 48px); z-index:1;
+  margin:0; text-align:left; padding-left:4px; pointer-events:none;
+}
+.captain-deck__stepper {
+  grid-template-columns:minmax(44px,1fr) 44px; grid-template-rows:44px 44px;
+  gap:0 4px; min-height:88px; background:none; border:0;
+}
+.captain-deck__bet-amount {
+  grid-column:1; grid-row:1 / -1; min-height:44px; padding:20px 4px 4px;
+  align-content:center; border-radius:8px;
+}
+.captain-deck__bet-amount .captain-deck__money { justify-content:flex-start; gap:1px 4px; }
+.captain-deck__bet-amount .captain-deck__money strong { font-size:clamp(10px,calc(158cqw / var(--amount-chars)),22px); }
+.captain-deck__bet-amount .captain-deck__money small { overflow-wrap:anywhere; white-space:normal; }
+.captain-deck__factor { margin-top:3px; text-align:left; font-size:8px; }
+.captain-deck__step { width:44px; min-width:44px; height:44px; min-height:44px; }
+.captain-deck__step--up { grid-column:2; grid-row:1; }
+.captain-deck__step--down { grid-column:2; grid-row:2; }
+.captain-deck .captain-deck__step::before { inset:5px; }
+.captain-deck__spin { grid-column:5; grid-row:1; width:84px; height:84px; padding:14px; }
+.captain-deck__spin > img { width:50px; height:50px; }
+.captain-deck__modes { display:flex; flex-direction:column; grid-column:6; grid-row:1; gap:0; justify-self:center; }
+.captain-deck .captain-deck__modes .captain-deck__tool { display:flex; width:44px; height:44px; min-height:44px; }
+.captain-deck .captain-deck__modes .captain-deck__tool::before { width:32px; height:32px; left:6px; top:0; }
+.captain-deck .captain-deck__modes .captain-deck__tool > img { width:19px; height:19px; top:6.5px; }
+.captain-deck .captain-deck__modes .captain-deck__tool > span { top:33px; font-size:8px; line-height:10px; }
+.captain-deck .captain-deck__modes .captain-deck__tool[aria-pressed=true]::after { top:27px; }
+.captain-deck__bonus-count { min-height:88px; padding-top:16px; gap:8px; justify-content:flex-start; }
+.captain-deck[data-bonus] .captain-deck__bet > .captain-deck__label { width:100%; }
+.captain-deck__bonus-count > strong { font-size:28px; }
+.captain-deck__bonus-count > span { container-type:inline-size; flex:1; font-size:8px; }
+.captain-deck__bonus-count .captain-deck__money { flex-wrap:wrap; }
+.captain-deck__bonus-count .captain-deck__money strong { font-size:12px; }
+.captain-deck__bonus-count .captain-deck__money small { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+
+@media (orientation:landscape) and (max-width:1000px) and (min-height:551px) {
+  .captain-deck { grid-template-columns:64px 44px minmax(0,1fr) 152px 76px 44px; gap:8px; padding-inline:8px; }
+  .captain-deck__feature { width:64px; height:76px; }
+  .captain-deck__ledger { gap:12px; }
+  .captain-deck__spin { width:76px; height:76px; }
+}
+/* Short landscape retains the 64px deck budget. Vertical 44px pairs cannot
+   fit that height, so the same actions become adjacent, without shrinking. */
+@media (orientation:landscape) and (max-height:550px) {
+  .captain-deck {
+    grid-template-columns:56px 44px minmax(0,1fr) 176px 60px 92px;
+    grid-template-rows:60px; gap:8px; min-height:64px; padding:2px 8px;
+  }
+  .captain-deck__feature { width:56px; height:60px; padding:2px; }
+  .captain-deck__feature > span { font-size:8px; }
+  .captain-deck__ledger { gap:12px; }
+  .captain-deck__ledger .captain-deck__money strong { font-size:clamp(9px,calc(165cqw / var(--amount-chars)),18px); }
+  .captain-deck__label { font-size:9px; margin-bottom:2px; }
+  .captain-deck__bet > .captain-deck__label { position:static; width:calc(100% - 92px); margin-bottom:2px; padding-left:2px; }
+  .captain-deck__stepper { grid-template-columns:minmax(44px,1fr) 44px 44px; grid-template-rows:44px; min-height:44px; gap:0 2px; }
+  .captain-deck__bet-amount { grid-column:1; grid-row:1; padding:2px; }
+  .captain-deck__bet-amount .captain-deck__money strong { font-size:clamp(9px,calc(158cqw / var(--amount-chars)),18px); }
+  .captain-deck__step--up { grid-column:2; grid-row:1; }
+  .captain-deck__step--down { grid-column:3; grid-row:1; }
+  .captain-deck__spin { width:60px; height:60px; padding:10px; }
+  .captain-deck__spin > img { width:36px; height:36px; }
+  .captain-deck__modes { flex-direction:row; gap:4px; }
+  .captain-deck__bonus-count { min-height:44px; padding-top:0; }
+  .captain-deck__bonus-count > strong { font-size:24px; }
+}
+@media (orientation:landscape) and (max-width:700px) {
+  .captain-deck,.captain-deck:has(.captain-deck__ledger [data-long-amount]) {
+    grid-template-columns:44px 44px minmax(0,1fr) 80px 56px;
+    grid-template-rows:60px; gap:4px; min-height:64px; padding:2px 6px;
+  }
+  .captain-deck__feature { width:44px; height:56px; }
+  .captain-deck__feature > span { font-size:7px; }
+  .captain-deck__ledger { grid-column:3; grid-row:1; grid-template-columns:1fr; gap:2px; }
+  .captain-deck__readout .captain-deck__label { font-size:8px; }
+  .captain-deck__ledger .captain-deck__money { gap:0 2px; }
+  .captain-deck__ledger .captain-deck__money strong { font-size:clamp(9px,calc(165cqw / var(--amount-chars)),13px); }
+  .captain-deck__ledger .captain-deck__money small { font-size:7px; }
+  .captain-deck__bet { grid-column:4; grid-row:1; }
+  .captain-deck__bet > .captain-deck__label { width:100%; font-size:8px; }
+  .captain-deck__stepper { grid-template-columns:1fr; }
+  .captain-deck__step { display:none; }
+  .captain-deck__spin { grid-column:5; grid-row:1; width:56px; height:56px; }
+  .captain-deck__utilities { grid-column:2; grid-row:1; }
+  .captain-deck__modes { display:none; }
+  .captain-deck__bonus-count { gap:4px; }
+  .captain-deck__bonus-count > strong { font-size:21px; }
+  .captain-deck__bonus-count .captain-deck__money strong { font-size:10px; }
+}
+@media (orientation:landscape) and (min-width:701px) and (max-width:780px) and (max-height:550px) {
+  .captain-deck { grid-template-columns:56px 44px minmax(0,1fr) 156px 60px 44px; }
+  .captain-deck .captain-deck__modes .captain-deck__turbo { display:none; }
+}
+/* Phones: money remains a full-width row; the lower row starts with Bonus.
+   The amount opens the same guarded chooser. Smaller viewports keep Turbo
+   and Auto in Menu, retaining their state and stop-autoplay action. */
+@media (orientation:portrait) {
+  .captain-deck {
+    grid-template-columns:52px 44px minmax(44px,1fr) 68px 44px;
+    grid-template-rows:minmax(34px,auto) 68px; gap:2px 4px;
+    min-height:110px; padding:3px 6px;
+  }
+  .captain-deck__feature { grid-column:1; grid-row:2; width:52px; height:62px; padding:2px; }
+  .captain-deck__feature > span { font-size:8px; }
+  .captain-deck__utilities { grid-column:2; grid-row:2; width:44px; }
+  .captain-deck__ledger { grid-column:1 / -1; grid-row:1; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px; }
+  .captain-deck__readout--win { text-align:right; }
+  .captain-deck__readout--win .captain-deck__money { justify-content:flex-end; }
+  .captain-deck__label { font-size:9px; margin-bottom:2px; }
+  .captain-deck__ledger .captain-deck__money strong { font-size:clamp(10px,calc(165cqw / var(--amount-chars)),19px); }
+  .captain-deck__money small { font-size:8px; }
+  .captain-deck__bet { grid-column:3; grid-row:2; }
+  .captain-deck__bet > .captain-deck__label { position:static; width:100%; padding-left:2px; margin-bottom:2px; font-size:9px; }
+  .captain-deck__stepper { grid-template-columns:1fr; grid-template-rows:44px; min-height:44px; gap:0; }
+  .captain-deck__step { display:none; }
+  .captain-deck__bet-amount { grid-column:1; grid-row:1; padding:2px; }
+  .captain-deck__bet-amount .captain-deck__money { gap:1px 2px; }
+  .captain-deck__bet-amount .captain-deck__money strong { font-size:clamp(9px,calc(158cqw / var(--amount-chars)),19px); }
+  .captain-deck__factor { font-size:8px; }
+  .captain-deck__spin { grid-column:4; grid-row:2; width:68px; height:68px; padding:12px; }
+  .captain-deck__spin > img { width:40px; height:40px; }
+  .captain-deck__modes { display:flex; grid-column:5; grid-row:2; flex-direction:column; width:44px; }
+  .captain-deck .captain-deck__modes .captain-deck__turbo { display:none; }
+  .captain-deck__bonus-count { min-height:44px; padding:0; gap:4px; }
+  .captain-deck__bonus-count > strong { font-size:24px; }
+  .captain-deck__bonus-count > span { font-size:8px; }
+  .captain-deck__bonus-count .captain-deck__money strong { font-size:10px; }
+}
+@media (orientation:portrait) and (max-width:374px) {
+  .captain-deck { grid-template-columns:52px 44px minmax(44px,1fr) 64px; }
+  .captain-deck__spin { width:64px; height:64px; }
+  .captain-deck__modes { display:none; }
+}
+@media (orientation:portrait) and (min-width:701px) {
+  .captain-deck { grid-template-columns:64px 44px minmax(100px,1fr) 72px 92px; }
+  .captain-deck__feature { width:64px; }
+  .captain-deck__spin { width:72px; height:72px; }
+  .captain-deck__modes { width:92px; flex-direction:row; gap:4px; }
+  .captain-deck .captain-deck__modes .captain-deck__turbo { display:flex; }
+}
+.captain-deck .captain-deck__bonus-count .captain-deck__money strong { font-size:clamp(8px,calc(160cqw / var(--amount-chars)),12px); }
+
+/* Phone-only 96px deck: 28px money + 60px actions + 2px gap + 6px padding.
+   Ordinary currency stays beside its amount. Only unusually long values or
+   codes use the label line; complete money strings never push actions down. */
+@media (orientation:portrait) and (max-width:700px) {
+  .captain-deck {
+    grid-template-columns:52px 44px minmax(44px,1fr) 60px 44px;
+    grid-template-rows:28px 60px; gap:2px 4px;
+    min-height:96px; padding:3px 6px;
+  }
+  .captain-deck__feature { width:52px; height:60px; }
+  .captain-deck__feature > span { top:62%; font-size:9px; line-height:.8; }
+  .captain-deck__readout { position:relative; }
+  .captain-deck__ledger .captain-deck__label {
+    padding:0; font-size:9px; line-height:10px; margin-bottom:1px; white-space:nowrap;
+  }
+  .captain-deck__ledger .captain-deck__money { gap:4px; flex-wrap:nowrap; }
+  .captain-deck__ledger .captain-deck__money strong {
+    /* 8.5px per currency character bounds Golos's widest uppercase glyph
+       at 8px. Reserving it before fitting digits prevents unit overlap. */
+    font-size:clamp(10px,calc((148cqw - var(--currency-chars,3)*12.58px - 5.92px) / var(--amount-chars)),16px);
+    line-height:1.05;
+  }
+  .captain-deck__ledger .captain-deck__money small {
+    position:static; font-size:8px; line-height:9px; white-space:nowrap;
+  }
+  .captain-deck__ledger .captain-deck__money:is([data-long-amount],[data-wide-currency]) strong {
+    font-size:clamp(10px,calc(165cqw / var(--amount-chars)),16px);
+  }
+  .captain-deck__ledger .captain-deck__money:is([data-long-amount],[data-wide-currency]) small {
+    position:absolute; top:0; right:0; font-size:7px;
+  }
+  .captain-deck__readout:has(.captain-deck__money:is([data-long-amount],[data-wide-currency])) > .captain-deck__label {
+    text-align:left;
+  }
+  .captain-deck__bet > .captain-deck__label { text-align:center; padding-left:0; }
+  .captain-deck__bet-amount .captain-deck__money { justify-content:center; }
+  .captain-deck__factor { text-align:center; }
+  .captain-deck .captain-deck__compact-menu,
+  .captain-deck .captain-deck__modes .captain-deck__tool { height:56px; min-height:56px; }
+  .captain-deck .captain-deck__compact-menu::before,
+  .captain-deck .captain-deck__modes .captain-deck__tool::before { width:40px; height:40px; left:2px; top:0; }
+  .captain-deck .captain-deck__compact-menu > img,
+  .captain-deck .captain-deck__modes .captain-deck__tool > img { width:23px; height:23px; top:8.5px; }
+  .captain-deck .captain-deck__compact-menu > span,
+  .captain-deck .captain-deck__modes .captain-deck__tool > span { top:43px; font-size:9px; line-height:11px; }
+  .captain-deck .captain-deck__modes .captain-deck__tool[aria-pressed=true]::after {
+    top:34px;
+  }
+  .captain-deck__spin { width:60px; height:60px; padding:10px; }
+  .captain-deck__spin > img { width:36px; height:36px; }
+}
+@media (orientation:portrait) and (max-width:374px) {
+  .captain-deck { grid-template-columns:52px 44px minmax(44px,1fr) 60px; }
+}
+
+/* The HUD actions use the same raster aquarium material as Bonus. Only the
+   painted layer responds to hover/press; glyphs and captions remain stable. */
+.captain-deck .captain-deck__tool {
+  --utility-art:url('/alchemist/ui/aquarium-control-v38.webp');
+  border-radius:12px;
+}
+.captain-deck .captain-deck__spin { border-radius:18%; }
+.captain-deck .captain-deck__step { border-radius:10px; }
+.captain-deck .captain-deck__spin::before,
+.captain-deck .captain-deck__step::before,
+.captain-deck .captain-deck__tool::before {
+  background-image:url('/alchemist/ui/aquarium-control-v38.webp');
+  background-position:center; background-size:contain; background-repeat:no-repeat;
+}
+.captain-deck .captain-deck__spin > img,
+.captain-deck .captain-deck__step > img,
+.captain-deck .captain-deck__tool > img {
+  filter:brightness(0) invert(1) drop-shadow(0 0 1px #075e72) drop-shadow(0 1px 0 #075e72);
+}
+.captain-deck .captain-deck__spin:hover:not(:disabled),
+.captain-deck .captain-deck__step:hover:not(:disabled),
+.captain-deck .captain-deck__tool:hover:not(:disabled) { filter:none; }
+.captain-deck .captain-deck__spin:hover:not(:disabled)::before,
+.captain-deck .captain-deck__step:hover:not(:disabled)::before,
+.captain-deck .captain-deck__tool:hover:not(:disabled)::before { filter:brightness(1.035); }
+.captain-deck .captain-deck__tool[aria-pressed=true]::before { filter:saturate(1.12) brightness(.95); }
+.captain-deck .captain-deck__spin:active:not(:disabled)::before,
+.captain-deck .captain-deck__step:active:not(:disabled)::before,
+.captain-deck .captain-deck__tool:active:not(:disabled)::before { filter:brightness(.92); }
+.captain-deck .captain-deck__spin:disabled,
+.captain-deck .captain-deck__tool:disabled > span { opacity:1; }

@@ -1,0 +1,33 @@
+.alchemy-button.alchemy-button {
+  position: relative; isolation: isolate; container-type: inline-size;
+  width: 280px; max-width: 100%; min-width: 0; height: auto !important; min-height: 0;
+  aspect-ratio: 4 / 1; padding: 0 !important; border: 0 !important; border-radius: 0 !important;
+  background: transparent !important; box-shadow: none !important;
+  display: inline-grid; place-items: center; vertical-align: middle;
+  cursor: pointer; touch-action: manipulation; color: #dce1d1;
+  transition: none; overflow: visible; outline: none;
+}
+.alchemy-button.alchemy-button--buy { width: 250px; aspect-ratio: 3.5 / 1; color: #ead4a5; }
+.alchemy-button.alchemy-button--secondary { width: 250px; color: #bac7be; }
+.alchemy-button__art { position: absolute; inset: 0; pointer-events: none; z-index: -1; }
+.alchemy-button .alchemy-button__art > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; user-select: none; }
+.alchemy-button__pressed { opacity: 0; transition: opacity .09s; }
+.alchemy-button .alchemy-button__art > .alchemy-button__glow { opacity: .13; transition: opacity .2s; }
+.alchemy-button .alchemy-button__art > .alchemy-button__seal { left: 1.8%; top: 26%; width: 10.6%; height: 48%; transition: transform .16s; }
+.alchemy-button__label {
+  position: absolute; inset: 22% 18%; width: auto; margin: 0; display: grid; place-items: center;
+  font-family: var(--display-font, Rubik), Manrope, sans-serif; font-size: clamp(10px, 5.1cqw, 17px); font-weight: 700;
+  line-height: 1.13; letter-spacing: .015em; white-space: normal; text-wrap: balance; text-align: center; text-transform: uppercase;
+  text-shadow: 0 1px 1px #000, 0 -1px 1px #020606; pointer-events: none;
+  transition: transform .1s;
+}
+.alchemy-button__label > span { font: inherit !important; line-height: inherit !important; }
+.alchemy-button--buy .alchemy-button__label { width: auto; margin: 0; }
+.alchemy-button:not(:disabled):hover .alchemy-button__glow { opacity: .65; }
+.alchemy-button:not(:disabled):hover .alchemy-button__seal { transform: rotate(-4deg); }
+.alchemy-button:not(:disabled):focus-visible .alchemy-button__glow { opacity: 1; }
+.alchemy-button:not(:disabled):active .alchemy-button__pressed { opacity: 1; }
+.alchemy-button:not(:disabled):active .alchemy-button__label { transform: translateY(1.5px); }
+.alchemy-button:not(:disabled):active .alchemy-button__seal { transform: translateY(1.5px) rotate(3deg); }
+.alchemy-button.alchemy-button:disabled { opacity: .48; cursor: default; }
+.no-motion .alchemy-button__art > img, .no-motion .alchemy-button__label { transition: none; }

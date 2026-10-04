@@ -1,0 +1,85 @@
+/* v37 moves all playable actions into the aquarium deck. */
+.game-shell {
+  --hud-width:min(1400px,calc(100vw - 32px)); --hud-height:96px;
+  --bonus-card-x:50vw;
+}
+.game-shell > .control-wrap { width:var(--hud-width); max-width:1400px; }
+.game-shell .captain-deck__ledger { align-self:center; padding-bottom:0; }
+@media (orientation:landscape) and (min-width:701px) and (min-height:551px) {
+  .game-shell { --board-width:min(900px,calc((100svh - 116px - var(--session-meta-height,0px))*1.065),calc(100vw - 320px)); }
+  .game-shell > .lab-main > .machine > .win-readout {
+    left:calc((100vw - var(--hud-width)) / 2 + 12px + 80px + 12px + 44px + 12px + (var(--hud-width) - 512px) / 2);
+    bottom:calc(10px + var(--session-meta-height,0px) + 75px);
+    width:max(100px,calc(var(--hud-width) - 536px)); height:16px; min-height:16px;
+  }
+}
+/* The compact deck has 8px padding/gaps and 64/44/152/76/44px fixed
+   columns. Its payout must use the same flexible ledger, not the wide HUD. */
+@media (orientation:landscape) and (min-width:701px) and (max-width:1000px) and (min-height:551px) {
+  .game-shell > .lab-main > .machine > .win-readout {
+    left:calc((100vw - var(--hud-width)) / 2 + 8px + 64px + 8px + 44px + 8px + (var(--hud-width) - 436px) / 2);
+    width:calc(var(--hud-width) - 436px);
+  }
+  .game-shell > .lab-main > .machine > .win-readout .line-win { gap:2px; }
+}
+@media (orientation:landscape) and (min-width:701px) and (min-height:551px) and (max-aspect-ratio:3/2) {
+  .game-shell {
+    --board-width:min(900px,calc((100svh - 116px - var(--session-meta-height,0px))*1.065),calc(100vw - 316px));
+    --bonus-card-x:calc(18px + var(--board-side-room) + var(--board-width) / 2);
+  }
+}
+@media (orientation:landscape) and (max-height:550px) {
+  .game-shell { --hud-width:calc(100vw - 24px); --hud-height:64px; }
+}
+@media (orientation:landscape) and (max-width:700px) {
+  .game-shell > .lab-main > .alchemist-sidebar { align-self:center; }
+  .game-shell .alchemist-sidebar .character-scene { height:calc(100svh - 122px); }
+}
+@media (orientation:portrait) {
+  .game-shell {
+    --mobile-captain-height:clamp(104px,18svh,144px);
+    --board-width:min(700px,calc(100vw - 28px),calc((100svh - 200px - var(--mobile-captain-height) - var(--session-meta-height,0px))*1.2));
+    --hud-width:calc(100vw - 20px); --hud-height:110px;
+  }
+  .game-shell > .lab-main > .alchemist-sidebar {
+    grid-template-rows:1fr; grid-template-columns:minmax(0,1fr) 112px;
+    width:var(--board-width); height:var(--mobile-captain-height); min-height:var(--mobile-captain-height);
+  }
+  .game-shell .alchemist-sidebar .game-brand { grid-row:1; height:100%; }
+  .game-shell .alchemist-sidebar .character-scene { grid-row:1; height:100%; }
+  .game-shell > .control-wrap { width:var(--hud-width); max-width:700px; }
+}
+@media (orientation:portrait) and (max-width:350px) {
+  .game-shell { --hud-width:calc(100vw - 16px); --mobile-captain-height:104px; }
+  .game-shell > .lab-main > .alchemist-sidebar { grid-template-columns:minmax(0,1fr) 100px; column-gap:10px; }
+}
+@media (orientation:portrait) and (min-width:701px) {
+  .game-shell {
+    --mobile-captain-height:160px; --hud-width:min(700px,calc(100vw - 48px));
+    --board-width:min(760px,calc(100vw - 70px),calc((100svh - 200px - var(--mobile-captain-height) - var(--session-meta-height,0px))*1.2));
+  }
+  .game-shell > .lab-main > .alchemist-sidebar { grid-template-columns:minmax(0,1fr) 150px; column-gap:24px; }
+  .game-shell .alchemist-sidebar .game-brand { width:300px; height:130px; }
+}
+/* Phone composition reserves the actual deck/header height instead of the
+   retired 200px budget for the old feature button. Keep the field dominant. */
+@media (orientation:portrait) and (max-width:700px) {
+  .game-shell {
+    --mobile-captain-height:clamp(78px,14svh,116px);
+    --hud-height:96px; --hud-width:calc(100vw - 16px);
+    --board-width:min(calc(100vw - 16px),calc((100svh - var(--hud-height) - var(--mobile-captain-height) - 84px - var(--session-meta-height,0px) - env(safe-area-inset-bottom,0px))*1.2));
+    padding:6px 8px max(6px,env(safe-area-inset-bottom)); gap:4px;
+  }
+  .game-shell > .lab-main { gap:4px; }
+  .game-shell > .lab-main > .alchemist-sidebar {
+    grid-template-columns:minmax(0,1fr) clamp(84px,24vw,112px);
+    column-gap:12px; align-items:end;
+  }
+  .game-shell .alchemist-sidebar .game-brand {
+    width:min(240px,100%); height:min(86px,var(--mobile-captain-height));
+    align-self:center; justify-self:center;
+  }
+  .game-shell .alchemist-sidebar .character-scene { align-self:end; }
+  .game-shell .win-readout { height:24px; min-height:24px; padding-top:6px; }
+  .game-shell .toast { bottom:calc(108px + env(safe-area-inset-bottom,0px)); }
+}

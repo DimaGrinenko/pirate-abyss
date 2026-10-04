@@ -1,0 +1,21 @@
+/* Refraction moves over the original painting; wood, glass rims and masonry stay fixed. */
+.bonus-vault__reflections { position:absolute; inset:0; overflow:hidden; }
+.bonus-vault__reflections img { position:absolute; pointer-events:none; object-fit:contain; mix-blend-mode:screen; }
+.bonus-vault__waterlight { opacity:.14; animation:vault-refraction-drift 13s ease-in-out infinite; }
+.bonus-vault__waterlight--floor { left:-10%; bottom:-35%; width:120%; height:80%; transform-origin:50% 100%; animation-name:vault-floor-refraction; opacity:.2; }
+.bonus-vault__waterlight--left { left:-15%; top:-18%; width:54%; height:112%; animation-delay:-4s; }
+.bonus-vault__waterlight--right { right:-22%; top:-12%; width:53%; height:103%; animation-duration:17s; animation-delay:-9s; }
+.bonus-vault__lantern { width:24%; height:45%; top:5%; opacity:.12; animation:vault-lantern-flame 6.7s ease-in-out infinite; }
+.bonus-vault__lantern--0 { left:5%; }
+.bonus-vault__lantern--1 { right:2%; top:14%; animation-duration:8.3s; animation-delay:-3.5s; }
+.bonus-vault__metal { left:var(--glint-x); top:var(--glint-y); width:clamp(12px,2.4vw,34px); opacity:0; animation:vault-brass-reflection 11s var(--glint-phase) ease-in-out infinite; }
+.celebration.win-celebration { background:#062b37; }
+.win-celebration .bonus-vault__shade { background:#001b35a6; }
+.win-celebration .bonus-vault__waterlight--floor { opacity:.16; }
+.bonus-entry-transition--over-scene { opacity:.28; mix-blend-mode:screen; }
+@keyframes vault-refraction-drift { 0%,100% { transform:translate3d(-2%,0,0) rotate(-5deg) scale(1); } 50% { transform:translate3d(4%,3%,0) rotate(7deg) scale(1.08); } }
+@keyframes vault-floor-refraction { 0%,100% { transform:perspective(520px) rotateX(43deg) rotateZ(-4deg) translateY(-4%); } 50% { transform:perspective(520px) rotateX(46deg) rotateZ(4deg) translateY(4%); } }
+@keyframes vault-lantern-flame { 0%,100% { transform:scale(.94,1); opacity:.1; } 31% { transform:scale(1.05,.97); opacity:.2; } 64% { transform:scale(.98,1.03); opacity:.14; } 78% { transform:scale(1.03,1); opacity:.18; } }
+@keyframes vault-brass-reflection { 0%,28%,60%,100% { opacity:0; transform:scale(.35) rotate(-15deg); } 42% { opacity:.58; transform:scale(1) rotate(35deg); } 50% { opacity:.14; transform:scale(.65) rotate(59deg); } }
+html[data-scenery-hidden=true] .bonus-vault *, .bonus-vault[data-vault-paused=true] * { animation-play-state:paused!important; }
+@media(prefers-reduced-motion:reduce) { .bonus-vault * { animation:none!important; } .bonus-entry-transition--over-scene { opacity:.1; } }

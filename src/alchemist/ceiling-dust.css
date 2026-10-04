@@ -1,0 +1,9 @@
+.ceiling-dust{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden;}
+.ceiling-dust__burst{position:absolute;left:50%;top:50%;width:max(100%,177.6833cqh);height:max(100%,56.2799cqw);transform:translate(-50%,-50%);}
+.ceiling-dust img{position:absolute;display:block;object-fit:contain;pointer-events:none;}
+.ceiling-dust__puff{top:-1.6%;width:9%;height:8%;max-width:none;opacity:0;filter:sepia(.9) saturate(.35) brightness(.82);animation:ceiling-dust-release .65s ease-out both;}
+.ceiling-dust__grain{opacity:0;filter:sepia(1) saturate(.3) brightness(.7);animation:ceiling-dust-fall 1.6s cubic-bezier(.24,.36,.55,1) both;}
+@keyframes ceiling-dust-release{0%{opacity:0;transform:translate3d(-50%,-8%,0) scale(.7);}20%{opacity:.19;}100%{opacity:0;transform:translate3d(-44%,42%,0) scale(1.18);}}
+@keyframes ceiling-dust-fall{0%{opacity:0;transform:translate3d(0,-3px,0) rotate(0);}10%{opacity:.64;}64%{opacity:.38;}100%{opacity:0;transform:translate3d(var(--dust-drift),var(--dust-fall),0) rotate(75deg);}}
+.no-motion .ceiling-dust{display:none;}
+@media(prefers-reduced-motion:reduce){.ceiling-dust{display:none;}}

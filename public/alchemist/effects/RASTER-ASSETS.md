@@ -1,0 +1,1 @@
+Pirate Abyss uses original generated raster ship architecture, water particles, pirate symbols, treasure chests and sea creatures. Native alpha is preserved. Source components, prompts, Spine contracts and verification are in art-source/pirate. No former alchemical artwork is referenced by these effects.

@@ -1,0 +1,175 @@
+/* Pirate Abyss: responsive layout around the cartoon raster art pipeline. */
+:root{--ivory:#ffedbd;--jade:#81e8d7;--muted:#90b8c2;--line:#a0cbd22b;color:#fff0d1;background:#03151e;color-scheme:dark}
+html,body,#root{width:100%;height:100%;margin:0;min-width:320px}
+body{overflow:hidden}
+button:focus-visible,a:focus-visible,input:focus-visible{outline-color:#f5c66c}
+a{color:#92e9de}::selection{background:#206676;color:#fff6d7}
+.game-shell{--board-width:min(700px,calc((100svh - 225px)*1.2),calc(100vw - 320px));min-height:0;height:100svh;padding:12px 18px 10px;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px;background:#041923}
+.environment{background:linear-gradient(90deg,#03141a0c,#03172225 72%,#03182008),url('/alchemist/environment/laboratory-walls-v43.webp') center/cover}
+.environment:after{background:linear-gradient(0deg,#02121ae6,transparent 32%,transparent 83%,#0517244d)}
+.lab-main{display:grid;grid-template-columns:230px var(--board-width);gap:24px;width:calc(var(--board-width) + 254px);padding:0;margin:auto;max-width:100%;align-items:center;flex:none}
+.alchemist-sidebar{width:230px;align-self:center;padding:0;display:flex;flex-direction:column;align-items:center;position:relative;height:auto}
+.game-brand{position:relative;left:auto;top:auto;width:118%;height:auto;margin:0 -9% -12px}
+.game-brand h1{height:100%;margin:0;line-height:0}
+.game-brand img{height:clamp(80px,16svh,116px);width:100%;object-fit:contain}
+.character-scene{position:relative;inset:auto;width:100%;height:clamp(200px,calc(100svh - 280px),460px)}
+.bonus-button.alchemy-button{position:relative;inset:auto;width:230px;min-width:0;max-width:100%;height:auto;margin:-13px 0 0}
+.bonus-button.alchemy-button .alchemy-button__label{font-size:4.7cqw;letter-spacing:.02em}
+.wild-rail{height:clamp(44px,10.4svh,72px);margin:0 0 5px;padding:0 10px}
+.wild-type{height:100%;margin-inline:1px}
+.rail-medallion{top:32%;height:45%}
+.rail-medallion span{font-size:clamp(16px,3svh,25px);text-shadow:0 2px 0 #06161e,0 0 5px #06161e}
+.rail-ribbon{font-size:clamp(7px,1.2svh,10px);line-height:1.35;bottom:1px;color:var(--wild);text-shadow:0 1px 3px #011018,0 0 5px #011018}
+.reel-frame{padding:10px;background:#062330;box-shadow:0 9px 30px #00121ed9}
+.reels{background:#082c39;background-image:linear-gradient(180deg,#001724ab,transparent 25%,transparent 76%,#00172494)}
+.reel-column{border-color:#b9e5dd1c;background:linear-gradient(90deg,#00132325,transparent 42%,#00132325)}
+.reel-cell.symbol-winner .chemical-symbol{filter:drop-shadow(0 0 7px #82e9db8a) drop-shadow(0 2px 2px #0008)}
+.win-readout{height:28px;padding-top:4px}
+/* Keep individual line payouts below the raster frame's 12px outer edge. */
+@media(orientation:portrait) and (max-width:700px){
+ .game-shell .win-readout{height:36px;padding-top:14px;box-sizing:border-box}
+}
+@media(orientation:landscape) and (max-height:550px){
+ .game-shell .win-readout{height:34px;padding-top:14px;box-sizing:border-box}
+}
+@media(orientation:landscape) and (max-height:300px){
+ .game-shell .win-readout{height:26px;padding-top:13px}
+}
+/* The raster frame extends 12px below its layout box. Reserve that painted
+   edge before centering the desktop readout, without drawing over the frame. */
+@media(orientation:landscape) and (min-height:551px){
+ .game-shell .win-readout{height:40px;padding-top:14px;box-sizing:border-box}
+}
+@media(orientation:landscape) and (max-height:550px){
+ .game-shell .win-readout .bonus-strip{display:none}
+}
+.line-win strong{font-size:22px;text-shadow:0 2px 0 #042331;color:#fff1be}
+.line-win small,.line-win>span,.preview-status{color:#b9ddd8}
+.game-shell .preview-status{position:fixed;top:max(4px,env(safe-area-inset-top));bottom:auto;left:50%;z-index:15;max-width:calc(100vw - 24px);padding:2px 6px;background:#032333d9;border-radius:3px;font-size:7px;line-height:1.25;letter-spacing:1px;white-space:nowrap;pointer-events:none}
+.bonus-strip{color:#b2e3db;gap:14px;font-size:9px}.bonus-strip b,.bar-free-spins b{color:#ffedba}
+.control-wrap{width:min(980px,calc(100vw - 44px));margin:0 auto;position:relative}
+.control-panel{height:70px;gap:clamp(12px,2vw,24px);padding:0 18px;border-image-width:18px;box-shadow:0 10px 28px #00111b8c}
+.control-label{color:#a3cbc9;font-size:9px;font-weight:600;letter-spacing:.035em}
+.control-value{font-size:20px;color:#fff0c4}.control-value small{color:#91bfc1;font-size:9px}.last-win-block .control-value{color:#88e6d8}
+.balance-block{min-width:115px}.last-win-block{min-width:82px}.utility-controls{padding-right:12px}.utility-controls,.bet-block,.last-win-block{border-color:#8ac3c42b}
+.bet-block{padding-left:14px}.bet-row{gap:8px}.bet-buttons{margin-top:-17px}.bet-buttons .icon-button{width:30px;min-width:30px}
+.spin-controls{gap:8px}.spin-button{width:70px;height:70px}.spin-button img{width:51%;height:51%;filter:drop-shadow(0 2px 1px #042330)}
+.icon-button.active{color:#a8fbde;background:#82e4d319}.icon-button{filter:drop-shadow(0 2px 1px #03141e)}
+.icon-button:hover:not(:disabled){filter:brightness(1.2) drop-shadow(0 2px 2px #03141e)}
+.alchemy-button__label{text-shadow:0 2px 2px #021821!important;color:#fff0c7!important}
+.overlay{background:#011018d6;backdrop-filter:blur(7px)}
+.dialog{color:#e4eeea;scrollbar-width:thin;scrollbar-color:#3c7b85 #072330}
+.dialog h2,.dialog h3{color:#fff0c6;text-shadow:0 2px 0 #062634}.dialog-eyebrow{color:#84dace}
+.dialog p,.dialog .dialog-intro{color:#b9d3d5}.dialog .source-note{color:#8ab1ba}.setting-row span{color:#e6f0e8}.setting-row small{color:#91b8c1}
+.settings-links{flex-wrap:wrap}.settings-links>.secondary-button{flex:1 1 190px}
+.scene-options small{color:#a7c5cd}.scene-options button.is-selected{color:#e8ffe5;filter:brightness(1.2) drop-shadow(0 0 6px #75cfc766)}
+.rules-badges span{color:#d3e7dc;background:#438c9020}.rule-wilds>div{border-color:#68b7b44d}.rule-wilds small,.paytable,.paytable th{color:#acd0d2}
+.paytable td,.paytable th{border-color:#8ab7bc24}.line-mini{border-color:#5c9ca947;background:#06202d70}.line-mini small{color:#99c1c7}
+.toast{background:#0b3643;border-color:#72c6bd;color:#fff0cb;box-shadow:0 8px 25px #01101899}
+.alchemist-reel-curtain__award{text-shadow:0 3px 0 #062534,0 0 6px #062534}.alchemist-reel-curtain__award strong,.alchemist-reel-curtain__award small{-webkit-text-stroke-color:#05212e}
+.ceremony-screen,.ceremony-screen.celebration{background-color:#031823}
+.ceremony-screen:before{background:radial-gradient(ellipse at 50% 44%,#07354055,#021621d9 85%)}
+.purchase-screen.ceremony-screen:before{background:linear-gradient(#052936bc,#021b28eb)}
+.reward-heading>span,.purchase-heading>span{color:#9ee7dc}.ceremony-screen .reward-heading h2,.reactor-result>strong{color:#fff0be;text-shadow:0 3px 0 #073040,0 0 20px #001522}
+.reactor-result>span{color:#a5e4d9}.reward-caption{color:#c4e1df}.reward-caption b{color:#ffe5a4}
+.purchase-active{color:#aeced1}.purchase-active b{color:#96e7d4}.purchase-active>span{color:#ffedbb}.purchase-balance{color:#a5c6cc}.purchase-balance b{color:#e3efdf}
+.experiment-card h3{color:#c7fff0}.experiment-card.gold h3{color:#ffe0a0}.experiment-spins,.experiment-card p,.experiment-price span{color:#c0dbda}
+.mode-explanation,.mode-copy p{color:#bbd4d8}.mode-price strong small{color:#a7c7ce}.mode-price>span{color:#8cdecf}.mode-card.is-active:before{filter:brightness(1.12) drop-shadow(0 0 7px #63cec877)}
+.purchase-panel{scrollbar-color:#367c88 #072331}
+.celebration{background:radial-gradient(ellipse at center,#124855b0,#021621f2 78%)}
+.celebration-value{color:#ffedb5;text-shadow:0 4px 0 #163d46,0 0 26px #cb954a44}.celebration-multiplier{color:#a3ecd4}.celebration-multiplier span{color:#b1d4d7}
+.celebration-eyebrow{color:#b5e7d7}
+.laboratory-entry{background:#031b27;padding:20px;overflow:hidden}
+.laboratory-entry:after{background:linear-gradient(90deg,#02263208 6%,#04263180 45%,#042331d9 83%),linear-gradient(0deg,#031921d4,transparent 48%,#02192138)}
+.entry-layout{height:calc(100svh - 40px);max-height:820px;grid-template-columns:34% 66%}
+.entry-logo{max-height:23%;width:min(88%,520px);margin-bottom:14px}
+.entry-features{gap:12px;margin:8px 0 22px}
+.entry-feature{padding:16px 10px 22px}.entry-symbols{height:clamp(70px,17svh,140px)}
+.entry-feature h2{font-size:clamp(13px,1.45vw,20px);line-height:1.18;white-space:normal;text-wrap:balance;margin:12px 0 9px;color:#ffedc0}
+.entry-feature p{font-size:clamp(9px,.85vw,12px);line-height:1.55;color:#b8d5d7}.entry-feature--prize h2{color:#b4f1de}
+.entry-start.alchemy-button{width:310px;max-width:78%;margin:0}
+.entry-footnote{color:#a5c7ce;line-height:1.8;letter-spacing:.025em;font-size:9px;margin-top:8px}
+.entry-loader{color:#c0d9d9}.entry-progress{background:#4175824d}.entry-progress>i{background:#86ecdb;box-shadow:0 0 12px #5fd3c3}
+
+/* Round, readable type complements the broad painted shapes of the v2 art. */
+.game-shell{--ivory:#fff1b6;--jade:#69ffdf;--muted:#a4d4e5}
+.game-shell{--world-x:50%;--cabin-background:url('/alchemist/environment/laboratory-walls-v43.webp')}
+.environment{background-image:var(--cabin-background);background-size:cover;background-position:var(--world-x) center;background-repeat:no-repeat}
+.environment>.background-scene{left:var(--world-x);transform:translate(calc(-1 * var(--world-x)),-50%)}
+@media(orientation:portrait){.game-shell{--world-x:0%}}
+.environment:after{background:linear-gradient(0deg,#031738c9,transparent 26%,transparent 88%,#052b4633)}
+.reels{background-color:#073d53;background-image:linear-gradient(180deg,#08283ba6,transparent 22%,transparent 78%,#08283bb0)}
+.reel-column{border-color:#93e9f223}
+.rail-medallion span,.rail-ribbon,.dialog h2,.dialog h3,.entry-feature h2,.reward-heading h2,.purchase-heading h2,.reactor-result>strong,.line-win strong{font-family:Rubik,Manrope,Arial,sans-serif;font-weight:800;letter-spacing:-.02em}
+.rail-ribbon{letter-spacing:.02em;font-weight:700}
+.alchemy-button__label{font-weight:800;letter-spacing:.025em;text-shadow:0 2px 0 #092849!important}
+.control-value{color:#fff5c7;font-weight:800;text-shadow:0 2px 0 #062b43}
+.last-win-block .control-value{color:#72ffdb}
+.setting-row span,.dialog h2,.dialog h3{color:#fff1b7}
+.entry-feature h2,.reward-heading h2{text-shadow:0 3px 0 #08314f}
+.entry-feature p{color:#d0eaf3}
+.icon-button:focus-visible{outline:3px solid #ffdc63;outline-offset:2px}
+.alchemy-button.alchemy-button:focus-visible{outline:none}
+
+@media(min-width:701px) and (max-width:1100px) and (min-height:551px){
+ .lab-main{grid-template-columns:200px var(--board-width);gap:20px;width:calc(var(--board-width) + 220px)}.alchemist-sidebar{width:200px}.character-scene{height:calc(100svh - 240px)}.bonus-button.alchemy-button{width:205px}.control-wrap{width:calc(100vw - 44px)}.control-panel{gap:14px;padding:0 15px}.balance-block{min-width:107px}.last-win-block{min-width:77px}.control-value{font-size:18px}
+}
+@media(orientation:portrait) and (max-width:700px){
+ /* The mobile control panel already shows the bonus total and remaining FS.
+    Keep the readout space for line payouts; its duplicate bonus labels sit
+    beneath the protruding raster frame and must not overlap that artwork. */
+ .game-shell .win-readout .bonus-strip{display:none}
+ .game-shell{--board-width:min(430px,calc(100vw - 24px),calc((100svh - 280px)*1.2));padding:8px 10px max(8px,env(safe-area-inset-bottom));gap:5px;grid-template-rows:minmax(0,1fr) auto}
+ .lab-main{display:flex;flex-direction:column;gap:0;width:100%;padding:0;margin:auto;max-height:100%}
+ .alchemist-sidebar{display:block;align-self:center;width:var(--board-width);height:clamp(110px,20svh,175px);min-height:110px;padding:0;flex:none}
+ .game-brand{position:absolute;left:0;top:2px;width:68%;height:52%;margin:0}.game-brand img{height:100%;width:100%}
+ .character-scene{position:absolute;right:-2px;bottom:0;width:38%;height:100%;min-height:0}
+ .bonus-button.alchemy-button{position:absolute;left:4px;top:auto;bottom:8px;width:55%;max-width:210px;min-width:0;height:auto;margin:0}
+ .bonus-button.alchemy-button .alchemy-button__label{font-size:4.8cqw}
+ .machine{width:var(--board-width)}.wild-rail{height:clamp(42px,6.4svh,54px);padding:0 7px;margin-bottom:4px}.wild-type{height:100%}.rail-ribbon{font-size:7px;line-height:10px;bottom:0}.rail-medallion span{font-size:16px}
+ .reel-frame{padding:7px}.win-readout{height:24px;padding-top:3px}.line-win strong{font-size:19px}.line-win small,.line-win>span{font-size:7px}.bonus-strip{font-size:8px;gap:10px}.bonus-strip b{font-size:14px;margin-left:5px}
+ .control-wrap{width:100%;max-width:430px;margin:0 auto;flex:none}
+ .control-panel{height:120px;padding:9px 15px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 70px;grid-template-rows:42px 54px;gap:4px 9px;align-items:center;border-image-width:15px}
+ .balance-block{grid-column:1;grid-row:1;min-width:0}.last-win-block{grid-column:2;grid-row:1;min-width:0;padding:0;border:0}
+ .utility-controls{position:static;grid-column:1;grid-row:2;display:flex;gap:3px;border:0;padding:0;margin:0;align-self:center}.utility-controls .icon-button{width:32px;height:38px;min-width:32px}.utility-controls .icon-button img{width:22px;height:22px}
+ .bet-block{grid-column:2;grid-row:2;border:0;padding:0}.bet-row{gap:3px}.bet-buttons{margin:0;gap:0}.bet-buttons .icon-button{width:26px;height:30px;min-width:26px}.bet-buttons .icon-button img{width:15px;height:15px}
+ .control-label{font-size:8px;margin-bottom:4px;letter-spacing:.02em}.control-value{font-size:17px;letter-spacing:-.04em}.control-value small{font-size:7px;margin-left:3px}.bet-row>.control-value{font-size:16px}
+ .spin-controls{grid-column:3;grid-row:1/3;width:70px;height:100%;margin:0;display:grid;grid-template-columns:35px 35px;grid-template-rows:70px 30px;gap:0}
+ .spin-controls .spin-button{grid-column:1/3;grid-row:1;width:70px;height:70px;margin:0}.spin-controls>.turbo-button{grid-column:1;grid-row:2;margin:0;width:34px;height:29px;min-width:0}.spin-controls>.auto-button{grid-column:2;grid-row:2;position:relative;inset:auto;width:34px;height:29px;min-width:0}
+ .spin-controls .icon-button img{width:20px;height:20px}.in-bonus .spin-controls .auto-button{visibility:visible}.bar-free-spins{display:none}.auto-counter{font-size:8px;bottom:-4px}
+ .preview-status{font-size:7px;top:-12px}.toast{bottom:138px;font-size:11px;padding:11px 16px}
+ .overlay{padding:10px}.dialog{max-height:calc(100svh - 20px);padding:27px 21px 24px}.dialog h2{font-size:24px;line-height:1.1}.dialog h3{font-size:18px}.dialog p{font-size:11px}.settings-links{gap:8px;margin:16px 0}.settings-links>.secondary-button{flex:auto;min-height:43px;font-size:11px}.setting-row{gap:12px;padding:13px 0}.setting-row span{font-size:12px}.setting-row small{font-size:9px}
+ .laboratory-entry{padding:12px}.entry-layout{display:block;height:calc(100svh - 24px);min-height:0;max-height:none;width:100%}
+ .entry-professor{position:absolute;width:37%;height:23%;top:0;left:0;padding:0}.entry-content{height:100%;max-height:none;justify-content:flex-start;min-height:0}
+ .entry-logo{align-self:flex-end;width:66%;height:22%;max-height:none;flex:none;margin:0 0 8px}
+ .entry-features{display:grid;grid-template-columns:1fr;gap:8px;margin:0 0 10px;min-height:0;flex:1;max-height:420px;width:100%}
+ .entry-feature{display:grid;grid-template-columns:75px minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;padding:8px 13px 8px 7px;min-height:0;text-align:left}
+ .entry-symbols{height:100%;max-height:95px;grid-column:1;grid-row:1/3;align-self:center}.entry-feature h2{font-size:16px;margin:0 0 4px;align-self:end}.entry-feature p{font-size:10px;line-height:1.45;align-self:start}
+ .entry-start.alchemy-button{width:270px;max-width:94%;margin:0;flex:none}.entry-footnote{font-size:8px;margin-top:6px;line-height:1.65}
+ .entry-loading .entry-content{justify-content:center}.entry-loading .entry-logo{align-self:center;width:90%;height:23%;margin-bottom:12px}.entry-loader{gap:14px;padding:0}.entry-loader>img{width:145px;height:170px}
+ .purchase-screen .purchase-stage{padding-top:38px}.purchase-screen .purchase-heading>span{font-size:8px;letter-spacing:.09em}.purchase-screen .purchase-heading h2{font-size:24px}.purchase-panel{overscroll-behavior:contain}
+}
+@media(orientation:portrait) and (max-width:350px){
+ .game-shell{padding:5px 8px;--board-width:calc(100vw - 24px)}.alchemist-sidebar{height:111px}.control-panel{height:112px;padding:8px 12px;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 66px;grid-template-rows:39px 50px;gap:3px 6px}.spin-controls{width:66px;grid-template-columns:33px 33px;grid-template-rows:64px 28px}.spin-controls .spin-button{width:64px;height:64px}.control-value{font-size:15px}.bet-row>.control-value{font-size:14px}.control-label{font-size:7px}.bet-buttons .icon-button{width:23px;min-width:23px}.utility-controls .icon-button{width:29px;min-width:29px}.entry-feature{grid-template-columns:61px minmax(0,1fr);gap:7px}.entry-feature h2{font-size:14px}.entry-feature p{font-size:9px}.entry-start.alchemy-button{width:240px}.entry-logo{height:21%}.entry-footnote{font-size:7px}.entry-features{gap:7px}.entry-feature:before{border-image-width:10px}.rail-ribbon{font-size:6px}.bonus-strip{font-size:7px}
+}
+@media(orientation:landscape) and (max-height:550px){
+ .game-shell{--board-width:min(520px,calc((100svh - 153px)*1.2),calc(100vw - 225px));padding:8px 12px 7px;gap:6px}
+ .lab-main{display:grid;grid-template-columns:165px var(--board-width);gap:18px;width:calc(var(--board-width) + 183px);padding:0;margin:auto}.alchemist-sidebar{position:relative;display:flex;width:165px;height:auto;align-self:center;padding:0}.game-brand{position:relative;inset:auto;width:114%;height:auto;margin:0 -7% -7px}.game-brand img{height:62px}
+ .character-scene{position:relative;inset:auto;width:150px;height:calc(100svh - 185px);min-height:85px}.bonus-button.alchemy-button{position:relative;inset:auto;width:164px;max-width:164px;height:auto;margin:-3px 0 0;min-width:0}.bonus-button.alchemy-button .alchemy-button__label{font-size:4.6cqw}
+ .machine{width:var(--board-width)}.wild-rail{height:40px;margin-bottom:4px;padding:0 6px}.wild-type{height:100%}.rail-medallion span{font-size:15px}.rail-ribbon{font-size:6px;line-height:9px;bottom:0}.reel-frame{padding:7px}.win-readout{height:22px}.line-win strong{font-size:18px}.line-win small,.line-win>span{font-size:7px}.bonus-strip{font-size:8px}.bonus-strip b{font-size:12px}
+ .control-wrap{width:min(820px,calc(100vw - 28px));margin:0 auto}.control-panel{height:56px;display:flex;padding:0 12px;gap:12px;border-image-width:13px}.utility-controls{display:flex;position:static;padding-right:8px;gap:1px;border-right:1px solid #8ac3c42b}.utility-controls .icon-button{width:28px;min-width:28px;height:33px}.utility-controls .icon-button img{width:19px;height:19px}.control-label{font-size:7px;margin-bottom:3px}.control-value{font-size:15px}.control-value small{font-size:7px}.balance-block{min-width:95px}.last-win-block{min-width:60px;padding:0;border:0}.bet-block{padding-left:8px}.bet-row{gap:5px}.bet-buttons{margin-top:-12px;gap:0}.bet-buttons .icon-button{width:24px;height:30px;min-width:24px}.spin-controls{display:flex;gap:6px;margin-left:auto}.spin-button{width:52px;height:52px}.spin-controls>.icon-button{width:28px;height:32px;min-width:28px}.spin-controls>.icon-button img{width:20px;height:20px}.spin-controls>.auto-button{position:relative;inset:auto}.bar-free-spins{display:none}
+ .laboratory-entry{padding:10px 18px}.entry-layout{height:calc(100svh - 20px);min-height:0;grid-template-columns:29% 71%}.entry-professor{height:98%;padding:0}.entry-logo{height:22%;width:66%;max-height:none;margin:0 0 7px}.entry-features{gap:7px;margin:0 0 9px}.entry-feature{padding:9px 6px 13px}.entry-symbols{height:17svh}.entry-feature h2{font-size:12px;margin:6px 0 5px}.entry-feature p{font-size:9px;line-height:1.4}.entry-start.alchemy-button{width:245px;max-width:60%}.entry-footnote{font-size:7px;margin-top:4px;line-height:1.5}
+ .purchase-screen .purchase-stage{gap:5px;padding:8px 17px}.purchase-tabs{width:260px}.mode-options{gap:10px}.mode-card{padding:10px}.mode-copy h3{font-size:15px}.mode-copy p{font-size:10px}.mode-price strong{font-size:17px}.purchase-screen .experiment-card h3{font-size:18px;line-height:1.08}
+}
+@media(orientation:landscape) and (max-height:300px){
+ .game-shell{--board-width:min(calc((100svh - 107px)*1.2),calc(100vw - 122px));padding:4px 8px;gap:2px}
+ .game-shell .preview-status{left:8px;transform:none;font-size:5px;letter-spacing:.4px;padding:1px 3px}
+ .lab-main{grid-template-columns:96px var(--board-width);gap:9px;width:calc(var(--board-width) + 105px)}.alchemist-sidebar{width:96px}.game-brand{width:119%;margin:0 -9.5% -7px}.game-brand img{height:39px}.character-scene{width:92px;height:calc(100svh - 133px);min-height:50px}.bonus-button.alchemy-button{width:102px;max-width:102px;margin:-2px 0 0}.bonus-button.alchemy-button .alchemy-button__label{font-size:5cqw;inset:21% 11%}
+ .wild-rail{height:23px;margin-bottom:2px;padding:0 4px}.rail-medallion span{font-size:9px}.rail-ribbon{font-size:5px;line-height:6px;bottom:-1px}.reel-frame{padding:5px}.win-readout{height:14px;padding-top:1px}.line-win{gap:4px}.line-win strong{font-size:12px}.line-win small,.line-win>span{font-size:5px}.bonus-strip{font-size:6px;gap:8px}.bonus-strip b{font-size:9px;margin-left:3px}
+ .control-wrap{width:100%;max-width:540px}.control-panel{height:39px;padding:0 8px;gap:7px;border-image-width:10px}.utility-controls{padding-right:3px;gap:0}.utility-controls .icon-button{width:23px;min-width:23px;height:28px}.utility-controls .icon-button img{width:15px;height:15px}.control-label{font-size:6px;margin-bottom:1px;letter-spacing:0}.control-value{font-size:11px;letter-spacing:-.04em}.control-value small{font-size:5px;margin-left:2px}.balance-block{min-width:65px}.last-win-block{min-width:42px;flex:1}.bet-block{padding-left:6px}.bet-row{gap:2px}.bet-buttons{margin-top:-8px}.bet-buttons .icon-button{width:18px;min-width:18px;height:26px}.bet-buttons .icon-button img{width:12px;height:12px}.spin-controls{gap:2px}.spin-button{width:36px;height:36px}.spin-controls>.icon-button{width:22px;min-width:22px;height:26px}.spin-controls>.icon-button img{width:15px;height:15px}.preview-status{font-size:6px;top:-8px}.toast{bottom:49px;font-size:9px;padding:7px 12px}
+ .overlay{padding:5px}.dialog{max-height:calc(100svh - 10px);padding:19px 23px}.dialog h2{font-size:19px;margin:6px 0 12px}.dialog h3{font-size:15px}.dialog p{font-size:10px}.setting-row{padding:9px 0}.setting-row span{font-size:11px}.setting-row small{font-size:9px}.dialog-eyebrow{font-size:7px}.settings-links>.secondary-button{flex:1 1 100%;font-size:10px}.dialog-close{right:7px;top:6px}.dialog-close.icon-button{width:26px;min-width:26px;height:27px}
+ .laboratory-entry{padding:7px}.entry-layout{grid-template-columns:1fr;height:calc(100svh - 14px);width:100%;min-height:0}.entry-professor{display:none}.entry-content{display:grid;grid-template-columns:90px minmax(0,1fr);grid-template-rows:minmax(0,1fr) 35px;height:100%;gap:5px 7px}.entry-logo{grid-column:1;grid-row:1;align-self:center;width:100%;height:75px;max-height:none;margin:0}.entry-features{grid-column:2;grid-row:1;gap:4px;margin:0;width:100%;height:100%;align-self:center}.entry-feature{padding:7px 3px 8px;justify-content:center;min-height:0}.entry-feature:before{border-image-width:7px}.entry-symbols{height:41px}.entry-feature h2{font-size:9px;margin:4px 0;line-height:1.15}.entry-feature p{font-size:7px;line-height:1.3}.entry-feature p br{display:none}.entry-start.alchemy-button{grid-column:2;grid-row:2;width:165px;max-width:95%;margin:0 auto;height:35px}.entry-start .alchemy-button__label{font-size:10px}.entry-footnote{grid-column:1;grid-row:2;font-size:6px;line-height:1.35;margin:0}
+ .entry-loading .entry-layout{max-width:100%}.entry-loading .entry-content{grid-template-columns:35% minmax(0,1fr);grid-template-rows:1fr}.entry-loading .entry-logo{height:100px}.entry-loader{grid-column:2;width:85%;gap:5px;font-size:9px}.entry-loader>img{height:96px;width:88px}
+ .purchase-screen .purchase-stage{width:100vw;height:100svh;padding:7px 12px 6px;grid-template-rows:auto auto minmax(0,1fr) auto;gap:2px}.purchase-screen .purchase-heading h2{font-size:15px;margin:2px 0 0}.purchase-screen .purchase-heading>span{font-size:6px}.purchase-tabs{width:180px;gap:6px}.purchase-tabs .alchemy-button__label{font-size:8px}.purchase-screen .ceremony-close{right:6px;top:3px;width:25px;height:25px}.purchase-screen .ceremony-close img{width:17px;height:17px}.purchase-active{font-size:7px}.purchase-active>span{margin-left:5px}.purchase-screen .purchase-balance{font-size:7px;margin-top:1px}.purchase-panel{padding:0 3px 2px}.purchase-screen .experiment-options{min-height:170px;flex:none;gap:7px}.purchase-screen .experiment-card.bonus-card{width:calc((100% - 7px)/2)}.purchase-screen .experiment-card h3{font-size:12px;height:27px}.purchase-screen .experiment-card p{font-size:8px}.purchase-screen .experiment-spins{font-size:7px}.purchase-screen .experiment-spins b{font-size:9px}.purchase-screen .experiment-price strong{font-size:14px}.purchase-screen .experiment-price span{font-size:7px}.purchase-screen .experiment-buy{bottom:4%;width:60%;left:35%}.experiment-buy .alchemy-button__label{font-size:8px!important}.mode-options{display:flex;flex-direction:column;gap:6px}.mode-card{display:grid;grid-template-columns:60px 1fr 100px;grid-template-areas:'art copy price' 'art copy action';gap:4px 6px;padding:8px 13px;min-height:96px;flex:none}.mode-art{grid-area:art;width:58px;height:68px;margin:0}.mode-art--catalysts{width:67px}.mode-copy{grid-area:copy;min-height:0}.mode-copy h3{font-size:12px;margin:0 0 4px}.mode-copy p{font-size:9px}.mode-price{grid-area:price;margin:0}.mode-price strong{font-size:13px}.mode-price strong small{font-size:7px}.mode-price>span{font-size:8px}.mode-card .mode-activate{grid-area:action;width:100px;margin:0}.mode-activate .alchemy-button__label{font-size:8px}.mode-explanation{font-size:8px;margin:2px 3px 5px}
+ .reward-heading{top:20%}.reward-heading>span{font-size:8px}.ceremony-screen .reward-heading h2{font-size:19px}.reactor-result>strong{font-size:42px}.reactor-payout>strong{font-size:27px}.reactor-result>span{font-size:7px}.reward-caption{font-size:8px}.reward-caption b{font-size:12px}.ceremony-action.alchemy-button{top:80%;width:40%;left:30%}.ceremony-action .alchemy-button__label{font-size:9px}.celebration-eyebrow{font-size:7px}.celebration-value{font-size:40px}.celebration h2.raster-win-heading{height:43px;margin:2px 0 4px}.celebration-multiplier{font-size:11px;margin:5px 0}.celebration-continue.alchemy-button{width:170px;height:auto;margin-top:2px}
+}

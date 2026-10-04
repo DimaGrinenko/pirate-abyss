@@ -1,0 +1,793 @@
+{
+  "passed": true,
+  "version": 16,
+  "revision": "school16-lantern25",
+  "newSpecies": [
+    "clownfish",
+    "blue-tang",
+    "butterflyfish",
+    "angelfish",
+    "mint-fish",
+    "pufferfish"
+  ],
+  "fishAdded": 10,
+  "totalFish": 15,
+  "duration": 48,
+  "nativeSamples": 721,
+  "inspectedTriangles": 865200,
+  "minRelativeArea": 0.5955847493623071,
+  "loopError": 0,
+  "shader": "native Spine weighted mesh, two physical glass aperture clips supported by GPU and Canvas fallback",
+  "inserted": [
+    {
+      "name": "school-0",
+      "species": "clownfish",
+      "width": 41,
+      "height": 30.948387096774194,
+      "period": 12,
+      "window": "main",
+      "triangles": 120
+    },
+    {
+      "name": "school-1",
+      "species": "blue-tang",
+      "width": 35,
+      "height": 25.06451612903226,
+      "period": 8,
+      "window": "main",
+      "triangles": 120
+    },
+    {
+      "name": "school-2",
+      "species": "butterflyfish",
+      "width": 31,
+      "height": 25.93877551020408,
+      "period": 12,
+      "window": "main",
+      "triangles": 120
+    },
+    {
+      "name": "school-3",
+      "species": "angelfish",
+      "width": 40,
+      "height": 39.36,
+      "period": 24,
+      "window": "main",
+      "triangles": 120
+    },
+    {
+      "name": "school-4",
+      "species": "mint-fish",
+      "width": 27,
+      "height": 22.363636363636363,
+      "period": 8,
+      "window": "main",
+      "triangles": 120
+    },
+    {
+      "name": "school-5",
+      "species": "pufferfish",
+      "width": 34,
+      "height": 26.54193548387097,
+      "period": 12,
+      "window": "main",
+      "triangles": 120
+    },
+    {
+      "name": "school-6",
+      "species": "butterflyfish",
+      "width": 22,
+      "height": 18.408163265306122,
+      "period": 8,
+      "window": "main",
+      "triangles": 120
+    },
+    {
+      "name": "school-7",
+      "species": "blue-tang",
+      "width": 23,
+      "height": 16.470967741935485,
+      "period": 12,
+      "window": "main",
+      "triangles": 120
+    },
+    {
+      "name": "school-8",
+      "species": "mint-fish",
+      "width": 22,
+      "height": 18.22222222222222,
+      "period": 8,
+      "window": "upper",
+      "triangles": 120
+    },
+    {
+      "name": "school-9",
+      "species": "pufferfish",
+      "width": 17,
+      "height": 13.270967741935484,
+      "period": 12,
+      "window": "upper",
+      "triangles": 120
+    }
+  ],
+  "clipping": {
+    "allFish": 15,
+    "groups": {
+      "main": 12,
+      "upper": 3
+    },
+    "attachmentCount": 2,
+    "coordinates": "original 1672x941 raster",
+    "boundsValidation": "scripts/check-pirate-environment-v12.mjs"
+  },
+  "sourceSha256": "41d961c1e8cae4ee92e713667c5549d7586662d3150e35f7a0b0a479ada8b830",
+  "foregroundOcclusion": {
+    "version": 13,
+    "revision": "occlusion1",
+    "texture": "window-foreground-v13.png",
+    "coordinates": "unchanged original 1672x941 raster pixels",
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "width": 416,
+      "height": 736
+    },
+    "method": "original RGB plus colour-segmented alpha; conservative 2px contour coverage",
+    "protected": [
+      "red foreground coral",
+      "left window kelp",
+      "right window kelp",
+      "left foreground barrel"
+    ],
+    "animatedSeaweedDrawnAfterFish": [
+      "seaweed-0",
+      "seaweed-1",
+      "seaweed-2",
+      "seaweed-3"
+    ],
+    "barrelDepthVersion": 14,
+    "barrelPixelsAdded": 11570
+  },
+  "fishCircuits": {
+    "version": 16,
+    "duration": 48,
+    "samplesPerSecond": 24,
+    "route": "Independent continuous in-water circuits. Full-body inward clearance before the solid rim; visible continuous yaw; no recycling or fading.",
+    "coordinates": "original raster pixels",
+    "navigationBoundaries": {
+      "main": [
+        [
+          24,
+          211
+        ],
+        [
+          58,
+          177
+        ],
+        [
+          102,
+          154
+        ],
+        [
+          145,
+          143
+        ],
+        [
+          186,
+          145
+        ],
+        [
+          230,
+          160
+        ],
+        [
+          271,
+          186
+        ],
+        [
+          305,
+          225
+        ],
+        [
+          333,
+          272
+        ],
+        [
+          353,
+          325
+        ],
+        [
+          366,
+          382
+        ],
+        [
+          365,
+          444
+        ],
+        [
+          350,
+          497
+        ],
+        [
+          328,
+          541
+        ],
+        [
+          298,
+          580
+        ],
+        [
+          264,
+          608
+        ],
+        [
+          229,
+          620
+        ],
+        [
+          207,
+          602
+        ],
+        [
+          191,
+          573
+        ],
+        [
+          173,
+          545
+        ],
+        [
+          136,
+          514
+        ],
+        [
+          93,
+          489
+        ],
+        [
+          88,
+          453
+        ],
+        [
+          30,
+          438
+        ]
+      ],
+      "upper": [
+        [
+          1391,
+          55
+        ],
+        [
+          1390.7447905136264,
+          60.586976998784955
+        ],
+        [
+          1389.9816198613712,
+          66.12014835491931
+        ],
+        [
+          1388.7178377938071,
+          71.54622660350435
+        ],
+        [
+          1386.9656152230982,
+          76.81295564481012
+        ],
+        [
+          1384.7418270104629,
+          81.86961399908186
+        ],
+        [
+          1382.067889452035,
+          86.66750328211732
+        ],
+        [
+          1378.969554028225,
+          91.1604171973278
+        ],
+        [
+          1375.476659402887,
+          95.30508652763321
+        ],
+        [
+          1371.6228440606733,
+          99.061595841676
+        ],
+        [
+          1367.4452223500389,
+          102.39376790124507
+        ],
+        [
+          1362.984027051778,
+          105.26951206785623
+        ],
+        [
+          1358.2822219153497,
+          107.66113335314334
+        ],
+        [
+          1353.3850878944866,
+          109.54559913673592
+        ],
+        [
+          1348.3397870668548,
+          110.90476098298413
+        ],
+        [
+          1343.1949084374667,
+          111.72552942031521
+        ],
+        [
+          1338,
+          112
+        ],
+        [
+          1332.8050915625333,
+          111.72552942031523
+        ],
+        [
+          1327.6602129331452,
+          110.90476098298413
+        ],
+        [
+          1322.6149121055134,
+          109.54559913673592
+        ],
+        [
+          1317.7177780846503,
+          107.66113335314334
+        ],
+        [
+          1313.015972948222,
+          105.26951206785624
+        ],
+        [
+          1308.5547776499611,
+          102.39376790124508
+        ],
+        [
+          1304.3771559393267,
+          99.06159584167602
+        ],
+        [
+          1300.523340597113,
+          95.30508652763322
+        ],
+        [
+          1297.030445971775,
+          91.1604171973278
+        ],
+        [
+          1293.932110547965,
+          86.66750328211732
+        ],
+        [
+          1291.2581729895371,
+          81.86961399908188
+        ],
+        [
+          1289.0343847769018,
+          76.81295564481013
+        ],
+        [
+          1287.2821622061929,
+          71.54622660350435
+        ],
+        [
+          1286.0183801386288,
+          66.12014835491934
+        ],
+        [
+          1285.2552094863736,
+          60.58697699878497
+        ],
+        [
+          1285,
+          55.00000000000001
+        ],
+        [
+          1285.2552094863736,
+          49.413023001215045
+        ],
+        [
+          1286.0183801386288,
+          43.879851645080684
+        ],
+        [
+          1287.2821622061929,
+          38.45377339649566
+        ],
+        [
+          1289.0343847769018,
+          33.18704435518989
+        ],
+        [
+          1291.2581729895371,
+          28.130386000918133
+        ],
+        [
+          1293.932110547965,
+          23.332496717882687
+        ],
+        [
+          1297.030445971775,
+          18.83958280267222
+        ],
+        [
+          1300.523340597113,
+          14.694913472366792
+        ],
+        [
+          1304.3771559393267,
+          10.938404158324012
+        ],
+        [
+          1308.5547776499611,
+          7.606232098754923
+        ],
+        [
+          1313.015972948222,
+          4.730487932143767
+        ],
+        [
+          1317.7177780846503,
+          2.3388666468566655
+        ],
+        [
+          1322.6149121055134,
+          0.4544008632640981
+        ],
+        [
+          1327.6602129331452,
+          -0.9047609829841292
+        ],
+        [
+          1332.8050915625333,
+          -1.725529420315226
+        ],
+        [
+          1338,
+          -2
+        ],
+        [
+          1343.1949084374667,
+          -1.725529420315226
+        ],
+        [
+          1348.3397870668548,
+          -0.9047609829841363
+        ],
+        [
+          1353.3850878944866,
+          0.454400863264091
+        ],
+        [
+          1358.2822219153497,
+          2.3388666468566655
+        ],
+        [
+          1362.984027051778,
+          4.73048793214376
+        ],
+        [
+          1367.4452223500389,
+          7.606232098754909
+        ],
+        [
+          1371.6228440606733,
+          10.938404158323998
+        ],
+        [
+          1375.476659402887,
+          14.694913472366785
+        ],
+        [
+          1378.969554028225,
+          18.839582802672183
+        ],
+        [
+          1382.067889452035,
+          23.332496717882677
+        ],
+        [
+          1384.7418270104629,
+          28.13038600091812
+        ],
+        [
+          1386.9656152230982,
+          33.18704435518985
+        ],
+        [
+          1388.7178377938071,
+          38.453773396495635
+        ],
+        [
+          1389.9816198613712,
+          43.87985164508066
+        ],
+        [
+          1390.7447905136264,
+          49.41302300121505
+        ]
+      ]
+    },
+    "routes": [
+      {
+        "name": "fish-0",
+        "window": "main",
+        "species": "fishOrange",
+        "width": 53,
+        "height": 47.54857142857143,
+        "centerX": 185.2966073,
+        "centerY": 334.5,
+        "amplitude": 112.4323529,
+        "bob": 7,
+        "period": 48,
+        "phase": 0.5654867,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.78,
+        "nativeFacing": 1,
+        "setupScale": 1
+      },
+      {
+        "name": "fish-1",
+        "window": "main",
+        "species": "fishBlue",
+        "width": 39,
+        "height": 33.83661971830986,
+        "centerX": 223.3946449,
+        "centerY": 445.5,
+        "amplitude": 97.0480654,
+        "bob": 9,
+        "period": 24,
+        "phase": 2.9654499,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.67,
+        "nativeFacing": -1,
+        "setupScale": 1
+      },
+      {
+        "name": "fish-2",
+        "window": "main",
+        "species": "fishOrange",
+        "width": 32,
+        "height": 28.708571428571428,
+        "centerX": 246.3136664,
+        "centerY": 548,
+        "amplitude": 20.7608854,
+        "bob": 11,
+        "period": 16,
+        "phase": 5.3654131,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.52,
+        "nativeFacing": 1,
+        "setupScale": 1
+      },
+      {
+        "name": "fish-3",
+        "window": "main",
+        "species": "fishBlue",
+        "width": 29,
+        "height": 25.16056338028169,
+        "centerX": 167.6988176,
+        "centerY": 264.5,
+        "amplitude": 113.2268627,
+        "bob": 13,
+        "period": 48,
+        "phase": 7.7653764,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.49,
+        "nativeFacing": -1,
+        "setupScale": 1
+      },
+      {
+        "name": "school-0",
+        "window": "main",
+        "species": "clownfish",
+        "width": 41,
+        "height": 30.948387096774194,
+        "centerX": 159.5496278,
+        "centerY": 222.5,
+        "amplitude": 82.8907955,
+        "bob": 7,
+        "period": 48,
+        "phase": 10.1653396,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.76,
+        "nativeFacing": 1,
+        "setupScale": 1
+      },
+      {
+        "name": "school-1",
+        "window": "main",
+        "species": "blue-tang",
+        "width": 35,
+        "height": 25.06451612903226,
+        "centerX": 190.1485665,
+        "centerY": 350.5,
+        "amplitude": 131.1826064,
+        "bob": 9,
+        "period": 24,
+        "phase": 12.5653028,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.68,
+        "nativeFacing": 1,
+        "setupScale": -1
+      },
+      {
+        "name": "school-2",
+        "window": "main",
+        "species": "butterflyfish",
+        "width": 31,
+        "height": 25.93877551020408,
+        "centerX": 241.3401909,
+        "centerY": 490.5,
+        "amplitude": 67.2148451,
+        "bob": 11,
+        "period": 24,
+        "phase": 14.9652661,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.67,
+        "nativeFacing": 1,
+        "setupScale": 1
+      },
+      {
+        "name": "school-3",
+        "window": "main",
+        "species": "angelfish",
+        "width": 40,
+        "height": 39.36,
+        "centerX": 248.1603297,
+        "centerY": 518,
+        "amplitude": 29.9499916,
+        "bob": 13,
+        "period": 24,
+        "phase": 17.3652293,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.79,
+        "nativeFacing": 1,
+        "setupScale": -1
+      },
+      {
+        "name": "school-4",
+        "window": "main",
+        "species": "mint-fish",
+        "width": 27,
+        "height": 22.363636363636363,
+        "centerX": 219.2808176,
+        "centerY": 424.5,
+        "amplitude": 117.5816296,
+        "bob": 7,
+        "period": 24,
+        "phase": 19.7651925,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.58,
+        "nativeFacing": 1,
+        "setupScale": 1
+      },
+      {
+        "name": "school-5",
+        "window": "main",
+        "species": "pufferfish",
+        "width": 34,
+        "height": 26.54193548387097,
+        "centerX": 246.7278258,
+        "centerY": 548,
+        "amplitude": 22.8048217,
+        "bob": 9,
+        "period": 16,
+        "phase": 22.1651557,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.77,
+        "nativeFacing": 1,
+        "setupScale": -1
+      },
+      {
+        "name": "school-6",
+        "window": "main",
+        "species": "butterflyfish",
+        "width": 22,
+        "height": 18.408163265306122,
+        "centerX": 159.9590472,
+        "centerY": 189,
+        "amplitude": 49.5302056,
+        "bob": 11,
+        "period": 24,
+        "phase": 24.565119,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.42,
+        "nativeFacing": 1,
+        "setupScale": 1
+      },
+      {
+        "name": "school-7",
+        "window": "main",
+        "species": "blue-tang",
+        "width": 23,
+        "height": 16.470967741935485,
+        "centerX": 167.6912396,
+        "centerY": 260.5,
+        "amplitude": 118.491834,
+        "bob": 13,
+        "period": 48,
+        "phase": 26.9650822,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.43,
+        "nativeFacing": 1,
+        "setupScale": -1
+      },
+      {
+        "name": "fish-4",
+        "window": "upper",
+        "species": "fishBlue",
+        "width": 25,
+        "height": 21.690140845070424,
+        "centerX": 1338,
+        "centerY": 52.5,
+        "amplitude": 22.5230597,
+        "bob": 3.5,
+        "period": 16,
+        "phase": 29.8677003,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.62,
+        "nativeFacing": -1,
+        "setupScale": 1
+      },
+      {
+        "name": "school-8",
+        "window": "upper",
+        "species": "mint-fish",
+        "width": 22,
+        "height": 18.22222222222222,
+        "centerX": 1338,
+        "centerY": 51.5,
+        "amplitude": 25.1114308,
+        "bob": 3.5,
+        "period": 24,
+        "phase": 32.2676635,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.63,
+        "nativeFacing": 1,
+        "setupScale": 1
+      },
+      {
+        "name": "school-9",
+        "window": "upper",
+        "species": "pufferfish",
+        "width": 17,
+        "height": 13.270967741935484,
+        "centerX": 1338,
+        "centerY": 71.5,
+        "amplitude": 22.9274564,
+        "bob": 3.5,
+        "period": 48,
+        "phase": 34.6676267,
+        "wholeBodyClearance": 9,
+        "constantDepthOpacity": 0.48,
+        "nativeFacing": 1,
+        "setupScale": -1
+      }
+    ]
+  },
+  "validation": "Limited native contact/render inspection; no extended test run requested",
+  "preserved": {
+    "rasterArtworkRGB": true,
+    "fishMeshWeights": true,
+    "familiarSpeciesAndSizes": true,
+    "depthAlpha": true,
+    "foregroundCoralBarrelAndKelpOcclusion": true,
+    "nonFishTimelines": true
+  },
+  "lanternV25": {
+    "pivot": {
+      "x": 412,
+      "y": 0
+    },
+    "amplitudeDegrees": 2.05,
+    "periodSeconds": 8,
+    "rigidBody": true,
+    "restoration": "Expanded original sprite silhouette; fixed room patch",
+    "source": "Original lamp isolated and background restored using imagegen"
+  }
+}

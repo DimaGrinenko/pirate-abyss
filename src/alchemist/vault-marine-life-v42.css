@@ -1,0 +1,43 @@
+/* Register every fish and reflection to the 1672 × 941 painted vault.
+   This is the same cover + object-position crop as the original background. */
+.bonus-vault{container-type:size}
+.bonus-vault__world{
+  position:absolute;left:50%;top:50%;
+  width:max(100cqw,177.68331562cqh);height:max(100cqh,56.27990431cqw);
+  transform:translate(-50%,-50%);isolation:isolate
+}
+.bonus-vault__world .bonus-vault__painting{object-position:center}
+.bonus-vault__fish-window{position:absolute;overflow:hidden;pointer-events:none}
+/* The elliptical masks stop inside the painted glass, before its gold rim. */
+.bonus-vault__fish-window--left{left:45.3%;top:27.5%;width:7%;height:13.2%;clip-path:ellipse(50% 50% at 50% 50%)}
+.bonus-vault__fish-window--right{left:78.3%;top:23.1%;width:7.3%;height:14.2%;clip-path:ellipse(50% 50% at 50% 50%)}
+/* Safe water between the inward edges of both central pillars. */
+.bonus-vault__fish-window--channel{left:62.5%;top:18.7%;width:7.9%;height:33%}
+.bonus-vault__swimmer{
+  position:absolute;left:0;top:var(--fish-y);width:var(--fish-width);
+  opacity:.64;animation:vault-fish-drift var(--fish-duration) var(--fish-phase) linear infinite
+}
+.bonus-vault__swimmer[data-leftward=true]{animation-direction:reverse}
+.bonus-vault__fish{position:relative;display:block;width:100%;overflow:hidden}
+.bonus-vault__fish img{position:absolute;max-width:none;object-fit:fill}
+.bonus-vault__swimmer[data-leftward=true] .bonus-vault__fish{transform:scaleX(-1)}
+/* Mirroring is fixed for each fish. There is no rotating/squeezing face and no
+   visible teleport at a loop boundary: both ends are fully outside the glass. */
+@keyframes vault-fish-drift{
+  0%{transform:translate3d(-110%,0,0) rotate(-2deg);opacity:0}
+  14%{opacity:.64}
+  35%{transform:translate3d(20%,-7%,0) rotate(1deg)}
+  65%{transform:translate3d(140%,6%,0) rotate(-1deg)}
+  86%{opacity:.64}
+  100%{transform:translate3d(330%,0,0) rotate(2deg);opacity:0}
+}
+/* Static inspection uses a whole, centered fish instead of a zero-opacity
+   animation endpoint. Reduced motion also stops the pre-existing light layers. */
+.bonus-vault[data-vault-static=true] *{animation:none!important;transition:none!important}
+.bonus-vault[data-vault-static=true] .bonus-vault__swimmer{left:31%;transform:none;opacity:.48}
+@media(orientation:portrait){
+  .bonus-vault__world{left:38%;transform:translate(-38%,-50%)}
+}
+@media(prefers-reduced-motion:reduce){
+  .bonus-vault__swimmer{left:31%;transform:none;opacity:.48}
+}

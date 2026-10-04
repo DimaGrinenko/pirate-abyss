@@ -1,0 +1,75 @@
+/* Standard settings/auto/rules dialogs share the painted deck, without
+   decorative seals on every control. Scope excludes game ceremonies/portals. */
+.game-shell .overlay { background:#041e2cdd; backdrop-filter:none; }
+.game-shell .overlay > .dialog {
+  color:#fff2cd; background:#103f48; border:0; border-radius:15px;
+  border-image:url('/alchemist/ui/v35/panel.webp') 72 fill / 16px / 0 stretch;
+  box-shadow:0 12px 40px #00151f80;
+}
+.game-shell .dialog .dialog__header { padding-right:48px; min-height:48px; }
+.game-shell .dialog .dialog-eyebrow { color:#b2f2d9; letter-spacing:.09em; }
+.game-shell .dialog h2,.game-shell .dialog h3 {
+  font-family:var(--body-font),Arial,sans-serif; font-weight:800;
+  letter-spacing:0; color:#fff2cd; text-shadow:none;
+}
+.game-shell .dialog .dialog-close {
+  top:0; right:0; display:grid; place-items:center;
+  width:44px; height:44px; min-width:44px; min-height:44px; padding:8px;
+  border:0; border-image:none; border-radius:6px; background:transparent;
+  box-shadow:none; filter:none;
+}
+.game-shell .dialog .dialog-close > img { width:28px; height:28px; filter:none; }
+.game-shell .dialog .dialog-close:hover { background:#b5dcd015; }
+.game-shell .dialog .dialog__body { scrollbar-color:#c3b273 #103f48; }
+.game-shell .dialog :is(p,.dialog-intro,.source-note,.rules-legal) { color:#c8d8ce; }
+.game-shell .dialog .source-note a { display:inline-flex; align-items:center; min-height:36px; color:#b9f8ff; text-underline-offset:3px; }
+.game-shell .dialog .source-note a:focus-visible { outline:2px solid #f7d978; outline-offset:3px; }
+.game-shell .dialog .setting-row { border-color:#94b69f45; }
+.game-shell .dialog .setting-row span { color:#fff2cd; }
+.game-shell .dialog .setting-row small,.game-shell .dialog .scene-options small { color:#c8d8ce; }
+.game-shell .dialog :is(.secondary-button,.scene-options button,.selection-row > button) {
+  min-width:44px; min-height:44px; border:1px solid #afc1a778;
+  border-image:none; border-radius:7px; background:#082e35a8;
+  color:#fff2cd; box-shadow:none; text-shadow:none; filter:none;
+  font-family:var(--body-font),Arial,sans-serif; font-weight:650;
+  transition:background-color .12s ease,transform .12s ease;
+  touch-action:manipulation;
+}
+.game-shell .dialog :is(.secondary-button,.scene-options button,.selection-row > button):hover:not(:disabled) { background:#1a545b; border-color:#e4ca92; filter:none; }
+.game-shell .dialog :is(.secondary-button,.scene-options button,.selection-row > button):active:not(:disabled) { transform:translateY(1px); }
+.game-shell .dialog button:disabled { opacity:.62; cursor:default; }
+.game-shell .dialog button:focus-visible { outline:3px solid #ffecad; outline-offset:2px; }
+.game-shell .dialog .settings-links { gap:8px; }
+.game-shell .dialog .settings-links:has(> .secondary-button:only-child) { grid-template-columns:1fr; }
+.game-shell .dialog .settings-links .secondary-button { padding:9px 12px; gap:8px; font-size:12px; }
+.game-shell .dialog .settings-links .secondary-button > img { position:static; inset:auto; transform:none; width:22px; height:22px; flex:none; }
+.game-shell .dialog .scene-options button { padding:12px 16px; }
+.game-shell .dialog .selection-row { gap:12px; }
+.game-shell .dialog .selection-row > button { flex:0 1 100px; min-height:56px; aspect-ratio:auto; padding:10px 6px; font-size:24px; }
+.game-shell .dialog .toggle {
+  width:60px; height:44px; border:0; border-image:none; border-radius:7px;
+  background:transparent; box-shadow:none;
+}
+.game-shell .dialog .toggle::before {
+  inset:8px 0; border:1px solid #90afa076; border-image:none; border-radius:15px;
+  background:#062b33; opacity:1; filter:none; transition:background-color .15s ease;
+}
+.game-shell .dialog .toggle.on::before { background:#38867a; border-color:#b2e3c4; filter:none; }
+.game-shell .dialog .toggle::after {
+  width:20px; height:20px; left:5px; top:12px; border:0; border-radius:50%;
+  background:#bdcfc1; filter:none; transform:translateX(0);
+  transition:transform .15s ease,background-color .15s ease;
+}
+.game-shell .dialog .toggle.on::after { background:#fff2cd; transform:translateX(30px); filter:none; }
+.game-shell .dialog .rules-paytable thead { background:#13464e; }
+@media (orientation:landscape) and (max-height:300px) {
+  .game-shell .overlay { padding:max(6px,env(safe-area-inset-top)) max(6px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left)); }
+  .game-shell .overlay > .dialog { border-image-width:11px; padding:10px 14px; max-height:calc(100svh - 12px); }
+  .game-shell .dialog .dialog__header { min-height:44px; padding-bottom:6px; }
+  .game-shell .dialog .settings-links { grid-template-columns:1fr; }
+  .game-shell .dialog .selection-row > button { min-height:44px; padding:6px; font-size:22px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .game-shell .dialog button,.game-shell .dialog .toggle::before,.game-shell .dialog .toggle::after { transition:none; }
+}
+.no-motion .dialog button,.no-motion .dialog .toggle::before,.no-motion .dialog .toggle::after { transition:none; }

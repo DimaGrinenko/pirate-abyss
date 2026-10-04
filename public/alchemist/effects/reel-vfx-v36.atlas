@@ -1,0 +1,26 @@
+reel-vfx-v36-ac6eba222b.webp
+size: 1536, 528
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+corner
+ rotate: false
+ xy: 4, 4
+ size: 512, 512
+ orig: 512, 512
+ offset: 0, 0
+ index: -1
+rail
+ rotate: false
+ xy: 524, 4
+ size: 720, 164
+ orig: 720, 164
+ offset: 0, 0
+ index: -1
+porthole
+ rotate: false
+ xy: 1252, 4
+ size: 128, 130
+ orig: 128, 130
+ offset: 0, 0
+ index: -1

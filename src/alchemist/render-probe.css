@@ -1,0 +1,41 @@
+.render-probe {
+  position: fixed; z-index: 2147483646; top: 8px; right: 8px;
+  width: min(220px, calc(100vw - 16px)); box-sizing: border-box;
+  padding: 8px 10px; border: 1px solid #9ca3af; border-radius: 5px;
+  color: #f8fafc; background: #14202b; font: 12px/1.4 system-ui, sans-serif;
+  text-align: left; pointer-events: auto; color-scheme: dark;
+}
+.render-probe summary { cursor: pointer; font-weight: 700; }
+.render-probe label { display: block; margin: 8px 0 3px; }
+.render-probe select { width: 100%; padding: 3px; font: inherit; }
+.render-probe output { display: block; margin-top: 6px; color: #a7f3d0; }
+.render-probe small { display: block; margin-top: 5px; color: #cbd5e1; font-size: 10px; }
+
+.game-shell[data-render-probe="no-filters"],
+.game-shell[data-render-probe="no-filters"] *,
+.game-shell[data-render-probe="no-filters"]::before,
+.game-shell[data-render-probe="no-filters"]::after,
+.game-shell[data-render-probe="no-filters"] *::before,
+.game-shell[data-render-probe="no-filters"] *::after {
+  filter: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+}
+.game-shell[data-render-probe="no-waterlight"] .reel-waterlight,
+.game-shell[data-render-probe="no-character"] .character-scene,
+.game-shell[data-render-probe="no-environment"] > .environment,
+.game-shell[data-render-probe="no-environment"] > .bonus-atmosphere--world,
+.game-shell[data-render-probe="no-symbols"] .reels .chemical-symbol,
+.game-shell[data-render-probe="no-symbols"] .reels .reel-motion { display: none !important; }
+
+/* Local diagnostic only: keep the current painted pose while separating CSS
+   animation/compositing from the independent native canvas clocks. */
+.game-shell[data-render-probe="freeze-css"] *,
+.game-shell[data-render-probe="freeze-css"] *::before,
+.game-shell[data-render-probe="freeze-css"] *::after {
+  animation-play-state: paused !important;
+}
+.game-shell[data-render-probe="no-blends"] *,
+.game-shell[data-render-probe="no-blends"] *::before,
+.game-shell[data-render-probe="no-blends"] *::after {
+  mix-blend-mode: normal !important;
+  background-blend-mode: normal !important;
+}

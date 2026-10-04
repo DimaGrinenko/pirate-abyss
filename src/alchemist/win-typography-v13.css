@@ -1,0 +1,187 @@
+/* Letter hinges, reflected light and a single payout landing, rather than a moving text card. */
+.celebration.win-celebration {
+  --title-top: #fffedc;
+  --title-mid: #ffcf58;
+  --title-bottom: #ec8d23;
+  --title-outline: #82320e;
+  --title-shadow: #3c1b12;
+  --shine-cycle: 5.8s;
+}
+.celebration.win-celebration.win-tier--mega { --title-mid: #b6ffd8; --title-bottom: #3eeaaf; --title-outline: #086846; --title-shadow: #023b30; }
+.celebration.win-celebration.win-tier--epic { --title-mid: #f0baff; --title-bottom: #c871f4; --title-outline: #622c89; --title-shadow: #321747; }
+.celebration.win-celebration.win-tier--legendary { --title-mid: #ffda59; --title-bottom: #ff9f2a; --shine-cycle: 4.9s; }
+.celebration.win-celebration.win-tier--max { --title-top: #ffffff; --title-mid: #ffe777; --title-bottom: #ffae2d; --shine-cycle: 4.2s; }
+
+.celebration.win-celebration h2.win-celebration__title {
+  font-family: Rubik, 'Golos Text', Arial, sans-serif;
+  font-weight: 900;
+  font-synthesis: none;
+  letter-spacing: -.024em;
+  line-height: 1.1;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  animation: none;
+  perspective: 900px;
+  margin-bottom: 17px;
+}
+.win-celebration .win-celebration__title .win-title__lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .025em;
+  animation: none;
+}
+.win-celebration .win-celebration__title .win-title__word {
+  display: block;
+  white-space: nowrap;
+  animation: none;
+  perspective: 700px;
+}
+.win-celebration .win-celebration__title .win-title__letter {
+  display: inline-block;
+  position: relative;
+  transform-origin: 50% 83%;
+  animation: win-letter-forge 1.05s var(--letter-delay) cubic-bezier(.18,.76,.22,1) both;
+}
+.win-celebration .win-celebration__title .win-title__face {
+  display: block;
+  position: relative;
+  color: var(--title-mid);
+  background: linear-gradient(180deg,var(--title-top) 4%,var(--title-mid) 42%,#fff6b0 46%,var(--title-bottom) 78%,#ffdb6b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: .7px var(--title-outline);
+  paint-order: stroke fill;
+  text-shadow: none;
+  filter: drop-shadow(0 3px 2px #00111ccc);
+  animation: none;
+}
+.win-title__face::after {
+  content: attr(data-letter);
+  position: absolute;
+  inset: 0;
+  -webkit-text-stroke: 0;
+  background: linear-gradient(112deg,transparent 33%,#fffbd966 43%,#ffffffed 49%,#fffed966 55%,transparent 66%);
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: win-gold-reflection var(--shine-cycle) var(--letter-shine-delay) ease-in-out infinite;
+  will-change: opacity;
+  pointer-events: none;
+}
+
+.celebration.win-celebration .win-celebration__amount {
+  display: inline-grid;
+  grid-template: 'payout' auto / auto;
+  position: relative;
+  max-width: 100%;
+  font-family: 'Golos Text', Rubik, Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -.025em;
+  color: #fff9df;
+  line-height: 1.14;
+  text-shadow: 0 1px 0 #ffe58b,0 3px 0 #a45c23,0 5px 0 #61331a,0 8px 8px #00152199;
+  animation: win-payout-arrive .88s .42s cubic-bezier(.18,.78,.24,1) both;
+  perspective: 800px;
+}
+.win-amount__measure,.win-amount__live {
+  grid-area: payout;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  white-space: pre;
+}
+.win-amount__measure { visibility: hidden; }
+.win-amount__glyph { position: relative; display: inline-block; transform-origin: 50% 80%; }
+.win-amount__digit { min-width: .635em; }
+.win-amount__space { width: .23em; }
+.win-amount__separator { min-width: .23em; }
+.win-amount__live::after {
+  content: '';
+  position: absolute;
+  left: -3%; right: -3%; top: -35%; bottom: -30%;
+  z-index: -1;
+  background: url('/alchemist/effects/parts/gold-burst.png') center / contain no-repeat;
+  mix-blend-mode: screen;
+  opacity: .13;
+  transform: scale(.94);
+  animation: win-count-luminance 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+.win-amount__live .win-amount__digit::after {
+  content: attr(data-glyph);
+  position: absolute;
+  inset: 0;
+  text-shadow: none;
+  background: linear-gradient(110deg,transparent 35%,#ffffff 50%,transparent 65%);
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: win-gold-reflection 3.4s var(--digit-delay) ease-in-out infinite;
+  will-change: opacity;
+  pointer-events: none;
+}
+.celebration.win-celebration[data-count-complete=true] .win-celebration__amount { animation: win-payout-crown .95s cubic-bezier(.2,.75,.2,1) both; }
+.win-celebration[data-count-complete=true] .win-amount__live .win-amount__glyph { animation: win-digit-lock .78s var(--digit-delay) cubic-bezier(.18,.78,.22,1) both; }
+.win-celebration[data-count-complete=true] .win-amount__live::after { animation: win-total-radiance 1.5s ease-out both,win-count-luminance 4.5s 1.5s ease-in-out infinite; }
+.win-celebration .win-celebration__currency { animation: win-caption-materialize .8s .7s both; }
+.win-celebration .win-celebration__multiplier { animation: win-caption-materialize .8s .85s both; }
+.win-celebration .win-celebration__multiplier b { display: inline-block; transform-origin: 50% 70%; }
+.win-celebration[data-count-complete=true] .win-celebration__multiplier b { animation: win-multiplier-seal .95s .18s cubic-bezier(.15,.75,.2,1) both; }
+.win-celebration[data-stage-exiting=true] .win-title__letter { animation: none; }
+
+@keyframes win-letter-forge {
+  0% { opacity: 0; transform: translate3d(0,.65em,-120px) rotateX(-78deg) rotateZ(var(--letter-tilt)) scale(.66); }
+  48% { opacity: 1; }
+  66% { transform: translate3d(0,-.07em,12px) rotateX(7deg) rotateZ(0) scale(1.045); }
+  84% { transform: translate3d(0,.016em,0) rotateX(-2deg) scale(.995); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes win-gold-reflection {
+  /* Phase-shifted light crosses the letters without repainting clipped text
+     and three nested filter surfaces on every animation frame. */
+  0%,12%,58%,100% { opacity: 0; }
+  30% { opacity: .85; }
+  44% { opacity: .32; }
+}
+@keyframes win-payout-arrive {
+  0% { opacity: 0; transform: translateY(.12em) rotateX(32deg) scale(.88); }
+  65% { opacity: 1; transform: translateY(-.012em) rotateX(-3deg) scale(1.015); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes win-payout-crown {
+  0%,100% { transform: none; }
+  28% { transform: translateZ(16px) scale(1.035); }
+  63% { transform: scale(.996); }
+}
+@keyframes win-digit-lock {
+  0% { transform: rotateX(22deg) scaleY(.94); filter: brightness(1.28); }
+  42% { transform: rotateX(-5deg) scaleY(1.025); filter: brightness(1.14); }
+  72% { transform: rotateX(1deg); }
+  100% { transform: none; filter: brightness(1); }
+}
+@keyframes win-caption-materialize { from { opacity: 0; filter: blur(3px); transform: translateY(5px); } to { opacity: 1; filter: blur(0); transform: none; } }
+@keyframes win-multiplier-seal { 0% { transform: scale(.91) rotateX(24deg); filter: brightness(1.4); } 46% { transform: scale(1.055) rotateX(-4deg); } 100% { transform: none; filter: brightness(1); } }
+@keyframes win-count-luminance { 0%,100% { opacity: .12; transform: scale(.94) rotate(-4deg); } 50% { opacity: .26; transform: scale(1.08) rotate(4deg); } }
+@keyframes win-total-radiance { 0% { opacity: .22; transform: scale(.76); } 28% { opacity: .65; } 100% { opacity: .12; transform: scale(1.23); } }
+
+@media (orientation:portrait) {
+  .celebration.win-celebration h2.win-celebration__title { font-size: clamp(22px,7vw,42px); margin-bottom: 14px; }
+}
+@media (max-height:450px) and (orientation:landscape) {
+  .celebration.win-celebration h2.win-celebration__title { font-size: clamp(17px,3.8vw,38px); margin-bottom: 7px; }
+  .celebration.win-celebration .win-celebration__amount { line-height: 1.06; }
+}
+.win-celebration[data-reduced-motion=true] .win-title__face::after,
+.win-celebration[data-reduced-motion=true] .win-amount__live::after,
+.win-celebration[data-reduced-motion=true] .win-amount__digit::after { display: none; }
+.win-celebration[data-reduced-motion=true] *,
+.no-motion .win-celebration *,
+.no-motion .win-celebration *::after { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion:reduce) {
+  .win-celebration *,.win-celebration *::after { animation: none !important; transition: none !important; }
+  .win-title__face::after,.win-amount__live::after,.win-amount__digit::after { display: none; }
+}

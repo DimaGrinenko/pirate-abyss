@@ -1,0 +1,12 @@
+.purchase-confirmation{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px 28px;overflow:auto;text-align:center}
+.purchase-confirmation>h3{flex:none;margin:0;color:#ffedba;font:800 clamp(19px,2.8vw,30px)/1.15 var(--display-font),sans-serif}
+.purchase-confirmation>dl{flex:none;width:min(100%,550px);margin:0;display:grid;gap:9px}
+.purchase-confirmation>dl>div{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid #85bcbb30}
+.purchase-confirmation dt{font-size:14px;text-align:left;color:#bfdfdf}.purchase-confirmation dt small{white-space:nowrap;font-size:.85em;color:#9cdfcf}
+.purchase-confirmation dd{margin:0;font:800 21px/1.15 var(--display-font),sans-serif;color:#fff0be;white-space:nowrap}.purchase-confirmation dd small{font:600 11px/1.15 Rubik,Arial,sans-serif}
+.purchase-confirmation>p{flex:none;width:min(100%,550px);margin:0;font-size:12px;line-height:1.55;color:#bedddd}.purchase-confirmation>p.purchase-confirmation__insufficient{color:#ffc491}
+.purchase-confirmation__actions{flex:none;display:flex;width:min(100%,500px);gap:15px;justify-content:center;margin-top:5px}
+.purchase-confirmation__actions>.alchemy-button{flex:1;min-width:0;width:45%;max-width:235px;margin:0}
+.purchase-confirmation__actions .alchemy-button__label{font-size:clamp(11px,3.8cqw,17px)}
+@media(orientation:portrait) and (max-width:700px){.purchase-confirmation{padding:15px 10px;gap:14px;justify-content:flex-start}.purchase-confirmation>h3{font-size:22px;margin-top:10px}.purchase-confirmation dt{font-size:12px}.purchase-confirmation dd{font-size:18px}.purchase-confirmation>p{font-size:12px}.purchase-confirmation__actions{gap:8px}}
+@media(orientation:landscape) and (max-height:450px){.purchase-confirmation{justify-content:flex-start;padding:8px 14px;gap:6px}.purchase-confirmation>h3{font-size:18px}.purchase-confirmation>dl{gap:2px}.purchase-confirmation>dl>div{padding:4px 0}.purchase-confirmation dt{font-size:11px}.purchase-confirmation dd{font-size:16px}.purchase-confirmation>p{font-size:10px;line-height:1.3}.purchase-confirmation__actions{margin-top:1px;max-width:320px;gap:9px}.purchase-confirmation__actions .alchemy-button{height:37px}.purchase-confirmation__actions .alchemy-button__label{font-size:11px}}
